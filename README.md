@@ -1,24 +1,21 @@
-# Título do Projeto
+# Daily Schedule
 
->Testando um template para servir de base para o PDS
+>Solução em organização acessível para todos os estudantes.
 
-<img src="logo.png" width="200" height="200" />
+<img src="dslogo.png" width="300" height="200" />
 
->Inserir uma logo para o projeto
-
->Inserir pequena descrição do projeto
+>O Daily Schedule tem como objetivo ajudar na organização dos estudos e rotinas de um estudante no seu dia a dia, através da criação de cronogramas diários, semanais e mensais. Sua interface tem uma boa usabilidade, sendo minimalista e intuitiva.
 
 # Tecnologias Utilizadas
 
->Enumerar as tecnoligas utilzadas no projeto
-
-
-# Instalação
-
->Descrever os comandos iniciais para começar a colaborar com o desenvolvimento do projeto
-
-
+- [Python](https://www.python.org/)
+- [Django REST](https://www.django-rest-framework.org/)
+- [JavaScript](https://www.javascript.com/)
+- [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/)
 
 # Documentação
 
->Link para os documentos do projeto
+- [Documento de Visão](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DocumentoDeVisao.md)
+- [Glossário](https://github.com/tads-cnat/dailyschedule/blob/main/docs/Glossario.md)
+- [Levantamento de Riscos](https://github.com/tads-cnat/dailyschedule/blob/main/docs/LevantamentoDeRiscos.md)
