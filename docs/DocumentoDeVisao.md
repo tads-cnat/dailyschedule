@@ -4,7 +4,7 @@
 
 | **Data** | **Versão** | **Descrição** | **Autor** |
 | --- | --- | --- | --- |
-| 20/10/2022 | 1.0 | Versão inicial | Equipe Daily Schedule |
+| 20/05/2022 | 1.0 | Versão inicial | Equipe Daily Schedule |
 | 22/10/2022 | 1.1 | Versão continuada | Equipe Daily Schedule |
 
 <br>
