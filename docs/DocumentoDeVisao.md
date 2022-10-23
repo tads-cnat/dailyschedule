@@ -56,22 +56,23 @@ O Daily Schedule ajuda todos os estudantes que queiram organizar seus estudos e 
 ### 8. Requisitos FUNCIONAIS
 | **Código** | **Nome** | **Descrição** |
 | --- | --- | --- |
-| RF01 | Cadastro | Permite que pessoas visitantes da rede possam realizar seu cadastro no Daily Schedule. |
-| RF02 | Autenticação | Com a efetuação do login os usuários têm acesso ao sistema. |
-| RF03 | Criação de cronograma | O usuário pode criar cronogramas. |
+| RF01 | Criação de cronograma | O usuário pode criar cronogramas. |
+| RF02 | Cadastro de tarefas| O usuário vai cadastrar os dias e horários em que terá uma tarefa do tipo aula, matéria, prova, afazer e horário vago. |
+| RF03 | Visualização do cronograma | O usuário poderá visualizar um cronograma presente em sua coleção ou um cronograma público. |
 | RF04 | Acesso aos meus cronogramas | O usuário poderá ver a listagem de seus cronogramas. |
-| RF05 | Gerencia do perfil | Este requisito tem o propósito de habilitar o usuário estudante a consultar e atualizar seus dados de perfil. |
+| RF05 | Modificação do cronograma | O usuário pode editar e excluir cronogramas. |
 | RF06 | Pesquisa de cronograma | O usuário pode usar uma aba de busca para pesquisar cronogramas públicos. |
-| RF07 | Notificação por e-mail | O usuário terá a opção de receber lembretes das tarefas para ele mesmo por e-mail. |
-| RF08 | Lembretes importantes | O sistema vai lembrar o usuário no  cronograma diário sobre deveres importantes, como provas. |
+| RF07 | Cadastro | Permite que pessoas visitantes da rede possam realizar seu cadastro no Daily Schedule. |
+| RF08 | Autenticação | Com a efetuação do login os usuários têm acesso ao sistema. |
 | RF09 | Configurações | O usuário poderá configurar opções como segurança e privacidade. |
-| RF10 | Visualização do cronograma | O usuário poderá visualizar um cronograma presente em sua coleção ou um cronograma público. |
-| RF11 | Exportação do cronograma | Os cronogramas criados podem ser exportados pelo usuário. |
-| RF12 | Compartilhamento do cronograma | O usuário pode compartilhar seus cronogramas em outras aplicações. |
-| RF13 | Modificação do cronograma | O usuário pode editar e excluir cronogramas. |
-| RF14 | Cancelamento de conta | Por questões de ordem éticas, um estudante pode ter seu perfil cancelado pelo administrador da rede. |
-| RF15 | Exclusão de cronograma | Por questões de ordem éticas, um estudante pode ter seu cronograma excluído pelo administrador da rede. |
-| RF16 | Cadastro de tarefas| O usuário vai cadastrar os dias e horários em que terá uma tarefa do tipo aula, matéria, prova, afazer e horário vago. | 
+| RF10 | Gerencia do perfil | Este requisito tem o propósito de habilitar o usuário estudante a consultar e atualizar seus dados de perfil. |
+| RF11 | Lembretes importantes | O sistema vai lembrar o usuário no  cronograma diário sobre deveres importantes, como provas. |
+| RF12 | Notificação por e-mail | O usuário terá a opção de receber lembretes das tarefas para ele mesmo por e-mail. |
+| RF13 | Compartilhamento do cronograma | O usuário pode compartilhar seus cronogramas em outras aplicações. |
+| RF14 | Exportação do cronograma | Os cronogramas criados podem ser exportados pelo usuário. |
+| RF15 | Cancelamento de conta | Por questões de ordem éticas, um estudante pode ter seu perfil cancelado pelo administrador da rede. |
+| RF16 | Exclusão de cronograma | Por questões de ordem éticas, um estudante pode ter seu cronograma excluído pelo administrador da rede. |
+ 
 
 <br>
 
