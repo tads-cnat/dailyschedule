@@ -13,6 +13,7 @@
 - [JavaScript](https://www.javascript.com/)
 - [HTML](https://www.w3schools.com/html/)
 - [CSS](https://www.w3schools.com/css/)
+- [React](https://pt-br.reactjs.org/docs/lifting-state-up.html)
 
 # Documentação
 
