@@ -1,6 +1,6 @@
 # Levantamento de Riscos
 
-### 1. Lacunas no calendário:
+### 1. Prazo restrito para desenvolvimento:
 - Feriados 
 - Jogos da Copa do Mundo de Futebol
 - Eventos (WTADS, Expotec)
