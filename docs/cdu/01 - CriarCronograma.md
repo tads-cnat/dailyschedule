@@ -39,29 +39,29 @@ Um cronograma é inserido no sistema, possibilitando ao estudante editá-lo.
 ### 5. Fluxos de evento<br> <br>
 #### &nbsp;&nbsp;&nbsp;5.1. Fluxo básico
 1) O ator clica em “Criar meu cronograma”;
-2) O sistema mostra um questionário com horário de início, horário do fim e privacidade do cronograma;
+2) O sistema mostra um questionário com título e privacidade do cronograma;
 3) O ator preenche o questionário e seleciona “Gerar cronograma”;
 4) O sistema mostra o cronograma pronto e o caso de uso é finalizado. <br> <br>
 
 #### &nbsp; 5.2. Fluxo alternativo
 ##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de aula
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "aula";  <br>
-&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, data e horário; <br>
+&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
 ##### &nbsp;&nbsp;&nbsp; Fluxo alternativo (4): Cadastro de matéria
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "matéria"; <br>
-&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, data e horário; <br>
+&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a assunto, descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
 ##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de prova
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "prova"; <br>
-&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, data e horário; <br>
+&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a assunto, descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
 ##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de afazer
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "afazer"; <br>
-&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, data e horário; <br>
+&nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
 ##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de horário vago
