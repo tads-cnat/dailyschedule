@@ -20,3 +20,4 @@
 - [Documento de Visão](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DocumentoDeVisao.md)
 - [Glossário](https://github.com/tads-cnat/dailyschedule/blob/main/docs/Glossario.md)
 - [Levantamento de Riscos](https://github.com/tads-cnat/dailyschedule/blob/main/docs/LevantamentoDeRiscos.md)
+- [Documento de Riscos](https://github.com/tads-cnat/dailyschedule/tree/main/docs/DocumentoDeRisco.md)
