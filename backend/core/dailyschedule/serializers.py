@@ -16,4 +16,3 @@ class SerializadorTarefa(serializers.ModelSerializer):
     class Meta:
         model = Tarefa
         fields = ('id', 'titulo', 'assunto', 'descricao', 'hora_inicio', 'data', 'status', 'cronograma')
-        
