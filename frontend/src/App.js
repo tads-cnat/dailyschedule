@@ -1,22 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(()=>{
+    const loadData = () => {
+      fetch('http://localhost:8000/api/alunos/')
+      .then(response => response.json())
+      .then(data => setCustomers(data))
+    }
+    loadData();
+  }, [])  
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {customers.map(aluno =>(
+          <h2 key={aluno.id}>{aluno.nome}</h2>
+        ))}
       </header>
     </div>
   );

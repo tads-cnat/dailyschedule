@@ -21,3 +21,60 @@
 - [Glossário](https://github.com/tads-cnat/dailyschedule/blob/main/docs/Glossario.md)
 - [Levantamento de Riscos](https://github.com/tads-cnat/dailyschedule/blob/main/docs/LevantamentoDeRiscos.md)
 - [Documento de Riscos](https://github.com/tads-cnat/dailyschedule/tree/main/docs/DocumentoDeRisco.md)
+
+# Rodar Backend da aplicação
+
+> passo 1 - instalar biblioteca pip do python :
+
+```sh
+sudo apte-get install python3-pip
+```
+
+> passo 2 - instalar virtualenv:
+
+```sh
+sudo pip install virtualenv
+```
+
+> passo 3 - criar ambiente virtual com python
+
+dentro da pasta dailyschedule criar ambiente virtual
+```sh
+python3 -m venv venv
+```
+
+em seguida entrar dentro do ambiente virtual
+
+dentro da pasta dailyschedule criar ambiente virtual
+```sh
+source venv/bin/activate
+```
+
+> passo 4 - instalar dependecias do projeto:
+
+```sh
+pip install -r requirements_backend.txt
+```
+
+> passo 5 - rodar migrações : 
+
+entre na pasta "backend/core" apartir do terminal usando:
+
+```sh
+cd backend/core
+```
+rode as migraçoẽs
+
+```sh
+python3 manage.py migrate
+```
+> passo 6 - rodar servidor:
+
+```sh
+python3 manage.py runserver
+```
+
+ambiente intalado com sucesso !!! agora so codar
+
+ps: lembresse de criar sua branch antes de começar a codar
+
