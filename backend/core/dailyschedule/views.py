@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
@@ -13,10 +13,11 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
 
-    @action(detail=False, methods=['get'], url_path='cronogramas/?tarefa=(?P<tarefa_id>[0-9]+)')
-    def get_cronogramas(self, request, tarefa_id):
-        cronogramas = Cronograma.objects.filter(tarefa_id=tarefa_id)
-        serializer = SerializadorCronograma(cronogramas, many=True)
+    @action(detail=True, methods=['get'], url_path='tarefas')
+    def get_tarefas(self, request, pk=None):
+        cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
+        tarefas = Tarefa.objects.filter(cronograma=cronograma)
+        serializer = SerializadorTarefa(tarefas, many=True)
         return Response(serializer.data)
 
 class TarefaViewSet(viewsets.ModelViewSet):
