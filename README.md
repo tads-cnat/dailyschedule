@@ -27,7 +27,7 @@
 > passo 1 - instalar biblioteca pip do python :
 
 ```sh
-sudo apte-get install python3-pip
+sudo apt-get install python3-pip
 ```
 
 > passo 2 - instalar virtualenv:
