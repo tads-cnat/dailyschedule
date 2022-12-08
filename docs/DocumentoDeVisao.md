@@ -19,7 +19,7 @@ O projeto **Daily Schedule** tem como objetivo ajudar na organização dos estud
 | --- | --- |
 | **afeta** | a vida dos estudantes do nível fundamental, médio e superior. |
 | **cujo impacto é** | a perda de prazos e baixo rendimento escolar. |
-| **um boa solução seria** | o desenvolvimento de um sistema capaz de simplificar a organização das demandas acadêmicas. |
+| **uma boa solução seria** | o desenvolvimento de um sistema capaz de simplificar a organização das demandas acadêmicas. |
 
 <br>
 
