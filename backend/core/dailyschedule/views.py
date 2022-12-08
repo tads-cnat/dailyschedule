@@ -30,6 +30,46 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         serializer = SerializadorTarefa(tarefas, many=True)
         return Response(serializer.data)
     
+    @action(detail=True, methods=['get'], url_path='')
+    def semana1(self,request,pk=None):
+        inicio = self.getInicio()
+        semana1 = inicio + datetime.timedelta(days=7)
+        fim = semana1 + datetime.timedelta(days=7)
+        cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
+        tarefas = Tarefa.objects.filter(cronograma=cronograma, data__gte=semana1, data__lte=fim)
+        serializer = SerializadorTarefa(tarefas, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'], url_path='')
+    def semana2(self,request,pk=None):
+        inicio = self.getInicio()
+        semana1 = inicio + datetime.timedelta(days=14)
+        fim = semana1 + datetime.timedelta(days=7)
+        cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
+        tarefas = Tarefa.objects.filter(cronograma=cronograma, data__gte=semana1, data__lte=fim)
+        serializer = SerializadorTarefa(tarefas, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'], url_path='')
+    def semana3(self,request,pk=None):
+        inicio = self.getInicio()
+        semana1 = inicio + datetime.timedelta(days=21)
+        fim = semana1 + datetime.timedelta(days=7)
+        cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
+        tarefas = Tarefa.objects.filter(cronograma=cronograma, data__gte=semana1, data__lte=fim)
+        serializer = SerializadorTarefa(tarefas, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'], url_path='')
+    def semana4(self,request,pk=None):
+        inicio = self.getInicio()
+        semana1 = inicio + datetime.timedelta(days=28)
+        fim = semana1 + datetime.timedelta(days=7)
+        cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
+        tarefas = Tarefa.objects.filter(cronograma=cronograma, data__gte=semana1, data__lte=fim)
+        serializer = SerializadorTarefa(tarefas, many=True)
+        return Response(serializer.data)
+    
     def getInicio(self):
         now = datetime.date.today()
         inicio = now
