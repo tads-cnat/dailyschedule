@@ -47,22 +47,22 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
 
 ### 4. Exemplos dos Métodos
   - *POST*
-    - dailyschedule/1 (Criará o cronograma atual do usuario 1)
-    - dailyschedule/1/3 (Criará o cronograma do usuario 1 da semana 3)
-    - dailyshecule/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-    - dailyschedule/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+    - cronogramas/1 (Criará o cronograma atual do usuario 1)
+    - cronogramas/1/3 (Criará o cronograma do usuario 1 da semana 3)
+    - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
+    - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
 
   - *GET*
-     - dailyschedule/1 (Retorna o cronograma atual do usuario 1)
-     - dailyschedule/1/3 (Retorna o cronograma do usuario 1 da semana 3)
-     - dailyshecule/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - dailyschedule/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+     - cronogramas/1 (Retorna o cronograma atual do usuario 1)
+     - cronogramas/1/3 (Retorna o cronograma do usuario 1 da semana 3)
+     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
+     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
 
   - *PUT ou PATCH*
-     - dailyschedule/1 (Atualizará o cronograma atual do usuario 1)
-     - dailyschedule/1/3 (Atualizará o cronograma do usuario 1 da semana 3)
-     - dailyshecule/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - dailyschedule/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+     - cronogramas/1 (Atualizará o cronograma atual do usuario 1)
+     - cronogramas/1/3 (Atualizará o cronograma do usuario 1 da semana 3)
+     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
+     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
         
   - *DELETE*
      - dailyschedule/1 (Apagará o cronograma atual do usuario 1)
