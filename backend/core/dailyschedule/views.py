@@ -21,6 +21,13 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         tarefas = Tarefa.objects.filter(cronograma=cronograma)
         serializer = SerializadorTarefa(tarefas, many=True)
         return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'])
+    def get_cronogramas_buscados(self, request, titulo=filter_backends):
+        cronogramas = Cronograma.objects.filter(titulo=titulo)
+        serializer = SerializadorCronograma(cronogramas, many=True)
+        return Response(serializer.data)
+        
 
 class TarefaViewSet(viewsets.ModelViewSet):
     queryset = Tarefa.objects.all()
