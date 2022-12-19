@@ -10,8 +10,8 @@
 <br>
 
 ### 1. Resumo
-Esse documento visa descrever como funcionará a API do caso de uso principal do sistema. <br> <br>
-<br>
+Esse documento visa descrever como funcionará a API do caso de uso principal do sistema.
+<br><br>
 
 ### 2. Funcionamento
   - No endpoint dentro do diretório do projeto teremos um recurso chamado Cronogramas.
