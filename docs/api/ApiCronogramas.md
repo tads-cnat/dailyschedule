@@ -15,17 +15,17 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
 
 ### 2. Funcionamento
   - No endpoint dentro do diretório do projeto teremos um recurso chamado Cronogramas.
+  - O recurso Cronogramas terá obrigatorioamente que receber um ou mais parâmetros.
   - O recurso Cronogramas terá um primeiro parâmetro que indicará a qual usuário aquele cronograma pertence, e um segundo parâmetro informando qual o número (identificador) daquele cronograma.
   - Este recurso (Cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
   - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
-  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e serão descritas em um outro CDU.
+  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no CDU Tarefas.
 <br>
 
 ### 3. Descrevendo os Métodos
   - **Método POST:** Criará um cronograma para um usuário, no qual o seu identificador é passado como parâmetro.
-      - Caso seja informado apenas o primeiro parâmetro, o método deverá criar um cronograma para a semana atual, se já houve um cronograma na semana atual, o método deverá retornar um erro.
+      - Caso seja informado apenas o primeiro parâmetro, o método deverá criar um cronograma para a semana atual.
       - Caso haja passagem de mais de um parâmetro, ele criará um cronograma informando a qual semana deseja que o cronograma pertença.
-      - Caso não haja passagem de nenhum parâmetro, o método deverá retornar um erro.
       
   - **Método GET:** Recuperará o cronograma completo da semana atual de um usuário no qual seu identificador é passado como parâmetro.
       - Caso haja passagem de mais de um parâmetro, ele retornará um dos vários cronogramas daquele usuário.
@@ -49,7 +49,7 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
   - *POST*
     - cronogramas/1 (Criará o cronograma atual do usuario 1)
     - cronogramas/1/3 (Criará o cronograma do usuario 1 da semana 3)
-    - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
+    - cronogramas/0 (Não funcionará, pois o parâmetro é obrigatório)
     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
 
   - *GET*
