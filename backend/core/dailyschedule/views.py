@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
-from rest_framework import status, viewsets, filters
+from rest_framework import status, viewsets, filters, generics
 
 from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
@@ -21,13 +21,6 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         tarefas = Tarefa.objects.filter(cronograma=cronograma)
         serializer = SerializadorTarefa(tarefas, many=True)
         return Response(serializer.data)
-    
-    @action(detail=True, methods=['get'])
-    def get_cronogramas_buscados(self, request, titulo=filter_backends):
-        cronogramas = Cronograma.objects.filter(titulo=titulo)
-        serializer = SerializadorCronograma(cronogramas, many=True)
-        return Response(serializer.data)
-        
 
 class TarefaViewSet(viewsets.ModelViewSet):
     queryset = Tarefa.objects.all()
@@ -36,3 +29,12 @@ class TarefaViewSet(viewsets.ModelViewSet):
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = SerializadorAluno
+
+class CronogramaList(generics.ListAPIView):
+    
+    def busca(self):
+        queryset = Cronograma.objects.all()
+        titulo = self.request.query_params.get('titulo')
+        if titulo is not None:
+            queryset = queryset.filter(cronograma__titulo=titulo)
+        return queryset
