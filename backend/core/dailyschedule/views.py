@@ -8,11 +8,28 @@ from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
 import datetime
 
+class AlunoViewSet(viewsets.ModelViewSet):
+    queryset = Aluno.objects.all()
+    serializer_class = SerializadorAluno
+    permission_classes = (AllowAny,)
+
+
 class CronogramaViewSet(viewsets.ModelViewSet):
-    queryset = Cronograma.objects.all()
+    
+    #queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
+    permission_classes = (IsAuthenticated,)
+
+
+    def get_queryset(self):
+        queryset = Cronograma.objects.all()
+        username = self.request.query_params.get('username')
+        if username:
+            queryset = queryset.filter(created_by__username=username)
+        return queryset
 
     @action(detail=True, methods=['get'], url_path='tarefas')
     def get_tarefas(self, request, pk=None):

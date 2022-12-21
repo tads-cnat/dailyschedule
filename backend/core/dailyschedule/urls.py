@@ -7,9 +7,9 @@ app_name = 'cronogramas'
 
 # Wire up our API using automatic URL routing.
 router = routers.DefaultRouter()
-router.register(r'cronogramas', views.CronogramaViewSet)
+router.register(r'cronogramas', views.CronogramaViewSet, basename='Cronograma')
 router.register(r'tarefas', views.TarefaViewSet)
-router.register(r'alunos', views.AlunoViewSet)
+router.register(r'alunos', views.AlunoViewSet, basename='Aluno')
 
 urlpatterns = [
     path('', include(router.urls)),
