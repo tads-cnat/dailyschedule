@@ -21,14 +21,18 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     
     #queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
 
     def get_queryset(self):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
+        print(username)
+        print(queryset)
+        
         if username:
-            queryset = queryset.filter(created_by__username=username)
+            queryset = queryset.filter(aluno__usuario=username)
+            #queryset = Cronograma.objects.filter(aluno_usuario=username)
         return queryset
 
     @action(detail=True, methods=['get'], url_path='tarefas')

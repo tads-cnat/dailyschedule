@@ -16,7 +16,7 @@ class Aluno(models.Model):
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
     created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
