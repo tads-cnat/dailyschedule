@@ -22,10 +22,12 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
   - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no CDU Tarefas.
 <br>
 
-### 3. Exemplos dos Métodos e do Endpoint
-  - *PADRÃO UTILIZADO NO ENDPOINT*
+### 3. Exemplificação do Endpoint
+  - *PADRÃO UTILIZADO*
+    - recurso/parametro-1/parametro-2/parametro-3
     - cronogramas/usuário/id/semana
-    
+
+### 4. Exemplos dos Métodos e do Endpoint
   - *POST*
     - cronogramas/1 (Criará o cronograma atual do usuario 1)
     - cronogramas/1/3 (Criará o cronograma do usuario 1 da semana 3)
@@ -50,7 +52,7 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
      - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
      - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
 
-### 4. Descrevendo os Métodos
+### 5. Descrevendo os Métodos
   - **Método POST:** Criará um cronograma para um usuário, no qual o identificador do usuário e a semana são passados como parâmetros, o identificador do cronograma dentro de uma determinada semana será gerido pelo sistema.
       - Caso seja informado apenas o primeiro parâmetro (id do usuário), o método deverá criar um cronograma para a semana atual.
       - Caso haja passagem de um segundo parâmetro, ele criará um cronograma informando a qual semana deseja que o cronograma pertença.
