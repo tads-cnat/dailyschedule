@@ -7,11 +7,10 @@
 | Data | Versão | Descrição | Autor |
 | :-----: | :-----: | :-----: | :-----: |
 | 09/01/2023 | 1.1 | Versão Continuada | Christian |
-<br>
 
 ### 1. Resumo
 Esse documento visa descrever como funcionará a API do caso de uso principal do sistema.
-<br><br>
+<br>
 
 ### 2. Funcionamento
   - No endpoint dentro do diretório do projeto teremos um recurso chamado Cronogramas.
@@ -20,7 +19,6 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
   - Este recurso (Cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
   - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
   - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no CDU Tarefas.
-<br>
 
 ### 3. Exemplificação do Endpoint
   - *PADRÃO UTILIZADO*
