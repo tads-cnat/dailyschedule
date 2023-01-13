@@ -1,16 +1,26 @@
 from django.shortcuts import render, get_object_or_404
-
 from django.http.response import JsonResponse
+
 from rest_framework.parsers import JSONParser 
 from rest_framework import status, viewsets
+from rest_framework.decorators import api_view, action
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.views import APIView
 
 from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
-from rest_framework.decorators import api_view, action
-from rest_framework.response import Response
+
 import datetime
 
+
+
 class CronogramaViewSet(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication,]
+    permission_classes = [IsAuthenticated]
+
+
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
 
@@ -89,9 +99,20 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         return inicio
 
 class TarefaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+
     queryset = Tarefa.objects.all()
     serializer_class = SerializadorTarefa
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = SerializadorAluno
+class LoginView(APIView):
+    def get (self, request, format=None):
+        content = {
+            'user': request.user.username,  # `django.contrib.auth.User` instance.
+            'auth': request.auth,  # None
+        }
+        return Response(content)
+
+
