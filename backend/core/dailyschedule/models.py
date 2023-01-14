@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Aluno(models.Model):
-    nome = models.CharField(max_length=30)
-    usuario = models.CharField(max_length=30)
-    senha = models.CharField(max_length=30)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.usuario
+        return self.user
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
