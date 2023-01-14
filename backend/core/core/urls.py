@@ -18,9 +18,7 @@ from django.urls import path, include, re_path
 from rest_framework import routers
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view as swagger_get_schema_view
-from rest_framework_swagger.views import get_swagger_view
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from dailyschedule.permissoes import AllowAny
 schema_view = swagger_get_schema_view(
     openapi.Info(
         title="Dailychedule API",
@@ -28,6 +26,7 @@ schema_view = swagger_get_schema_view(
         description="API para gerenciamento de cronogramas",
     ),
     public=True,    
+    permission_classes=(AllowAny,),
 )
 
 
@@ -37,10 +36,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('dailyschedule.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    
-
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
     #swagger routes
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
