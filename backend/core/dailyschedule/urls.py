@@ -11,12 +11,11 @@ router = routers.DefaultRouter()
 router.register(r'cronogramas', views.CronogramaViewSet)
 router.register(r'tarefas', views.TarefaViewSet)
 router.register(r'alunos', views.AlunoViewSet)
-
+router.register(r'auth', views.AuthViewSet,basename='auth')
 
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/login/', views.LoginView.as_view(), name='login'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
     
 ]

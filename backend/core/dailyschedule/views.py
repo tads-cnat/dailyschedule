@@ -8,9 +8,10 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 
-from .models import Cronograma, Tarefa, Aluno
-from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
+from .models import Cronograma, Tarefa, Aluno, User
+from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno, SerializadorLogin
 
 import datetime
 
@@ -107,12 +108,21 @@ class TarefaViewSet(viewsets.ModelViewSet):
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = SerializadorAluno
-class LoginView(APIView):
-    def get (self, request, format=None):
-        content = {
-            'user': request.user.username,  # `django.contrib.auth.User` instance.
-            'auth': request.auth,  # None
-        }
-        return Response(content)
+class AuthViewSet(viewsets.GenericViewSet):
+    permission_classes = []
+    
+    @action(detail=False, methods=['post'], url_path='login',serializer_class=SerializadorLogin)
+    def login(self, request):
+        username = request.data.get('usuario')
+        password = request.data.get('senha')
 
-
+        user = User.objects.filter(username=username)
+        if (user):
+            user = user.first()
+            if (user.senha == password):
+                token, created = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key})
+            else:
+                return Response({'error': 'Senha inválida'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({'error': 'Usuário não encontrado'}, status=status.HTTP_400_BAD_REQUEST)
