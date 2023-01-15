@@ -1,0 +1,188 @@
+
+
+#sidebar {
+  background-color: var(--primary-color);
+  border-radius: 0 1rem 1rem 0;
+  padding: 3rem 1.6rem;
+  gap: 0.8rem;
+  position: fixed;
+  left: 15.5rem;
+  width: 31.1rem;
+  height: 100%;
+}
+
+
+#sidebar .pesquisar {
+  background-color: var(--scnd-color);
+  border-radius: 0.8rem;
+  width: 27rem;
+  height: 5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.6rem;
+
+  position: relative;
+  top: 7rem;
+  left: -28rem;
+}
+
+#sidebar #search {
+  background-color: transparent;
+  font-style: italic;
+  font-size: 1.6rem;
+  border: none;
+  width: 27rem;
+  height: 4rem;
+}
+
+#sidebar #search::placeholder {
+  color: white;
+}
+
+#sidebar .menu {
+  position: relative;
+  left: -65rem;
+  top: 14rem;
+}
+
+#sidebar .menu ul li {
+  list-style-type: none;
+}
+
+#sidebar .menu a:link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 1rem;
+  gap: 1.6rem;
+  transition: 0.3s;
+}
+
+#sidebar .menu a:hover {
+  background: var(--scnd-color);
+}
+
+#sidebar .barplus {
+  position: relative;
+  bottom: -14rem;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#btnMenu {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#btnMenu:hover {
+  border-radius: 50%;
+  padding: 0.2rem;
+  cursor: pointer;
+  background-color: var(--scnd-color);
+}
+
+#btnMenu:active {
+  background-color: rgb(3, 4, 7);
+}
+
+#sidebar input {
+  color: white;
+  text-indent: 1.6rem;
+  border: none;
+
+  position: relative;
+  top: 3rem;
+}
+
+#sidebar input[type='submit'] {
+  background: url(../../../assets/images/lupa.png) no-repeat;
+  background-size: 2.8rem;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: -0.6rem;
+  left: 19rem;
+}
+
+::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #d3d3d3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scnd-color); 
+}
+
+#pesquisar1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 40%;
+  top: 30%;
+}
+
+#pesquisar1 input[type='text'] {
+  color: white;
+  background-color: var(--scnd-color);
+  border-radius: 0.8rem;
+  width: 50rem;
+  height: 5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.6rem;
+  border: none;
+}
+
+#search {
+  background-color: transparent;
+  font-style: italic;
+  font-size: 1.6rem;
+  border: none;
+  width: 27rem;
+  height: 4rem;
+  position: relative;
+  left: -1.6rem;
+}
+
+#pesquisar1 input[type='text']::placeholder {
+  color: white;
+}
+
+#pesquisar1 input[type='submit'] {
+  background: url(../../../assets/images/lupa.png) no-repeat;
+  background-size: 2.8rem;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: -4rem;
+  left: 45rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
