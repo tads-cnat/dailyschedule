@@ -9,7 +9,7 @@ class Aluno(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user
+        return ("{0} - primeiro nome".format(self.user.first_name))
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
