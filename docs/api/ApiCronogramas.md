@@ -15,29 +15,33 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
 ### 2. Funcionamento
   - No endpoint dentro do diretório do projeto teremos um recurso chamado Cronogramas.
   - O recurso Cronogramas terá obrigatorioamente que receber um ou mais parâmetros.
-  - O recurso Cronogramas terá um primeiro parâmetro que indicará a qual usuário aquele cronograma pertence, um segundo parâmetro informando qual o número (identificador) daquele cronograma, e um terceiro parâmetro informando a qual semana o cronograma pertence.
+  - O recurso Cronogramas terá um primeiro parâmetro que indicará a qual usuário aquele cronograma pertence, e um segundo parâmetro informando a qual semana o cronograma pertence.
   - Este recurso (Cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
   - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
   - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no CDU Tarefas.
 
 ### 3. Exemplificação do Endpoint
   - *PADRÃO UTILIZADO*
-    - recurso/parametro-1/parametro-2/parametro-3
-    - cronogramas/usuário/id/semana
+    - recurso/parametro-1/parametro-2
+    - cronogramas/usuário/semana/mês/ano
 
 ### 4. Exemplos dos Métodos e do Endpoint
   - *POST*
-    - cronogramas/1 (Criará o cronograma atual do usuario 1)
-    - cronogramas/1/3 (Criará o cronograma do usuario 1 da semana 3)
-    - cronogramas/0 (Não funcionará, pois o parâmetro é obrigatório)
-    - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+    - cronogramas/ (Não funcionará, pois o primeiro parâmetro é obrigatório)
+    - cronogramas/0 (Não funcionará, pois não há usuários de id 0)
+    - cronogramas/1 (Criará o cronograma para o usuario 1 com o id gerido pelo sistema e semana atual)
+    - cronogramas/1/3 (Erro, pois o id é gerido pelo sistema, sendo acrescido +1 ou decrescido -1 de acorco com o cronograma anterior)
+    - cronogramas/1/semana0 (Erro, pois as semanas são pré definidas de 1 a 4)
+    - cronogramas/1/semana3 (Criará o cronograma para o usuário 1 na semana 3)
+    - cronogramas/1/semana5 (Erro, pois as semanas são pré definidas de 1 a 4)
 
   - *GET*
-     - cronogramas/1 (Retorna o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Retorna o cronograma do usuario 1 da semana 3)
+     - cronogramas/ (inválido por não informar a quem pertence o cronograma)
+     - cronogramas/1 (Retorna todos os cronogramas da semana atual do usuario 1)
+     - cronogramas/1/2 (inválido pois o segundo parametro é uma semana definida de 1 a 4)
+     - cronogramas/1/semana3 (Retorna todos os cronogramas do usuario 1 da semana 3)
      - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
-
+     
   - *PUT ou PATCH*
      - cronogramas/1 (Atualizará o cronograma atual do usuario 1)
      - cronogramas/1/3 (Atualizará o cronograma do usuario 1 da semana 3)
