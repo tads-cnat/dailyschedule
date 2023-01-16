@@ -11,9 +11,9 @@ const CriarCrono = () => {
 
   async function handleSubmit (e) {
     const cronogramas = {
-      id,
+      privacidade,
       titulo,
-      data,
+      aluno: 1
     }
 
     await fetch("http://localhost:8000/api/cronogramas/", {
