@@ -1,9 +1,8 @@
-from django.urls import include, re_path, path
-from .views import *
+from django.urls import include, path, re_path
 from rest_framework import routers
-from . import views,admin
 
-
+from . import admin, views
+from .views import *
 
 app_name = 'cronogramas'
 
@@ -13,7 +12,6 @@ router.register(r'cronogramas', views.CronogramaViewSet)
 router.register(r'tarefas', views.TarefaViewSet)
 router.register(r'alunos', views.AlunoViewSet)
 router.register(r'auth', views.AuthViewSet,basename='auth')
-router.register(r'cadastro',views.AlunoViewSet,basename='cadastro')
 
 
 urlpatterns = [

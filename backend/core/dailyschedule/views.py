@@ -7,7 +7,7 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 
@@ -19,7 +19,7 @@ import datetime
 
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-    authentication_classes = [SessionAuthentication,]
+    authentication_classes = [TokenAuthentication,]
     permission_classes = [IsAuthenticated]
 
 
@@ -101,13 +101,17 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         return inicio
 
 class TarefaViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    authentication_classes = [TokenAuthentication,]
+    permission_classes = [IsAuthenticated]
 
     queryset = Tarefa.objects.all()
     serializer_class = SerializadorTarefa
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
+    authentication_classes = [TokenAuthentication,]
+    permission_classes = [IsAuthenticated]
+
     serializer_class = SerializadorAluno
 
 class AuthViewSet(viewsets.GenericViewSet):
@@ -122,6 +126,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
         if (user):
             user = authenticate(username=username, password=password)
+
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token:': token.key}, status=status.HTTP_200_OK)
         else:
@@ -154,3 +159,9 @@ class AuthViewSet(viewsets.GenericViewSet):
                 aluno = Aluno.objects.create(user=user)
                 aluno.save()
                 return Response({'message': 'Usuário cadastrado com sucesso'}, status=status.HTTP_200_OK)
+
+    #logout
+    @action(detail=False, methods=['get'], url_path='logout',permission_classes=[IsAuthenticated], authentication_classes=[TokenAuthentication,])
+    def logout(self, request):
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
