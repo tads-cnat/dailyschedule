@@ -1,6 +1,6 @@
 # Daily Schedule 
 
-## Descrição da API - CDU Cronogramas 
+## Descrição da API - [CDU Cronogramas](https://github.com/tads-cnat/dailyschedule/blob/main/docs/cdu/01%20-%20CriarCronograma.md)
 
 ### Histórico da Revisão
 
@@ -17,7 +17,7 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
   - O recurso cronogramas terá obrigatorioamente que receber um parâmetro.
   - Este recurso (cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
   - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
-  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no CDU Tarefas.
+  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/main/docs/cdu/01%20-%20CriarCronograma.md).
 
 ### 3. Exemplificação dos Parâmetros e do Endpoint
 - O recurso cronogramas terá 5 parâmetros, sendo 1 passado como obrigatório, 3 parâmetros padrões que podem ser omitidos, e 1 opcional.
@@ -49,33 +49,30 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
       - Criará o cronograma para o usuario 1 dentro da semana 3 que pertence ao mês 2 referente ao ano de 2023. O sistema irá incrementar o ID do cronograma.
     - **cronogramas/1/semana3/mes2/2023/5** 
       - Irá gerar um erro, pois o último parâmetro referente ao ID do cronograma é criado e incrementado/decrementado pelo sistema.
-    - **OBS: Caso esteja em uma semana/mes/ano e tente criar um cronograma para a semana/mes/ano anterior, não permitir.**
-<br>
 
   - ***GET***
-     - cronogramas/ (inválido por não informar a quem pertence o cronograma)
-     - cronogramas/1 (Retorna todos os cronogramas da semana atual do usuario 1)
-     - cronogramas/1/2 (inválido pois o segundo parametro é uma semana definida de 1 a 4)
-     - cronogramas/1/semana3 (Retorna todos os cronogramas do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
+     - **cronogramas/**
+       - Inválido por não informar a quem pertence o cronograma.
+     - **cronogramas/1**
+       - Retorna todos os cronogramas criados pelo do usuario 1 para a semana atual, como os outros parâmetros padrões foram omitidos, ele pegará o mês e ano atual.
+     - **cronogramas/1/semana2**
+       - Retorna todos os cronogramas da semana-2 pertencentes ao usuário 1, como os outros parâmetros foram omitidos, utilizará o mês e ano atual como base.
+     - **cronogramas/1/semana2/mes2**
+       - Retorna todos os cronogramas do usuário 1 referente a semana e mês 2, como os outros parâmetros foram omitidos, utilizará como base o ano corrente.
+     - **cronogramas/1/semana2/mes2/2021**
+       - Retorna todos os cronogramas do usuário 1 referente a semana2 e mês 2 do ano de 2021 passado como parâmetro.
+     - **cronogramas/1/semana2/mes2/2020/5**
+       - Retorna o cronograma de id 5 pertencente ao usuário 1 referente a semana 2 e mês 2 do ano de 2020.
      
   - ***PUT ou PATCH***
-     - cronogramas/1 (Atualizará o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Atualizará o cronograma do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+     - **cronogramas/**
+       - 
+     - **cronogramas/1**
+       - 
+     - **cronogramas/1/semana2**
         
   - ***DELETE***
-     - cronogramas/1 (Apagará o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Apagará o cronograma do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
-<br>
-
-**OBS: Alguns desses métodos devem verificar se o cronograma está público ou privado para não executar algumas das operações CRUD.**
-<br><br>
-
-<!--
-Observações:
-Adicionar Hyperlink para os cdu's que são citados, Cronogramas e Tarefas.
--->
+     - cronogramas/1
+     - cronogramas/1/3
+     - cronogramas/0
+     - cronogramas/0/3
