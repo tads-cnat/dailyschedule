@@ -1,0 +1,33 @@
+#beneficios .beneficio {
+  position: relative;
+  top: 50rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#beneficios .bnfc {
+  padding: 2.4rem;
+  text-align: left;
+  display: flex;
+}
+
+#beneficios .bnfc img {
+  border-radius: 2rem;
+  width: 30rem;
+  height: 30rem;
+}
+
+#beneficios .bnfc p {
+  width: 50rem;
+  position: relative;
+  top: 9rem;
+  left: -10rem;
+}
+
+#beneficios .bnfc h2 {
+  position: relative;
+  left: 25%;
+  margin-block: 1.6rem;
+}
