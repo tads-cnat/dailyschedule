@@ -1,6 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Editar from './pages/Editar';
+import MeusCrogramas from './pages/MeusCronogramas';
+
 
 function App(){
   const [cronogramas, setCronogramas] = useState([]);
@@ -24,14 +27,18 @@ function App(){
 
   return (
       <div className="App">
-          <header className="App-header">
-              <h2>Meus Cronogramas</h2>
-              <div style={{display:'flex'}}>
-                  {cronogramas.map(cronograma=>(
-                      <div key={cronograma.id}>{cronograma}</div>
-                  ))}
-              </div>
-          </header>
+          
+            <Router>                           
+                <Routes>
+                    <Route path="/" element={<MeusCrogramas />}> </Route>
+                    <Route path="/Editar" element={<Editar />}> </Route>
+                    {/*
+                    <Route path="/" element={<Exportar />} />
+                    <Route path="/" element={<Compartilhar />} />
+                     */}
+                </Routes>
+            </Router>
+          
       </div>
   )
 }

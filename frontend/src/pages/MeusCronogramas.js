@@ -5,7 +5,7 @@ import Editar from "./Editar";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 
-function App(){
+function MeusCrogramas(){
     const [cronogramas, setCronogramas] = useState([]);
 
     useEffect(()=>{
@@ -14,7 +14,7 @@ function App(){
           .then(response => response.json())
           .then(data => setCronogramas(data))
         }
-        // loadData();
+        loadData();
       }, [])  
 
     return (
@@ -27,6 +27,7 @@ function App(){
                     <input className="forms" type="text"></input>
                 </form>
                 <br></br>
+                    <li><a href="./MeusCroogramas.js" download>Baixar</a></li>
                     <li>Meu perfil</li>
                     <li>Criar cronograma</li>
                     <li>Meus cronogramas</li>
@@ -41,48 +42,27 @@ function App(){
                 <section className="list-cards">
                     <div className="box-cards">
                         {cronogramas.map(cronograma=>(
-                            <div className="card" key={cronograma.id}>
+                            <div className="card">
                                 <div className="dropdown">
                                     <button className="dropbtn option">...</button>
-                                    <div className="dropdown-content">
-                                        <Link to="/">Editar</Link>
+                                    
+                                    <div className="dropdown-content">                                                                                                                   
+                                        <Link to="/Editar">Editar</Link>                                            
                                         <Link to="/">Exportar</Link>
-                                        <Link to="/">Compartilhar</Link>
+                                        <Link to="/">Compartilhar</Link>                                        
+                                        
                                     </div>
                                 </div> 
                                 <div>
                                     <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
                                 </div>
-                                <p>{cronograma}</p>
+                                <p> {cronograma.title}</p>
                             </div>                        
                         ))}
 
-                        <div className="card">
-                            <div className="dropdown">
-                                <button className="dropbtn option">...</button>
-                                <div className="dropdown-content">
-                                <Router>
-
-                                    <Link to="/Editar">Editar</Link>
-
-                                    <Routes>
-                                        <Route path="/Editar">
-                                            <Editar />
-                                        </Route>
-                                    </Routes>
-                                </Router>
-                                    <a href="#" download="Cronograma.pdf">Exportar</a>
-                                    <a href="#" to="/Compartilhar">Compartilhar</a>
-                                </div>
-                            </div>                            
-                            <div>
-                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
-                            </div>
-                            <p>card 1</p>
-                        </div>
 
                         <div className="card">
-                            <div className="dropdown">
+                            <div className="dropdown">                                
                                 <button className="dropbtn option">...</button>
                                 <div className="dropdown-content">
                                     <a href="#">Editar</a>
@@ -110,13 +90,125 @@ function App(){
                             </div>
                             <p>card 3</p>
                         </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
+                        <div className="card"> 
+                            <div className="dropdown">
+                                <button className="dropbtn option">...</button>
+                                <div className="dropdown-content">
+                                    <a href="#">Editar</a>
+                                    <a href="#">Exportar</a>
+                                    <a href="#">Compartilhar</a>
+                                </div>
+                            </div> 
+                            <div>
+                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                            </div>
+                            <p>card 3</p>
+                        </div>                       
                             
                     </div>                
                     
                 </section>
             </section>
         </div>
-    )
+    );
 }
 
-export default App;
+export default MeusCrogramas;
