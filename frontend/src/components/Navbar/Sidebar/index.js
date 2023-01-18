@@ -22,28 +22,7 @@ const Sidebar = () => {
         </svg>
       </div>
       <div className="pesquisar">
-        <svg
-          width="22"
-          height="21"
-          viewBox="0 0 22 21"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10.1458 16.7292C13.9198 16.7292 16.9792 13.6698 16.9792 9.89583C16.9792 6.12189 13.9198 3.0625 10.1458 3.0625C6.37189 3.0625 3.3125 6.12189 3.3125 9.89583C3.3125 13.6698 6.37189 16.7292 10.1458 16.7292Z"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M18.6875 18.4373L14.9719 14.7217"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        
         <form action="." method="GET">
           <input type="text" name="search" id="search" placeholder="Pesquisar"/>
           <input type="submit" className="btns" value="" />
@@ -157,39 +136,6 @@ const Sidebar = () => {
               Notificações</a>
           </li>
           <li>
-            <a href="#/" >
-              <svg
-                width="22"
-                height="21"
-                viewBox="0 0 22 21"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.9999 18.7913C15.7174 18.7913 19.5416 14.9671 19.5416 10.2497C19.5416 5.53224 15.7174 1.70801 10.9999 1.70801C6.28249 1.70801 2.45825 5.53224 2.45825 10.2497C2.45825 14.9671 6.28249 18.7913 10.9999 18.7913Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M8.5144 7.68774C8.71522 7.11688 9.1116 6.6355 9.63332 6.32888C10.1551 6.02225 10.7685 5.91017 11.3649 6.01248C11.9614 6.11478 12.5024 6.42488 12.8921 6.88784C13.2818 7.3508 13.4951 7.93675 13.4942 8.54191C13.4942 10.2502 10.9317 11.1044 10.9317 11.1044"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M11 14.5205H11.0085"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Ajude</a>
-          </li>
-          <li>
             <a href="#/">
               <svg
                 width="22"
@@ -226,6 +172,39 @@ const Sidebar = () => {
                 </defs>
               </svg>
               Configurações</a>
+          </li>
+          <li>
+            <a href="#/" >
+              <svg
+                width="22"
+                height="21"
+                viewBox="0 0 22 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.9999 18.7913C15.7174 18.7913 19.5416 14.9671 19.5416 10.2497C19.5416 5.53224 15.7174 1.70801 10.9999 1.70801C6.28249 1.70801 2.45825 5.53224 2.45825 10.2497C2.45825 14.9671 6.28249 18.7913 10.9999 18.7913Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8.5144 7.68774C8.71522 7.11688 9.1116 6.6355 9.63332 6.32888C10.1551 6.02225 10.7685 5.91017 11.3649 6.01248C11.9614 6.11478 12.5024 6.42488 12.8921 6.88784C13.2818 7.3508 13.4951 7.93675 13.4942 8.54191C13.4942 10.2502 10.9317 11.1044 10.9317 11.1044"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M11 14.5205H11.0085"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Sair</a>
           </li>
         </ul>
       </section>

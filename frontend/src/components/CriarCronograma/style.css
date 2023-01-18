@@ -51,17 +51,18 @@
 }
 
 .crono-info1 {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  width: 140rem;
   position: absolute;
   left: 43.5rem;
   top: 32rem;
 }
 
 .crono-info1 .info {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem;
 }
 
 [data-tab="content"] form {
@@ -186,7 +187,8 @@
   border: none;
   color: white;
   font-weight: bold;
-
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 

@@ -3,8 +3,8 @@ import './style.css'
 const Footer = () => {
   return (
     <footer>
-        <div class="wrapper">
-          <a class="logo" href="#home">
+        <div className="wrapper">
+          <a className="logo" href="/">
             <svg width="277" height="53" viewBox="0 0 277 53" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="14" cy="18" r="6" fill="white"/>
               <circle cx="28" cy="32" r="6" fill="white"/>

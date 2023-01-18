@@ -18,7 +18,7 @@ const NavBar = () => {
           <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="#beneficio">Benefícios</a></li>
-            <li><a href="criar-cronograma.html">Criar cronograma</a></li>
+            <li><a href="criar-cronograma">Criar cronograma</a></li>
             <div id="pesquisar1">
               <form action="." method="GET">
                 <input type="text" name="search" id="search" placeholder="Pesquisar"/>

@@ -16,6 +16,16 @@ body {
 
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   background-color: #f7f9f9;
+}
+
+
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }

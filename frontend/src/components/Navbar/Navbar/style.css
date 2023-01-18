@@ -29,6 +29,11 @@ nav {
   display: block;
 }
 
+.menu a:hover {
+  border-radius: 3rem;
+  background-color: var(--scnd-color);
+}
+
 .menu li {
   list-style-type: none;
   position: relative;
@@ -167,10 +172,6 @@ nav .wrapper {
   border: none;
   cursor: pointer;
   position: relative;
-  top: -3.5rem;
+  top: -3.4rem;
   left: 19rem;
-}
-
-input:-internal-autofill-selected {
-  background-color: transparent !important;
 }
