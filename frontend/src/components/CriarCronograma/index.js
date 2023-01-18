@@ -5,26 +5,31 @@ import Sidebar from '../Navbar/Sidebar/index.js'
 const CriarCrono = () => {
 
   const [titulo, setTitulo] = useState("")
-  const [privado, setPrivado] = useState(false)
+  const [privacidade, setPrivado] = useState(false)
   const [cronograma, setCronogramas] = useState([])
   const [loading, setLoading] = useState(false)
 
-  async function handleSubmit (e) {
+  const  postCronogramas = async (e) => {
+    e.preventDefault();
     const cronogramas = {
-      privacidade,
-      titulo,
+      privacidade: privacidade,
+      titulo: titulo,
       aluno: 1
     }
+    console.log(cronogramas)
+
+    
 
     await fetch("http://localhost:8000/api/cronogramas/", {
-      method:'POST',
-      headers: {
+      method:"POST",
+      header: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': "*",
       },  
       body: JSON.stringify(cronogramas)
-    })
+    }).then(res => res.json());
   }
-
 
   function handleClick (e) {
     const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
@@ -66,19 +71,19 @@ const CriarCrono = () => {
       </div>
 
     <section id="criar-crono" data-tab="content">
-      <form onSubmit={handleSubmit} className="crono-info" method="post">
+      <form onSubmit={postCronogramas} className="crono-info" method="post">
         <label htmlFor="titulo">Insira o nome do seu cronograma: </label>
         <input type="text" name="titulo" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
         <div className="crono-priv"><br/>
           <label htmlFor="priv">Quero que seja privado</label>
-          <input type="radio" name="priv" id="privado" onChange={(e) => setPrivado(e.target.value)} value={privado || ""} />
+          <input type="radio" name="priv" id="privado" onChange={(e) => setPrivado(e.target.value)} value={privacidade || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>
     </section>
 
     <section id="criar-crono1" data-tab="content">
-      <form onSubmit={handleSubmit} className={`crono-info1`} method="post" >
+      <form onSubmit={postCronogramas} className={`crono-info1`} method="post" >
         <div className="info">
           <label htmlFor="aulas">Informe a aula</label>
           <input type="text" name="aulas" id="titulo" />
@@ -100,7 +105,7 @@ const CriarCrono = () => {
     </section>
 
     <section id="criar-crono1" data-tab="content">
-      <form onSubmit={handleSubmit} className={`crono-info1`} method="post">
+      <form onSubmit={postCronogramas} className={`crono-info1`} method="post">
         <div className="info">
           <label htmlFor="aulas">Informe a matéria</label>
           <input type="text" name="aulas" id="titulo" />
@@ -126,7 +131,7 @@ const CriarCrono = () => {
     </section>
 
     <section id="criar-crono1" data-tab="content">
-      <form onSubmit={handleSubmit} className={`crono-info1`} method="post">
+      <form onSubmit={postCronogramas} className={`crono-info1`} method="post">
         <div className="info">
           <label htmlFor="aulas">Informe suas provas</label>
           <input type="text" name="aulas" id="titulo" />
@@ -152,7 +157,7 @@ const CriarCrono = () => {
     </section>
 
     <section id="criar-crono1" data-tab="content">
-      <form onSubmit={handleSubmit} className={`crono-info1`} method="post">
+      <form onSubmit={postCronogramas} className={`crono-info1`} method="post">
         <div className="info">
           <label htmlFor="aulas">Informe seu afazer</label>
           <input type="text" name="aulas" id="titulo" />
@@ -174,7 +179,7 @@ const CriarCrono = () => {
     </section>
 
     <section id="criar-crono1" data-tab="content">
-      <form onSubmit={handleSubmit} className={`crono-info1`} method="post">
+      <form onSubmit={postCronogramas} className={`crono-info1`} method="post">
         <div className="info">
           <label htmlFor="aulas">Se desejar, insira descanso</label>
           <input type="text" name="aulas" id="titulo" />
