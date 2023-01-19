@@ -21,7 +21,7 @@ function MeusCrogramas(){
         <div className="App">
             <nav className="nav-menu">                
                 <ul className="lista-simples">
-                <img></img>
+                
                 <h3>DailySchedule</h3>
                 <form action="." method="GET" className="forms">
                     <input className="forms" type="text"></input>
@@ -46,17 +46,18 @@ function MeusCrogramas(){
                                 <div className="dropdown">
                                     <button className="dropbtn option">...</button>
                                     
-                                    <div className="dropdown-content">                                                                                                                   
+                                    <div className="dropdown-content">  
+                                        {/*
                                         <Link to="/Editar">Editar</Link>                                            
                                         <Link to="/">Exportar</Link>
                                         <Link to="/">Compartilhar</Link>                                        
-                                        
+                                         */}
                                     </div>
                                 </div> 
                                 <div>
                                     <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
                                 </div>
-                                <p> {cronograma.title}</p>
+                                <p> {cronograma.titulo}</p>
                             </div>                        
                         ))}
 
