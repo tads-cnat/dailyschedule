@@ -6,6 +6,9 @@
 
 | Data | Versão | Descrição | Autor |
 | :-----: | :-----: | :-----: | :-----: |
+| 19/12/2022 | 1.0 | Versão Inicial | Christian |
+| 09/01/2023 | 1.1 | Versão Continuada | Christian |
+| 16/01/2023 | 1.2 | Versão Continuada | Christian |
 | 19/01/2023 | 1.3 | Versão Final | Christian |
 
 ### 1. Resumo
