@@ -1,6 +1,6 @@
 # Daily Schedule 
 
-## Descrição da API - [CDU Cronogramas](https://github.com/tads-cnat/dailyschedule/blob/main/docs/cdu/01%20-%20CriarCronograma.md)
+## Descrição da API - [CDU Cronogramas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Cronograma.md)
 
 ### Histórico da Revisão
 
@@ -20,7 +20,7 @@ Esse documento visa descrever como funcionará a API do caso de uso principal do
   - O recurso cronogramas terá obrigatorioamente que receber um parâmetro.
   - Este recurso (cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
   - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
-  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/main/docs/cdu/01%20-%20CriarCronograma.md).
+  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e estão descritas no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Cronograma.md).
 
 ### 3. Exemplificação dos Parâmetros e do Endpoint
 - O recurso cronogramas terá 5 parâmetros, sendo 1 passado como obrigatório, 3 parâmetros padrões que podem ser omitidos, e 1 opcional.
