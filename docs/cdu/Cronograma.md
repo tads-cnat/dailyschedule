@@ -1,6 +1,6 @@
 # Daily Schedule 
 
-## Especificação de Caso de uso - Criar cronograma 
+## Caso De Uso - Cronograma 
 
 ### Histórico da Revisão 
 
@@ -8,42 +8,28 @@
 | :-----: | :-----: | :-----: | :-----: |
 | 11/06/2022 | 1.0 | Versão Inicial | Equipe Daily Schedule |
 | 22/10/2022 | 1.1 | Versão continuada | Equipe Daily Schedule |
-
-<br>
+| 20/01/2023 | 1.2 | Versão continuada | Equipe Daily Schedule |
 
 ### 1. Resumo
-
-O ator vai criar um cronograma personalizado de acordo com suas demandas.
-
-<br>
+Este caso de uso descreve as possíveis atividades realizadas pelo ator estudante na entidade cronograma, ou seja, permite incluir um novo cronograma, alterar um cronograma pré-existente, consultar um ou mais cronogramas que foram criados, e remover um dos cronogramas pertencentes ao ator.
 
 ### 2. Atores
-
 Estudante.
 
-<br>
-
 ### 3. Pré-condições
-
 Fazer login.
 
-<br>
-
-
 ### 4. Pós-condições
+Um cronograma é inserido no sistema, possibilitando ao ator editá-lo ou remove-lo.
 
-Um cronograma é inserido no sistema, possibilitando ao estudante editá-lo.
-
-<br>
-
-### 5. Fluxos de evento<br> <br>
-#### &nbsp;&nbsp;&nbsp;5.1. Fluxo básico
+### 5. Fluxo de Eventos<br> <br>
+#### &nbsp;&nbsp;&nbsp;5.1. Fluxo Principal
 1) O ator clica em “Criar meu cronograma”;
 2) O sistema mostra um questionário com título e privacidade do cronograma;
 3) O ator preenche o questionário e seleciona “Gerar cronograma”;
 4) O sistema mostra o cronograma pronto e o caso de uso é finalizado. <br> <br>
 
-#### &nbsp; 5.2. Fluxo alternativo
+#### &nbsp; 5.2. Fluxo Alternativo
 ##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (1): Cadastro de aula
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "aula";  <br>
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, dias, horários e se a tarefa deve se repetir; <br>
