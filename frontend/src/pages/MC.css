@@ -35,7 +35,7 @@
     
 
     min-height: 80%;
-    min-width: 80%;
+    min-width: 90%;
     stroke: black;
     stroke-width: 3px;
     
@@ -88,7 +88,7 @@
   }
   .content{
     margin-left: 20px;
-    max-width: 900px;
+    max-width: 1100px;
   }
 
   .box-cards{
