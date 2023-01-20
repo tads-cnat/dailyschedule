@@ -26,8 +26,8 @@ const NavBar = () => {
               </form>
             </div>
             <div className="login">
-              <li className="login1"><a href="login.html">Entrar</a></li>
-              <li className="cadastro"><a href="cadastro.html">Cadastrar</a></li>
+              <li className="login1"><a href="/login">Entrar</a></li>
+              <li className="cadastro"><a href="/cadastro">Cadastrar</a></li>
             </div>
           </ul>
           </div>
