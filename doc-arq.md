@@ -84,6 +84,8 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 5.1.	Diagrama de Casos de Uso
 | CDU | Objetivo | Ator Primário | Implementado |
 | :--- | :--- | :--- | :--- |
+| CDU01 | O cliente pode cadastrar suas tarefas. | Estudante | Sim |
+| CDU02 | O estudante pode criar um cronograma, após informar suas tarefas. | Estudante | Sim |
 
 
 ## 6.	Diagramas Conceituais
