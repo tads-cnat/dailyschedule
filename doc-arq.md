@@ -93,9 +93,10 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 
 | Conceito | Descrição |
 | :--- | :--- |
-| Estudante | Mantém informações de usuários cadastrados (estudantes). |
+| Estudante | Mantém informações de um usuário cadastrado (estudante). |
 | Tarefa | Armazena informações de tarefas de um cronograma. |
-| Cronograma | Mantém informações dos cronogramas de usuários do tipo Estudante. |
+| Tipo | Corresponde ao tipo de uma tarefa cadastrada por um estudante. |
+| Cronograma | Mantém informações de um cronograma vinculado a um usuário do tipo Estudante. |
 
 #### Modelo comportamental
 
