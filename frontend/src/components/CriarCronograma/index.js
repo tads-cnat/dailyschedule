@@ -19,6 +19,8 @@ const CriarCrono = () => {
   const dataOfc = new Date(data1[2], data1[1]-1, data1[0], hora1[0], hora1[1])
   const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes()
 
+  console.log(dataOfc, horaOfc)
+
   useEffect(() => {
     const loadData = async(e) => {
       const res = await fetch("http://127.0.0.1:8000/api/cronogramas/").then(res => res.json()).then(data => data)
@@ -28,8 +30,6 @@ const CriarCrono = () => {
 
     loadData()
   }, [])
-
-  console.log(cronogramas)
   
   const  postCronogramas = async (e) => {
     e.preventDefault();
@@ -192,7 +192,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>

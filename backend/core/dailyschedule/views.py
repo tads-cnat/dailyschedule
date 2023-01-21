@@ -19,8 +19,6 @@ import datetime
 
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
 
 
     queryset = Cronograma.objects.all()
@@ -101,16 +99,12 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         return inicio
 
 class TarefaViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
 
     queryset = Tarefa.objects.all()
     serializer_class = SerializadorTarefa
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
 
     serializer_class = SerializadorAluno
 
