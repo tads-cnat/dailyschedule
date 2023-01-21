@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http.response import JsonResponse
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 
 from rest_framework.parsers import JSONParser 
 from rest_framework import status, viewsets
@@ -19,8 +19,8 @@ import datetime
 
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
+    #authentication_classes = [TokenAuthentication,]
+    #permission_classes = [IsAuthenticated]
 
 
     queryset = Cronograma.objects.all()
@@ -101,34 +101,35 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         return inicio
 
 class TarefaViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
+    #authentication_classes = [TokenAuthentication,]
+    #permission_classes = [IsAuthenticated]
 
     queryset = Tarefa.objects.all()
     serializer_class = SerializadorTarefa
 
 class AlunoViewSet(viewsets.ModelViewSet):
+    #authentication_classes = [TokenAuthentication,]
+    #permission_classes = [IsAuthenticated]
     queryset = Aluno.objects.all()
-    authentication_classes = [TokenAuthentication,]
-    permission_classes = [IsAuthenticated]
-
     serializer_class = SerializadorAluno
 
 class AuthViewSet(viewsets.GenericViewSet):
     permission_classes = []
+    serializer_class =[SerializadorLogin, SerializadorCadastro]
     
     @action(detail=False, methods=['post'], url_path='login',serializer_class=SerializadorLogin)
     def login(self, request):
         username = request.data.get('usuario')
         password = request.data.get('senha')
+        
+        user = Aluno.objects.filter(username=username)
 
-        user = User.objects.filter(username=username)
-
-        if (user):
+        if (user is not None):
             user = authenticate(username=username, password=password)
 
-            token, created = Token.objects.get_or_create(user=user)
-            return Response({'token:': token.key}, status=status.HTTP_200_OK)
+            
+            login(request, user)
+            return Response ({'detail': 'login realizado com sucesso'}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Usuário não encontrado'}, status=status.HTTP_400_BAD_REQUEST)
     
@@ -144,7 +145,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         last_name = request.data.get('ultimo_nome')
 
         #verifica se o usuario ja existe
-        user = User.objects.filter(username=username)
+        user = Aluno.objects.filter(username=username)
         if (user):
             return Response({'error': 'Usuário já cadastrado'}, status=status.HTTP_400_BAD_REQUEST)
         #verifica se as senhas conferem
@@ -154,14 +155,14 @@ class AuthViewSet(viewsets.GenericViewSet):
                 return Response({'error': 'Senhas não conferem\n','senha':password+"\n",'confirmação':confirmed_password}, status=status.HTTP_400_BAD_REQUEST)
             #cria o usuario
             else:
-                user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+                user = Aluno.objects.create(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                 user.save()
-                aluno = Aluno.objects.create(user=user)
-                aluno.save()
+                #super = User.objects.create_superuser(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+                #super.save()
                 return Response({'message': 'Usuário cadastrado com sucesso'}, status=status.HTTP_200_OK)
 
     #logout
     @action(detail=False, methods=['get'], url_path='logout',permission_classes=[IsAuthenticated], authentication_classes=[TokenAuthentication,])
     def logout(self, request):
-        request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
+        logout(request.aluno)
+        return Response({'message': 'Logout realizado com sucesso'}, status=status.HTTP_200_OK)
