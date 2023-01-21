@@ -20,10 +20,16 @@ function MeusCrogramas(){
       }, [])  
 
       const componentRef = useRef();
+      
       const handlePrint = useReactToPrint({
           content: () => componentRef.current,
           documentTitle: 'Nova Print',          
       });
+      const alerta = () => {
+        fetch('http://localhost:8000/api/aluno/')
+          .then(response => response.json())
+          .then(data => setCronogramas(data))
+      }
     return (
         <div className="App">
             <nav className="nav-menu">                

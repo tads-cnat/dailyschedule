@@ -9,6 +9,7 @@ class Aluno(models.Model):
     nome = models.CharField(max_length=30)
     usuario = models.CharField(max_length=30)
     senha = models.CharField(max_length=30)
+    notificacao = models.BooleanField(default=False)\
 
     def __str__(self):
         return self.usuario
