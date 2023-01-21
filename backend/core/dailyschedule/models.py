@@ -6,10 +6,12 @@ import datetime
 # Create your models here.
 
 class Aluno(models.Model):
-    nome = models.CharField(max_length=30)
-    usuario = models.CharField(max_length=30)
-    senha = models.CharField(max_length=30)
-    notificacao = models.BooleanField(default=False)\
+    nome = models.CharField(max_length=30, null=True)
+    usuario = models.CharField(max_length=30, default="user")
+    senha = models.CharField(max_length=30, default="123")
+    notificacao = models.BooleanField(default=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    qtd = models.IntegerField(default=0)
 
     def __str__(self):
         return self.usuario
