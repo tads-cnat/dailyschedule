@@ -75,7 +75,7 @@ const Sidebar = () => {
               Criar cronograma</a>
           </li>
           <li>
-            <a href="#/">
+            <a href="/cronograma">
               <svg
                 width="22"
                 height="21"

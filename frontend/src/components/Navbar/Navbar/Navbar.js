@@ -5,7 +5,7 @@ const NavBar = () => {
     <nav id="navigation">
       <div className="wrapper">
         <div className="logo">
-          <a href="index.html">
+          <a href="/">
           <svg width="277" height="53" viewBox="0 0 277 53" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="14" cy="18" r="6" fill="white"/>
             <circle cx="28" cy="32" r="6" fill="white"/>
@@ -16,9 +16,9 @@ const NavBar = () => {
         </div>
         <div className="menu">
           <ul>
-            <li><a href="index.html">Início</a></li>
+            <li><a href="/">Início</a></li>
             <li><a href="#beneficio">Benefícios</a></li>
-            <li><a href="criar-cronograma">Criar cronograma</a></li>
+            <li><a href="/criar-cronograma">Criar cronograma</a></li>
             <div id="pesquisar1">
               <form action="." method="GET">
                 <input type="text" name="search" id="search" placeholder="Pesquisar"/>
@@ -26,8 +26,8 @@ const NavBar = () => {
               </form>
             </div>
             <div className="login">
-              <li className="login1"><a href="login.html">Entrar</a></li>
-              <li className="cadastro"><a href="cadastro.html">Cadastrar</a></li>
+              <li className="login1"><a href="/login">Entrar</a></li>
+              <li className="cadastro"><a href="/cadastro">Cadastrar</a></li>
             </div>
           </ul>
           </div>

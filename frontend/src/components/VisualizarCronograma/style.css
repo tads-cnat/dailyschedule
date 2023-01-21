@@ -1,0 +1,81 @@
+.visualizar {
+  position: fixed;
+  left: 43.5rem;
+  top: 25rem;
+}
+
+table {
+  background-color: #e1afff;
+  margin-bottom: 1rem;
+}
+
+.diasemana {
+  color: white;
+
+  width: 50rem;
+  height: 3rem;
+
+  font-weight: bold;
+
+  display: inline-block;
+  padding: 4rem;
+}
+
+.tarefas {
+  color: white;
+  background-color: #CE7CFF;
+
+  width: 36rem;
+  height: 5rem;
+
+  text-align: center;
+  padding: 1.8rem;
+  font-weight: bold;
+}
+
+.horarios {
+  
+  color: white;
+  background-color: #65E9CF;
+
+  text-align: center;
+  font-weight: bold;
+}
+
+.tbTitulo {
+  background-color: white;
+  padding: 2rem;
+  font-weight: 600;
+}
+
+
+.tbHora {
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.optbtn {
+  position: absolute;
+  top: 120%;
+  right: 0%;
+}
+
+.optbtn a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  
+  border-radius: 2rem;
+  
+  padding: 2rem;
+
+  transition: 0.3s;
+}
+
+.optbtn a:hover {
+  background-color: var(--scnd-color);
+}
