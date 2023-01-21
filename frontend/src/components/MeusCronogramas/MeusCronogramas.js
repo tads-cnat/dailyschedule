@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import './MC.css';
-import Editar from "./Editar";
+import Editar from "../Editar/Editar";
+import Sidebar from '../Navbar/Sidebar';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useReactToPrint } from 'react-to-print';
@@ -25,14 +26,16 @@ function MeusCrogramas(){
           content: () => componentRef.current,
           documentTitle: 'Nova Print',          
       });
+      
       const alerta = () => {
-        fetch('http://localhost:8000/api/aluno/')
+        fetch('http://localhost:8000/api/aluno/1/alerta')
           .then(response => response.json())
           .then(data => setCronogramas(data))
       }
     return (
         <div className="App">
-            <nav className="nav-menu">                
+            <Sidebar></Sidebar>
+            {/*<nav className="nav-menu">                
                 <ul className="lista-simples">
                 
                 <h3>DailySchedule</h3>
@@ -46,7 +49,7 @@ function MeusCrogramas(){
                     <li>Meus cronogramas</li>
                     <li>Notificações</li>
                 </ul>
-            </nav>
+    </nav>*/}
             <section className="content">
                 <header className="App-header">
                     <h2 className="tittle">Meus Cronogramas</h2>                
@@ -61,7 +64,7 @@ function MeusCrogramas(){
                                     
                                     <div className="dropdown-content">                                          
                                         <Link to="/Editar">Editar</Link>                                            
-                                        <Link to="/" onClick={handlePrint}>Exportar</Link>                                                                                
+                                        <Link to="/MeusCronogramas" onClick={handlePrint}>Exportar</Link>                                                                                
                                         <Link to="/">Compartilhar</Link>                                        
                                         
                                     </div>
@@ -78,9 +81,9 @@ function MeusCrogramas(){
                             <div className="dropdown">                                
                                 <button className="dropbtn option">...</button>
                                 <div className="dropdown-content">
-                                    <a href="#">Editar</a>
-                                    <a href="#">Exportar</a>
-                                    <a href="#">Compartilhar</a>
+                                    <Link to="/Editar">Editar</Link>                                            
+                                    <Link to="/" onClick={handlePrint}>Exportar</Link>                                                                                
+                                    <Link to="/">Compartilhar</Link>
                                 </div>
                             </div> 
                             <div>

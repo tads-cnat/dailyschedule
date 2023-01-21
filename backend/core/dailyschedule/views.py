@@ -119,7 +119,8 @@ class AlunoViewSet(viewsets.ModelViewSet):
     serializer_class = SerializadorAluno
 
     @action(detail=True, methods=['get'], url_path='')
-    def alerta(self, request, pk=None):
+    def alerta(self, request, pk):
+        print(pk + "<= PK")
         msgRetorno = 'Tarefa(s) Pendente(s):'
         now = datetime.datetime.now()
         aft = now + datetime.timedelta(days=1)

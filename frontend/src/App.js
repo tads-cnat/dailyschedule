@@ -1,12 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Editar from './pages/Editar';
-import MeusCrogramas from './pages/MeusCronogramas';
-
+import Rotas from "./rotas";
 
 function App(){
   const [cronogramas, setCronogramas] = useState([]);
+  const [alerta, setAlerta] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(()=>{
@@ -23,23 +21,20 @@ function App(){
         })
       }
       //loadData();
+
+      const alerta = () => {
+        fetch('http://localhost:8000/api/aluno/1/alerta')
+          .then(response => response.json())
+          .then(data => setAlerta(data))
+      }
+      setInterval(
+      alerta()
+      ,2400000)
     }, [])  
 
   return (
-      <div className="App">
-          
-            <Router>         
-                         
-                <Routes>
-                    <Route path="/" element={<MeusCrogramas />}> </Route>
-                    <Route path="/Editar" element={<Editar />}> </Route>
-                    {/*
-                    <Route path="/" element={<Exportar />} />
-                    <Route path="/" element={<Compartilhar />} />
-                     */}
-                </Routes>
-            </Router>
-          
+      <div className="App">                    
+          <Rotas />
       </div>
   )
 }
