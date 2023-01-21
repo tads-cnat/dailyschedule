@@ -39,7 +39,7 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 | RF002 | Cadastro de Tarefas | O usuário do tipo Estudante irá cadastrar os dias e horários em que terá uma tarefa do tipo aula, matéria, prova, afazer e horário vago. |
 | RF003 | Visualização do Cronograma | O usuário poderá visualizar um cronograma presente em sua coleção ou um cronograma público. |
 | RF004 | Acesso aos Meus Cronogramas | O usuário do tipo Estudante poderá ver a listagem de seus cronogramas. |
-| RF005 | Modificação de Cronograma | O usuário do tipo Estudantepode editar e excluir os seus cronogramas. |
+| RF005 | Modificação de Cronograma | O usuário do tipo Estudante pode editar e excluir os seus cronogramas. |
 | RF006 | Pesquisa de Cronograma | O usuário pode usar uma aba de busca para pesquisar cronogramas públicos. |
 | RF007 | Cadastro de Usuário | Permite que os visitantes possam realizar seu cadastro na plataforma Daily Schedule. |
 | RF008 | Autenticação | Com a efetuação do login os usuários têm acesso ao conteúdo do sistema. |
@@ -57,7 +57,10 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 3.2.Atributos de Qualidade
 | ID | Atributo de qualidade | Motivação |
 | :--- | :--- | :--- |
-
+| 1 | Estudante só pode editar, modificar ou excluir os seus próprios cronogramas | Segurança |
+| 2 | Autenticação de usuários para realizar login no sistema | Segurança e Desempenho |
+| 3 | Estudante só pode gerenciar o seu próprio perfil | Segurança |
+| 4 | Estudante só é capaz de realizar listagem dos seus cronogramas | Segurança |
 
 
 ### 3.3.Stakeholders
@@ -70,7 +73,12 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 4.1.Restrições técnicas
 |  | Restrição | Contexto e/ou Motivação |
 | :--- | :--- | :--- |
-
+| Restrição de software e programação |
+| RT1 |  |  |
+| Restrição de sistema operacional |
+| RT3 |  |  |
+| Restrições de Hardware |
+| RT5 |  |  |
 
 ## 5.	Escopo do Sistema e Contexto
 ### 5.1.	Diagrama de Casos de Uso
