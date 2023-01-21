@@ -113,7 +113,10 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 7.3. Persistência
 | Classe | Tabela | Significado |
 | :--- | :--- | :--- |
-
+Estudante | estudante | Usuário que pode criar cronogramas
+Cronograma | cronograma | Cronograma de tarefas criado por um estudante
+Tarefa | tarefa | Tarefas de um cronograma
+Tipo | tipo | Tipo de tarefa, podendo ser: aula, matéria, prova, afazer e horário vago
 
 ### 7.4. Interface de Usuário
 
