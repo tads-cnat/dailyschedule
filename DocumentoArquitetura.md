@@ -73,25 +73,31 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 4.1.Restrições técnicas
 |  | Restrição | Contexto e/ou Motivação |
 | :--- | :--- | :--- |
-| Restrição de software e programação |
-| RT1 | Acessibilidade | A aplicação foi desenvolvida sem adequar-se ou atentar-se às limitações de usuários portadores de necessidades especiais. |
-| Restrição de sistema operacional |
-| RT3 |  |  |
-| Restrições de Hardware |
-| RT5 |  |  |
+| Restrição de software e programação | Acessibilidade | A aplicação foi desenvolvida sem adequar-se ou atentar-se às limitações de usuários portadores de necessidades especiais. |
+| Restrição de sistema operacional |  |  |
+| Restrições de Hardware |  |  |
 
 ## 5.	Escopo do Sistema e Contexto
 ### 5.1.	Diagrama de Casos de Uso
+![casos de uso](https://github.com/tads-cnat/dailyschedule/blob/main/docs/cdu/casosdeuso.png?raw=true)
+
 | CDU | Objetivo | Ator Primário | Implementado |
 | :--- | :--- | :--- | :--- |
-| CDU01 | O usuário pode cadastrar suas tarefas. | Estudante | Sim |
-| CDU02 | O usuário pode criar um cronograma, após informar suas tarefas. | Estudante | Sim |
-| CDU03 | O usuário pode visualizar um cronograma público. | Estudante e Visitante | Sim |
-| CDU04 | O usuário pode editar seu próprio cronograma. | Estudante | Sim |
-| CDU05 | O usuário pode excluir seu próprio cronograma. | Estudante | Sim |
-| CDU06 | O usuário pode editar seu próprio perfil. | Estudante | Não |
-| CDU07 | O usuário pode excluir seu próprio perfil. | Estudante | Não |
-| CDU08 | O usuário pode pesquisar um cronograma público. | Estudante e Visitante | Sim |
+| CDU01 | Possibilita o cadastro de um usuário. | Visitante | Sim
+| CDU02 | Permite que um usuário cadastrado, atualize seu próprio perfil. | Estudante | Não
+| CDU03 | Permite que um usuário cadastrado, exclua seu próprio perfil. | Estudante | Não
+| CDU04 | Permite o cadastro das tarefas de um cronograma | Estudante | Sim
+| CDU05 | O ator pode visualizar um cronograma público. | Estudante e Visitante | Sim
+| CDU06 | Possibilita a modificação do seu próprio cronograma. | Estudante | Sim
+| CDU07 | Caso seja necessário, o ator pode excluir o cronograma. | Estudante e Administrador | Sim
+| CDU08 | O estudante pode listar os seus cronogramas cadastrados. | Estudante | Sim
+| CDU09 | É possível exportar um cronograma. | Estudante | Sim
+| CDU10 | Permite o compartilhamento de um cronograma. | Estudante | Não
+| CDU11 | O ator pode buscar por um cronograma público. | Estudante e Visitante | Sim
+| CDU12 | O estudante pode realizar login na plataforma com seu usuário e senha. | Estudante | Sim
+| CDU13 | Possibilita a criação de um cronograma. | Estudante | Sim
+
+A maioria das funcionalidades da aplicação são desenvolvidas tendo como ator principal o usuário Estudante. Sendo assim, a fim de garantir o melhor uso do sistema e para garantir a privacidade do usuário, é desenvolvido o seu cadastro e login. 
 
 ## 6.	Diagramas Conceituais
 ### 6.1.	Visão Lógica
@@ -108,11 +114,11 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 #### Modelo comportamental
 Diagrama de Sequência: Criar Cronograma
 
-![Diagrama de Sequência: Criar Cronograma](https://raw.githubusercontent.com/tads-cnat/dailyschedule/9b3f441201296edf9ebb2a3edd537e401b32ce36/docs/DS-%20CDU%20Cria%20Cronograma.svg?token=AZISUURQGOHEX5H4LY7V4BDDZWFMS)
+![Diagrama de Sequência: Criar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DS-%20CDU%20Cria%20Cronograma.svg)
 
 Diagrama de Sequência: Visualizar Cronograma
 
-![Diagrama de Sequência: Visualizar Cronograma](https://raw.githubusercontent.com/tads-cnat/dailyschedule/9b3f441201296edf9ebb2a3edd537e401b32ce36/docs/DS-CDU%20Visualizar%20Cronograma.svg?token=AZISUUX3OBCVAK2PD7IRRODDZWFMS)
+![Diagrama de Sequência: Visualizar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DS-CDU%20Visualizar%20Cronograma.svg)
 
 
 ## 7. Detalhamento da Implementação e Ambiente Físico
@@ -126,8 +132,8 @@ Diagrama de Sequência: Visualizar Cronograma
 | Nó | Descrição |
 | :--- | :--- |
 | SGBD - Sqlite3 | Sistema responsável pelo gerenciamento de banco de dados da aplicação |
-| Servidor da aplicação - Frontend | Conjunto de interfaces e páginas da aplicação |
-| Servidor da aplicação - Backend | Conjunto de classes, regras de negócio e endpoints |
+| Servidor da aplicação - Frontend | Corresponde a parte interativa e gráfica, conjunto de interfaces da aplicação |
+| Servidor da aplicação - Backend | Corresponde a parte que possibilita a operação do sistema, inserções, leitura de dados e trata de um conjunto de classes e endpoints |
 | Máquina do usuário | Máquina onde o usuário acessará a aplicação |
 
 
