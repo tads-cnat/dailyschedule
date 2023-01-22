@@ -12,12 +12,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 import datetime
 
-class AlunoViewSet(viewsets.ModelViewSet):
-    queryset = Aluno.objects.all()
-    serializer_class = SerializadorAluno
-    permission_classes = (AllowAny,)
-
-
 class CronogramaViewSet(viewsets.ModelViewSet):
     
     #queryset = Cronograma.objects.all()
