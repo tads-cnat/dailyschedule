@@ -31,12 +31,16 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
+        id = self.request.query_params.get('id')
         print(username)
         print(queryset)
         
         if username:
-            queryset = queryset.filter(aluno__usuario=username)
+            queryset = queryset.filter(aluno__username=username)
             #queryset = Cronograma.objects.filter(aluno_usuario=username)
+        
+        if id:
+            queryset = queryset.filter(aluno__id=id)
         return queryset
 
     @action(detail=True, methods=['get'], url_path='tarefas')
@@ -156,7 +160,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
 
 
 class AuthViewSet(viewsets.GenericViewSet):
-    permission_classes = []
+    #permission_classes = []
     serializer_class =[SerializadorLogin, SerializadorCadastro]
     
     @action(detail=False, methods=['post'], url_path='login',serializer_class=SerializadorLogin)
@@ -164,13 +168,13 @@ class AuthViewSet(viewsets.GenericViewSet):
         username = request.data.get('usuario')
         password = request.data.get('senha')
 
-        
-        
+                
         user = Aluno.objects.filter(username=username).first()
-
+        id = user.id
+        
         if (user is not None):
             request.session['usuario'] = username
-            return Response ({'detail': 'login realizado com sucesso', 'user':username}, status=status.HTTP_200_OK)
+            return Response ({'detail': 'login realizado com sucesso', 'user':id}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Usuário não encontrado'}, status=status.HTTP_400_BAD_REQUEST)
     
@@ -207,7 +211,7 @@ class AuthViewSet(viewsets.GenericViewSet):
                 return Response({'message': 'Usuário cadastrado com sucesso', 'user':username}, status=status.HTTP_200_OK)
 
     #logout
-    @action(detail=False, methods=['get'], url_path='logout',permission_classes=[IsAuthenticated], authentication_classes=[TokenAuthentication,])
+    @action(detail=False, methods=['get'], url_path='logout')
     def logout(self, request):
         del request.session['usuario']
         return Response({'message': 'Logout realizado com sucesso'}, status=status.HTTP_200_OK)

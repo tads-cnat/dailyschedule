@@ -41,4 +41,9 @@ class Tarefa(models.Model):
 
     def __str__(self):
         return self.descricao
+        
+class Tipo(models.Model):
+    tipo = models.CharField(max_length=10)
+    assunto = models.BooleanField(default=False)
+    tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
 

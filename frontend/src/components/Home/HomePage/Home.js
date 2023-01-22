@@ -1,5 +1,3 @@
-import './style.css'
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +7,8 @@ import Beneficio from '../BeneficioSection/Beneficio.js';
 import Footer from '../Footer/Footer.js';
 
 const Home = () => {
+
+  console.log(" Token: "+localStorage.getItem('token'))
   return (
     <div id="home">
       <NavBar />
