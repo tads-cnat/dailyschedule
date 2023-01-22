@@ -19,8 +19,6 @@ const CriarCrono = () => {
   const dataOfc = new Date(data1[2], data1[1]-1, data1[0], hora1[0], hora1[1])
   const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes()
 
-  console.log(dataOfc, horaOfc)
-
   useEffect(() => {
     const loadData = async(e) => {
       const res = await fetch("http://127.0.0.1:8000/api/cronogramas/").then(res => res.json()).then(data => data)
@@ -60,10 +58,8 @@ const CriarCrono = () => {
       hora_inicio: horaOfc,
       data: dataOfc,
       status: false,
-      cronograma: cronogramas.length,
+      cronograma: 3,
     }
-    console.log(tarefas)
-    
     await fetch("http://localhost:8000/api/tarefas/", {
       method:"POST",
       headers: {

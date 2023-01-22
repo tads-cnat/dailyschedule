@@ -1,6 +1,7 @@
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
 import { useState, useEffect } from "react";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const Visualizar = () => {
   const [cronogramas, setCronogramas] = useState([]);
@@ -22,6 +23,12 @@ const Visualizar = () => {
 
     loadData()
   }, [])
+
+  const handleDelete = async (id) => {
+    await fetch( `http://localhost:8000/api/cronogramas/${id}`, {
+      method:"DELETE",
+    })
+  }
   
   return (
     <div>
@@ -29,7 +36,10 @@ const Visualizar = () => {
       <header className="header">
         <h2>Meus cronogramas</h2>
         {cronogramas.map(crono => (
-          <h3 key={crono.id}> {crono.titulo} </h3>
+          <div key={crono.id} >
+            <h3 > {crono.titulo} </h3>
+            <BsFillTrashFill className='trash' onClick={() => handleDelete(crono.id)} />
+          </div>
         ))}
       </header>
 
@@ -53,7 +63,7 @@ const Visualizar = () => {
               </tr>
             ))}
           </tbody>
-          
+
         </table>
 
         <div className="optbtn">

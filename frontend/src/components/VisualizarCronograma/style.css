@@ -79,3 +79,13 @@ table {
 .optbtn a:hover {
   background-color: var(--scnd-color);
 }
+
+.trash {
+  height: 23px;
+  width: 23px;
+  color: var(--scnd-color);
+  position: absolute;
+  top: 19.5rem;
+  left: 100rem;
+  cursor: pointer;
+}
