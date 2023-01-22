@@ -1,6 +1,6 @@
 # Daily Schedule 
 
-## Caso De Uso - Cronograma 
+## Caso De Uso - Perfil 
 
 ### Histórico da Revisão 
 
