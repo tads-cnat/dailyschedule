@@ -101,8 +101,11 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 | Cronograma | Mantém informações de um cronograma vinculado a um usuário do tipo Estudante. |
 
 #### Modelo comportamental
+Diagrama de Sequência: Criar Cronograma
+![Diagrama de Sequência: Criar Cronograma](https://raw.githubusercontent.com/tads-cnat/daily-schedule/9012bbacdbaef8dbd8f75934345bb40537380337/docs/DS-%20CDU%20Cria%20Cronograma.svg?token=AZISUUQI6IHU7G6SSA4PDCLDZVVVO)
 
-
+Diagrama de Sequência: Visualizar Cronograma
+![Diagrama de Sequência: Visualizar Cronograma](https://raw.githubusercontent.com/tads-cnat/daily-schedule/9012bbacdbaef8dbd8f75934345bb40537380337/docs/DS-CDU%20Visualizar%20Cronograma.svg?token=AZISUUQZSAAICIPKRSIX2XLDZVVM2)
 ## 7. Detalhamento da Implementação e Ambiente Físico
 
 ### 7.1.	Visão de Implementação
@@ -120,6 +123,7 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 
 
 ### 7.3. Persistência
+![Modelo Relacional](https://user-images.githubusercontent.com/96999239/185751208-54afc614-6205-4bc0-b9b1-ee41b28f7ea1.png)
 | Classe | Tabela | Significado |
 | :--- | :--- | :--- |
 Estudante | estudante | Usuário que pode criar cronogramas
