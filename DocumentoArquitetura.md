@@ -124,7 +124,7 @@ Tarefa | tarefa | Tarefas de um cronograma
 Tipo | tipo | Tipo de tarefa, podendo ser: aula, matéria, prova, afazer e horário vago
 
 ### 7.4. Interface de Usuário
-
+O protótipo da interface de usuário foi realizado utilizando a ferramenta Figma e sua implementação deu-se utilizando HyperText Markup Language (HTML), Cascading Style Sheets (CSS), JavaScript e React de framework. As escolhas de implementação justificam-se por maior domínio de tais tecnologias pela equipe de desenvolvimento.
 
 
 ## 8. Anexos
