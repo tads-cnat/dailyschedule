@@ -7,6 +7,9 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
+import datetime
+
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
@@ -17,15 +20,24 @@ from .serializers import SerializadorCronograma, SerializadorTarefa, Serializado
 
 import datetime
 
-
-
 class CronogramaViewSet(viewsets.ModelViewSet):
+
     #authentication_classes = [TokenAuthentication,]
     #permission_classes = [IsAuthenticated]
 
-
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
+
+    def get_queryset(self):
+        queryset = Cronograma.objects.all()
+        username = self.request.query_params.get('username')
+        print(username)
+        print(queryset)
+        
+        if username:
+            queryset = queryset.filter(aluno__usuario=username)
+            #queryset = Cronograma.objects.filter(aluno_usuario=username)
+        return queryset
 
     @action(detail=True, methods=['get'], url_path='tarefas')
     def get_tarefas(self, request, pk=None):

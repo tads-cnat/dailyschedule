@@ -44,17 +44,17 @@ Um cronograma é inserido no sistema, possibilitando ao estudante editá-lo.
 4) O sistema mostra o cronograma pronto e o caso de uso é finalizado. <br> <br>
 
 #### &nbsp; 5.2. Fluxo alternativo
-##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (1): Cadastro de aula
+##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de aula
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "aula";  <br>
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
-##### &nbsp;&nbsp;&nbsp; Fluxo alternativo (2): Cadastro de matéria
+##### &nbsp;&nbsp;&nbsp; Fluxo alternativo (4): Cadastro de matéria
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "matéria"; <br>
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a assunto, descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
-##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (3): Cadastro de prova
+##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de prova
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "prova"; <br>
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a assunto, descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
@@ -64,7 +64,7 @@ Um cronograma é inserido no sistema, possibilitando ao estudante editá-lo.
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a descrição, dias, horários e se a tarefa deve se repetir; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.
 
-##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (5): Cadastro de horário vago
+##### &nbsp;&nbsp;&nbsp;  Fluxo alternativo (4): Cadastro de horário vago
 &nbsp;&nbsp;&nbsp; a) No passo 2, o ator seleciona o cadastro de uma tarefa "horário vago"; <br>
 &nbsp;&nbsp;&nbsp; b) O sistema solicita o questionário com a opção de preencher ou não horários vagos; <br>
 &nbsp;&nbsp;&nbsp; c) O ator preenche os dados e o caso de uso retorna para o passo 2.

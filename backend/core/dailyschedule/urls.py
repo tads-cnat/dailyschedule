@@ -13,7 +13,6 @@ router.register(r'tarefas', views.TarefaViewSet)
 router.register(r'alunos', views.AlunoViewSet, basename='Aluno')
 router.register(r'auth', views.AuthViewSet,basename='auth')
 
-
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')), 
