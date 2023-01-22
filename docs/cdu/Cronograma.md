@@ -32,14 +32,29 @@ Um cronograma é inserido no sistema, possibilitando ao ator editá-lo, remove-l
 | 5. Selecionará um tipo de tarefa que deseja criar para o cronograma. | 6. Exibirá os campos de horário de inicio, horário de finalização, título, data, e outros que variam de acordo com cada tipo de tarefa. |
 | 7. Preenche os campos de acordo com o tipo de tarefa escolhida e clica em prosseguir. | 8. Mostra o cronograma e as opções que podem ser realizadas com uma tarefa descrito no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md). |
 | 9. Seleciona a opção finalizar cronograma. | 10. Exibe uma confirmação da criação do cronograma, exibe o cronograma, e exibe uma opção de exportar o cronograma ou compartilha-lo. |
+| 11. Sair da tela ou exportar/compartilhar o cronograma. |  |
 
-#### &nbsp; 5.2. Fluxo Alternativo
+#### &nbsp; 5.2. Fluxos Alternativos
+
+#### &nbsp; 5.2.1 Fluxo Alternativo - (Tópico 9)
 | Ações Do Ator | Ações Do Sistema |
 | :----- | :----- |
-| 9.1. Seleciona a opção de inserir outra tarefa. | 10.1. retorna ao passo 4 do fluxo principal, exibindo os tipos de tarefas que podem ser adicionados a um cronograma. |
-| 11.1. Selecionará um tipo de tarefa que deseja criar para o cronograma. | 12.1. Exibirá os campos de horário de inicio, horário de finalização, título, data, e outros que variam de acordo com cada tipo de tarefa. |
-| 13.1. Preenche os campos de acordo com o tipo de tarefa escolhida e clica em prosseguir. | 14.1. Mostra o cronograma e as opções que podem ser realizadas com uma tarefa descrito no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md).|
-| 15.1. Seleciona a opção finalizar cronograma ou inserir outra tarefa, repetindo todo o fluxo alternativo. | 16.1. Exibe uma confirmação da criação do cronograma, exibe o cronograma, e exibe uma opção de exportar o cronograma ou compartilha-lo. |
+| 1. Seleciona a opção de inserir outra tarefa. | 2. retorna ao passo 4 do fluxo principal, exibindo os tipos de tarefas que podem ser adicionados a um cronograma. |
+| 3. Selecionará um tipo de tarefa que deseja criar para o cronograma. | 4. Exibirá os campos de horário de inicio, horário de finalização, título, data, e outros que variam de acordo com cada tipo de tarefa. |
+| 5. Preenche os campos de acordo com o tipo de tarefa escolhida e clica em prosseguir. | 6. Mostra o cronograma e as opções que podem ser realizadas com uma tarefa descrito no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md).|
+| 7. Seleciona a opção finalizar cronograma ou inserir outra tarefa, repetindo todo o fluxo alternativo. | 8. Exibe uma confirmação da criação do cronograma, exibe o cronograma, e exibe uma opção de exportar o cronograma ou compartilha-lo. |
+
+#### &nbsp; 5.2.2 Fluxo Alternativo - (Tópico 11)
+| Ações Do Ator | Ações Do Sistema |
+| :----- | :----- |
+| 1. Clica em exportar o cronograma. | 2. Exibe os formatos de arquivo para exportar. |
+| 3. Seleciona um formato de arquivo. | 4. Exporta o arquivo para o dispositivo do cliente. |
+
+#### &nbsp; 5.2.2 Fluxo Alternativo - (Tópico 11)
+| Ações Do Ator | Ações Do Sistema |
+| :----- | :----- |
+| 1. Clica em compartilhar o cronograma. | 2. Exibe os locais onde é possível compartilhas. |
+| 3. Seleciona um local onde deseja compartilhar. | 4. Envia o cronograma para o local informado. |
 
 ### 6. Restrições e Validações
 | Restrições | Validações |
