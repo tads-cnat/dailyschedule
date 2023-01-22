@@ -74,7 +74,7 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 |  | Restrição | Contexto e/ou Motivação |
 | :--- | :--- | :--- |
 | Restrição de software e programação |
-| RT1 |  |  |
+| RT1 | Acessibilidade | A aplicação foi desenvolvida sem adequar-se ou atentar-se às limitações de usuários portadores de necessidades especiais. |
 | Restrição de sistema operacional |
 | RT3 |  |  |
 | Restrições de Hardware |
@@ -84,9 +84,14 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 5.1.	Diagrama de Casos de Uso
 | CDU | Objetivo | Ator Primário | Implementado |
 | :--- | :--- | :--- | :--- |
-| CDU01 | O cliente pode cadastrar suas tarefas. | Estudante | Sim |
-| CDU02 | O estudante pode criar um cronograma, após informar suas tarefas. | Estudante | Sim |
-
+| CDU01 | O usuário pode cadastrar suas tarefas. | Estudante | Sim |
+| CDU02 | O usuário pode criar um cronograma, após informar suas tarefas. | Estudante | Sim |
+| CDU03 | O usuário pode visualizar um cronograma público. | Estudante e Visitante | Sim |
+| CDU04 | O usuário pode editar seu próprio cronograma. | Estudante | Sim |
+| CDU05 | O usuário pode excluir seu próprio cronograma. | Estudante | Sim |
+| CDU06 | O usuário pode editar seu próprio perfil. | Estudante | Não |
+| CDU07 | O usuário pode excluir seu próprio perfil. | Estudante | Não |
+| CDU08 | O usuário pode pesquisar um cronograma público. | Estudante e Visitante | Sim |
 
 ## 6.	Diagramas Conceituais
 ### 6.1.	Visão Lógica
