@@ -12,6 +12,7 @@ const Login = () => {
     const [err, setErr] = useState(false)
     const navigate = useNavigate()
 
+
     /*
     Caso codigo 200 -> Sucesso
         -> Adiciona Token no local Storage
@@ -23,23 +24,30 @@ const Login = () => {
             setErr(true)
     */
 
-
     async function handleSubmit (event) {
-
-        const request = await fetch('localhost/api/login', {
+        event.preventDefault();
+        
+        const request = await fetch('http://localhost:8000/api/auth/login/', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
             },
-            body: {
+            body: JSON.stringify({
                 'usuario': email,
                 'senha': senha,
-            }
-        }).then(console.log(request))
+            })
+        })
+        const response = await request.json()
+        console.log(response)
 
+        if (request.status === 200) {
+            localStorage.setItem('token', response.token)
+            navigate('/')
+        }
+        if (request.status === 401) {
+            setErr(true)
+        }
 
-
-        event.preventDefault();
       }
 
     const handlerEmail = (event) => {
@@ -49,19 +57,17 @@ const Login = () => {
     const handlerSenha = (event) => {
         setSenha(event.target.value)
     }
-
-
     return(
         <section id="login">
             <h2>Entre ou <a href="cadastro.html" target="_blank">cadastre-se</a> agora!</h2>
             <h2>Organize suas tarefas de forma eficiente com seu</h2>
             <h1>Daily Schedule!</h1>
-            <form action="" method="POST" onSubmit={handleSubmit} id="entrar">
-                <label for="email">E-mail/username</label>
+            <form onSubmit={handleSubmit} id="entrar">
+                <label htmlFor="email">E-mail/username</label>
                 <br/>
-                <input type="email" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
+                <input type="text" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
                 <br/><br/>
-                <label for="password">Senha</label>
+                <label htmlFor="password">Senha</label>
                 <br/>
                 <input type="password" name="password" id="password" placeholder="Insira sua senha" required title="Insira sua senha" value = {senha} onChange={handlerSenha}/>
                 <br/>
@@ -72,7 +78,7 @@ const Login = () => {
 
             <img src={ ComputadorImg } alt="Computador"/>
         </section>
-    )
+    )   
 }
 
 export default Login

@@ -128,9 +128,14 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    ]
+
+
 REST_FRAMEWORK = {
     'DEFALT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication'
+        'rest_framework.authentication.BasicAuthentication',
 
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -179,4 +184,7 @@ SWAGGER_SETTINGS = {
         'drf_yasg.inspectors.SimpleFieldInspector',
         'drf_yasg.inspectors.StringDefaultFieldInspector',
     ],
+
+    
 }
+AUTH_USER_MODEL = 'dailyschedule.Aluno'

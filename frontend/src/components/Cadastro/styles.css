@@ -1,0 +1,101 @@
+
+#cadastro {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 30%;
+    margin-left: 10rem;
+  }
+  
+  #cadastro h2 {
+    color: #ce7cff;
+    position: relative;
+    top: -7rem;
+  }
+  
+  #cadastro h1 {
+    color: var(--scnd-color);
+    font-size: 4rem;
+    position: relative;
+    top: -5rem;
+  }
+  
+  #cadastro img {
+    position: fixed;
+    width: 50rem;
+    left: 50%;
+    top: 20%;
+  }
+  
+  #cadastro label {
+    color: var(--brand-dark);
+    position: relative;
+    top: -1.4rem;
+  }
+  
+  #cadastro input {
+    box-sizing: border-box;
+    border: 0.1rem solid #e1afff;
+    border-radius: 4rem;
+    width: 43rem;
+    height: 5.6rem;
+  
+    position: relative;
+    top: -1.1rem;
+  
+    text-indent: 2rem;
+  }
+  
+  #cadastro input[type='email']:focus {
+    outline: none;
+  }
+  
+  #cadastro button,
+  #cadastro .button {
+    background: var(--scnd-color);
+  
+    border: none;
+    border-radius: 4rem;
+  
+    margin-bottom: 6rem;
+  
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+  
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+  
+    text-decoration: none;
+  
+    transition: background 200ms;
+  }
+  
+  #cadastro button:hover {
+    background-color: #6486ff;
+  }
+  
+  #cadastro .fpass {
+    text-decoration: none;
+    position: relative;
+    left: 28.5rem;
+  }
+  
+  #cadastro a {
+    text-decoration: none;
+  }
+  
+  #cadastro .button {
+    position: absolute;
+    top: 31.5rem;
+    left: 16rem;
+  }
+  
+  input[type='text']:focus {
+    outline: none;
+  }
