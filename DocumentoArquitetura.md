@@ -116,10 +116,10 @@ Diagrama de Sequência: Visualizar Cronograma
 ### 7.2.	Visão de Distribuição
 | Nó | Descrição |
 | :--- | :--- |
-| SGBD - Sqlite | Sistema de banco de dados da aplicação |
+| SGBD - Sqlite3 | Sistema responsável pelo gerenciamento de banco de dados da aplicação |
 | Servidor da aplicação - Frontend | Conjunto de interfaces e páginas da aplicação |
-| Servidor da aplicação - Backend | Conjunto de classes, regras de negocio e endpoints |
-| Máquina do usuário | Maquina que o usuario utilizará para fazer acesso a aplicação |
+| Servidor da aplicação - Backend | Conjunto de classes, regras de negócio e endpoints |
+| Máquina do usuário | Máquina onde o usuário acessará a aplicação |
 
 
 ### 7.3. Persistência
