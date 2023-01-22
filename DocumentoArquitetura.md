@@ -92,7 +92,7 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 6.1.	Visão Lógica
 
 #### Modelos de domínio
-
+![Diagrama Classe de Domínio](https://user-images.githubusercontent.com/96999239/185751281-22d487e1-d0dc-4c7e-a249-19a8428ba6a0.svg)
 | Conceito | Descrição |
 | :--- | :--- |
 | Estudante | Mantém informações de um usuário cadastrado (estudante). |
@@ -113,6 +113,10 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 ### 7.2.	Visão de Distribuição
 | Nó | Descrição |
 | :--- | :--- |
+| SGBD - Sqlite | Sistema de banco de dados da aplicação |
+| Servidor da aplicação - Frontend | Conjunto de interfaces e páginas da aplicação |
+| Servidor da aplicação - Backend | Conjunto de classes, regras de negocio e endpoints |
+| Máquina do usuário | Maquina que o usuario utilizará para fazer acesso a aplicação |
 
 
 ### 7.3. Persistência
