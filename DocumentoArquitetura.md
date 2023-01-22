@@ -107,10 +107,12 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 
 #### Modelo comportamental
 Diagrama de Sequência: Criar Cronograma
-![Diagrama de Sequência: Criar Cronograma](https://raw.githubusercontent.com/tads-cnat/daily-schedule/9012bbacdbaef8dbd8f75934345bb40537380337/docs/DS-%20CDU%20Cria%20Cronograma.svg?token=AZISUUQI6IHU7G6SSA4PDCLDZVVVO)
+
+![Diagrama de Sequência: Criar Cronograma](https://raw.githubusercontent.com/tads-cnat/dailyschedule/9b3f441201296edf9ebb2a3edd537e401b32ce36/docs/DS-%20CDU%20Cria%20Cronograma.svg?token=AZISUURQGOHEX5H4LY7V4BDDZWFMS)
 
 Diagrama de Sequência: Visualizar Cronograma
-![Diagrama de Sequência: Visualizar Cronograma](https://raw.githubusercontent.com/tads-cnat/daily-schedule/9012bbacdbaef8dbd8f75934345bb40537380337/docs/DS-CDU%20Visualizar%20Cronograma.svg?token=AZISUUQZSAAICIPKRSIX2XLDZVVM2)
+
+![Diagrama de Sequência: Visualizar Cronograma](https://raw.githubusercontent.com/tads-cnat/dailyschedule/9b3f441201296edf9ebb2a3edd537e401b32ce36/docs/DS-CDU%20Visualizar%20Cronograma.svg?token=AZISUUX3OBCVAK2PD7IRRODDZWFMS)
 
 
 ## 7. Detalhamento da Implementação e Ambiente Físico
@@ -137,6 +139,8 @@ Estudante | estudante | Usuário que pode criar cronogramas
 Cronograma | cronograma | Cronograma de tarefas criado por um estudante
 Tarefa | tarefa | Tarefas de um cronograma
 Tipo | tipo | Tipo de tarefa, podendo ser: aula, matéria, prova, afazer e horário vago
+
+O SGBD utilizado foi o Sqlite3 com gatilhos, já que a função de retorno do banco de dados irá executar automaticamente quando um evento especificado do banco de dados ocorrer. Exemplo: ao se excluir um usuário, os cronogramas relacionados a ele, serão também excluidos.
 
 ### 7.4. Interface de Usuário
 O protótipo da interface de usuário foi realizado utilizando a ferramenta Figma e sua implementação deu-se utilizando HyperText Markup Language (HTML), Cascading Style Sheets (CSS), JavaScript e React de framework. As escolhas de implementação justificam-se por maior domínio de tais tecnologias pela equipe de desenvolvimento.
