@@ -111,6 +111,8 @@ Diagrama de Sequência: Criar Cronograma
 
 Diagrama de Sequência: Visualizar Cronograma
 ![Diagrama de Sequência: Visualizar Cronograma](https://raw.githubusercontent.com/tads-cnat/daily-schedule/9012bbacdbaef8dbd8f75934345bb40537380337/docs/DS-CDU%20Visualizar%20Cronograma.svg?token=AZISUUQZSAAICIPKRSIX2XLDZVVM2)
+
+
 ## 7. Detalhamento da Implementação e Ambiente Físico
 
 ### 7.1.	Visão de Implementação
