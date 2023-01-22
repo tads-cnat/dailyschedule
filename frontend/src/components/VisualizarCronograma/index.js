@@ -1,7 +1,8 @@
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
+import CriarCrono from '../CriarCronograma/index.js'
 import { useState, useEffect } from "react";
-import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 
 const Visualizar = () => {
   const [cronogramas, setCronogramas] = useState([]);
@@ -29,6 +30,16 @@ const Visualizar = () => {
       method:"DELETE",
     })
   }
+
+  const handlePut = async (tarefas) => {
+    await fetch(`http://localhost:8000/api/tarefas/${tarefas.id}`, {
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },  
+      body: JSON.stringify(tarefas)
+    })
+  }
   
   return (
     <div>
@@ -39,6 +50,8 @@ const Visualizar = () => {
           <div key={crono.id} >
             <h3 > {crono.titulo} </h3>
             <BsFillTrashFill className='trash' onClick={() => handleDelete(crono.id)} />
+            
+            
           </div>
         ))}
       </header>
@@ -60,6 +73,7 @@ const Visualizar = () => {
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>
+                <a href={`/tarefas/${tarefa.id}`}><BsPencilSquare className='pencil'/></a>
               </tr>
             ))}
           </tbody>

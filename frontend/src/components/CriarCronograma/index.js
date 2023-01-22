@@ -46,6 +46,7 @@ const CriarCrono = () => {
     }).then(res => res.json());
   }
 
+
   const  postTarefas = async (e) => {
     e.preventDefault();
 
@@ -58,7 +59,7 @@ const CriarCrono = () => {
       hora_inicio: horaOfc,
       data: dataOfc,
       status: false,
-      cronograma: 3,
+      cronograma: cronogramas[cronogramas.length-1].id,
     }
     await fetch("http://localhost:8000/api/tarefas/", {
       method:"POST",

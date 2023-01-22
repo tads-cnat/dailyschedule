@@ -89,3 +89,13 @@ table {
   left: 100rem;
   cursor: pointer;
 }
+
+.pencil {
+  height: 23px;
+  width: 23px;
+  color: var(--scnd-color);
+  position: absolute;
+  top: -5.5rem;
+  left: 53rem;
+  cursor: pointer;
+}

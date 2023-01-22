@@ -1,0 +1,209 @@
+/* CONFIGURAÇÕES DA HEADER DE CRIAR/MEUS CRONOGRAMAS */
+
+.header h2 {
+  position: absolute;
+  left: 43.5rem;
+  top: 10.5rem;
+
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+
+  display: flex;
+  align-items: center;
+
+  color: var(--third-color);
+}
+
+.header h3 {
+  position: absolute;
+  left: 43.5rem;
+  top: 18rem;
+
+  font-size: 2.4rem;
+  line-height: 3.8rem;
+
+  display: flex;
+  align-items: center;
+
+  color: #6562E3;
+}
+
+.header p {
+  position: absolute;
+  left: 43.5rem;
+  top: 16rem;
+
+  font-size: 2.4rem;
+  line-height: 3.5rem;
+
+  color: var(--primary-color);
+}
+
+/* ESTILIZAÇÃO DAS PÁGINAS DE INFORMAÇÕES DO CRONOGRAMA */
+
+.crono-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: absolute;
+  left: 43.5rem;
+  top: 32rem;
+}
+
+.crono-info1 {
+  width: 140rem;
+  position: absolute;
+  left: 43.5rem;
+  top: 32rem;
+}
+
+.crono-info1 .info {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem;
+}
+
+[data-tab="content"] form {
+  display: none;
+}
+
+[data-tab="content"] form.ativo {
+  display: block !important;
+}
+
+#horario,
+#horarioAula,
+#horarioMateria,
+#horarioProva,
+#horarioAfazer,
+#horarioDesc {
+  text-indent: 0.2rem;
+  border: 0.2rem solid #e1afff;
+  border-radius: 1rem;
+  width: 8rem;
+  height: 5rem;
+}
+
+#publico,
+#privado {
+  width: 3rem;
+  height: 2rem;
+}
+
+#titulo_cronograma,
+#titulo,
+#aula,
+#materia,
+#prova,
+#afazer,
+#desc,
+#descricao,
+#descricaoAula,
+#descricaoMateria,
+#descricaoProva,
+#descricaoAfazer,
+#descricaoDesc,
+#assunto,
+#assuntoMateria,
+#assuntoProva {
+  text-indent: 1rem;
+  border: 0.2rem solid #e1afff;
+  border-radius: 1rem;
+  width: 20rem;
+  height: 5rem;
+}
+
+#data,
+#dataMateria,
+#dataAula,
+#dataProva,
+#dataAfazer,
+#dataDesc {
+  text-indent: 1rem;
+  border: 0.2rem solid #e1afff;
+  border-radius: 1rem;
+  width: 20rem;
+  height: 5rem;
+}
+
+#criar-crono button,
+#criar-crono1 button {
+  color: #ffffff;
+
+  width: 19rem;
+  height: 5.8rem;
+  background: var(--primary-color);
+  border-radius: 2rem;
+  border: none;
+
+  position: absolute;
+  bottom: -10rem;
+  left: 70rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#criar-crono1 .btncont,
+#criar-crono .btncont  {
+  display: block;
+}
+
+#criar-crono button:hover,
+#criar-crono1 button:hover {
+  background: var(--scnd-color);
+}
+
+#criar-crono button:-webkit-any-link,
+#criar-crono1 button:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ESTILIZAÇÃO DA BARRA DE NAVEGAÇÕES DOS TIPOS DE TAREFAS */
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+
+  position: absolute;
+  left: 55rem;
+  top: 24rem;
+
+  background-color: var(--third-color);
+
+  padding: 2rem;
+  border-radius: 3rem;
+}
+
+.options button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: var(--scnd-color);
+  padding-right: 0.6rem;
+  border-radius: 2rem;
+}
+
+.options button::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: var(--scnd-color);
+}
