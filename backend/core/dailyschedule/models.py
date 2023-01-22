@@ -9,6 +9,7 @@ from django.contrib.auth.models import User, AbstractUser
 class Aluno(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    last_login = models.DateTimeField(default=timezone.now())
     email = models.EmailField(max_length=254)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
