@@ -31,9 +31,12 @@ Um perfil é cadastrado no sistema, possibilitando ao ator do tipo Estudante edi
 | 5. Preenchee os novos dados atualizados. | 6. Atualiza os dados informados. |
 | 7. Confirma os dados preenchidos e clica em salvar. | 8. Salva os novos dados informados. |
 
-#### &nbsp;&nbsp;&nbsp;5.1.1. Fluxo Principal de Atualização de Perfil
- 1. Estudante não preenche todos os dados obrigatórios.
- 2. Ator preenche campo com formato inválido.
+#### &nbsp;&nbsp;&nbsp;5.1.1. Fluxo de Exceção de Atualização de Perfil <br>
+| Ações Do Ator | Ações Do Sistema |
+| :----- | :----- |
+| 1. Seleciona opção de alteração de dados. | 2. Solicita novos dados. |
+| 3. Preenche campos com formato inválido.  | 4. Solicita que o usuário preencha os campos com formato correto e não salva alterações.
+
 
 #### &nbsp;&nbsp;&nbsp;5.2. Fluxo Principal de Exclusão de Perfil
 | Ações Do Ator | Ações Do Sistema |
