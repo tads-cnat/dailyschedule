@@ -16,7 +16,7 @@ const Rotas = () => {
             <Route path="/criar-cronograma" element = { <CriarCrono /> }  />
             <Route path="/cronograma" element = { <Visualizar /> }  />
             <Route path="/login" element={ <Login/> }/>
-            <Route path="/tarefas/:id" element={ <Editar/> }/>
+            <Route path="/cronograma/:id" element={ <Editar/> }/>
          </Routes>
       </Router>
    )

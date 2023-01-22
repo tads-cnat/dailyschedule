@@ -4,9 +4,10 @@ import CriarCrono from '../CriarCronograma/index.js'
 import { useState, useEffect } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 
-const Visualizar = () => {
+const Visualizar = (projectData) => {
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
+  const [project, setProject] = useState(projectData || []);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const Visualizar = () => {
           <div key={crono.id} >
             <h3 > {crono.titulo} </h3>
             <BsFillTrashFill className='trash' onClick={() => handleDelete(crono.id)} />
-            
+            <a href={`/cronograma/${crono.id}`}><BsPencilSquare className='pencil'/></a>
             
           </div>
         ))}
@@ -73,7 +74,7 @@ const Visualizar = () => {
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>
-                <a href={`/tarefas/${tarefa.id}`}><BsPencilSquare className='pencil'/></a>
+                
               </tr>
             ))}
           </tbody>

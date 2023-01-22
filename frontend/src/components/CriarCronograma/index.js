@@ -13,6 +13,8 @@ const CriarCrono = () => {
   const [data, setData] = useState("")
   
   const [cronogramas, setCronogramas] = useState([])
+  const [tarefas, setTarefas] = useState([])
+  const [alunos, setAlunos] = useState([])
 
   const data1 = data.split('/')
   const hora1 = hora.split(':')
@@ -21,20 +23,25 @@ const CriarCrono = () => {
 
   useEffect(() => {
     const loadData = async(e) => {
-      const res = await fetch("http://127.0.0.1:8000/api/cronogramas/").then(res => res.json()).then(data => data)
-
+      const res = await fetch("http://localhost:8000/api/cronogramas/").then(res => res.json()).then(data => data)
       setCronogramas(res)
-    }
 
+      const rest = await fetch("http://localhost:8000/api/tarefas/").then(res => res.json()).then(data => data)
+      setTarefas(rest)
+      
+      const resa = await fetch("http://localhost:8000/api/alunos/").then(res => res.json()).then(data => data)
+      setAlunos(resa)
+    }
+    
     loadData()
   }, [])
-  
+
   const  postCronogramas = async (e) => {
     e.preventDefault();
     const cronogramas = {
       privacidade: Boolean(privacidade),
       titulo: titulo_cronograma,
-      aluno: 1
+      aluno: alunos[alunos.length-1].id
     }
     
     await fetch("http://localhost:8000/api/cronogramas/", {
@@ -45,8 +52,7 @@ const CriarCrono = () => {
       body: JSON.stringify(cronogramas)
     }).then(res => res.json());
   }
-
-
+  
   const  postTarefas = async (e) => {
     e.preventDefault();
 
@@ -109,10 +115,11 @@ const CriarCrono = () => {
         <button onClick={handleClick}>Horários Vagos</button >
       </div>
 
-    <section id="criar-crono" data-tab="content">
+    
+      <section id="criar-crono" data-tab="content">
       <form onSubmit={postCronogramas} className="crono-info" method="post">
         <label htmlFor="titulo">Insira o nome do seu cronograma: </label> <br/><br/>
-        <input type="text" name="titulo" id="titulo_cronograma" onChange={(e) => setTituloCronograma(e.target.value)} value={titulo || ""} /> <br/>
+        <input type="text" name="titulo" id="titulo_cronograma" onChange={(e) => setTituloCronograma(e.target.value)} value={titulo_cronograma || ""} /> <br/>
         <div className="crono-priv"><br/>
           <input type="radio" name="priv" id="privado" onChange={(e) => setPrivado(e.target.value)} value={privacidade || true} />
           <label htmlFor="priv">Quero que seja privado</label>
@@ -238,6 +245,7 @@ const CriarCrono = () => {
         <button className="btncont" type="submit">Salvar</button>
       </form>
     </section>
+
   </div>
   )
 }
