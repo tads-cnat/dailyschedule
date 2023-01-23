@@ -5,6 +5,10 @@ from django.http.response import JsonResponse
 from django.core.serializers import serialize
 from rest_framework.parsers import JSONParser 
 from rest_framework import status, viewsets
+
+from .utils import *
+from .models import Cronograma, Tarefa, Aluno
+from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -129,6 +133,27 @@ class AlunoViewSet(viewsets.ModelViewSet):
     #permission_classes = [IsAuthenticated]
     queryset = Aluno.objects.all()
     serializer_class = SerializadorAluno
+
+    @action(detail=True, methods=['get'], url_path='')
+    def alerta(self, request, pk):
+        print(pk + "<= PK")
+        msgRetorno = 'Tarefa(s) Pendente(s):'
+        now = datetime.datetime.now()
+        aft = now + datetime.timedelta(days=1)
+        aluno = Aluno.objects.all().first()
+        tarefas = Tarefa.objects.filter(cronograma__aluno=aluno).filter(data__gt=now).filter(data__lt=aft)
+        if tarefas:
+            cont = 0
+            for tarefa in tarefas:
+                msgRetorno = msgRetorno + "\n["+ str(cont)+ "] " + tarefa.titulo
+            email = Email()
+            email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+            try:
+                email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+            except:
+                msgRetorno = 'Falha no envio'
+            print(msgRetorno)
+        return Response({'message': msgRetorno}, status=status.HTTP_200_OK)
 
     @action (detail=False, methods=['post'], url_path='')
     def cadastro(self, request):

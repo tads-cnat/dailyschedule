@@ -7,13 +7,15 @@ from django.contrib.auth.models import User, AbstractUser
 
 # Create your models here.
 
-class Aluno(AbstractUser):
+class Aluno(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     last_login = models.DateTimeField(default=timezone.now())
     email = models.EmailField(max_length=254)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
+    notificacao = models.BooleanField(default=False)
+    qtd = models.IntegerField(default=0)
 
     USERNAME_FIELD = 'username'
 
