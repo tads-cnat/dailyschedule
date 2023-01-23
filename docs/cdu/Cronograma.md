@@ -8,8 +8,8 @@
 | :-----: | :-----: | :-----: | :-----: |
 | 11/06/2022 | 1.0 | Versão Inicial | Equipe Daily Schedule |
 | 22/10/2022 | 1.1 | Versão continuada | Equipe Daily Schedule |
-| 20/01/2023 | 1.2 | Versão continuada | Equipe Daily Schedule |
-| 22/01/2023 | 1.3 | Versão Final | Equipe Daily Schedule |
+| 20/01/2023 | 1.2 | Versão continuada | Christian |
+| 22/01/2023 | 1.3 | Versão Final | Christian |
 
 ### 1. Resumo
 Este caso de uso descreve as possíveis atividades realizadas pelo ator estudante na entidade cronograma, ou seja, permite incluir um novo cronograma, alterar um cronograma pré-existente, consultar um ou mais cronogramas que foram criados, e remover um dos cronogramas pertencentes ao ator.
