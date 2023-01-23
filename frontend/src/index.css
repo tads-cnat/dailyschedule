@@ -1,7 +1,10 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -28,7 +31,7 @@ body {
 
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background-color: #f7f9f9;
 }
 

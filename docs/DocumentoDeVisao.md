@@ -19,7 +19,7 @@ O projeto **Daily Schedule** tem como objetivo ajudar na organização dos estud
 | --- | --- |
 | **afeta** | a vida dos estudantes do nível fundamental, médio e superior. |
 | **cujo impacto é** | a perda de prazos e baixo rendimento escolar. |
-| **uma boa solução seria** | o desenvolvimento de um sistema capaz de simplificar a organização das demandas acadêmicas. |
+| **um boa solução seria** | o desenvolvimento de um sistema capaz de simplificar a organização das demandas acadêmicas. |
 
 <br>
 
@@ -95,4 +95,4 @@ O Daily Schedule ajuda todos os estudantes que queiram organizar seus estudos e 
 | RN02 | Definir privacidade do cronograma | O usuário, durante ou após o desenvolvimento, poderá definir se seu cronograma será público ou privado. |
 | RN03 | Controle de visitantes | O usuário visitante apenas poderá navegar pela plataforma visualizando cronogramas públicos. |
 | RN04 | Dados da Tarefa | Os dados da Tarefa são: descrição, data e hora. |
-| RN05 | Tipos de Tarefa especiais | Os tipos de tarefas especiais são aula e matéria. Essas tarefas possuem um dado a mais chamado assunto. |
+| RN04 | Tipos de Tarefa especiais | Os tipos de tarefas especiais são aula e matéria. Essas tarefas possuem um dado a mais chamado assunto. |
