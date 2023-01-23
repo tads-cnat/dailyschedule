@@ -145,7 +145,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>
@@ -171,7 +171,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>
@@ -197,7 +197,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>
@@ -219,7 +219,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>
@@ -241,7 +241,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>

@@ -34,7 +34,7 @@ function MeusCrogramas(){
           .then(data => setCronogramas(data))
       }
     return (
-        <div className="App">
+        <div className="MC">
             <Sidebar></Sidebar>
             {/*<nav className="nav-menu">                
                 <ul className="lista-simples">
@@ -52,7 +52,7 @@ function MeusCrogramas(){
                 </ul>
     </nav>*/}
             <section className="content">
-                <header className="App-header">
+                <header className="header">
                     <h2 className="tittle">Meus Cronogramas</h2>                
                     
                 </header>
