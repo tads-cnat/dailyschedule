@@ -5,7 +5,7 @@ from .models import Aluno, Cronograma, Tarefa, User
 class SerializadorAluno(serializers.ModelSerializer):
     class Meta:
         model = Aluno
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'qtd', 'notificacao')
 
 
 class SerializadorCronograma(serializers.ModelSerializer):

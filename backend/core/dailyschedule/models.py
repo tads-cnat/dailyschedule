@@ -14,6 +14,8 @@ class Aluno(AbstractUser):
     email = models.EmailField(max_length=254)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
+    qtd = models.IntegerField(default=0)
+    notificacao = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
 
@@ -41,7 +43,7 @@ class Tarefa(models.Model):
 
     def __str__(self):
         return self.descricao
-        
+
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)
