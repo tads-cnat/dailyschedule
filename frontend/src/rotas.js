@@ -4,16 +4,14 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./components/Home/HomePage/Home";
 import CriarCrono from "./components/CriarCronograma/index.js";
 import Visualizar from "./components/VisualizarCronograma/index.js";
-import Login from "./components/Login/index.js"
-import Editar from "./components/Editar/index.js"
+import Editar from "./components/Editar/index.js";
 
-import Buscar from "./components/Busca/Buscar.js"
+import Buscar from "./components/Busca/Buscar.js";
 import Login from "./components/Login/index.js";
 import Cadastro from "./components/Cadastro/index.js";
-import Editar from './components/Editar/Editar';
 import MeusCrogramas from './components/MeusCronogramas/MeusCronogramas';
-import Visualizar from "./components/Visualizar";
-//importa a rota
+//import Editar from './components/Editar/Editar';
+//import Visualizar from "./components/Visualizar";
 
 const Rotas = () => {
    return(
@@ -27,7 +25,7 @@ const Rotas = () => {
             <Route path="/buscar" element={ <Buscar/> }/>
             <Route path="/cadastro" element={ <Cadastro/> }/>
             <Route path="/MeusCronogramas" element={<MeusCrogramas />}> </Route>
-            
+
             <Route path="/Editar/:id" element={<Editar />}> </Route>
             <Route path="/Cronograma/:id" element={<Visualizar />} ></Route>
          </Routes>
