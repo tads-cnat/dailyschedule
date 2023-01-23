@@ -3,12 +3,20 @@ import SideBar from '../Navbar/Sidebar/index.js'
 import CriarCrono from '../CriarCronograma/index.js'
 import { useState, useEffect } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
+import { useReactToPrint } from 'react-to-print';
+import { useRef } from 'react';
 
 const Visualizar = (projectData) => {
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'Nova Print',          
+    });
 
   useEffect(() => {
     const loadData = async(e) => {
@@ -40,6 +48,7 @@ const Visualizar = (projectData) => {
       },  
       body: JSON.stringify(tarefas)
     })
+    
   }
   
   return (
@@ -58,7 +67,7 @@ const Visualizar = (projectData) => {
       </header>
 
       <section className="visualizar">
-        <table>
+        <table ref={componentRef}>
 
           <thead>
             <tr>
@@ -84,7 +93,7 @@ const Visualizar = (projectData) => {
         <div className="optbtn">
           <a href="/">Compartilhar</a>
           <a id="Hab" href="/">Editar</a>
-          <a href="/#">Baixar</a>
+          <a href="#" onClick={handlePrint}>Baixar</a>
         </div>
       </section>
     </div>

@@ -20,6 +20,7 @@ const Rotas = () => {
             <Route path="/login" element={ <Login/> }/>
             <Route path="/cadastro" element={ <Cadastro/> }/>
             <Route path="/MeusCronogramas" element={<MeusCrogramas />}> </Route>
+            
             <Route path="/Editar/:id" element={<Editar />}> </Route>
             <Route path="/Cronograma/:id" element={<Visualizar />} ></Route>
          </Routes>
