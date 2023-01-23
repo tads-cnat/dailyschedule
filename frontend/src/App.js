@@ -21,9 +21,9 @@ function App(){
         })
       }
       //loadData();
-
+      const id = localStorage.getItem('token')
       const alerta = () => {
-        fetch('http://localhost:8000/api/aluno/1/alerta')
+        fetch(`http://localhost:8000/api/aluno/${id}/alerta`)
           .then(response => response.json())
           .then(data => setAlerta(data))
       }

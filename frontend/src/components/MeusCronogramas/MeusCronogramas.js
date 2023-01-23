@@ -10,10 +10,11 @@ import { useReactToPrint } from 'react-to-print';
 
 function MeusCrogramas(){
     const [cronogramas, setCronogramas] = useState([]);
+    const id = localStorage.getItem('token')
 
     useEffect(()=>{
         const loadData = () => {
-          fetch('http://localhost:8000/api/cronogramas/')
+          fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
           .then(response => response.json())
           .then(data => setCronogramas(data))
         }
@@ -58,54 +59,25 @@ function MeusCrogramas(){
                 <section className="list-cards">
                     <div className="box-cards">
                         {cronogramas.map(cronograma=>(
-                            <div className="card" ref={componentRef}>
+                            <div className="card" >
                                 <div className="dropdown">
                                     <button className="dropbtn option">...</button>
                                     
                                     <div className="dropdown-content">                                          
-                                        <Link to="/Editar">Editar</Link>                                            
-                                        <Link to="/MeusCronogramas" onClick={handlePrint}>Exportar</Link>                                                                                
+                                        <Link to={`/Editar/${cronograma.id}`}>Editar</Link>                                            
+                                        <Link to={`/Cronograma/${cronograma.id}`} onClick={handlePrint}>Exportar</Link>                                                                                
                                         <Link to="/">Compartilhar</Link>                                        
                                         
                                     </div>
                                 </div> 
                                 <div>
-                                    <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
+                                    <a href={`/Cronograma/${cronograma.id}`}>
+                                        <img className="img-icon" src="https://th.bing.com/th/id/OIP.gxHUqJpeu1HZBzrHPlaB-QHaHa?pid=ImgDet&rs=1" />
+                                    </a>
                                 </div>
                                 <p> {cronograma.titulo}</p>
                             </div>                        
-                        ))}
-
-
-                        <div className="card">
-                            <div className="dropdown">                                
-                                <button className="dropbtn option">...</button>
-                                <div className="dropdown-content">
-                                    <Link to="/Editar">Editar</Link>                                            
-                                    <Link to="/" onClick={handlePrint}>Exportar</Link>                                                                                
-                                    <Link to="/">Compartilhar</Link>
-                                </div>
-                            </div> 
-                            <div>
-                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
-                            </div>
-                            <p>card 2</p>
-                        </div>
-
-                        <div className="card"> 
-                            <div className="dropdown">
-                                <button className="dropbtn option">...</button>
-                                <div className="dropdown-content">
-                                    <a href="#">Editar</a>
-                                    <a href="#">Exportar</a>
-                                    <a href="#">Compartilhar</a>
-                                </div>
-                            </div> 
-                            <div>
-                                <img className="img-icon" src="https://th.bing.com/th/id/OIP.v6NL4qLcI5FSZJRvCN2iugHaFl?pid=ImgDet&rs=1" />
-                            </div>
-                            <p>card 3</p>
-                        </div>                                               
+                        ))}              
                             
                     </div>                
                     

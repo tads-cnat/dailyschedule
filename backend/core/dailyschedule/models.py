@@ -3,29 +3,31 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import datetime
 
+from django.contrib.auth.models import User, AbstractUser
+
 # Create your models here.
 
 class Aluno(models.Model):
-    nome = models.CharField(max_length=30, null=True)
-    usuario = models.CharField(max_length=30, default="user")
-    senha = models.CharField(max_length=30, default="123")
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    last_login = models.DateTimeField(default=timezone.now())
+    email = models.EmailField(max_length=254)
+    username = models.CharField(max_length=50, unique=True)
+    password = models.CharField(max_length=50)
     notificacao = models.BooleanField(default=False)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     qtd = models.IntegerField(default=0)
 
+    USERNAME_FIELD = 'username'
+
+
     def __str__(self):
-        return self.usuario
+        return ("{0} - primeiro nome".format(self.first_name))
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
-    created_by = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        verbose_name='criado por',
-        null=True
-    )
+    
 
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
@@ -34,11 +36,16 @@ class Tarefa(models.Model):
     titulo = models.CharField(max_length=50)
     assunto = models.CharField(max_length=50, null=True)
     descricao = models.CharField(max_length=100)
-    hora_inicio = models.TimeField(default=timezone.now)
+    hora_inicio = models.TimeField(default=datetime.time(0, 0))
     data = models.DateTimeField('Data Cronograma')
     status = models.BooleanField(default=False)
     cronograma = models.ForeignKey(Cronograma, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.descricao
+        
+class Tipo(models.Model):
+    tipo = models.CharField(max_length=10)
+    assunto = models.BooleanField(default=False)
+    tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
 
