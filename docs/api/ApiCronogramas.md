@@ -1,6 +1,6 @@
 # Daily Schedule 
 
-## Descrição da API - [CDU Cronogramas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Cronograma.md)
+## Descrição da API - [CDU Cronograma](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Cronograma.md)
 
 ### Histórico da Revisão
 
