@@ -1,4 +1,4 @@
-import './style.css'
+import '../../../assets/css/style.css'
 import concentracao from '../../../assets/images/concentracao.png'
 import confianca from '../../../assets/images/confianca.jpg'
 import tempo from '../../../assets/images/tempo.jpg'

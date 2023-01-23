@@ -57,7 +57,7 @@ const Sidebar = () => {
               Início</a>
           </li>
           <li>
-            <a href="criar-cronograma">
+            <a href="/criar-cronograma">
               <svg
                 width="22"
                 height="21"
@@ -75,7 +75,7 @@ const Sidebar = () => {
               Criar cronograma</a>
           </li>
           <li>
-            <a href="#/">
+            <a href="/MeusCronogramas">
               <svg
                 width="22"
                 height="21"

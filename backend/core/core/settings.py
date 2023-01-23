@@ -133,15 +133,15 @@ AUTHENTICATION_BACKENDS = [
     ]
 
 
-REST_FRAMEWORK = {
-    'DEFALT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    )
-}
+#REST_FRAMEWORK = {
+#    'DEFALT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.BasicAuthentication',
+#
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#        'rest_framework.permissions.IsAuthenticated',
+#    )
+#}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

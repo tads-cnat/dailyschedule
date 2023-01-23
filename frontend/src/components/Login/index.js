@@ -41,7 +41,7 @@ const Login = () => {
         console.log(response)
 
         if (request.status === 200) {
-            localStorage.setItem('token', response.token)
+            localStorage.setItem('token', response.user)
             navigate('/')
         }
         if (request.status === 401) {
