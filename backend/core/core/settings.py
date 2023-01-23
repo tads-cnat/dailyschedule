@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'dailyschedule',
     'rest_framework.authtoken',
     'drf_yasg',
-
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -210,9 +208,11 @@ DEFAULT_FROM_EMAIL = "equipe.swenergy@outlook.com"
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+
 ACCOUNT_ACTIVATION_DAYS=7
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+#EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='your_email@example.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='your_password')
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_PORT = config('EMAIL_PORT', default=587)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
