@@ -65,13 +65,13 @@ function MeusCrogramas(){
                                     
                                     <div className="dropdown-content">                                          
                                         <Link to={`/Editar/${cronograma.id}`}>Editar</Link>                                            
-                                        <Link to={`/Cronograma/${cronograma.id}`} onClick={handlePrint}>Exportar</Link>                                                                                
+                                        <Link to={`/Cronograma`} onClick={handlePrint}>Exportar</Link>                                                                                
                                         <Link to="/">Compartilhar</Link>                                        
                                         
                                     </div>
                                 </div> 
                                 <div>
-                                    <a href={`/Cronograma/${cronograma.id}`}>
+                                    <a href={`/Cronograma`}>
                                         <img className="img-icon" src="https://th.bing.com/th/id/OIP.gxHUqJpeu1HZBzrHPlaB-QHaHa?pid=ImgDet&rs=1" />
                                     </a>
                                 </div>
