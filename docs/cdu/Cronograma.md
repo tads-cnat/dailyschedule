@@ -31,8 +31,8 @@ Um cronograma é inserido no sistema, possibilitando ao ator editá-lo, remove-l
 | 3. Após preencher a privacidade e o título do cronograma, clicará em prosseguir. | 4. Exibirá os tipos de tarefas que podem ser adicionados a um cronograma. |
 | 5. Selecionará um tipo de tarefa que deseja criar para o cronograma. | 6. Exibirá os campos de horário de inicio, horário de finalização, título, data, e outros que variam de acordo com cada tipo de tarefa. |
 | 7. Preenche os campos de acordo com o tipo de tarefa escolhida e clica em prosseguir. | 8. Mostra o cronograma e as opções que podem ser realizadas com uma tarefa descrito no [CDU Tarefas](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md). |
-| 9. Seleciona a opção finalizar cronograma. | 10. Exibe uma confirmação da criação do cronograma, exibe o cronograma, e exibe uma opção de exportar o cronograma ou compartilha-lo. |
-| 11. Sair da tela ou exportar/compartilhar o cronograma. |  |
+| 9. Seleciona a opção finalizar cronograma. | 10. Exibe uma confirmação da criação do cronograma, exibe o cronograma, exibe a opção de atualizar o cronograma, exibe a opção de excluir o cronograma, e exibe uma opção de exportar o cronograma ou compartilha-lo. |
+| 11. Sair da tela ou exportar, compartilhar, editar e apagar o cronograma. |  |
 
 #### &nbsp; 5.2. Fluxos Alternativos
 
@@ -50,11 +50,23 @@ Um cronograma é inserido no sistema, possibilitando ao ator editá-lo, remove-l
 | 1. Clica em exportar o cronograma. | 2. Exibe os formatos de arquivo para exportar. |
 | 3. Seleciona um formato de arquivo. | 4. Exporta o arquivo para o dispositivo do cliente. |
 
-#### &nbsp; 5.2.2 Fluxo Alternativo - (Tópico 11)
+#### &nbsp; 5.2.3 Fluxo Alternativo - (Tópico 11)
 | Ações Do Ator | Ações Do Sistema |
 | :----- | :----- |
 | 1. Clica em compartilhar o cronograma. | 2. Exibe os locais onde é possível compartilhas. |
 | 3. Seleciona um local onde deseja compartilhar. | 4. Envia o cronograma para o local informado. |
+
+#### &nbsp; 5.2.4 Fluxo Alternativo - (Tópico 11)
+| Ações Do Ator | Ações Do Sistema |
+| :----- | :----- |
+| 1. Clica em editar o cronograma. | 2. Exibe o cronograma com os campos de título e privacidade para serem alterados. |
+| 3. Altera as informações desejadas e clicar em salvar. | 4. Salva as alterações feitas. |
+
+#### &nbsp; 5.2.5 Fluxo Alternativo - (Tópico 11)
+| Ações Do Ator | Ações Do Sistema |
+| :----- | :----- |
+| 1. Clica em deletar o cronograma. | 2. Exibe uma mensagem de confirmação perguntando se deseja deletar o cronograma e suas tarefas. |
+| 3. Clica em confirmar. | 4. Remove o cronograma e volta para a página inicial. |
 
 ### 6. Restrições e Validações
 | Restrições | Validações |
