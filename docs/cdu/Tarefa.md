@@ -7,15 +7,21 @@
 | Data | Versão | Descrição | Autor |
 | :-----: | :-----: | :-----: | :-----: |
 | 22/10/2022 | 1.0 | Versão Inicial | Christian |
-| 22/01/2023 | 1.1 | Versão Final | Christian |
+| 23/01/2023 | 1.1 | Versão Final | Christian |
 
 ### 1. Resumo
 Este caso de uso descreve as atividades realizadas pelo ator estudante na entidade tarefa, ou seja, permite incluir uma nova tarefa, alterar uma tarefa pré-existente, consultar uma ou mais tarefas que foram criadas, e remover uma ou mais tarefas pertencentes ao ator.
 
 #### 1.1. Tipos De Tarefas e Seus Campos
-|  |  |
-| :-----: | :-----: |
-|  |  |
+| Aulas | Matérias | Provas | Afazeres | Horário Vago |
+| :-----: | :-----: | :-----: | :-----: | :-----: |
+| Identificador (ID) | Identificador (ID) | Identificador (ID) | Identificador (ID) | Identificador (ID) |
+| Data | Data | Data | Data | Data |
+| Horário Inicial | Horário Inicial | Horário Inicial | Horário Inicial | Horário Inicial |
+| Horário Final | Horário Final | Horário Final | Horário Final | Horário Final |
+| Título | Título | Título | Título | Título |
+| Descrição | Descrição | Descrição | Descrição | Descrição |
+| Status | Status | Status | Status | Status |
 
 ### 2. Atores
 Estudante.
