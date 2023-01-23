@@ -1,85 +1,104 @@
 # Daily Schedule 
 
-## Descrição da API - CDU Tarefas
+## Descrição da API - [CDU Tarefa](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md)
 
 ### Histórico da Revisão
 
 | Data | Versão | Descrição | Autor |
 | :-----: | :-----: | :-----: | :-----: |
 | 19/12/2022 | 1.0 | Versão Inicial | Christian |
-<br>
+| 22/01/2023 | 1.1 | Versão Final | Christian |
 
 ### 1. Resumo
-Esse documento visa descrever como funcionará a API do caso de uso tarefas do sistema. <br> <br>
+Esse documento visa descrever como funcionará a API do caso de uso tarefas.
 <br>
 
 ### 2. Funcionamento
-  - No endpoint dentro do diretório do projeto teremos um recurso chamado Tarefas.
-  - O recurso Tarefas terá um primeiro parâmetro que indicará a qual usuário aquele cronograma pertence, e um segundo parâmetro informando qual o número (identificador) daquele cronograma.
-  - Este recurso (Cronogramas) terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
-  - Os cronogramas criados pelos usuários são semanais, tendo como base o dia/semana atual. 
-  - O conteúdo dos cronogramas são tarefas. As tarefas são classificadas em mais de um tipo, e serão descritas em um outro CDU.
-<br>
+  - No endpoint dentro do diretório do projeto teremos um recurso chamado tarefas.
+  - O recurso tarefas terá obrigatorioamente que receber 2 parâmetros, e 3 serão opcionais.
+  - Este recurso terá 4 métodos, que são os mais comuns (POST, GET, PUT ou PATCH, e DELETE).
 
-### 3. Descrevendo os Métodos
-  - **Método POST:** Criará um cronograma para um usuário, no qual o seu identificador é passado como parâmetro.
-      - Caso seja informado apenas o primeiro parâmetro, o método deverá criar um cronograma para a semana atual, se já houve um cronograma na semana atual, o método deverá retornar um erro.
-      - Caso haja passagem de mais de um parâmetro, ele criará um cronograma informando a qual semana deseja que o cronograma pertença.
-      - Caso não haja passagem de nenhum parâmetro, o método deverá retornar um erro.
-      
-  - **Método GET:** Recuperará o cronograma completo da semana atual de um usuário no qual seu identificador é passado como parâmetro.
-      - Caso haja passagem de mais de um parâmetro, ele retornará um dos vários cronogramas daquele usuário.
-      - Caso não haja passagem de nenhum parâmetro, o método deverá retornar um erro.
-         
-  - **Método PUT ou PATCH:** Atualizará um cronograma existente de um usuário.
-      - Caso receba apenas o primeiro parâmetro que é o identificador do usuário, atualizará o cronograma da semana atual.
-      - Caso receba mais de um parâmetro, deverá atualizar o cronograma da semana informada.
-      - Caso não receba nenhum parâmetro, o método deverá retornar um erro.
-         
-  - **Método DELETE:** Apagará um cronograma existente de um usuário.
-      - Caso receba apenas o primeiro parâmetro que é o identificador do usuário, deletará o cronograma da semana atual.
-      - Caso receba mais de um parâmetro, deverá deletar o cronograma da semana informada.
-      - Caso não receba nenhum parâmetro, o método deverá retornar um erro.
-<br>
+### 3. Exemplificação dos Parâmetros e do Endpoint
+- O recurso tarefa terá 5 parâmetros, sendo 2 passadoa como obrigatórioa, 3 parâmetros opicionais que podem ser omitidos.
+- Quando os parâmetros padrões forem omitidos, o sistema irá passar as referências atuais. Ex: Semana atual, Mês Atual, Ano Atual e Último ID Cadastrado.
 
-**OBS: Alguns desses métodos devem verificar se o cronograma está público ou privado para não executar algumas das operações CRUD.**
-<br><br>
+#### 3.1 - Parâmetros
+- O primeiro parâmetro indicará a qual usuário aquela tarefa pertence.
+- O segundo parâmetro informa a qual cronograma pertence a tarefa.
+- O terceiro parâmetro é opcional e indica uma data.
+- O quarto parâmetro também é opcional e referencia o tipo de tarefa, descrito no [CDU Tarefa](https://github.com/tads-cnat/dailyschedule/blob/doc-api/docs/cdu/Tarefa.md).
+- O quinto parâmetro é opcional e informa especificamente qual tarefa se deseja.
 
-### 4. Exemplos dos Métodos
-  - *POST*
-    - cronogramas/1 (Criará o cronograma atual do usuario 1)
-    - cronogramas/1/3 (Criará o cronograma do usuario 1 da semana 3)
-    - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-    - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+#### 3.2 - Endpoint
+- ***Padrão Utilizado***
+  - recurso/parametro-1/parametro-2/paramatro-3/parametro-4/parametro-5
+  - tarefas/usuário/idcronograma/data/tipo/idtarefa
 
-  - *GET*
-     - cronogramas/1 (Retorna o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Retorna o cronograma do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+### 4. Exemplos dos Métodos e do Endpoint
+  - ***POST***
+    - **tarefas/**
+      - Não funcionará, pois o primeiro parâmetro que informa o usuário é obrigatório e deve ser passado.
+    - **tarefas/1**
+      - Irá gerar um erro, pois não indica qual o cronograma do usuário 1 onde se criará a tarefa.
+    - **tarefas/1/1**
+      - Criará uma tarefa no cronograma de identificador 1 para o usuário 1, utilizando o dia, a semana, e o mês atual.
+    - **tarefas/1/1/05-10-2015**
+      - Criará uma tarefa no cronograma de identificador 1, para o usuário 1, no qual a data é passada como parâmetro.
+    - **tarefas/1/1/05-10**
+      - Criará uma tarefa no cronograma de identificador 1, para o usuário 1, no qual informa o dia e mês do cronograma, utilizará como base o ano atual.
+    - **tarefas/1/1/05**
+      - Criará uma tarefa no cronograma de identificador 1, para o usuário 1, no dia 5 com o mês e ano atuais.
+    - **tarefas/1/1/05-10-2015/5**
+      - Irá gerar um erro pois o identificador é gerido pelo sistema, não podendo criar um cronograma com id desejado.
 
-  - *PUT ou PATCH*
-     - cronogramas/1 (Atualizará o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Atualizará o cronograma do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
-        
-  - *DELETE*
-     - cronogramas/1 (Apagará o cronograma atual do usuario 1)
-     - cronogramas/1/3 (Apagará o cronograma do usuario 1 da semana 3)
-     - cronogramas/0 (Retorna um erro pois não informa o usuario nem o cronograma)
-     - cronogramas/0/3 (Retorna um erro pois pede o cronograma da semana 3 mas não informa qual o usuario)
+  - ***GET***
+    - **tarefas/**
+      - Não funcionará, pois o primeiro parâmetro que informa o usuário é obrigatório e deve ser passado.
+    - **tarefas/1**
+      - Irá gerar um erro, pois não indica qual o cronograma do usuário 1 onde se exibirá as tarefas.
+    - **tarefas/1/1**
+      - Erro por não especificar uma data para o cronograma de identificador 1.
+    - **tarefas/1/1/05-10-2015**
+      - Exibirá todas as tarefas do usuário 1 cadastradas no cronograma 1, no qual foram cadastradas na data informada.
+    - **tarefas/1/1/05-10-2015/5**
+      - Exibirá a tarefa de identificador 5 do usuário 1 cadastradas no cronograma 1, no qual foi cadastrado na data informada.
+    - **tarefas/1/1/05-10**
+      - Exibirá todas as tarefas do usuário 1 cadastradas no cronograma 1, no qual foram cadastradas no dia 5 do mês de outubro do ano atual.
+    - **tarefas/1/1/05**
+      - Exibirá todas as tarefas do usuário 1 cadastradas no cronograma 1, no qual foram cadastradas no dia 5 do mês e ano atual.
+    - **tarefas/1/1/semana1**
+      - Exibirá todas as tarefas do usuário 1 cadastradas no cronograma 1, no qual foram cadastradas na semana1 do mês e ano atual.
+    - **tarefas/1/1/janeiro**
+      - Exibirá todas as tarefas do usuário 1 cadastradas no cronograma 1, no qual foram cadastradas no mês de janeiro.
+    - **tarefas/1/1/2015**
+      - Erro por não ser possível recuperar todas as tarefas do ano.
+    - **tarefas/1/1/05/prova***
+      - Exibirá todas as tarefas do tipo prova no cronograma de identificador 1, para o usuário 1, no dia 5 com o mês e ano atuais.
+     
+  - ***PUT ou PATCH***
+    - **tarefas/**
+      - Não funcionará, pois o primeiro parâmetro que informa o usuário é obrigatório e deve ser passado.
+    - **tarefas/1**
+      - Irá gerar um erro, pois não indica qual o cronograma do usuário 1 onde se atualizará a tarefa.
+    - **tarefas/1/1**
+      - Erro por não especificar uma data para o cronograma de identificador 1.
+    - **tarefas/1/1/05-10-2015**
+      - Erro por não especificar o identificador do cronograma que se deseja atualizar.
+    - **tarefas/1/1/05-10-2015/prova**
+      - Irá ocorrer um erro pois não é possível atualizar todas as tarefas do tipo prova de uma determinada data.
+    - **tarefas/1/1/05-10-2015/prova/5**
+      - Irá alterar a tarefa do tipo prova de identificador 5, no qual pertece ao usuário 1 do cronograma de id 1 com a data especificada.
 
-<!--
-Observações:
-Criar issues para fazer alterações que melhorem esse documento.
-O parâmetro "identificador" citado no tópico 3 servirá para identificar o usuário do cronograma, em alguns métodos os parâmetros podem ser opcionais.
-
-Sugestões:
-Tópico 2 / Item 5 - Alterar o trecho "e serão descritas em um outro CDU" para o link referenciando o CDU "Tarefas" que ainda não foi criado.
-Tópico 3 / Item 1 / Sub-item 1 - Especificar o erro gerado que ainda não foi discutido/pensado.
-Tópico 3 / Item 1 / Sub-item 3 - Especificar o erro gerado que ainda não foi discutido/pensado.
-Tópico 3 / Item 2 / Sub-item 2 - Especificar o erro gerado que ainda não foi discutido/pensado.
-Tópico 3 / Item 3 / Sub-item 3 - Especificar o erro gerado que ainda não foi discutido/pensado.
-Tópico 3 / Item 4 / Sub-item 3 - Especificar o erro gerado que ainda não foi discutido/pensado.
--->
+  - ***DELETE***
+    - **tarefas/**
+      - Não funcionará, pois não se pode apagar todas as tarefas do sistema.
+    - **tarefas/1**
+      - Irá gerar um erro, pois não pode deletar todas as terafas de um usuário.
+    - **tarefas/1/1**
+      - Apagará todas as tarefas do cronograma de identificador 1 com a data atual.
+    - **tarefas/1/1/05-10-2015**
+      - Removerá todas as tarefas do dia especificado, no qual é refeente ao cronograma 1 do usuário 1.
+    - **tarefas/1/1/05-10-2015/prova**
+      - Deletará todas as tarefas do tipo prova, no qual pertece ao usuário 1 do cronograma de id 1 com a data especificada.
+    - **tarefas/1/1/05-10-2015/prova/5**
+      - Irá apagar a tarefa de identificador 5 do tipo prova, no qual pertece ao usuário 1 do cronograma de id 1 com a data especificada.
