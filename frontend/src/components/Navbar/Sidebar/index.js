@@ -1,4 +1,5 @@
 import './style.css'
+import React from 'react';
 
 const Sidebar = () => {
   return (
@@ -23,7 +24,7 @@ const Sidebar = () => {
       </div>
       <div className="pesquisar">
         
-        <form action="." method="GET">
+        <form action="/buscar" method="GET" >
           <input type="text" name="search" id="search" placeholder="Pesquisar"/>
           <input type="submit" className="btns" value="" />
         </form>

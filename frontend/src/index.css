@@ -7,6 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --primary-color: #6562e3;
+  --scnd-color: #5e5bcd;
+  --third-color: #ce7cff;
+  --brand-dark: #5d7088;
+  --gray-color: #a8a7a7;
+  --bg-light: #f7f9f9;
+
+  font-size: 62.5%; /* 1rem = 10px */
+  --nav-height: 7.2rem;
+}
+
 html {
   scroll-behavior: smooth;
 }

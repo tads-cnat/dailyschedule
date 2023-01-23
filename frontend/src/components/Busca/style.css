@@ -1,0 +1,25 @@
+.buscaInfo {
+  position: absolute;
+  left: 44rem;
+  top: 20rem;
+}
+
+.busca input {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  width: 70rem;
+  border-radius: 5rem;
+  border: #ce7cff 0.8px solid;
+}
+
+.buscaCrono {
+  border: #ce7cff 0.8px solid;
+  padding: 3rem;
+  margin: 1rem;
+}
+
+.buscaCrono a {
+  color: black;
+  text-decoration: none;
+}
