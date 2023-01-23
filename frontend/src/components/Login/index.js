@@ -26,7 +26,7 @@ const Login = () => {
 
     async function handleSubmit (event) {
 
-        const request = await fetch('localhost/api/login', {
+        const request = await fetch('localhost:8000/api/auth/login', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -59,9 +59,9 @@ const Login = () => {
                 <h2>Organize suas tarefas de forma eficiente com seu</h2>
                 <h1>Daily Schedule!</h1>
                 <form action="" method="POST" onSubmit={handleSubmit} id="entrar">
-                    <label for="email">E-mail/username</label>
+                    <label for="email">Username</label>
                     <br/>
-                    <input type="email" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
+                    <input type="text" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
                     <br/><br/>
                     <label for="password">Senha</label>
                     <br/>
