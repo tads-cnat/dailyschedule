@@ -13,6 +13,7 @@ const CriarCrono = () => {
   const [data, setData] = useState("")
   
   const [cronogramas, setCronogramas] = useState([])
+  // eslint-disable-next-line
   const [tarefas, setTarefas] = useState([])
   const [alunos, setAlunos] = useState([])
 

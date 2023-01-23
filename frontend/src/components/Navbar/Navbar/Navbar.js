@@ -20,7 +20,7 @@ const NavBar = () => {
             <li><a href="#beneficio">Benefícios</a></li>
             <li><a href="/criar-cronograma">Criar cronograma</a></li>
             <div id="pesquisar1">
-              <form action="." method="GET">
+              <form action="/buscar" method="GET">
                 <input type="text" name="search" id="search" placeholder="Pesquisar"/>
                 <input type="submit" className="btns" value=""/>
               </form>

@@ -6,6 +6,7 @@ import CriarCrono from "./components/CriarCronograma/index.js";
 import Visualizar from "./components/VisualizarCronograma/index.js";
 import Login from "./components/Login/index.js"
 import Editar from "./components/Editar/index.js"
+import Buscar from "./components/Busca/Buscar.js"
 //importa a rota
 
 const Rotas = () => {
@@ -17,6 +18,7 @@ const Rotas = () => {
             <Route path="/cronograma" element = { <Visualizar /> }  />
             <Route path="/login" element={ <Login/> }/>
             <Route path="/cronograma/:id" element={ <Editar/> }/>
+            <Route path="/buscar" element={ <Buscar/> }/>
          </Routes>
       </Router>
    )
