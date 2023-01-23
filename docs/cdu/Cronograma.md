@@ -59,4 +59,4 @@ Um cronograma é inserido no sistema, possibilitando ao ator editá-lo, remove-l
 ### 6. Restrições e Validações
 | Restrições | Validações |
 | :-----: | :-----: |
-| Nenhuma | Nenhuma |
+| Nenhuma | Verificar se não está sendo criado um cronograma para uma data anterior ao dia atual |
