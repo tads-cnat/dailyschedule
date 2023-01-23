@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
         Create TRIGGER T_taf
         AFTER INSERT ON dailyschedule_cronograma
         BEGIN
-            UPDATE dailyschedule_aluno set qtd = qtd+1 where id = dailyschedule_cronograma.aluno_id;
+            UPDATE dailyschedule_aluno set qtd = qtd+1 where id = NEW.aluno_id;
         END;
         """   
         ),
