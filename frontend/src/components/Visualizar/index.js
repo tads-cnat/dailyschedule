@@ -1,16 +1,22 @@
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
 import CriarCrono from '../CriarCronograma/index.js'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Visualizar = (projectData) => {
+const VisualizarC = (projectData) => {
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+
+  const params = useParams();
+  const ID = params.id;
+
+  console.log("USEERIDDD: " + ID);
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -19,19 +25,22 @@ const Visualizar = (projectData) => {
     });
 
   useEffect(() => {
+    const crono = ''
     const loadData = async(e) => {
-      const crono = await fetch("http://127.0.0.1:8000/api/cronogramas/")
+      crono = await fetch(`http://127.0.0.1:8000/api/cronogramas/${ID}`)
       .then(crono => crono.json())
       .then(data => data)
-      setCronogramas(crono)
-      
-      const res = await fetch("http://127.0.0.1:8000/api/tarefas/")
+      setCronogramas(crono)      
+    } 
+    const loadTarefas = async(e) => {      
+      const res = await fetch(`http://localhost:8000/api/tarefas/${cronogramas.id}`)
       .then(res => res.json())
       .then(data => data)
       setTarefas(res)
-    }
-
+    }   
     loadData()
+    
+    console.log("Id do cronograma crono: " + crono)
   }, [])
 
   const handleDelete = async (id) => {
@@ -56,14 +65,14 @@ const Visualizar = (projectData) => {
       <SideBar />
       <header className="header">
         <h2>Meus cronogramas</h2>
-        {cronogramas.map(crono => (
-          <div key={crono.id} >
-            <h3 > {crono.titulo} </h3>
-            <BsFillTrashFill className='trash' onClick={() => handleDelete(crono.id)} />
-            <a href={`/cronograma/${crono.id}`}><BsPencilSquare className='pencil'/></a>
+        
+          <div>
+            <h3 > {cronogramas.titulo} </h3>
+            <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
+            <a href={`/cronograma/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
             
           </div>
-        ))}
+        
       </header>
 
       <section className="visualizar">
@@ -100,4 +109,4 @@ const Visualizar = (projectData) => {
   )
 }
 
-export default Visualizar;
+export default VisualizarC;

@@ -11,7 +11,7 @@ import Login from "./components/Login/index.js";
 import Cadastro from "./components/Cadastro/index.js";
 import MeusCrogramas from './components/MeusCronogramas/MeusCronogramas';
 //import Editar from './components/Editar/Editar';
-//import Visualizar from "./components/Visualizar";
+import VisualizarC from "./components/Visualizar/index.js";
 
 const Rotas = () => {
    return(
@@ -28,6 +28,8 @@ const Rotas = () => {
 
             <Route path="/Editar/:id" element={<Editar />}> </Route>
             <Route path="/Cronograma/:id" element={<Visualizar />} ></Route>
+
+            <Route path="/Visualizar/:id" element={<VisualizarC />} ></Route>
          </Routes>
       </Router>
    )

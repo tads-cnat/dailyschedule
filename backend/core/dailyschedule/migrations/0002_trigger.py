@@ -9,10 +9,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunSQL("""
-        Create TRIGGER T_addqtd
+        Create TRIGGER T_Qtd
         AFTER INSERT ON dailyschedule_cronograma
         BEGIN
-            UPDATE dailyschedule_aluno set qtd = qtd+1 where id= 2;
+            UPDATE dailyschedule_aluno set qtd = qtd+1 where id = NEW.aluno_id;
         END;
         """   
         ),

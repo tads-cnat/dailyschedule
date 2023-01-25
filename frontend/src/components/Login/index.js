@@ -42,7 +42,7 @@ const Login = () => {
 
         if (request.status === 200) {
             localStorage.setItem('token', response.user)
-            navigate('/')
+            navigate('/criar-cronograma')
         }
         if (request.status === 401) {
             setErr(true)

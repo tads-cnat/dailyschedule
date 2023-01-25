@@ -5,12 +5,17 @@ import { useState, useEffect } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Visualizar = (projectData) => {
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+  
+  const params = useParams();
+  const userID = params.id;
+  console.log(userID)
 
   useEffect(() => {
     const loadData = async(e) => {
