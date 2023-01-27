@@ -5,9 +5,12 @@ import { useState, useEffect, useId } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { redirect, useParams } from 'react-router-dom';
 
 const VisualizarC = (projectData) => {
+  const id = localStorage.getItem('token')
+
+  
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
@@ -41,7 +44,7 @@ const VisualizarC = (projectData) => {
     loadData()
     
     console.log("Id do cronograma crono: " + crono)
-  }, [])
+  }, [ID])
 
   const handleDelete = async (id) => {
     await fetch( `http://localhost:8000/api/cronogramas/${id}`, {
@@ -59,6 +62,7 @@ const VisualizarC = (projectData) => {
     })
     
   }
+
   
   return (
     <div>
@@ -67,13 +71,14 @@ const VisualizarC = (projectData) => {
         <h2>Meus cronogramas</h2>
         
           <div>
-            <h3 > {cronogramas.titulo} </h3>
+            <h3> {cronogramas.titulo} </h3>
             <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
             <a href={`/cronograma/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
             
           </div>
         
       </header>
+      
 
       <section className="visualizar">
         <table ref={componentRef}>
@@ -107,6 +112,7 @@ const VisualizarC = (projectData) => {
       </section>
     </div>
   )
+
 }
 
 export default VisualizarC;

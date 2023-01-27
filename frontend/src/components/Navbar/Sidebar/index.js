@@ -2,6 +2,9 @@ import './style.css'
 import React from 'react';
 
 const Sidebar = () => {
+  const Logout = () =>{
+    localStorage.removeItem("token")
+  }
   return (
     <nav id="sidebar">
       <div className="logo">
@@ -175,7 +178,7 @@ const Sidebar = () => {
               Configurações</a>
           </li>
           <li>
-            <a href="#/" >
+            <a href="/"  onClick={Logout()}>
               <svg
                 width="22"
                 height="21"

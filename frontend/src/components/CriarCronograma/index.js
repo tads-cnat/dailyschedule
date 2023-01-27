@@ -1,6 +1,7 @@
 import './style.css'
 import { useState, useEffect } from "react";
 import Sidebar from '../Navbar/Sidebar/index.js'
+import { useNavigate } from 'react-router-dom';
 
 const CriarCrono = () => {
 
@@ -22,7 +23,14 @@ const CriarCrono = () => {
   const dataOfc = new Date(data1[2], data1[1]-1, data1[0], hora1[0], hora1[1])
   const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes()
 
-  useEffect(() => {
+  const id = localStorage.getItem('token');
+  const navigate = useNavigate();
+
+  useEffect(()=>{     
+    if(id == null){
+        navigate("/")
+    }   
+    
     const loadData = async(e) => {
       const res = await fetch("http://localhost:8000/api/cronogramas/").then(res => res.json()).then(data => data)
       setCronogramas(res)

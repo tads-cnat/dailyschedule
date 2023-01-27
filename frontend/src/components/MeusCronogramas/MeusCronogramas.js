@@ -3,16 +3,21 @@ import { useEffect, useState } from "react";
 import './MC.css';
 import Editar from "../Editar/Editar";
 import Sidebar from '../Navbar/Sidebar';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 
 
 function MeusCrogramas(){
     const [cronogramas, setCronogramas] = useState([]);
-    const id = localStorage.getItem('token')
+    
+    const id = localStorage.getItem('token');
+    const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(()=>{     
+        if(id == null){
+            navigate("/")
+        }   
         const loadData = () => {
           fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
           .then(response => response.json())
