@@ -23,13 +23,15 @@ function Perfil(){
         }
         loadData();
       }, [])
+
+      console.log(aluno.notificacao);
       
       return (
         <div>
             <Sidebar></Sidebar>
-            <header className="perfilHder">
+            <section className="perfilHder">
                     <h2 className="tittle">Perfil</h2>
-            </header>
+            </section>
 
             <section className="perfil">
             
@@ -47,6 +49,10 @@ function Perfil(){
                     </div>
                     <div>
                         Usuário: {nome.username}
+                    </div>
+
+                    <div>
+                        Notificações: {nome.notificacao ? "ativas" : " inativas"}
                     </div>
 
                     </div>
