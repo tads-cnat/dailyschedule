@@ -3,7 +3,7 @@ import React from 'react';
 
 const Sidebar = () => {
   const Logout = () =>{
-    localStorage.removeItem("token")
+    //localStorage.removeItem("token")
   }
   return (
     <nav id="sidebar">

@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-
+import Sidebar from '../Navbar/Sidebar';
+import './style.css'
 
 function Perfil(){
     const id = localStorage.getItem('token');
@@ -24,7 +25,24 @@ function Perfil(){
       
       return (
         <div>
-              DEPRESSÃO
+            <Sidebar></Sidebar>
+            <header className="header">
+                    <h2 className="tittle">Perfil</h2>
+            </header>
+
+            <section className="perfil">
+                {aluno.map(nome=>(
+                    <div key={nome.id} > Nome: {nome.first_name} {nome.last_name} <br/>
+
+                    <div>
+                        Email: {nome.email} 
+                    </div>
+                    <div>
+                        Usuário: {nome.username}
+                    </div>
+                    </div>
+                ))}
+            </section>
         </div>
     )
 }
