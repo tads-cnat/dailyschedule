@@ -26,7 +26,9 @@ const CriarCrono = () => {
   const id = localStorage.getItem('token');
   const navigate = useNavigate();
 
+  console.log("ID do usuário: " + id)
   useEffect(()=>{     
+
     if(id == null){
         navigate("/")
     }   
@@ -153,7 +155,7 @@ const CriarCrono = () => {
         </div>
         <div className="info">
           <label htmlFor="datas">Data</label> 
-          <input type="datetime-local" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
+          <input type="date" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
         </div>
         <button className="btncont" type="submit">Salvar</button>
       </form>

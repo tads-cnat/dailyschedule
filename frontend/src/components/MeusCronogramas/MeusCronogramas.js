@@ -17,7 +17,7 @@ function MeusCrogramas(){
     useEffect(()=>{     
         if(id == null){
             navigate("/")
-        }   
+        }    
         const loadData = () => {
           fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
           .then(response => response.json())

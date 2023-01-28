@@ -8,6 +8,11 @@ function App(){
   const [alerta, setAlerta] = useState([]);
   const [error, setError] = useState(null);
 
+  const id = localStorage.getItem('token');
+  
+
+  console.log("ID do usuário: " + id);
+
   useEffect(()=>{
       const loadData = () => {
         fetch('http://localhost:8000/api/cronogramas/',{
