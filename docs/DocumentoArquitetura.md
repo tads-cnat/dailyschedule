@@ -3,7 +3,8 @@
 
 |  Data  | Versão | Descrição | Autores |
 |:-------|:-------|:----------|:------|
-| 20/01/2023 |  **`1.00`** | Versão Inicial  | Equipe Daily Schedule |
+| 20/01/2023 |  **`1.00`** | Versão Inicial  | ALICE, CHRISTIAN  |
+| 28/01/2023 |  **`1.01`** | Versão Continuada  | JEFFERSON  |
 
 ## 1. Introdução
 
@@ -58,9 +59,10 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 | ID | Atributo de qualidade | Motivação |
 | :--- | :--- | :--- |
 | 1 | Estudante só pode editar, modificar ou excluir os seus próprios cronogramas | Segurança |
-| 2 | Autenticação de usuários para realizar login no sistema | Segurança e Desempenho |
+| 2 | Estudante precisa ser autenticado para acessar o sistema | Segurança |
 | 3 | Estudante só pode gerenciar o seu próprio perfil | Segurança |
 | 4 | Estudante só é capaz de realizar listagem dos seus cronogramas | Segurança |
+| 5 | O login no sistema não deve levar mais que 5 segundos para ser concluído | Desempenho |
 
 
 ### 3.3.Stakeholders
@@ -74,8 +76,9 @@ O Daily Schedule é uma solução prática e intuitiva, desenvolvida para **_est
 |  | Restrição | Contexto e/ou Motivação |
 | :--- | :--- | :--- |
 | Restrição de software e programação | Acessibilidade | A aplicação foi desenvolvida sem adequar-se ou atentar-se às limitações de usuários portadores de necessidades especiais. |
-| Restrição de sistema operacional |  |  |
-| Restrições de Hardware |  |  |
+| Restrição de sistema operacional | Limitação de software | É garantida a iniciação bem sucedida do backend apenas no sistema operacional Windows 10 |
+| Restrição de sistema operacional | Limitação de software | É garantida a iniciação bem sucedida do frontend apenas no sistema operacional Windows 10 |
+| Restrições de Hardware | Limitações de desempenho | É garantida a boa execução do sistema apenas mediante os seguintes requisitos mínimos: 4gb RAM, 1gb para armazenamento, processador Intel i3 5.ª geração, monitor com aspecto de resolução de pelo menos 800x600 |
 
 ## 5.	Escopo do Sistema e Contexto
 ### 5.1.	Diagrama de Casos de Uso
@@ -126,7 +129,10 @@ Diagrama de Sequência: Visualizar Cronograma
 ### 7.1.	Visão de Implementação
 | Componente | Responsabilidades |
 | :--- | :--- |
-|  |  |
+| Cliente | Reponsável pela renderização final e requisição das chamadas do sistema executadas através de seu browser. |
+| Banco de dados | Responsável pela persistência dos dados. |
+| Servidor - Frontend | Responsável pela requisição dos recursos oferecidos pela API bem como com a renderização e atualização dos templates do frontend através da execução de scripts. |
+| Servidor - Backend | Responsável pela modelagem do sistema e pela oferta dos recursos como uma API através de seus endpoints. |
 
 ### 7.2.	Visão de Distribuição
 | Nó | Descrição |
