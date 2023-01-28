@@ -3,15 +3,16 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Home from "./components/Home/HomePage/Home";
 import CriarCrono from "./components/CriarCronograma/index.js";
-import Visualizar from "./components/VisualizarCronograma/index.js";
 import Editar from "./components/Editar/index.js";
 
 import Buscar from "./components/Busca/Buscar.js";
 import Login from "./components/Login/index.js";
 import Cadastro from "./components/Cadastro/index.js";
 import MeusCrogramas from './components/MeusCronogramas/MeusCronogramas';
+import Visualizar from "./components/Visualizar/index.js";
+
+//import Visualizar from "./components/VisualizarCronograma/index.js";
 //import Editar from './components/Editar/Editar';
-import VisualizarC from "./components/Visualizar/index.js";
 
 const Rotas = () => {
    return(
@@ -26,10 +27,8 @@ const Rotas = () => {
             <Route path="/cadastro" element={ <Cadastro/> }/>
             <Route path="/MeusCronogramas" element={<MeusCrogramas />}> </Route>
 
-            <Route path="/Editar/:id" element={<Editar />}> </Route>
-            <Route path="/Cronograma/:id" element={<Visualizar />} ></Route>
-
-            <Route path="/Visualizar/:id" element={<VisualizarC />} ></Route>
+            <Route path="/Editar/:id" element={<Editar />}> </Route>            
+            <Route path="/Visualizar/:id" element={<Visualizar />} ></Route>
          </Routes>
       </Router>
    )

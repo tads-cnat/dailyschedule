@@ -5,12 +5,12 @@ import { useState, useEffect, useId } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
-import { redirect, useParams } from 'react-router-dom';
+import { redirect, useParams, useNavigate } from 'react-router-dom';
 
 const VisualizarC = (projectData) => {
   const id = localStorage.getItem('token')
 
-  
+  const navigate = useNavigate();
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
@@ -19,7 +19,7 @@ const VisualizarC = (projectData) => {
   const params = useParams();
   const ID = params.id;
 
-  console.log("USEERIDDD: " + ID);
+  console.log("ID do cornograma: " + ID);
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -27,29 +27,27 @@ const VisualizarC = (projectData) => {
     documentTitle: 'Nova Print',          
     });
 
-  useEffect(() => {
-    const crono = ''
+  useEffect(() => {    
     const loadData = async(e) => {
-      crono = await fetch(`http://127.0.0.1:8000/api/cronogramas/${ID}`)
+      fetch(`http://localhost:8000/api/cronogramas/${ID}`)
       .then(crono => crono.json())
-      .then(data => data)
-      setCronogramas(crono)      
+      .then(data => setCronogramas(data))
     } 
     const loadTarefas = async(e) => {      
-      const res = await fetch(`http://localhost:8000/api/tarefas/${cronogramas.id}`)
+      fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas`)
       .then(res => res.json())
-      .then(data => data)
-      setTarefas(res)
+      .then(data => setTarefas(data))
     }   
-    loadData()
-    
-    console.log("Id do cronograma crono: " + crono)
+    loadData();
+    loadTarefas();
+    console.log("Id do cronograma crono: " + cronogramas.id)
   }, [ID])
 
   const handleDelete = async (id) => {
     await fetch( `http://localhost:8000/api/cronogramas/${id}`, {
       method:"DELETE",
     })
+    navigate("/MeusCronogramas")
   }
 
   const handlePut = async (tarefas) => {
@@ -93,7 +91,7 @@ const VisualizarC = (projectData) => {
 
           <tbody>
             {tarefas.map(tarefa => (
-              <tr key={tarefa.id}>
+              <tr>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>

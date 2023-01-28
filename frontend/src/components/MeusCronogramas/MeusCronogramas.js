@@ -6,6 +6,9 @@ import Sidebar from '../Navbar/Sidebar';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+//BsThreeDotsVertical 
 
 
 function MeusCrogramas(){
@@ -13,6 +16,9 @@ function MeusCrogramas(){
     
     const id = localStorage.getItem('token');
     const navigate = useNavigate();
+    const url = window.location.href
+
+    
 
     useEffect(()=>{     
         if(id == null){
@@ -66,17 +72,21 @@ function MeusCrogramas(){
                         {cronogramas.map(cronograma=>(
                             <div className="card" >
                                 <div className="dropdown">
-                                    <button className="dropbtn option">...</button>
+                                <button className="dropbtn option">
+                                    <BsThreeDotsVertical></BsThreeDotsVertical>
+                                </button>
                                     
                                     <div className="dropdown-content">                                          
                                         <Link to={`/Editar/${cronograma.id}`}>Editar</Link>                                            
-                                        <Link to={`/Cronograma`} onClick={handlePrint}>Exportar</Link>                                                                                
-                                        <Link to="/">Compartilhar</Link>                                        
+                                        <Link to={`/Visualizar`} onClick={handlePrint}>Exportar</Link>                                                                                
+                                        <CopyToClipboard text={`localhost:3000/Visualizar/${cronograma.id}`}>
+                                        <Link to="#">Compartilhar</Link>                                          
+                                        </CopyToClipboard>                                      
                                         
                                     </div>
                                 </div> 
                                 <div>
-                                    <a href={`/Cronograma`}>
+                                    <a href={`/Visualizar/${cronograma.id}`}>
                                         <img className="img-icon" src="https://th.bing.com/th/id/OIP.gxHUqJpeu1HZBzrHPlaB-QHaHa?pid=ImgDet&rs=1" />
                                     </a>
                                 </div>
