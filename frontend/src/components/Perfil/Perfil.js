@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import Sidebar from '../Navbar/Sidebar';
 import './style.css'
+import profile from '../Perfil/profile.png'
 
 function Perfil(){
     const id = localStorage.getItem('token');
@@ -26,13 +27,20 @@ function Perfil(){
       return (
         <div>
             <Sidebar></Sidebar>
-            <header className="header">
+            <header className="perfilHder">
                     <h2 className="tittle">Perfil</h2>
             </header>
 
             <section className="perfil">
+            
                 {aluno.map(nome=>(
-                    <div key={nome.id} > Nome: {nome.first_name} {nome.last_name} <br/>
+                    
+
+                    <div key={nome.id} > 
+                    
+                    <img className="picture" src={profile} alt="profile"/> <br/>
+
+                    Nome: {nome.first_name} {nome.last_name} <br/>
 
                     <div>
                         Email: {nome.email} 
@@ -40,7 +48,9 @@ function Perfil(){
                     <div>
                         Usuário: {nome.username}
                     </div>
+
                     </div>
+                  
                 ))}
             </section>
         </div>

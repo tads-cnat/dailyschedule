@@ -1,6 +1,5 @@
 .perfil{
     text-align: left;
-
     position: absolute;
     left: 43.5rem;
     top: 20rem;
@@ -8,5 +7,27 @@
     line-height: 3.8rem;
     display: flex;
     align-items: center;
+    color: var(--third-color);
+    margin-left: 20%;
+}
+
+.picture{
+    width: 300px; 
+    height: 300px;
+}
+
+.perfilHder{
+    position: absolute;
+    left: 43.5rem;
+    top: 10.5rem;
+  
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+  
+    display: flex;
+    align-items: center;
+
+    margin-left: 25%;
+  
     color: var(--third-color);
 }
