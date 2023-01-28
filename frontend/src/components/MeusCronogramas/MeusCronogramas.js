@@ -13,7 +13,8 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 
 function MeusCrogramas(){
     const [cronogramas, setCronogramas] = useState([]);
-    
+    const [weather, setWeather] = useState([]);
+
     const id = localStorage.getItem('token');
     const navigate = useNavigate();
     const url = window.location.href
@@ -44,6 +45,13 @@ function MeusCrogramas(){
           .then(response => response.json())
           .then(data => setCronogramas(data))
       }
+      const dados ='';
+      const getWeather = () => {
+        fetch('https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        console.log("Console: "+weather +"\nDados: "+ dados)
+      }
     return (
         <div className="MC">
             <Sidebar></Sidebar>
@@ -67,6 +75,7 @@ function MeusCrogramas(){
                     <h2 className="tittle">Meus Cronogramas</h2>                
                     
                 </header>
+                
                 <section className="list-cards">
                     <div className="box-cards">
                         {cronogramas.map(cronograma=>(
@@ -91,6 +100,9 @@ function MeusCrogramas(){
                                     </a>
                                 </div>
                                 <p> {cronograma.titulo}</p>
+                                {/*<p>{JSON.stringify(weather.coord)}</p>*/}
+                                
+                                <button onClick={() => getWeather()}>Tempo</button>
                             </div>                        
                         ))}              
                             

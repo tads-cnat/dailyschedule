@@ -33,9 +33,9 @@ function App(){
           .then(response => response.json())
           .then(data => setAlerta(data))
       }
-      setInterval(
-      alerta()
-      ,2400000)
+      //setInterval(
+      //alerta()
+      //,2400000)
       
     }, [])  
 
