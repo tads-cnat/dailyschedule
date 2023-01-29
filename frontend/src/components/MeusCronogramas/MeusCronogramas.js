@@ -45,12 +45,12 @@ function MeusCrogramas(){
           .then(response => response.json())
           .then(data => setCronogramas(data))
       }
-      const dados ='';
+      
       const getWeather = () => {
         fetch('https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br')
         .then(response => response.json())
-        .then(data => console.log(data))
-        console.log("Console: "+weather +"\nDados: "+ dados)
+        .then(data => setWeather(data))
+        console.log("Console: "+ JSON.stringify(weather.weather))
       }
     return (
         <div className="MC">
@@ -87,7 +87,7 @@ function MeusCrogramas(){
                                     
                                     <div className="dropdown-content">                                          
                                         <Link to={`/Editar/${cronograma.id}`}>Editar</Link>                                            
-                                        <Link to={`/Visualizar`} onClick={handlePrint}>Exportar</Link>                                                                                
+                                        <Link to={`/Visualizar/${cronograma.id}`} onClick={handlePrint}>Exportar</Link>                                                                                
                                         <CopyToClipboard text={`localhost:3000/Visualizar/${cronograma.id}`}>
                                         <Link to="#">Compartilhar</Link>                                          
                                         </CopyToClipboard>                                      
@@ -99,10 +99,8 @@ function MeusCrogramas(){
                                         <img className="img-icon" src="https://th.bing.com/th/id/OIP.gxHUqJpeu1HZBzrHPlaB-QHaHa?pid=ImgDet&rs=1" />
                                     </a>
                                 </div>
-                                <p> {cronograma.titulo}</p>
-                                {/*<p>{JSON.stringify(weather.coord)}</p>*/}
+                                <p> {cronograma.titulo}</p>                                                                
                                 
-                                <button onClick={() => getWeather()}>Tempo</button>
                             </div>                        
                         ))}              
                             

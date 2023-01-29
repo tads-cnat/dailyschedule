@@ -2,19 +2,21 @@ import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
 import CriarCrono from '../CriarCronograma/index.js'
 import { useState, useEffect, useId } from "react";
-import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
+import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
 import { redirect, useParams, useNavigate } from 'react-router-dom';
 
-const VisualizarC = (projectData) => {
+const Visualizar = (projectData) => {
   const id = localStorage.getItem('token')
 
   const navigate = useNavigate();
+  const [weather, setWeather] = useState([]);
+  const [previsao, setPrevisao] = useState([]);
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
-  var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+  var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]; 
 
   const params = useParams();
   const ID = params.id;
@@ -27,7 +29,8 @@ const VisualizarC = (projectData) => {
     documentTitle: 'Nova Print',          
     });
 
-  useEffect(() => {    
+  useEffect(() => {  
+    setPrevisao("Ver previsão de hoje");
     const loadData = async(e) => {
       fetch(`http://localhost:8000/api/cronogramas/${ID}`)
       .then(crono => crono.json())
@@ -40,7 +43,7 @@ const VisualizarC = (projectData) => {
     }   
     loadData();
     loadTarefas();
-    console.log("Id do cronograma crono: " + cronogramas.id)
+    console.log("Id do cronograma crono: " + cronogramas.id)    
   }, [ID])
 
   const handleDelete = async (id) => {
@@ -59,17 +62,25 @@ const VisualizarC = (projectData) => {
       body: JSON.stringify(tarefas)
     })
     
+  } 
+  
+  const getWeather = () => {
+    fetch('https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br')
+    .then(response => response.json())
+    .then(data => setWeather(data))
+    setPrevisao(weather.weather[0].description)
+    console.log("Tempo: "+ JSON.stringify(weather.weather))
   }
-
   
   return (
     <div>
       <SideBar />
-      <header className="header">
+      <header className="header">        
         <h2>Meus cronogramas</h2>
         
           <div>
             <h3> {cronogramas.titulo} </h3>
+            <BsFillCloudSunFill onClick={() => getWeather()} className='cloud' /> {previsao}
             <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
             <a href={`/cronograma/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
             
@@ -106,11 +117,11 @@ const VisualizarC = (projectData) => {
           <a href="/">Compartilhar</a>
           <a id="Hab" href="/">Editar</a>
           <a href="#" onClick={handlePrint}>Baixar</a>
-        </div>
+        </div>              
       </section>
     </div>
   )
 
 }
 
-export default VisualizarC;
+export default Visualizar;

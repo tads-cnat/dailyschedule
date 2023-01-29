@@ -99,3 +99,10 @@
     left: 97rem;
     cursor: pointer;
   }
+
+  .cloud{
+    font-size: 30px;
+    color: #CE7CFF;
+    margin-left: 900px;
+    
+  }

@@ -11,16 +11,12 @@ import Cadastro from "./components/Cadastro/index.js";
 import MeusCrogramas from './components/MeusCronogramas/MeusCronogramas';
 import Visualizar from "./components/Visualizar/index.js";
 
-//import Visualizar from "./components/VisualizarCronograma/index.js";
-//import Editar from './components/Editar/Editar';
-
 const Rotas = () => {
    return(
       <Router>
          <Routes>
             <Route path="/"  element = { <Home />} />
             <Route path="/criar-cronograma" element = { <CriarCrono /> }  />
-            <Route path="/cronograma" element = { <Visualizar /> }  />
             <Route path="/login" element={ <Login/> }/>
             <Route path="/cronograma/:id" element={ <Editar/> }/>
             <Route path="/buscar" element={ <Buscar/> }/>
