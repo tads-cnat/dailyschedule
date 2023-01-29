@@ -115,7 +115,6 @@ const Visualizar = (projectData) => {
 
         <div className="optbtn">
           <a href="/">Compartilhar</a>
-          <a id="Hab" href="/">Editar</a>
           <a href="#" onClick={handlePrint}>Baixar</a>
         </div>              
       </section>

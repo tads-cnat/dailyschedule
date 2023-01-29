@@ -2,6 +2,7 @@ import "./styles.css"
 import ComputadorImg from "../../assets/images/computador.png";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import NavBar from '../Navbar/Navbar/Navbar.js'
 
 
 const Cadastro = () => {
@@ -71,43 +72,48 @@ const Cadastro = () => {
     }
 
     return (
-        <section id="cadastro">
-            <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank">entre</a> agora!</h2>
-            <form onSubmit={handleSubmit} id="cadastrar">
-                <label htmlFor="primeiro_nome">primeiro nome</label>
-                <br/>
-                <input type="text" id="primeiro_nome" value={primeiro_nome} onChange={handlerPrimeiro_nome} />
-                <br/>
-                <br/>
-                <label htmlFor="ultimo_nome">ultimo nome</label>
-                <br/>
-                <input type="text" id="ultimo_nome" value={ultimo_nome} onChange={handlerUltimo_nome} />
-                <br/>
-                <br/>
-                <label htmlFor="usuario">usuario</label>
-                <br/>
-                <input type="text" id="usuario" value={usuario} onChange={handlerUsuario} />
-                <br/>
-                <br/>
-                <label htmlFor="email">email</label>
-                <br/>
-                <input type="email" id="email" value={email} onChange={handlerEmail} />
-                <br/>
-                <br/>
-                <label htmlFor="senha">senha</label>
-                <br/>
-                <input type="password" id="senha" value={senha} placeholder='senha' onChange={handlerSenha} />
-                <br/>
-                <br/>
-                <label htmlFor="comfirmar_senha">confirmar senha</label>
-                <br/>
-                <input type="password" id="comfirmar_senha" value={comfirmar_senha} onChange={handlerComfirmar_senha} />
-                <br/>
-                {err && <p>As senhas não são iguais</p>}
-                <button type="submit">Cadastrar</button>
-            </form>
-            <img src={ComputadorImg} alt="computador"/>
-        </section>
+        <div>
+            <NavBar />
+            <section id="login">
+                <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank">entre</a> agora!</h2>
+                <h2>Organize suas tarefas de forma eficiente com seu</h2>
+                <h1>Daily Schedule!</h1>
+                <form onSubmit={handleSubmit} id="entrar">
+                    <label htmlFor="primeiro_nome">Nome</label>
+                    <br/>
+                    <input type="text" id="primeiro_nome" value={primeiro_nome} onChange={handlerPrimeiro_nome} />
+                    <br/>
+                    <br/>
+                    <label htmlFor="ultimo_nome">Sobrenome</label>
+                    <br/>
+                    <input type="text" id="ultimo_nome" value={ultimo_nome} onChange={handlerUltimo_nome} />
+                    <br/>
+                    <br/>
+                    <label htmlFor="usuario">Usuário</label>
+                    <br/>
+                    <input type="text" id="usuario" value={usuario} onChange={handlerUsuario} />
+                    <br/>
+                    <br/>
+                    <label htmlFor="email">E-mail</label>
+                    <br/>
+                    <input type="email" id="email" value={email} onChange={handlerEmail} />
+                    <br/>
+                    <br/>
+                    <label htmlFor="senha">Senha</label>
+                    <br/>
+                    <input type="password" id="senha" value={senha} onChange={handlerSenha} />
+                    <br/>
+                    <br/>
+                    <label htmlFor="comfirmar_senha">Confirmar senha</label>
+                    <br/>
+                    <input type="password" id="comfirmar_senha" value={comfirmar_senha} onChange={handlerComfirmar_senha} />
+                    <br/>
+                    {err && <p>As senhas não são iguais</p>}
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <img src={ComputadorImg} alt="computador"/>
+            </section>
+        </div>
     )
 
 }

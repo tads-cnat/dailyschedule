@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-ro
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import cronogramaImg from '../../assets/images/cronograma.png'
 import { BsThreeDotsVertical } from 'react-icons/bs';
 //BsThreeDotsVertical 
 
@@ -96,7 +97,7 @@ function MeusCrogramas(){
                                 </div> 
                                 <div>
                                     <a href={`/Visualizar/${cronograma.id}`}>
-                                        <img className="img-icon" src="https://th.bing.com/th/id/OIP.gxHUqJpeu1HZBzrHPlaB-QHaHa?pid=ImgDet&rs=1" />
+                                        <img src={cronogramaImg} className="img-icon" alt="Cronograma" />
                                     </a>
                                 </div>
                                 <p> {cronograma.titulo}</p>                                                                

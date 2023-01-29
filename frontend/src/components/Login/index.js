@@ -2,7 +2,7 @@ import "./style.css"
 import ComputadorImg from "../../assets/images/computador.png"
 import { useState } from 'react';
 import { Navigate, useNavigate} from 'react-router-dom'
-
+import NavBar from '../Navbar/Navbar/Navbar.js'
 
 
 const Login = () => {
@@ -58,26 +58,29 @@ const Login = () => {
         setSenha(event.target.value)
     }
     return(
-        <section id="login">
-            <h2>Entre ou <a href="cadastro.html" target="_blank">cadastre-se</a> agora!</h2>
-            <h2>Organize suas tarefas de forma eficiente com seu</h2>
-            <h1>Daily Schedule!</h1>
-            <form onSubmit={handleSubmit} id="entrar">
-                <label htmlFor="email">E-mail/username</label>
-                <br/>
-                <input type="text" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
-                <br/><br/>
-                <label htmlFor="password">Senha</label>
-                <br/>
-                <input type="password" name="password" id="password" placeholder="Insira sua senha" required title="Insira sua senha" value = {senha} onChange={handlerSenha}/>
-                <br/>
-                <span>{`${err ? "Email ou senha Erradas" : "" }`}</span>
-                <br/><br/>
-                <button type="submit" >Entrar</button>
-            </form>
+        <div>
+            <NavBar />
+            <section id="login">
+                <h2>Entre ou <a href="cadastro.html" target="_blank">cadastre-se</a> agora!</h2>
+                <h2>Organize suas tarefas de forma eficiente com seu</h2>
+                <h1>Daily Schedule!</h1>
+                <form onSubmit={handleSubmit} id="entrar">
+                    <label htmlFor="email">E-mail/username</label>
+                    <br/>
+                    <input type="text" name="email" id="email" placeholder="Insira seu nome de usuario" required title="Insira seu nome de usuário" value = {email} onChange = {handlerEmail}/>
+                    <br/><br/>
+                    <label htmlFor="password">Senha</label>
+                    <br/>
+                    <input type="password" name="password" id="password" placeholder="Insira sua senha" required title="Insira sua senha" value = {senha} onChange={handlerSenha}/>
+                    <br/>
+                    <span>{`${err ? "Email ou senha Erradas" : "" }`}</span>
+                    <br/><br/>
+                    <button type="submit" >Entrar</button>
+                </form>
 
-            <img src={ ComputadorImg } alt="Computador"/>
-        </section>
+                <img src={ ComputadorImg } alt="Computador"/>
+            </section>
+        </div>
     )   
 }
 

@@ -10,14 +10,16 @@
   #login h2 {
     color: #ce7cff;
     position: relative;
-    top: -7rem;
+    top: -9rem;
+
+    margin: .5rem;
   }
   
   #login h1 {
     color: var(--scnd-color);
     font-size: 4rem;
     position: relative;
-    top: -5rem;
+    top: -9.5rem;
   }
   
   #login img {
@@ -31,6 +33,11 @@
     color: var(--brand-dark);
     position: relative;
     top: -1.4rem;
+  }
+
+  #entrar {
+    position: relative;
+    top: -8.3rem;
   }
   
   #login input {
@@ -97,6 +104,7 @@
     left: 16rem;
   }
   
-  input[type='text']:focus {
+  input[type='text']:focus,
+  input[type='password']:focus {
     outline: none;
   }
