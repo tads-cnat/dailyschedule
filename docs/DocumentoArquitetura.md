@@ -162,9 +162,11 @@ O protótipo da interface de usuário foi realizado utilizando a ferramenta Figm
 ## 8. Anexos
 
 ### 8.1. API do Projeto
-| URL | Descrição | Método HTTP | Tipo Retorno | Exemplo de Retorno |
+| URL | Descrição | Método HTTP | Tipo Retorno | Exemplo Retorno
 | :--- | :--- | :--- | :--- | :--- |
-| http://localhost:8000/api | Listagem de Cronograma | GET | |  |
+| http://127.0.0.1:8000/api/alunos/2/ | Requisição para listagem dos alunos  | GET | Objeto | {"id": 2, "username": "Fernando01", "email": "fernando@mail.com", "first_name": "Fernando", "last_name": "Silva", "password": "123", "qtd": 1, "notificacao": false} | 
+| http://127.0.0.1:8000/api/cronogramas/3/ | Requisição para listar os cronogramas | GET | Objeto | {"id": 3, "privacidade": false, "titulo": "Aulas", "aluno": 2} | 
+| http://127.0.0.1:8000/api/tarefas/15/ | Requisição para listar as tarefas de um cronograma | GET | Objeto | {"id": 15, "titulo": "Banco de dados", "assunto": "SQL", "descricao": "Pesquisas", "hora_inicio": "16:08:00", "data": "2023-01-31T10:08:00Z", "status": true,  "cronograma": 3} |
 
 ### 8.2. API Externa
 | URL | Descrição | Método HTTP | Tipo Retorno | 
