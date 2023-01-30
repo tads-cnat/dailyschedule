@@ -118,11 +118,11 @@ A maioria das funcionalidades da aplicação são desenvolvidas tendo como ator 
 #### Modelo comportamental
 Diagrama de Sequência: Criar Cronograma
 
-![Diagrama de Sequência: Criar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DS-%20CDU%20Cria%20Cronograma.svg)
+![Diagrama de Sequência: Criar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/diagrama%20de%20sequencia/DS%20-%20CDU%20Criar%20Cronograma.svg)
 
 Diagrama de Sequência: Visualizar Cronograma
 
-![Diagrama de Sequência: Visualizar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DS-CDU%20Visualizar%20Cronograma.svg)
+![Diagrama de Sequência: Visualizar Cronograma](https://github.com/tads-cnat/dailyschedule/blob/main/docs/diagrama%20de%20sequencia/DS%20-%20CDU%20Visualizar%20Cronograma.svg)
 
 
 ## 7. Detalhamento da Implementação e Ambiente Físico
