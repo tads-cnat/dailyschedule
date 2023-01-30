@@ -164,9 +164,14 @@ O protótipo da interface de usuário foi realizado utilizando a ferramenta Figm
 ### 8.1. API do Projeto
 | URL | Descrição | Método HTTP | Tipo Retorno | Exemplo de Retorno |
 | :--- | :--- | :--- | :--- | :--- |
-| localhost:8000/api | Listagem de Cronograma | GET | |  |
+| http://localhost:8000/api | Listagem de Cronograma | GET | |  |
 
 ### 8.2. API Externa
-| URL | Descrição | Método HTTP | Tipo Retorno | Exemplo de Retorno |
-| :--- | :--- | :--- | :--- | :--- |
-| https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br | Requisição de listagem de previsão do tempo | GET | Objeto Json | {"coord":{"lon":-35.2094,"lat":-5.795},"weather":[{"id":803,"main":"Clouds","description":"nublado","icon":"04d"}],"base":"stations","main":{"temp":302.27,"feels_like":304.55,"temp_min":302.27,"temp_max":302.51,"pressure":1011,"humidity":61},"visibility":10000,"wind":{"speed":6.69,"deg":130},"clouds":{"all":75},"dt":1675081348,"sys":{"type":1,"id":8417,"country":"BR","sunrise":1675066983,"sunset":1675111496},"timezone":-10800,"id":3394023,"name":"Natal","cod" |
+| URL | Descrição | Método HTTP | Tipo Retorno | 
+| :--- | :--- | :--- | :--- | 
+| https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br | Requisição de listagem de previsão do tempo | GET | Objeto Json |
+
+| Exemplo de Retorno |
+| :--- |
+| {"coord":{"lon":-35.2094,"lat":-5.795},"weather":[{"id":803,"main":"Clouds","description":"nublado","icon":"04d"}],"base":"stations","main":{"temp":302.27,"feels_like":304.55,"temp_min":302.27,"temp_max":302.51,"pressure":1011,"humidity":61},"visibility":10000,"wind":{"speed":6.69,"deg":130},"clouds":{"all":75},"dt":1675081348,"sys":{"type":1,"id":8417,"country":"BR","sunrise":1675066983,"sunset":1675111496},"timezone":-10800,"id":3394023,"name":"Natal","cod":200} | 
+
