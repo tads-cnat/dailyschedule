@@ -42,7 +42,7 @@ function Buscar() {
           </form> <br/><br/>
           {searchResults.map((result) => (
             <div className='buscaCrono' key={result.id}> 
-              <a href={`/cronograma`} > {result.titulo} </a>
+              <a href={`/Visualizar/${result.id}`} > {result.titulo} </a>
             </div>
           ))}
           </div>

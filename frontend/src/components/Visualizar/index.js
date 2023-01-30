@@ -16,6 +16,7 @@ const Visualizar = (projectData) => {
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [project, setProject] = useState(projectData || []);
+  const [status_tarefa, setStatusTarefa] = useState([]);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]; 
 
   const params = useParams();
@@ -71,6 +72,12 @@ const Visualizar = (projectData) => {
     setPrevisao(weather.weather[0].description)
     console.log("Tempo: "+ JSON.stringify(weather.weather))
   }
+
+  const tarefaUpdate = (e) => {
+    setStatusTarefa(e.target.value)
+    console.log(status_tarefa)
+
+  }
   
   return (
     <div>
@@ -82,7 +89,7 @@ const Visualizar = (projectData) => {
             <h3> {cronogramas.titulo} </h3>
             <BsFillCloudSunFill onClick={() => getWeather()} className='cloud' /> {previsao}
             <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
-            <a href={`/cronograma/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
+            <a href={`/Editar/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
             
           </div>
         
@@ -94,6 +101,7 @@ const Visualizar = (projectData) => {
 
           <thead>
             <tr>
+              <th className="horarios">Feito</th>
               <th className="horarios" > Data </th>
               <th className="horarios">Horário</th>
               <th className="tarefas">Tarefa</th>
@@ -103,6 +111,7 @@ const Visualizar = (projectData) => {
           <tbody>
             {tarefas.map(tarefa => (
               <tr>
+                <td className="tbHora" ><input type="checkbox" class="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>

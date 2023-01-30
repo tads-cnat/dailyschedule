@@ -44,9 +44,26 @@ class CronogramaViewSet(viewsets.ModelViewSet):
             #queryset = Cronograma.objects.filter(aluno_usuario=username)
         
         if id:
-            queryset = queryset.filter(aluno__id=id)
+            queryset = queryset.filter(aluno__id=id)           
+        
         return queryset
 
+    @action(detail=False, methods=['get'])
+    def editar(self, request):
+        print(request.query_params)
+
+        idCrono = request.query.params.get('idCrono')
+
+        if idCrono:        
+            print("Dentro do if")
+            titulo = request.query_params.get('titulo')
+            priv = request.query_params.get('priv')
+            cronograma = get_object_or_404(Cronograma, pk=id)
+            cronograma.titulo = titulo
+            cronograma.privacidade = priv
+            cronograma.save()
+        return Response({'message': 'Dados atualizados!'}, status=status.HTTP_200_OK)
+        
     @action(detail=True, methods=['get'], url_path='tarefas')
     def get_tarefas(self, request, pk=None):
         cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)

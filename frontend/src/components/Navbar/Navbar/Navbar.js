@@ -1,6 +1,25 @@
 import './style.css'
 
 const NavBar = () => {
+  const idNavbar = localStorage.getItem('token');
+
+  function Logout (){
+    localStorage.removeItem("token");
+  }
+  const Renderiza=()=>{
+    if(idNavbar==null){
+      return (<div className="login">
+              <li className="login1"><a href="/login">Entrar</a></li>
+              <li className="cadastro"><a href="/cadastro">Cadastrar</a></li>
+            </div>)
+    }
+    else{
+      return(
+      <div className="login">
+          <li className="login1"><a href='/' onClick={()=>Logout()}>Logout</a></li>  
+      </div>) 
+    }
+  }
   return (
     <nav id="navigation">
       <div className="wrapper">
@@ -25,10 +44,10 @@ const NavBar = () => {
                 <input type="submit" className="btns" value=""/>
               </form>
             </div>
-            <div className="login">
-              <li className="login1"><a href="/login">Entrar</a></li>
-              <li className="cadastro"><a href="/cadastro">Cadastrar</a></li>
-            </div>
+            
+         
+              {Renderiza()}
+            
           </ul>
           </div>
         </div> 

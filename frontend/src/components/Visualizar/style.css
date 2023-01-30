@@ -106,3 +106,10 @@
     margin-left: 900px;
     
   }
+
+  .checkbox {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 0px;
+    cursor: pointer;
+  }
