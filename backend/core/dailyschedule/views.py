@@ -154,22 +154,25 @@ class AlunoViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'], url_path='')
     def alerta(self, request, pk):
         print(pk + "<= PK")
-        msgRetorno = 'Tarefa(s) Pendente(s):'
+        msgRetorno = 'Tarefa(s) Pendente(s): '
         now = datetime.datetime.now()
         aft = now + datetime.timedelta(days=1)
         aluno = Aluno.objects.all().first()
-        tarefas = Tarefa.objects.filter(cronograma__aluno=aluno).filter(data__gt=now).filter(data__lt=aft)
+        tarefas_t = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
+        print(tarefas_t)
+        tarefas = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
         if tarefas:
             cont = 0
             for tarefa in tarefas:
                 msgRetorno = msgRetorno + "\n["+ str(cont)+ "] " + tarefa.titulo
+                cont+=1
             email = Email()
-            email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+            #email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             try:
                 email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             except:
                 msgRetorno = 'Falha no envio'
-            print(msgRetorno)
+            print("Mensagem de retorno: "+msgRetorno)
         return Response({'message': msgRetorno}, status=status.HTTP_200_OK)
 
     @action (detail=False, methods=['post'], url_path='')

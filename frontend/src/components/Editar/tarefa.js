@@ -101,7 +101,7 @@ const Tarefa = () => {
               </form>
             
             
-            <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
+            <BsFillTrashFill className='trash' onClick={() => handleDelete(tarefas.id)} />
             
             <BsPencilSquare className='pencil' onClick={() => console.log(tarefas)}/>
             

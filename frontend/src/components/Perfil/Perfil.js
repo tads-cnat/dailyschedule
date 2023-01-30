@@ -21,7 +21,7 @@ function Perfil(){
             navigate("/")
         }   
         const loadData = () => {
-          fetch(`http://localhost:8000/api/alunos/?id=${id}`)
+          fetch(`http://localhost:8000/api/alunos/${id}`)
           .then(response => response.json())
           .then(data => setAluno(data))
         }
@@ -39,30 +39,30 @@ function Perfil(){
 
             <section className="perfil">
             
-                {aluno.map(nome=>(
+               
                     
 
-                    <div key={nome.id} > 
+                    <div > 
                     
                     <img className="picture" src={profile} alt="profile"/> <br/>
 
-                    Nome: {nome.first_name} {nome.last_name} <br/>
+                    Nome: {aluno.first_name} {aluno.last_name} <br/>
 
                     <div>
-                        Email: {nome.email} 
+                        Email: {aluno.email} 
                     </div>
                     <div>
-                        Usuário: {nome.username}
+                        Usuário: {aluno.username}
                     </div>
 
                     <div>
-                        Notificações: {nome.notificacao ? "ativas" : " inativas"}
-                        <button className="perfil-optbtn" onClick={() => tarefaUpdate()}>{nome.notificacao ? "Desativar" : " Ativar"}</button>
+                        Notificações: {aluno.notificacao ? "ativas" : " inativas"}
+                        <button className="perfil-optbtn" onClick={() => tarefaUpdate()}>{aluno.notificacao ? "Desativar" : " Ativar"}</button>
                     </div>
 
                     </div>
                   
-                ))}
+                
             </section>
         </div>
     )
