@@ -13,8 +13,7 @@ import Visualizar from "./components/Visualizar/index.js";
 import Tarefa from "./components/Editar/tarefa.js";
 import Perfil from "./components/Perfil/Perfil";
 
-const Rotas = () => {
-   return(
+const Rotas = () => {   
       <Router>
          <Routes>
             <Route path="/"  element = { <Home />} />
@@ -29,7 +28,6 @@ const Rotas = () => {
             <Route path="/Perfil" element={<Perfil />} />
          </Routes>
       </Router>
-   )
 }
 
 export default Rotas;
