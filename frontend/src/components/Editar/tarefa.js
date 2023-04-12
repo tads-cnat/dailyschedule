@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './style.css'
 import { useState, useEffect, useRef } from "react";
 import SideBar from '../Navbar/Sidebar';

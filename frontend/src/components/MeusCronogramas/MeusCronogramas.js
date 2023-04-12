@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import './MC.css';

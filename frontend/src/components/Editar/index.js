@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './style.css'
 import { useState, useEffect, useRef } from "react";
 import SideBar from '../Navbar/Sidebar';
@@ -71,17 +72,20 @@ const Editar = () => {
     .then(res => console.log(res.json()))
   }
 
+  function activeTab(index) {
+    tabContent.forEach(section => {
+      section.classList.remove('ativo')
+    })
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
+  }
+
   function handleClick (e) {
     const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
     const tabContent = document.querySelectorAll('[data-tab="content"] form')
     if (tabMenu.length && tabContent.length) {
-      function activeTab(index) {
-        tabContent.forEach(section => {
-          section.classList.remove('ativo')
-        })
-        tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
-      }
 
+      activeTab(index)
+      
       tabMenu.forEach((itemMenu, index) => {
         itemMenu.addEventListener('click', () => {
           activeTab(index)

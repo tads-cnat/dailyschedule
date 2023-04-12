@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
 import CriarCrono from '../CriarCronograma/index.js'

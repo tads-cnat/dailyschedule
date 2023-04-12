@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 async function getAlunos(){
   return fetch("http://localhost:8000/api/alunos/",{
     method:'GET',

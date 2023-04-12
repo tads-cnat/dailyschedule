@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { postAlunos, postCronogramas, postTarefas, getCronogramas } from "../../api/api.js"
 
 export function novoUser(form){

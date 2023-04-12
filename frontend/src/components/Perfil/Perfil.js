@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
