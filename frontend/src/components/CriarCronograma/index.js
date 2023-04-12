@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import './style.css'
 import { useState, useEffect } from "react";
 import Sidebar from '../Navbar/Sidebar/index.js'
@@ -33,7 +35,7 @@ const CriarCrono = () => {
         navigate("/")
     }   
     
-    const loadData = async(e) => {
+    const loadData = async(_e) => {
       const res = await fetch("http://localhost:8000/api/cronogramas/").then(res => res.json()).then(data => data)
       setCronogramas(res)
 
@@ -88,16 +90,19 @@ const CriarCrono = () => {
     alert("Tarefa Cadastrada!")
   }
 
-  function handleClick (e) {
+  function activeTab(index) {
+    tabContent.forEach(section => {
+      section.classList.remove('ativo')
+    })
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
+  }
+
+  function handleClick (_e) {
     const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
     const tabContent = document.querySelectorAll('[data-tab="content"] form')
-    if (tabMenu.length && tabContent.length) {
-      function activeTab(index) {
-        tabContent.forEach(section => {
-          section.classList.remove('ativo')
-        })
-        tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
-      }
+      if (tabMenu.length && tabContent.length) {
+
+      activeTab(index);
 
       tabMenu.forEach((itemMenu, index) => {
         itemMenu.addEventListener('click', () => {
