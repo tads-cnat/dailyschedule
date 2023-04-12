@@ -60,15 +60,20 @@ const Editar = () => {
   const  postCronogramas = async (e) => {
     e.preventDefault();
     const cronograma = {
-      privacidade: Boolean(privacidade),
+      //privacidade: Boolean(privacidade),
       titulo: titulo_cronograma,
-      aluno: 1
+      //aluno: 1
     }
     
     console.log("Dentro do PUT: "+JSON.stringify(cronograma))
 
-    await fetch(`http://localhost:8000/api/cronogramas/editar/?idCrono=${cronogramas.id}&?titulo=${cronograma.titulo}&?priv=${cronograma.privacidade}`)
-    .then(res => console.log(res.json()))
+    await fetch(`http://localhost:8000/api/cronogramas/${cronogramas.id}/`, {
+      method:"PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+      },  
+      body: JSON.stringify(cronograma)
+    }).then(res => res.json());
   }
 
   function handleClick (e) {
