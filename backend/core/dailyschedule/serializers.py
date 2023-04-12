@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Aluno, Cronograma, Tarefa, User
+from .models import Aluno, Cronograma, Tarefa
 
 class SerializadorAluno(serializers.ModelSerializer):
     class Meta:
