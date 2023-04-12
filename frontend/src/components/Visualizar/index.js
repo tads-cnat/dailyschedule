@@ -113,7 +113,7 @@ const Visualizar = (projectData) => {
             {tarefas.map(tarefa => (
               // eslint-disable-next-line react/jsx-key
               <tr>
-                <td className="tbHora" ><input type="checkbox" class="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
+                <td className="tbHora" ><input type="checkbox" className="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>
