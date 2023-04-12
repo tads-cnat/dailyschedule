@@ -4,7 +4,7 @@ import CriarCrono from '../CriarCronograma/index.js'
 import { useState, useEffect, useId } from "react";
 import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
-import { useRef } from 'react';
+import { useRef, React } from 'react';
 import { redirect, useParams, useNavigate } from 'react-router-dom';
 
 const Visualizar = (projectData) => {

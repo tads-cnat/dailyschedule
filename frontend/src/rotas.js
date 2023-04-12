@@ -27,7 +27,7 @@ const Rotas = () => {
             <Route path="/Visualizar/:id" element={<Visualizar />}/>
             <Route path="/Perfil" element={<Perfil />} />
          </Routes>
-      </Router>
+      </Router>  
 }
 
 export default Rotas;
