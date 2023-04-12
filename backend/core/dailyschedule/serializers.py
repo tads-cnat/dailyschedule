@@ -35,7 +35,9 @@ class SerializadorCadastro(serializers.Serializer):
         model = Aluno
         fields = ('usuario', 'senha', 'email', 'primeiro_nome', 'ultimo_nome')
     
-    """def save(self):
+    #resolver posteriormente esta funcionalidade
+    """
+    def save(self):
         usuario = User(
             usuario=self.validated_data['usuario'], 
             email=self.validated_data['email'],
@@ -53,4 +55,5 @@ class SerializadorCadastro(serializers.Serializer):
             usuario.save()
             aluno = Aluno.objects.create(user=usuario)
             aluno.save()
-            return aluno"""
+            return aluno
+    """
