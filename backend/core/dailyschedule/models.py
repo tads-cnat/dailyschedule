@@ -21,13 +21,12 @@ class Aluno(AbstractUser):
 
 
     def __str__(self):
-        return ("{0} - primeiro nome".format(self.first_name))
+        return "{0} - primeiro nome".format(self.first_name)
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
-    
 
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
@@ -43,9 +42,9 @@ class Tarefa(models.Model):
 
     def __str__(self):
         return self.descricao
-        
+
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)
     tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
-
+    
