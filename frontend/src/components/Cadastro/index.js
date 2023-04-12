@@ -2,7 +2,7 @@
 import "./styles.css"
 import ComputadorImg from "../../assets/images/computador.png";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavBar from '../Navbar/Navbar/Navbar.js'
 
 

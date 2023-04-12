@@ -3,7 +3,6 @@ import './style.css'
 import { useState, useEffect, useRef } from "react";
 import SideBar from '../Navbar/Sidebar';
 import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
-import { useReactToPrint } from 'react-to-print';
 import { redirect, useParams, useNavigate } from 'react-router-dom';
 
 const Tarefa = () => {

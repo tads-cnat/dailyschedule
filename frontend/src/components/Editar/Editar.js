@@ -2,7 +2,6 @@
 import './style.css'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Sidebar from '../Navbar/Sidebar/index.js'
 
 const Editar = () => {
 

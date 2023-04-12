@@ -2,9 +2,8 @@
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import './MC.css';
-import Editar from "../Editar/Editar";
 import Sidebar from '../Navbar/Sidebar';
-import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
