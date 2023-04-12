@@ -81,6 +81,7 @@ function MeusCrogramas(){
                 <section className="list-cards">
                     <div className="box-cards">
                         {cronogramas.map(cronograma=>(
+                            // eslint-disable-next-line react/jsx-key
                             <div className="card" >
                                 <div className="dropdown">
                                 <button className="dropbtn option">

@@ -111,6 +111,7 @@ const Visualizar = (projectData) => {
 
           <tbody>
             {tarefas.map(tarefa => (
+              // eslint-disable-next-line react/jsx-key
               <tr>
                 <td className="tbHora" ><input type="checkbox" class="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>

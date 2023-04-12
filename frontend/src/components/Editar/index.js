@@ -142,6 +142,7 @@ const Editar = () => {
 
           <tbody>
             {tarefas.map(tarefa => (
+              // eslint-disable-next-line react/jsx-key
               <tr>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
