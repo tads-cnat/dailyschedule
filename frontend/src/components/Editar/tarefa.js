@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import './style.css'
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import SideBar from '../Navbar/Sidebar';
-import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
-import { redirect, useParams, useNavigate } from 'react-router-dom';
+import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Tarefa = () => {
 

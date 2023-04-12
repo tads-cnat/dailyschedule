@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
