@@ -11,7 +11,7 @@ function App(){
   const id = localStorage.getItem('token');
   
 
-  console.log("ID do usuário: " + id);
+  console.log(`ID do usuário: ${id}`);
 
   useEffect(()=>{
       const loadData = () => {

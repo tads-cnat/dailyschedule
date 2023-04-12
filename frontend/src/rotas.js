@@ -14,6 +14,7 @@ import Tarefa from "./components/Editar/tarefa.js";
 import Perfil from "./components/Perfil/Perfil";
 
 const Rotas = () => {   
+   return(
       <Router>
          <Routes>
             <Route path="/"  element = { <Home />} />
@@ -27,7 +28,8 @@ const Rotas = () => {
             <Route path="/Visualizar/:id" element={<Visualizar />}/>
             <Route path="/Perfil" element={<Perfil />} />
          </Routes>
-      </Router>  
+      </Router> 
+   )
 }
 
 export default Rotas;
