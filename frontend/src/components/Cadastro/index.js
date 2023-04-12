@@ -76,7 +76,7 @@ const Cadastro = () => {
         <div>
             <NavBar />
             <section id="login">
-                <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank">entre</a> agora!</h2>
+                <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank" rel="noreferrer">entre</a> agora!</h2>
                 <h2>Organize suas tarefas de forma eficiente com seu</h2>
                 <h1>Daily Schedule!</h1>
                 <form onSubmit={handleSubmit} id="entrar">
