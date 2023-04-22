@@ -1,9 +1,10 @@
 import './style.css'
 import React from 'react';
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const Logout = () =>{
-    localStorage.removeItem("token")
+    //localStorage.removeItem("token")
   }
   return (
     <nav id="sidebar">
@@ -111,6 +112,11 @@ const Sidebar = () => {
               </svg>
               Meus cronogramas</a>
           </li>
+
+          <li>
+            <a href="/Perfil"> <BsFillPersonFill size="25px"></BsFillPersonFill> Perfil</a>
+          </li>
+
         </ul>
         <ul className="barplus">
           <li>

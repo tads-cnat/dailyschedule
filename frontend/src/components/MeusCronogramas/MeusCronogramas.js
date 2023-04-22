@@ -6,7 +6,7 @@ import Sidebar from '../Navbar/Sidebar';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-
+import Perfil from '../Perfil/Perfil';
 
 function MeusCrogramas(){
     const [cronogramas, setCronogramas] = useState([]);
@@ -57,6 +57,7 @@ function MeusCrogramas(){
                 </ul>
     </nav>*/}
             <section className="content">
+                
                 <header className="header">
                     <h2 className="tittle">Meus Cronogramas</h2>                
                     

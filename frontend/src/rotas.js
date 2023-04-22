@@ -12,6 +12,7 @@ import Cadastro from "./components/Cadastro/index.js";
 import MeusCrogramas from './components/MeusCronogramas/MeusCronogramas';
 //import Editar from './components/Editar/Editar';
 import VisualizarC from "./components/Visualizar/index.js";
+import Perfil from "./components/Perfil/Perfil";
 
 const Rotas = () => {
    return(
@@ -30,6 +31,7 @@ const Rotas = () => {
             <Route path="/Cronograma/:id" element={<Visualizar />} ></Route>
 
             <Route path="/Visualizar/:id" element={<VisualizarC />} ></Route>
+            <Route path="/Perfil" element={<Perfil />} ></Route>
          </Routes>
       </Router>
    )
