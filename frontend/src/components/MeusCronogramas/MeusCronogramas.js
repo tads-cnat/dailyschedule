@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import './MC.css';
-import Editar from "../Editar/Editar";
 import Sidebar from '../Navbar/Sidebar';
-import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -80,6 +81,7 @@ function MeusCrogramas(){
                 <section className="list-cards">
                     <div className="box-cards">
                         {cronogramas.map(cronograma=>(
+                            // eslint-disable-next-line react/jsx-key
                             <div className="card" >
                                 <div className="dropdown">
                                 <button className="dropbtn option">

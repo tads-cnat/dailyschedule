@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import './style.css'
 import { useState, useEffect, useRef } from "react";
 import SideBar from '../Navbar/Sidebar';
@@ -77,17 +79,20 @@ const Editar = () => {
     }).then(res => res.json());
   }
 
+  function activeTab(index) {
+    tabContent.forEach(section => {
+      section.classList.remove('ativo')
+    })
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
+  }
+
   function handleClick (e) {
     const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
     const tabContent = document.querySelectorAll('[data-tab="content"] form')
     if (tabMenu.length && tabContent.length) {
-      function activeTab(index) {
-        tabContent.forEach(section => {
-          section.classList.remove('ativo')
-        })
-        tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
-      }
 
+      activeTab(index)
+      
       tabMenu.forEach((itemMenu, index) => {
         itemMenu.addEventListener('click', () => {
           activeTab(index)
@@ -143,6 +148,7 @@ const Editar = () => {
 
           <tbody>
             {tarefas.map(tarefa => (
+              // eslint-disable-next-line react/jsx-key
               <tr>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>

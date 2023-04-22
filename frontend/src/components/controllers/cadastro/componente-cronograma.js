@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { criarCronograma } from "../cadastro/cadastro.js";
 
 export default function cronograma(){

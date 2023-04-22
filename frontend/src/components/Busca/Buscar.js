@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './style.css'
 import React, { useState, useEffect } from 'react';
 import NavBar from '../Navbar/Navbar/Navbar.js'

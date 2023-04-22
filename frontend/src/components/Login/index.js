@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import "./style.css"
 import ComputadorImg from "../../assets/images/computador.png"
 import { useState } from 'react';

@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 import "./styles.css"
 import ComputadorImg from "../../assets/images/computador.png";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavBar from '../Navbar/Navbar/Navbar.js'
 
 
@@ -75,7 +76,7 @@ const Cadastro = () => {
         <div>
             <NavBar />
             <section id="login">
-                <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank">entre</a> agora!</h2>
+                <h2>Cadastre-se ou <a href="http://localhost:3000/login" target="_blank" rel="noreferrer">entre</a> agora!</h2>
                 <h2>Organize suas tarefas de forma eficiente com seu</h2>
                 <h1>Daily Schedule!</h1>
                 <form onSubmit={handleSubmit} id="entrar">

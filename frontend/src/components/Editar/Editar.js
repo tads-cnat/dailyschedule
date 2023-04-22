@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import './style.css'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Sidebar from '../Navbar/Sidebar/index.js'
 
 const Editar = () => {
 
@@ -41,16 +42,19 @@ const Editar = () => {
     }).then(res => res.json());
   }
 
+  function activeTab(index) {
+    tabContent.forEach(section => {
+      section.classList.remove('ativo')
+    })
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
+  }
+
   function handleClick (e) {
     const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
     const tabContent = document.querySelectorAll('[data-tab="content"] form')
     if (tabMenu.length && tabContent.length) {
-      function activeTab(index) {
-        tabContent.forEach(section => {
-          section.classList.remove('ativo')
-        })
-        tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
-      }
+
+      activeTab(index)
 
       tabMenu.forEach((itemMenu, index) => {
         itemMenu.addEventListener('click', () => {

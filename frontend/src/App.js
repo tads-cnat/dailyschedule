@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Rotas from "./rotas";
-import  { Redirect, useHistory } from 'react-router-dom'
+
 
 function App(){
   const [cronogramas, setCronogramas] = useState([]);

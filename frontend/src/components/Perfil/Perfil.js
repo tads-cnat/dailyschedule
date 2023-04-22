@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { useReactToPrint } from 'react-to-print';
 import Sidebar from '../Navbar/Sidebar';
 import './style.css'
 import profile from '../Perfil/profile.png'

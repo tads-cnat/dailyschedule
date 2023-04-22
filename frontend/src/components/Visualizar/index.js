@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import './style.css'
 import SideBar from '../Navbar/Sidebar/index.js'
-import CriarCrono from '../CriarCronograma/index.js'
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect } from "react";
 import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
 import { useReactToPrint } from 'react-to-print';
-import { useRef, React } from 'react';
-import { redirect, useParams, useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Visualizar = (projectData) => {
   const id = localStorage.getItem('token')
@@ -110,8 +111,9 @@ const Visualizar = (projectData) => {
 
           <tbody>
             {tarefas.map(tarefa => (
+              // eslint-disable-next-line react/jsx-key
               <tr>
-                <td className="tbHora" ><input type="checkbox" class="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
+                <td className="tbHora" ><input type="checkbox" className="checkbox" onChange={(e) => tarefaUpdate(e)} /></td>
                 <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
                 <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
                 <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>

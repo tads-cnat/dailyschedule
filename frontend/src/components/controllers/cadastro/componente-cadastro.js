@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { novoUser } from "../cadastro/cadastro.js";
 
 export default function cadastro(){
