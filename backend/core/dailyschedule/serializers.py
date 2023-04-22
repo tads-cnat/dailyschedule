@@ -5,8 +5,8 @@ from .models import Aluno, Cronograma, Tarefa, User
 class SerializadorAluno(serializers.ModelSerializer):
     class Meta:
         model = Aluno
-        fields = ('id', 'user')
-    
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'qtd', 'notificacao')
+
 
 class SerializadorCronograma(serializers.ModelSerializer):
     class Meta:
@@ -32,7 +32,7 @@ class SerializadorCadastro(serializers.Serializer):
     comfirmar_senha = serializers.CharField(max_length=40)
     class meta:
 
-        model = User
+        model = Aluno
         fields = ('usuario', 'senha', 'email', 'primeiro_nome', 'ultimo_nome')
     
     """def save(self):

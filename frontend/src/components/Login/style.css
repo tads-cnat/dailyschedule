@@ -1,0 +1,102 @@
+
+#login {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 20rem;
+    margin-left: 10rem;
+  }
+  
+  #login h2 {
+    color: #ce7cff;
+    position: relative;
+    top: -7rem;
+  }
+  
+  #login h1 {
+    color: var(--scnd-color);
+    font-size: 4rem;
+    position: relative;
+    top: -5rem;
+  }
+  
+  #login img {
+    position: fixed;
+    width: 50rem;
+    left: 50%;
+    top: 20%;
+  }
+  
+  #login label {
+    color: var(--brand-dark);
+    position: relative;
+    top: -1.4rem;
+  }
+  
+  #login input {
+    box-sizing: border-box;
+    border: 0.1rem solid #e1afff;
+    border-radius: 4rem;
+    width: 43rem;
+    height: 5.6rem;
+  
+    position: relative;
+    top: -1.1rem;
+  
+    text-indent: 2rem;
+  }
+  
+  #login input[type='email']:focus {
+    outline: none;
+  }
+  
+  #login button,
+  #login .button {
+    background: var(--scnd-color);
+  
+    border: none;
+    border-radius: 4rem;
+  
+    margin-bottom: 6rem;
+  
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+  
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+  
+    text-decoration: none;
+  
+    transition: background 200ms;
+  }
+  
+  #login button:hover {
+    background-color: #6486ff;
+  }
+  
+  #login .fpass {
+    text-decoration: none;
+    position: relative;
+    left: 28.5rem;
+  }
+  
+  #login a {
+    text-decoration: none;
+    color: var(--scnd-color);
+  }
+  
+  #login .button {
+    position: absolute;
+    top: 31.5rem;
+    left: 16rem;
+  }
+  
+  input[type='text']:focus {
+    outline: none;
+  }
