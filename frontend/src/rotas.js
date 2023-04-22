@@ -13,7 +13,7 @@ import Visualizar from "./components/Visualizar/index.js";
 import Tarefa from "./components/Editar/tarefa.js";
 import Perfil from "./components/Perfil/Perfil";
 
-const Rotas = () => {
+const Rotas = () => {   
    return(
       <Router>
          <Routes>
@@ -23,14 +23,12 @@ const Rotas = () => {
             <Route path="/buscar" element={ <Buscar/> }/>
             <Route path="/cadastro" element={ <Cadastro/> }/>
             <Route path="/MeusCronogramas" element={<MeusCrogramas />}> </Route>
-
-            <Route path="/Editar/:id" element={<Editar />}></Route>
-            <Route path="/Editar/:idCronograma/Tarefa/:idTarefa" element={<Tarefa />}></Route>
-                        
-            <Route path="/Visualizar/:id" element={<Visualizar />} ></Route>
-            <Route path="/Perfil" element={<Perfil />} ></Route>
+            <Route path="/Editar/:id" element={<Editar />} />
+            <Route path="/Editar/:idCronograma/Tarefa/:idTarefa" element={<Tarefa />}/>                        
+            <Route path="/Visualizar/:id" element={<Visualizar />}/>
+            <Route path="/Perfil" element={<Perfil />} />
          </Routes>
-      </Router>
+      </Router> 
    )
 }
 

@@ -38,12 +38,12 @@ const Editar = () => {
   useEffect(() => {  
     setPrevisao("Ver previsão de hoje");
     const loadData = async(e) => {
-      fetch(`http://localhost:8000/api/cronogramas/${ID}`)
+      fetch(`http://localhost:8000/api/cronogramas/${ID}/`)
       .then(crono => crono.json())
       .then(data => setCronogramas(data))
     } 
     const loadTarefas = async(e) => {      
-      fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas`)
+      fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas/`)
       .then(res => res.json())
       .then(data => setTarefas(data))
     }   
@@ -53,7 +53,7 @@ const Editar = () => {
   }, [ID])
 
   const handleDelete = async (id) => {
-    await fetch( `http://localhost:8000/api/cronogramas/${ID}`, {
+    await fetch( `http://localhost:8000/api/cronogramas/${ID}/`, {
       method:"DELETE",
     })
     navigate("/MeusCronogramas")
@@ -62,15 +62,21 @@ const Editar = () => {
   const  postCronogramas = async (e) => {
     e.preventDefault();
     const cronograma = {
-      privacidade: Boolean(privacidade),
+      //privacidade: Boolean(privacidade),
       titulo: titulo_cronograma,
-      aluno: 1
+      //aluno: 1
     }
     
     console.log("Dentro do PUT: "+JSON.stringify(cronograma))
 
-    await fetch(`http://localhost:8000/api/cronogramas/editar/?idCrono=${cronogramas.id}&?titulo=${cronograma.titulo}&?priv=${cronograma.privacidade}`)
-    .then(res => console.log(res.json()))
+    await fetch(`http://localhost:8000/api/cronogramas/${cronogramas.id}/`, {
+      method:"PUT",
+
+      headers: {
+        'Content-Type': 'application/json',
+      },  
+      body: JSON.stringify(cronograma)
+    }).then(res => res.json());
   }
 
   function activeTab(index) {

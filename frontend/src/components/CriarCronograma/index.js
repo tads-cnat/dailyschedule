@@ -70,7 +70,7 @@ const CriarCrono = () => {
     e.preventDefault();
 
     if(assunto === "") assunto = "none";
-
+    console.log("tarefas")
     const tarefas = {
       titulo: titulo,
       assunto: assunto,
@@ -78,8 +78,9 @@ const CriarCrono = () => {
       hora_inicio: horaOfc,
       data: dataOfc,
       status: false,
-      cronograma: cronogramas[cronogramas.length-1].id,
+      cronograma: 1,
     }
+    
     await fetch("http://localhost:8000/api/tarefas/", {
       method:"POST",
       headers: {

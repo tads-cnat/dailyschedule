@@ -23,8 +23,8 @@ const Tarefa = () => {
     const [titulo_tarefa, setTituloTarefa] = useState([]);
     const [assunto_tarefa, setAssuntoTarefa] = useState([]);
     const [descricao_tarefa, setDescricaoTarefa] = useState([]);
-    const [inicio_tarefa, setInicioTarefa] = useState([]);
-    const [data_tarefa, setDataTarefa] = useState([]);
+    const [inicio_tarefa, setInicioTarefa] = useState('');
+    const [data_tarefa, setDataTarefa] = useState('');
     const [status_tarefa, setStatusTarefa] = useState([]);
     
     var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]; 
@@ -33,11 +33,23 @@ const Tarefa = () => {
     const idCronograma = params.idCronograma;
     const idTarefa = params.idTarefa;
 
+    const [titulo, setTitulo] = useState("")
+    let [assunto, setAssunto] = useState("")
+    const [descricao, setDescricao] = useState("")
+    const [hora, setHora] = useState("")
+    const [data, setData] = useState("")
+    const [alunos, setAlunos] = useState([])
+
+    const data1 = data_tarefa.split('/')
+    const hora1 = inicio_tarefa.split(':')
+    const dataOfc = new Date(data1[2], data1[1]-1, data1[0], hora1[0], hora1[1])
+    const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes()
+
     useEffect(() => {  
         setPrevisao("Ver previsão de hoje");
 
         const loadTarefa = async(e) => {      
-          fetch(`http://localhost:8000/api/tarefas/${idTarefa}`)
+          fetch(`http://localhost:8000/api/tarefas/${idTarefa}/`)
           .then(res => res.json())
           .then(data => setTarefas(data))
         }           
@@ -46,10 +58,35 @@ const Tarefa = () => {
       }, [])
     
       const handleDelete = async (id) => {
-        await fetch( `http://localhost:8000/api/tarefas/${id}`, {
+        await fetch( `http://localhost:8000/api/tarefas/${id}/`, {
           method:"DELETE",
         })
         navigate(`/Editar/${idCronograma}`)
+      }
+
+      const  postTarefas = async (e) => {
+        e.preventDefault();
+    
+        if(assunto === "") assunto = "none";
+    
+        const tarefas = {
+          titulo: titulo_tarefa,
+          assunto: assunto_tarefa,
+          descricao: descricao_tarefa,
+          hora_inicio: horaOfc,
+          data: dataOfc,
+          status: false,
+          cronograma: 1,
+        }
+        console.log(tarefas)
+        await fetch(`http://localhost:8000/api/tarefas/${idTarefa}/`, {
+          method:"PUT",
+          headers: {
+            'Content-Type': 'application/json',
+          },  
+          body: JSON.stringify(tarefas)
+        }).then(res => res.json());
+        alert("Tarefa Cadastrada!")
       }
 
     return (
@@ -60,34 +97,34 @@ const Tarefa = () => {
         
           <div> 
             
-              <form className="crono-crono" method="post">
+              <form onSubmit={postTarefas} className="crono-crono" method="post">
                 
                 <div className="crono-priv-editar">
                     <div className='info'>
                         <label htmlFor="titulo_tarefa">Insira o nome de sua tarefa: </label><br />
-                        <input  type="text" name="titulo" id="titulo" onChange={(e) => setTituloTarefa(e.target.value)} value={tarefas.titulo} />
+                        <input  type="text" name="titulo" id="titulo" onChange={(e) => setTituloTarefa(e.target.value)} value={titulo_tarefa || tarefas.titulo} />
                         <br />
                     </div>
                     <div className='info'>
                         <label htmlFor="assunto">Assunto:</label><br />
-                        <input type="text" name="assunto" id="assunto" onChange={(e) => setAssuntoTarefa(e.target.value)} value={tarefas.assunto} />
+                        <input type="text" name="assunto" id="assunto" onChange={(e) => setAssuntoTarefa(e.target.value)} value={assunto_tarefa || tarefas.assunto} />
                         <br />
                     </div>
                     <div className='info'>                        
                         <label htmlFor="descricao">Descrição</label><br />
-                        <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricaoTarefa(e.target.value)} value={tarefas.descricao} />
+                        <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricaoTarefa(e.target.value)} value={descricao_tarefa || tarefas.descricao} />
                         <br />
                     </div>
                     <div className='info'>                        
                         <div className='info'>
                         <label htmlFor="horario">Horário de inicio</label><br />
-                        <input type="time" name="horario" id="horario" onChange={(e) => setInicioTarefa(e.target.value)} value={tarefas.hora_inicio} />
+                        <input type="time" name="horario" id="horario" onChange={(e) => setInicioTarefa(e.target.value)} value={inicio_tarefa} />
                         </div>
                         <br />
                     </div>
                     <div className='info'>                        
                         <label htmlFor="data">Data</label><br />
-                        <input type="datetime" name="data" id="data" onChange={(e) => setDataTarefa(e.target.value)} value={tarefas.data} />
+                        <input type="datetime" name="data" id="data" onChange={(e) => setDataTarefa(e.target.value)} value={data_tarefa} />
                         <br />
                     </div>
                     <div className='info'>                        
