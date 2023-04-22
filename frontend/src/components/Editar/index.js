@@ -60,14 +60,16 @@ const Editar = () => {
   const  postCronogramas = async (e) => {
     e.preventDefault();
     const cronograma = {
-      privacidade: Boolean(privacidade),
+      //privacidade: Boolean(privacidade),
       titulo: titulo_cronograma,
-      aluno: 1
+      //aluno: 1
     }
     
     console.log("Dentro do PUT: "+JSON.stringify(cronograma))
+
     await fetch(`http://localhost:8000/api/cronogramas/${cronogramas.id}/`, {
       method:"PUT",
+
       headers: {
         'Content-Type': 'application/json',
       },  
