@@ -11,14 +11,9 @@ const Tarefa = () => {
     const id = localStorage.getItem('token')
 
     const navigate = useNavigate();
-    const [weather, setWeather] = useState([]);
     const [previsao, setPrevisao] = useState([]);
-    const [cronogramas, setCronogramas] = useState([]);
     const [tarefas, setTarefas] = useState([]);
     const [project, setProject] = useState([]);
-    
-    const [titulo_cronograma, setTituloCronograma] = useState("")
-    const [privacidade, setPrivado] = useState(false)
 
     const [titulo_tarefa, setTituloTarefa] = useState([]);
     const [assunto_tarefa, setAssuntoTarefa] = useState([]);
@@ -26,19 +21,11 @@ const Tarefa = () => {
     const [inicio_tarefa, setInicioTarefa] = useState('');
     const [data_tarefa, setDataTarefa] = useState('');
     const [status_tarefa, setStatusTarefa] = useState([]);
-    
-    var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]; 
 
     const params = useParams();
     const idCronograma = params.idCronograma;
     const idTarefa = params.idTarefa;
-
-    const [titulo, setTitulo] = useState("")
     let [assunto, setAssunto] = useState("")
-    const [descricao, setDescricao] = useState("")
-    const [hora, setHora] = useState("")
-    const [data, setData] = useState("")
-    const [alunos, setAlunos] = useState([])
 
     const data1 = data_tarefa.split('/')
     const hora1 = inicio_tarefa.split(':')
