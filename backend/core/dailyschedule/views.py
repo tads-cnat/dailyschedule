@@ -31,7 +31,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
 
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
-    import pdb; pdb.set_trace()
+    
     def get_queryset(self):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
