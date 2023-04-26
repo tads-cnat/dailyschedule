@@ -79,21 +79,6 @@ const Editar = () => {
     })
     tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
   }
-
-  function handleClick (e) {
-    const tabMenu = document.querySelectorAll('[data-tab="menu"] button')
-    const tabContent = document.querySelectorAll('[data-tab="content"] form')
-    if (tabMenu.length && tabContent.length) {
-
-      activeTab(index)
-      
-      tabMenu.forEach((itemMenu, index) => {
-        itemMenu.addEventListener('click', () => {
-          activeTab(index)
-        })
-      })
-    }
-  }
   
   return (
     <div>

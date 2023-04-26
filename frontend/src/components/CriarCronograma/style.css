@@ -50,21 +50,6 @@
   top: 32rem;
 }
 
-.crono-info1 {
-  width: 140rem;
-  position: absolute;
-  left: 43.5rem;
-  top: 32rem;
-}
-
-.crono-info1 .info {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.4rem;
-}
-
 [data-tab="content"] form {
   display: none;
 }
@@ -129,7 +114,7 @@
 }
 
 #criar-crono button,
-#criar-crono1 button {
+.criar-crono1 button {
   color: #ffffff;
 
   width: 19rem;
@@ -147,18 +132,18 @@
   align-items: center;
 }
 
-#criar-crono1 .btncont,
+.criar-crono1 .btncont,
 #criar-crono .btncont  {
   display: block;
 }
 
 #criar-crono button:hover,
-#criar-crono1 button:hover {
+.criar-crono1 button:hover {
   background: var(--scnd-color);
 }
 
 #criar-crono button:-webkit-any-link,
-#criar-crono1 button:-webkit-any-link {
+.criar-crono1 button:-webkit-any-link {
   color: white;
   cursor: pointer;
   text-decoration: none;

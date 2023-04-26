@@ -4,6 +4,7 @@ import './style.css'
 import { useState, useEffect } from "react";
 import Sidebar from '../Navbar/Sidebar/index.js'
 import { useNavigate } from 'react-router-dom';
+import FormCrono from '../Forms/FormCrono';
 
 const CriarCrono = () => {
 
@@ -146,122 +147,24 @@ const CriarCrono = () => {
       </form>
     </section>
 
-    <section id="criar-crono1" data-tab="content">
-      <form onSubmit={postTarefas} className={`crono-info1`} method="post" >
-        <div className="info">
-          <label htmlFor="aulas">Informe a aula</label>
-          <input type="text" name="aulas" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="descricao">Descrição</label>
-          <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricao(e.target.value)} value={descricao || ""}  />
-        </div>
-        <div className="info">
-          <label htmlFor="horario">Horário</label> 
-          <input type="time" name="horario" id="horario" onChange={(e) => setHora(e.target.value)} value={hora || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
-        </div>
-        <button className="btncont" type="submit">Salvar</button>
-      </form>
+    <section class="criar-crono1" data-tab="content">
+      <FormCrono onSubmit={postTarefas} valueLabel="Informe a aula" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section id="criar-crono1" data-tab="content">
-      <form onSubmit={postTarefas} className={`crono-info1`} method="post">
-        <div className="info">
-          <label htmlFor="aulas">Informe a matéria</label>
-          <input type="text" name="aulas" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="descricao">Descrição</label>
-          <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricao(e.target.value)} value={descricao || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="aulas">Assunto</label>
-          <input type="text" name="aulas" id="assunto" onChange={(e) => setAssunto(e.target.value)} value={assunto || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="horario">Horário</label> 
-          <input type="time" name="horario" id="horario" onChange={(e) => setHora(e.target.value)} value={hora || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
-        </div>
-        <button className="btncont" type="submit">Salvar</button>
-      </form>
+    <section class="criar-crono1" data-tab="content">
+      <FormCrono onSubmit={postTarefas} valueLabel="Informe a matéria" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section id="criar-crono1" data-tab="content">
-      <form onSubmit={postTarefas} className={`crono-info1`} method="post">
-        <div className="info">
-          <label htmlFor="aulas">Informe suas provas</label>
-          <input type="text" name="aulas" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="descricao">Descrição</label>
-          <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricao(e.target.value)} value={descricao || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="aulas">Assunto</label>
-          <input type="text" name="aulas" id="assunto" onChange={(e) => setAssunto(e.target.value)} value={assunto || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="horario">Horário</label> 
-          <input type="time" name="horario" id="horario" onChange={(e) => setHora(e.target.value)} value={hora || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
-        </div>
-        <button className="btncont" type="submit">Salvar</button>
-      </form>
+    <section class="criar-crono1" data-tab="content">
+      <FormCrono onSubmit={postTarefas} valueLabel="Informe a prova" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section id="criar-crono1" data-tab="content">
-      <form onSubmit={postTarefas} className={`crono-info1`} method="post">
-        <div className="info">
-          <label htmlFor="aulas">Informe seu afazer</label>
-          <input type="text" name="aulas" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="descricao">Descrição</label>
-          <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricao(e.target.value)} value={descricao || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="horario">Horário</label> 
-          <input type="time" name="horario" id="horario" onChange={(e) => setHora(e.target.value)} value={hora || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
-        </div>
-        <button className="btncont" type="submit">Salvar</button>
-      </form>
+    <section class="criar-crono1" data-tab="content">
+      <FormCrono onSubmit={postTarefas} valueLabel="Informe o afazer" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section id="criar-crono1" data-tab="content">
-      <form onSubmit={postTarefas} className={`crono-info1`} method="post">
-        <div className="info">
-          <label htmlFor="aulas">Se desejar, insira descanso</label>
-          <input type="text" name="aulas" id="titulo" onChange={(e) => setTitulo(e.target.value)} value={titulo || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="descricao">Descrição</label>
-          <input type="text" name="descricao" id="descricao" onChange={(e) => setDescricao(e.target.value)} value={descricao || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="horario">Horário</label> 
-          <input type="time" name="horario" id="horario" onChange={(e) => setHora(e.target.value)} value={hora || ""} />
-        </div>
-        <div className="info">
-          <label htmlFor="datas">Data</label> 
-          <input type="datetime" name="datas" id="data" onChange={(e) => setData(e.target.value)} value={data || ""} />
-        </div>
-        <button className="btncont" type="submit">Salvar</button>
-      </form>
+    <section class="criar-crono1" data-tab="content">
+      <FormCrono onSubmit={postTarefas} valueLabel="Se desejar, insira descanso" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
   </div>

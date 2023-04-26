@@ -1,6 +1,5 @@
 import './style.css'
 import React from 'react';
-import { BsExclamationCircleFill } from 'react-icons';
 import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {
