@@ -19,7 +19,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 
-from .models import Cronograma, Tarefa, Aluno, User
+from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno, SerializadorLogin, SerializadorCadastro
 
 import datetime
@@ -31,7 +31,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
 
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
-
+    import pdb; pdb.set_trace()
     def get_queryset(self):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
@@ -248,10 +248,7 @@ class AuthViewSet(viewsets.GenericViewSet):
             else:
                 user = Aluno(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                 user.save()
-                #user = Aluno.objects.create(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                #user.save()
-                #super = User.objects.create_superuser(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                #super.save()
+
                 request.session['usuario'] = username
                 return Response({'message': 'Usuário cadastrado com sucesso', 'user':username}, status=status.HTTP_200_OK)
 
