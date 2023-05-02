@@ -9,14 +9,12 @@ import { useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Visualizar = (projectData) => {
-  const id = localStorage.getItem('token')
 
   const navigate = useNavigate();
   const [weather, setWeather] = useState([]);
   const [previsao, setPrevisao] = useState([]);
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
-  const [project, setProject] = useState(projectData || []);
   const [status_tarefa, setStatusTarefa] = useState([]);
   var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]; 
 
@@ -54,17 +52,6 @@ const Visualizar = (projectData) => {
     })
     navigate("/MeusCronogramas")
   }
-
-  const handlePut = async (tarefas) => {
-    await fetch(`http://localhost:8000/api/tarefas/${tarefas.id}`, {
-      method:"PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },  
-      body: JSON.stringify(tarefas)
-    })
-    
-  } 
   
   const getWeather = () => {
     fetch('https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br')

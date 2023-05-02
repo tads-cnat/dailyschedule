@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css'
+import '../style.css'
 import { useState, useEffect, useRef } from "react";
 import SideBar from '../Navbar/Sidebar';
 import { BsFillTrashFill, BsPencilSquare, BsFillCloudSunFill } from "react-icons/bs";
@@ -12,11 +12,9 @@ const Editar = () => {
   const id = localStorage.getItem('token')
 
   const navigate = useNavigate();
-  const [weather, setWeather] = useState([]);
   const [previsao, setPrevisao] = useState([]);
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
-  const [project, setProject] = useState([]);
   
   const [titulo_cronograma, setTituloCronograma] = useState("")
   const [privacidade, setPrivado] = useState(false)  
@@ -30,10 +28,6 @@ const Editar = () => {
   console.log("ID do cornograma: " + ID);
 
   const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: 'Nova Print',          
-    });
 
   useEffect(() => {  
     setPrevisao("Ver previsão de hoje");
