@@ -34,7 +34,8 @@
     <td>O usuário vai cadastrar os dias e horários em que terá uma tarefa do tipo aula, matéria, prova, afazer e horário vago</td>
     <td>Implementar um sistema de gerenciamento de rotinas eficiente e prático para os usuários</td>
     <td>Especificação dos requisitos do sistema; Desenvolvimento dos serviços RESTful em Django e Implementação das requisições para o backend</td>
-    <td>Interface intuitiva e fácil de usar, onde o usuário poderá inserir as informações do cronograma, tarefas e prazos</td>
+    <td>Interface intuitiva e fácil de usar, onde o usuário poderá inserir as informações de cada tarefa e prazos
+</td>
     <td>Implementar sistema de cadastro de tarefas</td>
     <td>Verificação da inserção correta de tarefas e prazos e a exibição correta do cronograma gerado</td>
   </tr>
