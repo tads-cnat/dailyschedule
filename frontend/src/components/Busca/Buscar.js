@@ -25,7 +25,7 @@ function Buscar() {
     }
 
     const filterCrono = searchResults.filter((crono) =>
-      crono.titulo.includes(target.value)
+      crono.titulo.includes(target.value),
     );
     setSearchResults(filterCrono);
   };

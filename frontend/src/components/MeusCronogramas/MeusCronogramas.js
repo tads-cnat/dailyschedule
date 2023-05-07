@@ -47,7 +47,7 @@ function MeusCrogramas() {
 
   const getWeather = () => {
     fetch(
-      'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br'
+      'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br',
     )
       .then((response) => response.json())
       .then((data) => setWeather(data));

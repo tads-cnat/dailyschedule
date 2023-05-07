@@ -32,7 +32,7 @@ const Tarefa = () => {
     data1[1] - 1,
     data1[0],
     hora1[0],
-    hora1[1]
+    hora1[1],
   );
   const horaOfc = dataOfc.getHours() + ':' + dataOfc.getMinutes();
 
