@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 
 import Home from './components/Home/HomePage/Home';
 import CriarCrono from './components/CriarCronograma/index.js';

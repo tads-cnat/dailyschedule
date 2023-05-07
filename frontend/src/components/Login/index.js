@@ -2,8 +2,8 @@
 /* eslint-disable no-undef */
 import './style.css';
 import ComputadorImg from '../../assets/images/computador.png';
-import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useState} from 'react';
+import {Navigate, useNavigate} from 'react-router-dom';
 import NavBar from '../Navbar/Navbar/Navbar.js';
 
 const Login = () => {

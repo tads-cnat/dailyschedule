@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import './style.css';
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from '../Navbar/Navbar/Navbar.js';
 
 function Buscar() {
@@ -18,7 +18,7 @@ function Buscar() {
 		loadData();
 	}, []);
 
-	const handleChange = ({ target }) => {
+	const handleChange = ({target}) => {
 		if (!target.value) {
 			setSearchResults(searchTerm);
 			return;

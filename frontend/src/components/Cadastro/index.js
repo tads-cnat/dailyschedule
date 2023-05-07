@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import './styles.css';
 import ComputadorImg from '../../assets/images/computador.png';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import NavBar from '../Navbar/Navbar/Navbar.js';
 
 const Cadastro = () => {

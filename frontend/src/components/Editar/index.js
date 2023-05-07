@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import '../style.css';
-import { useState, useEffect, useRef } from 'react';
+import {useState, useEffect, useRef} from 'react';
 import SideBar from '../Navbar/Sidebar';
 import {
 	BsFillTrashFill,
 	BsPencilSquare,
 	BsFillCloudSunFill,
 } from 'react-icons/bs';
-import { useReactToPrint } from 'react-to-print';
-import { redirect, useParams, useNavigate } from 'react-router-dom';
+import {useReactToPrint} from 'react-to-print';
+import {redirect, useParams, useNavigate} from 'react-router-dom';
 
 const Editar = () => {
 	const id = localStorage.getItem('token');

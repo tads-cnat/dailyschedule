@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import Sidebar from '../Navbar/Sidebar';
 import './style.css';
 import profile from '../Perfil/profile.png';

@@ -2,15 +2,15 @@
 /* eslint-disable no-undef */
 import './style.css';
 import SideBar from '../Navbar/Sidebar/index.js';
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import {
 	BsFillTrashFill,
 	BsPencilSquare,
 	BsFillCloudSunFill,
 } from 'react-icons/bs';
-import { useReactToPrint } from 'react-to-print';
-import { useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {useReactToPrint} from 'react-to-print';
+import {useRef} from 'react';
+import {useParams, useNavigate} from 'react-router-dom';
 
 const Visualizar = (projectData) => {
 	const navigate = useNavigate();

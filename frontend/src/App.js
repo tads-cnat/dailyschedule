@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import Rotas from './rotas';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
 		const loadData = () => {
 			fetch('http://localhost:8000/api/cronogramas/', {
 				method: 'GET',
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 			})
 				.then((response) => response.json())
 				.then((data) => setCronogramas(data))

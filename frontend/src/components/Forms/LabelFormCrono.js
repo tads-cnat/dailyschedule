@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import './style.css';
 
-const LabelCriarCrono = ({ htmlFor, value }) => {
+const LabelCriarCrono = ({htmlFor, value}) => {
 	return (
 		<div>
 			<label htmlFor={htmlFor}>{value}</label> <br />

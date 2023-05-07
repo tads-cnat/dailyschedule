@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import './style.css';
 
-const InputCriarCrono = ({ type, name, id, onChange, value }) => {
+const InputCriarCrono = ({type, name, id, onChange, value}) => {
 	return (
 		<div>
 			<input

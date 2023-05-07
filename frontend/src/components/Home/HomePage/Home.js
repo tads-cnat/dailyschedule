@@ -1,7 +1,7 @@
 import '../../../assets/css/style.css';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import cronograma from '../../../assets/images/cronograma.png';
 import NavBar from '../../Navbar/Navbar/Navbar.js';
