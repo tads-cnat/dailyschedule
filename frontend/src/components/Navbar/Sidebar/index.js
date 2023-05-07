@@ -1,5 +1,7 @@
 import './style.css'
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import { BsExclamationCircleFill } from 'react-icons';
 import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {

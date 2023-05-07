@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css'
+import '../style.css'
 import { useState, useEffect } from "react";
 import Sidebar from '../Navbar/Sidebar/index.js'
 import { useNavigate } from 'react-router-dom';
