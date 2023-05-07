@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "./style.css";
+import './style.css';
 
 const InputCriarCrono = ({ type, name, id, onChange, value }) => {
   return (
@@ -11,7 +11,7 @@ const InputCriarCrono = ({ type, name, id, onChange, value }) => {
         id={id}
         onChange={onChange}
         value={value}
-      />{" "}
+      />{' '}
       <br />
     </div>
   );

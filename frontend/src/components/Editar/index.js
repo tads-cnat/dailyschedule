@@ -1,46 +1,46 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "../style.css";
-import { useState, useEffect, useRef } from "react";
-import SideBar from "../Navbar/Sidebar";
+import '../style.css';
+import { useState, useEffect, useRef } from 'react';
+import SideBar from '../Navbar/Sidebar';
 import {
   BsFillTrashFill,
   BsPencilSquare,
   BsFillCloudSunFill,
-} from "react-icons/bs";
-import { useReactToPrint } from "react-to-print";
-import { redirect, useParams, useNavigate } from "react-router-dom";
+} from 'react-icons/bs';
+import { useReactToPrint } from 'react-to-print';
+import { redirect, useParams, useNavigate } from 'react-router-dom';
 
 const Editar = () => {
-  const id = localStorage.getItem("token");
+  const id = localStorage.getItem('token');
 
   const navigate = useNavigate();
   const [previsao, setPrevisao] = useState([]);
   const [cronogramas, setCronogramas] = useState([]);
   const [tarefas, setTarefas] = useState([]);
 
-  const [titulo_cronograma, setTituloCronograma] = useState("");
+  const [titulo_cronograma, setTituloCronograma] = useState('');
   const [privacidade, setPrivado] = useState(false);
 
   var semana = [
-    "Domingo",
-    "Segunda-Feira",
-    "Terça-Feira",
-    "Quarta-Feira",
-    "Quinta-Feira",
-    "Sexta-Feira",
-    "Sábado",
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sábado',
   ];
 
   const params = useParams();
   const ID = params.id;
 
-  console.log("ID do cornograma: " + ID);
+  console.log('ID do cornograma: ' + ID);
 
   const componentRef = useRef();
 
   useEffect(() => {
-    setPrevisao("Ver previsão de hoje");
+    setPrevisao('Ver previsão de hoje');
     const loadData = async (e) => {
       fetch(`http://localhost:8000/api/cronogramas/${ID}/`)
         .then((crono) => crono.json())
@@ -53,14 +53,14 @@ const Editar = () => {
     };
     loadData();
     loadTarefas();
-    console.log("Id do cronograma crono: " + cronogramas.id);
+    console.log('Id do cronograma crono: ' + cronogramas.id);
   }, [ID]);
 
   const handleDelete = async (id) => {
     await fetch(`http://localhost:8000/api/cronogramas/${ID}/`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
-    navigate("/MeusCronogramas");
+    navigate('/MeusCronogramas');
   };
 
   const postCronogramas = async (e) => {
@@ -71,13 +71,13 @@ const Editar = () => {
       //aluno: 1
     };
 
-    console.log("Dentro do PUT: " + JSON.stringify(cronograma));
+    console.log('Dentro do PUT: ' + JSON.stringify(cronograma));
 
     await fetch(`http://localhost:8000/api/cronogramas/${cronogramas.id}/`, {
-      method: "PUT",
+      method: 'PUT',
 
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(cronograma),
     }).then((res) => res.json());
@@ -85,9 +85,9 @@ const Editar = () => {
 
   function activeTab(index) {
     tabContent.forEach((section) => {
-      section.classList.remove("ativo");
+      section.classList.remove('ativo');
     });
-    tabContent[index].classList.add("ativo", tabContent[index].dataset.anime);
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime);
   }
 
   return (

@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "./style.css";
-import ComputadorImg from "../../assets/images/computador.png";
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import NavBar from "../Navbar/Navbar/Navbar.js";
+import './style.css';
+import ComputadorImg from '../../assets/images/computador.png';
+import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import NavBar from '../Navbar/Navbar/Navbar.js';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
@@ -26,10 +26,10 @@ const Login = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const request = await fetch("http://localhost:8000/api/auth/login/", {
-      method: "POST",
+    const request = await fetch('http://localhost:8000/api/auth/login/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         usuario: email,
@@ -40,8 +40,8 @@ const Login = () => {
     console.log(response);
 
     if (request.status === 200) {
-      localStorage.setItem("token", response.user);
-      navigate("/criar-cronograma");
+      localStorage.setItem('token', response.user);
+      navigate('/criar-cronograma');
     }
     if (request.status === 401) {
       setErr(true);
@@ -60,10 +60,10 @@ const Login = () => {
       <NavBar />
       <section id="login">
         <h2>
-          Entre ou{" "}
+          Entre ou{' '}
           <a href="cadastro.html" target="_blank">
             cadastre-se
-          </a>{" "}
+          </a>{' '}
           agora!
         </h2>
         <h2>Organize suas tarefas de forma eficiente com seu</h2>
@@ -96,7 +96,7 @@ const Login = () => {
             onChange={handlerSenha}
           />
           <br />
-          <span>{`${err ? "Email ou senha Erradas" : ""}`}</span>
+          <span>{`${err ? 'Email ou senha Erradas' : ''}`}</span>
           <br />
           <br />
           <button type="submit">Entrar</button>

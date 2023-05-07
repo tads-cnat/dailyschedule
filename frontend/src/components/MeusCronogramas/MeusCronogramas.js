@@ -1,28 +1,28 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React, { useRef } from "react";
-import { useEffect, useState } from "react";
-import "./MC.css";
-import Sidebar from "../Navbar/Sidebar";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useReactToPrint } from "react-to-print";
-import CopyToClipboard from "react-copy-to-clipboard";
-import cronogramaImg from "../../assets/images/cronograma.png";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import React, { useRef } from 'react';
+import { useEffect, useState } from 'react';
+import './MC.css';
+import Sidebar from '../Navbar/Sidebar';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import cronogramaImg from '../../assets/images/cronograma.png';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 //BsThreeDotsVertical
 
 function MeusCrogramas() {
   const [cronogramas, setCronogramas] = useState([]);
   const [weather, setWeather] = useState([]);
 
-  const id = localStorage.getItem("token");
+  const id = localStorage.getItem('token');
   const navigate = useNavigate();
   const url = window.location.href;
 
   useEffect(() => {
     if (id == null) {
-      navigate("/");
+      navigate('/');
     }
     const loadData = () => {
       fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
@@ -36,22 +36,22 @@ function MeusCrogramas() {
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: "Nova Print",
+    documentTitle: 'Nova Print',
   });
 
   const alerta = () => {
-    fetch("http://localhost:8000/api/aluno/1/alerta")
+    fetch('http://localhost:8000/api/aluno/1/alerta')
       .then((response) => response.json())
       .then((data) => setCronogramas(data));
   };
 
   const getWeather = () => {
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br"
+      'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br'
     )
       .then((response) => response.json())
       .then((data) => setWeather(data));
-    console.log("Console: " + JSON.stringify(weather.weather));
+    console.log('Console: ' + JSON.stringify(weather.weather));
   };
   return (
     <div className="MC">

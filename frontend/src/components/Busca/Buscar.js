@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-import "./style.css";
-import React, { useState, useEffect } from "react";
-import NavBar from "../Navbar/Navbar/Navbar.js";
+import './style.css';
+import React, { useState, useEffect } from 'react';
+import NavBar from '../Navbar/Navbar/Navbar.js';
 
 function Buscar() {
   const [searchTerm, setSearchTerm] = useState([]);
@@ -39,7 +39,7 @@ function Buscar() {
       <div className="buscaInfo">
         <form className="busca">
           <input type="text" placeholder="Search..." onChange={handleChange} />
-        </form>{" "}
+        </form>{' '}
         <br />
         <br />
         {searchResults.map((result) => (

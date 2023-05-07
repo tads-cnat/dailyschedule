@@ -1,13 +1,13 @@
-import "./style.css";
-import React from "react";
+import './style.css';
+import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { BsExclamationCircleFill } from "react-icons";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsExclamationCircleFill } from 'react-icons';
+import { BsFillPersonFill } from 'react-icons/bs';
 
 const Sidebar = () => {
   function Logout() {
     // eslint-disable-next-line no-undef
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
   return (
     <nav id="sidebar">
@@ -124,7 +124,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a href="/Perfil">
-              {" "}
+              {' '}
               <BsFillPersonFill size="25px" /> Perfil
             </a>
           </li>

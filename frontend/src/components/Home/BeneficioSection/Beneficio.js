@@ -1,8 +1,8 @@
-import "../../../assets/css/style.css";
-import concentracao from "../../../assets/images/concentracao.png";
-import confianca from "../../../assets/images/confianca.jpg";
-import tempo from "../../../assets/images/tempo.jpg";
-import compro from "../../../assets/images/compro.jpg";
+import '../../../assets/css/style.css';
+import concentracao from '../../../assets/images/concentracao.png';
+import confianca from '../../../assets/images/confianca.jpg';
+import tempo from '../../../assets/images/tempo.jpg';
+import compro from '../../../assets/images/compro.jpg';
 
 const Beneficio = () => {
   return (
@@ -38,7 +38,7 @@ const Beneficio = () => {
               O cronograma de estudos tem como função ajudar a estabelecer
               prioridades. Portanto, ao planejar tudo que você vai estudar todos
               os dias e com a quantidade certa de matérias, dificilmente vai se
-              perder entre os conteúdos ou esquecer algo.{" "}
+              perder entre os conteúdos ou esquecer algo.{' '}
             </p>
           </div>
           <div className="bnfc">

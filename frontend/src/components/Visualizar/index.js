@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "./style.css";
-import SideBar from "../Navbar/Sidebar/index.js";
-import { useState, useEffect } from "react";
+import './style.css';
+import SideBar from '../Navbar/Sidebar/index.js';
+import { useState, useEffect } from 'react';
 import {
   BsFillTrashFill,
   BsPencilSquare,
   BsFillCloudSunFill,
-} from "react-icons/bs";
-import { useReactToPrint } from "react-to-print";
-import { useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+} from 'react-icons/bs';
+import { useReactToPrint } from 'react-to-print';
+import { useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Visualizar = (projectData) => {
   const navigate = useNavigate();
@@ -20,28 +20,28 @@ const Visualizar = (projectData) => {
   const [tarefas, setTarefas] = useState([]);
   const [status_tarefa, setStatusTarefa] = useState([]);
   var semana = [
-    "Domingo",
-    "Segunda-Feira",
-    "Terça-Feira",
-    "Quarta-Feira",
-    "Quinta-Feira",
-    "Sexta-Feira",
-    "Sábado",
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sábado',
   ];
 
   const params = useParams();
   const ID = params.id;
 
-  console.log("ID do cornograma: " + ID);
+  console.log('ID do cornograma: ' + ID);
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: "Nova Print",
+    documentTitle: 'Nova Print',
   });
 
   useEffect(() => {
-    setPrevisao("Ver previsão de hoje");
+    setPrevisao('Ver previsão de hoje');
     const loadData = async (e) => {
       fetch(`http://localhost:8000/api/cronogramas/${ID}`)
         .then((crono) => crono.json())
@@ -54,24 +54,24 @@ const Visualizar = (projectData) => {
     };
     loadData();
     loadTarefas();
-    console.log("Id do cronograma crono: " + cronogramas.id);
+    console.log('Id do cronograma crono: ' + cronogramas.id);
   }, [ID]);
 
   const handleDelete = async (id) => {
     await fetch(`http://localhost:8000/api/cronogramas/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
-    navigate("/MeusCronogramas");
+    navigate('/MeusCronogramas');
   };
 
   const getWeather = () => {
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br"
+      'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br'
     )
       .then((response) => response.json())
       .then((data) => setWeather(data));
     setPrevisao(weather.weather[0].description);
-    console.log("Tempo: " + JSON.stringify(weather.weather));
+    console.log('Tempo: ' + JSON.stringify(weather.weather));
   };
 
   const tarefaUpdate = (e) => {
@@ -90,7 +90,7 @@ const Visualizar = (projectData) => {
           <BsFillCloudSunFill
             onClick={() => getWeather()}
             className="cloud"
-          />{" "}
+          />{' '}
           {previsao}
           <BsFillTrashFill
             className="trash"
@@ -129,7 +129,7 @@ const Visualizar = (projectData) => {
                 </td>
                 <td className="tbHora">{tarefa.hora_inicio.slice(0, -3)}</td>
                 <td className="tbTitulo">
-                  {tarefa.titulo} - {tarefa.descricao}{" "}
+                  {tarefa.titulo} - {tarefa.descricao}{' '}
                 </td>
               </tr>
             ))}

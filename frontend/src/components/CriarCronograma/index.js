@@ -1,27 +1,27 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "../style.css";
-import { useState, useEffect } from "react";
-import Sidebar from "../Navbar/Sidebar/index.js";
-import { useNavigate } from "react-router-dom";
-import FormCrono from "../Forms/FormCrono";
+import '../style.css';
+import { useState, useEffect } from 'react';
+import Sidebar from '../Navbar/Sidebar/index.js';
+import { useNavigate } from 'react-router-dom';
+import FormCrono from '../Forms/FormCrono';
 
 const CriarCrono = () => {
-  const [titulo, setTitulo] = useState("");
-  const [titulo_cronograma, setTituloCronograma] = useState("");
+  const [titulo, setTitulo] = useState('');
+  const [titulo_cronograma, setTituloCronograma] = useState('');
   const [privacidade, setPrivado] = useState(false);
-  let [assunto, setAssunto] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [hora, setHora] = useState("");
-  const [data, setData] = useState("");
+  let [assunto, setAssunto] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [hora, setHora] = useState('');
+  const [data, setData] = useState('');
 
   const [cronogramas, setCronogramas] = useState([]);
   // eslint-disable-next-line
   const [tarefas, setTarefas] = useState([]);
   const [alunos, setAlunos] = useState([]);
 
-  const data1 = data.split("/");
-  const hora1 = hora.split(":");
+  const data1 = data.split('/');
+  const hora1 = hora.split(':');
   const dataOfc = new Date(
     data1[2],
     data1[1] - 1,
@@ -29,29 +29,29 @@ const CriarCrono = () => {
     hora1[0],
     hora1[1]
   );
-  const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes();
+  const horaOfc = dataOfc.getHours() + ':' + dataOfc.getMinutes();
 
-  const id = localStorage.getItem("token");
+  const id = localStorage.getItem('token');
   const navigate = useNavigate();
 
-  console.log("ID do usuário: " + id);
+  console.log('ID do usuário: ' + id);
   useEffect(() => {
     if (id == null) {
-      navigate("/");
+      navigate('/');
     }
 
     const loadData = async (_e) => {
-      const res = await fetch("http://localhost:8000/api/cronogramas/")
+      const res = await fetch('http://localhost:8000/api/cronogramas/')
         .then((res) => res.json())
         .then((data) => data);
       setCronogramas(res);
 
-      const rest = await fetch("http://localhost:8000/api/tarefas/")
+      const rest = await fetch('http://localhost:8000/api/tarefas/')
         .then((res) => res.json())
         .then((data) => data);
       setTarefas(rest);
 
-      const resa = await fetch("http://localhost:8000/api/alunos/")
+      const resa = await fetch('http://localhost:8000/api/alunos/')
         .then((res) => res.json())
         .then((data) => data);
       setAlunos(resa);
@@ -68,10 +68,10 @@ const CriarCrono = () => {
       aluno: alunos[alunos.length - 1].id,
     };
 
-    await fetch("http://localhost:8000/api/cronogramas/", {
-      method: "POST",
+    await fetch('http://localhost:8000/api/cronogramas/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(cronogramas),
     }).then((res) => res.json());
@@ -80,8 +80,8 @@ const CriarCrono = () => {
   const postTarefas = async (e) => {
     e.preventDefault();
 
-    if (assunto === "") assunto = "none";
-    console.log("tarefas");
+    if (assunto === '') assunto = 'none';
+    console.log('tarefas');
     const tarefas = {
       titulo: titulo,
       assunto: assunto,
@@ -92,21 +92,21 @@ const CriarCrono = () => {
       cronograma: 1,
     };
 
-    await fetch("http://localhost:8000/api/tarefas/", {
-      method: "POST",
+    await fetch('http://localhost:8000/api/tarefas/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(tarefas),
     }).then((res) => res.json());
-    alert("Tarefa Cadastrada!");
+    alert('Tarefa Cadastrada!');
   };
 
   function activeTab(index) {
     tabContent.forEach((section) => {
-      section.classList.remove("ativo");
+      section.classList.remove('ativo');
     });
-    tabContent[index].classList.add("ativo", tabContent[index].dataset.anime);
+    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime);
   }
 
   function handleClick(_e) {
@@ -116,7 +116,7 @@ const CriarCrono = () => {
       activeTab(index);
 
       tabMenu.forEach((itemMenu, index) => {
-        itemMenu.addEventListener("click", () => {
+        itemMenu.addEventListener('click', () => {
           activeTab(index);
         });
       });
@@ -145,7 +145,7 @@ const CriarCrono = () => {
 
       <section id="criar-crono" data-tab="content">
         <form onSubmit={postCronogramas} className="crono-info" method="post">
-          <label htmlFor="titulo">Insira o nome do seu cronograma: </label>{" "}
+          <label htmlFor="titulo">Insira o nome do seu cronograma: </label>{' '}
           <br />
           <br />
           <input
@@ -153,8 +153,8 @@ const CriarCrono = () => {
             name="titulo"
             id="titulo_cronograma"
             onChange={(e) => setTituloCronograma(e.target.value)}
-            value={titulo_cronograma || ""}
-          />{" "}
+            value={titulo_cronograma || ''}
+          />{' '}
           <br />
           <div className="crono-priv">
             <br />
@@ -173,78 +173,78 @@ const CriarCrono = () => {
         </form>
       </section>
 
-      <section class="criar-crono1" data-tab="content">
+      <section className="criar-crono1" data-tab="content">
         <FormCrono
           onSubmit={postTarefas}
           valueLabel="Informe a aula"
           onChangeTitulo={(e) => setTitulo(e.target.value)}
-          valueTitulo={titulo || ""}
+          valueTitulo={titulo || ''}
           onChangeDesc={(e) => setDescricao(e.target.value)}
-          valueDesc={descricao || ""}
+          valueDesc={descricao || ''}
           onChangeHora={(e) => setHora(e.target.value)}
-          valueHora={hora || ""}
+          valueHora={hora || ''}
           onChangeDate={(e) => setData(e.target.value)}
-          valueDate={hora || ""}
+          valueDate={hora || ''}
         />
       </section>
 
-      <section class="criar-crono1" data-tab="content">
+      <section className="criar-crono1" data-tab="content">
         <FormCrono
           onSubmit={postTarefas}
           valueLabel="Informe a matéria"
           onChangeTitulo={(e) => setTitulo(e.target.value)}
-          valueTitulo={titulo || ""}
+          valueTitulo={titulo || ''}
           onChangeDesc={(e) => setDescricao(e.target.value)}
-          valueDesc={descricao || ""}
+          valueDesc={descricao || ''}
           onChangeHora={(e) => setHora(e.target.value)}
-          valueHora={hora || ""}
+          valueHora={hora || ''}
           onChangeDate={(e) => setData(e.target.value)}
-          valueDate={hora || ""}
+          valueDate={hora || ''}
         />
       </section>
 
-      <section class="criar-crono1" data-tab="content">
+      <section className="criar-crono1" data-tab="content">
         <FormCrono
           onSubmit={postTarefas}
           valueLabel="Informe a prova"
           onChangeTitulo={(e) => setTitulo(e.target.value)}
-          valueTitulo={titulo || ""}
+          valueTitulo={titulo || ''}
           onChangeDesc={(e) => setDescricao(e.target.value)}
-          valueDesc={descricao || ""}
+          valueDesc={descricao || ''}
           onChangeHora={(e) => setHora(e.target.value)}
-          valueHora={hora || ""}
+          valueHora={hora || ''}
           onChangeDate={(e) => setData(e.target.value)}
-          valueDate={hora || ""}
+          valueDate={hora || ''}
         />
       </section>
 
-      <section class="criar-crono1" data-tab="content">
+      <section className="criar-crono1" data-tab="content">
         <FormCrono
           onSubmit={postTarefas}
           valueLabel="Informe o afazer"
           onChangeTitulo={(e) => setTitulo(e.target.value)}
-          valueTitulo={titulo || ""}
+          valueTitulo={titulo || ''}
           onChangeDesc={(e) => setDescricao(e.target.value)}
-          valueDesc={descricao || ""}
+          valueDesc={descricao || ''}
           onChangeHora={(e) => setHora(e.target.value)}
-          valueHora={hora || ""}
+          valueHora={hora || ''}
           onChangeDate={(e) => setData(e.target.value)}
-          valueDate={hora || ""}
+          valueDate={hora || ''}
         />
       </section>
 
-      <section class="criar-crono1" data-tab="content">
+      <section className="criar-crono1" data-tab="content">
         <FormCrono
           onSubmit={postTarefas}
           valueLabel="Se desejar, insira descanso"
           onChangeTitulo={(e) => setTitulo(e.target.value)}
-          valueTitulo={titulo || ""}
+          valueTitulo={titulo || ''}
           onChangeDesc={(e) => setDescricao(e.target.value)}
-          valueDesc={descricao || ""}
+          valueDesc={descricao || ''}
           onChangeHora={(e) => setHora(e.target.value)}
-          valueHora={hora || ""}
+          valueHora={hora || ''}
           onChangeDate={(e) => setData(e.target.value)}
-          valueDate={hora || ""}
+          valueDate={hora || ''}
         />
       </section>
     </div>

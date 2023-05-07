@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import { useState, useEffect } from "react";
-import SideBar from "../Navbar/Sidebar";
-import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import SideBar from '../Navbar/Sidebar';
+import { BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Tarefa = () => {
-  const id = localStorage.getItem("token");
+  const id = localStorage.getItem('token');
 
   const navigate = useNavigate();
   const [previsao, setPrevisao] = useState([]);
@@ -16,17 +16,17 @@ const Tarefa = () => {
   const [titulo_tarefa, setTituloTarefa] = useState([]);
   const [assunto_tarefa, setAssuntoTarefa] = useState([]);
   const [descricao_tarefa, setDescricaoTarefa] = useState([]);
-  const [inicio_tarefa, setInicioTarefa] = useState("");
-  const [data_tarefa, setDataTarefa] = useState("");
+  const [inicio_tarefa, setInicioTarefa] = useState('');
+  const [data_tarefa, setDataTarefa] = useState('');
   const [status_tarefa, setStatusTarefa] = useState([]);
 
   const params = useParams();
   const idCronograma = params.idCronograma;
   const idTarefa = params.idTarefa;
-  let [assunto, setAssunto] = useState("");
+  let [assunto, setAssunto] = useState('');
 
-  const data1 = data_tarefa.split("/");
-  const hora1 = inicio_tarefa.split(":");
+  const data1 = data_tarefa.split('/');
+  const hora1 = inicio_tarefa.split(':');
   const dataOfc = new Date(
     data1[2],
     data1[1] - 1,
@@ -34,10 +34,10 @@ const Tarefa = () => {
     hora1[0],
     hora1[1]
   );
-  const horaOfc = dataOfc.getHours() + ":" + dataOfc.getMinutes();
+  const horaOfc = dataOfc.getHours() + ':' + dataOfc.getMinutes();
 
   useEffect(() => {
-    setPrevisao("Ver previsão de hoje");
+    setPrevisao('Ver previsão de hoje');
 
     const loadTarefa = async (e) => {
       fetch(`http://localhost:8000/api/tarefas/${idTarefa}/`)
@@ -45,12 +45,12 @@ const Tarefa = () => {
         .then((data) => setTarefas(data));
     };
     loadTarefa();
-    console.log("Tarefa recuperada: " + JSON.stringify(tarefas));
+    console.log('Tarefa recuperada: ' + JSON.stringify(tarefas));
   }, []);
 
   const handleDelete = async (id) => {
     await fetch(`http://localhost:8000/api/tarefas/${id}/`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
     navigate(`/Editar/${idCronograma}`);
   };
@@ -58,7 +58,7 @@ const Tarefa = () => {
   const postTarefas = async (e) => {
     e.preventDefault();
 
-    if (assunto === "") assunto = "none";
+    if (assunto === '') assunto = 'none';
 
     const tarefas = {
       titulo: titulo_tarefa,
@@ -71,13 +71,13 @@ const Tarefa = () => {
     };
     console.log(tarefas);
     await fetch(`http://localhost:8000/api/tarefas/${idTarefa}/`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(tarefas),
     }).then((res) => res.json());
-    alert("Tarefa Cadastrada!");
+    alert('Tarefa Cadastrada!');
   };
 
   return (
@@ -91,7 +91,7 @@ const Tarefa = () => {
             <div className="crono-priv-editar">
               <div className="info">
                 <label htmlFor="titulo_tarefa">
-                  Insira o nome de sua tarefa:{" "}
+                  Insira o nome de sua tarefa:{' '}
                 </label>
                 <br />
                 <input

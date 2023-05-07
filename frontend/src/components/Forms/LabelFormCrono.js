@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import "./style.css";
+import './style.css';
 
 const LabelCriarCrono = ({ htmlFor, value }) => {
   return (
