@@ -5,6 +5,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 const Sidebar = () => {
 
   function Logout (){
+    // eslint-disable-next-line no-undef
     localStorage.removeItem("token");
   }
   return (
