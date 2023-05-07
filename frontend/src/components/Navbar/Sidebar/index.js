@@ -1,12 +1,11 @@
-import './style.css'
-import React from 'react';
+import "./style.css";
+import React from "react";
 // eslint-disable-next-line no-unused-vars
-import { BsExclamationCircleFill } from 'react-icons';
+import { BsExclamationCircleFill } from "react-icons";
 import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {
-
-  function Logout (){
+  function Logout() {
     // eslint-disable-next-line no-undef
     localStorage.removeItem("token");
   }
@@ -31,9 +30,13 @@ const Sidebar = () => {
         </svg>
       </div>
       <div className="pesquisar">
-        
-        <form action="/buscar" method="GET" >
-          <input type="text" name="search" id="search" placeholder="Pesquisar"/>
+        <form action="/buscar" method="GET">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Pesquisar"
+          />
           <input type="submit" className="btns" value="" />
         </form>
       </div>
@@ -63,7 +66,8 @@ const Sidebar = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              Início</a>
+              Início
+            </a>
           </li>
           <li>
             <a href="/criar-cronograma">
@@ -81,7 +85,8 @@ const Sidebar = () => {
                   fill="white"
                 />
               </svg>
-              Criar cronograma</a>
+              Criar cronograma
+            </a>
           </li>
           <li>
             <a href="/MeusCronogramas">
@@ -114,16 +119,20 @@ const Sidebar = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              Meus cronogramas</a>
+              Meus cronogramas
+            </a>
           </li>
           <li>
-            <a href="/Perfil"> <BsFillPersonFill size="25px" /> Perfil</a>
+            <a href="/Perfil">
+              {" "}
+              <BsFillPersonFill size="25px" /> Perfil
+            </a>
           </li>
         </ul>
         <ul className="barplus">
           <li>
             <a href="#/">
-            <svg
+              <svg
                 width="22"
                 height="21"
                 viewBox="0 0 22 21"
@@ -144,8 +153,9 @@ const Sidebar = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-            </svg>
-              Notificações</a>
+              </svg>
+              Notificações
+            </a>
           </li>
           <li>
             <a href="#/">
@@ -183,10 +193,11 @@ const Sidebar = () => {
                   </clipPath>
                 </defs>
               </svg>
-              Configurações</a>
+              Configurações
+            </a>
           </li>
           <li>
-            <a href="/"  onClick={() => Logout()}>
+            <a href="/" onClick={() => Logout()}>
               <svg
                 width="22"
                 height="21"
@@ -216,12 +227,13 @@ const Sidebar = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              Sair</a>
+              Sair
+            </a>
           </li>
         </ul>
       </section>
     </nav>
-  )
-}
+  );
+};
 
 export default Sidebar;
