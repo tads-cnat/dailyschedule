@@ -179,4 +179,110 @@
     <td>Implementar funcionalidade de excluir o cronograma</td>
     <td>Verificar se o cronograma foi corretamente excluído</td>
   </tr>
+  <tr>
+    <td>NF01</td>
+    <td>Controle de acesso Usuário</td>
+    <td>Usuários não cadastrados só podem visualizar cronogramas públicos</td>
+    <td>Garantir a privacidade dos usuários e segurança dos dados</td>
+    <td>Desenvolvimento dos serviços RESTful em Django</td>
+    <td></td>
+    <td></td>
+    <td>Teste de acesso de usuários cadastrados e não cadastrados</td>
+  </tr>
+  <tr>
+    <td>NF02</td>
+    <td>Criptografia de dados</td>
+    <td>Dados como senha e email dos integrantes da rede devem ser gravados de forma criptografada no banco de dados</td>
+    <td>Garantir a segurança dos dados dos usuários</td>
+    <td>Modelagem do banco de dados</td>
+    <td></td>
+    <td></td>
+    <td>Teste de acesso aos dados criptografados</td>
+  </tr>
+  <tr>
+    <td>NF03</td>
+    <td>Facilidade de uso</td>
+    <td>O sistema deve ter uma interface amigável que possibilite a seus usuários uma interação fácil</td>
+    <td>Melhorar a experiência do usuário e aumentar a satisfação</td>
+    <td>Definição das interfaces do sistema</td>
+    <td></td>
+    <td></td>
+    <td>Teste de usabilidade</td>
+  </tr>
+  <tr>
+    <td>NF04</td>
+    <td>Troca de dados</td>
+    <td>O sistema deve usar uma biblioteca para manipular arquivos</td>
+    <td>Facilitar a troca de dados</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>NF05</td>
+    <td>Confiabilidade</td>
+    <td>Apresentar segurança, proteção e capacidade de manutenção no sistema</td>
+    <td>Garantir a qualidade do sistema</td>
+    <td>Garantia da qualidade do código</td>
+    <td></td>
+    <td></td>
+    <td>Teste de segurança e manutenção do sistema</td>
+  </tr>
+  <tr>
+    <td>NF06</td>
+    <td>Tolerância à falhas</td>
+    <td>O sistema deve ter estratégias para tratar as falhas</td>
+    <td>Evitar perda de dados e garantir a continuidade do serviço</td>
+    <td>Definição da arquitetura do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RN01</td>
+    <td>Benefícios aos assinantes</td>
+    <td>Os assinantes terão mais benefícios, como a possibilidade de aumentar a quantidade de cronogramas e acesso a paletas de cores exclusivas disponibilizadas pelo próprio sistema</td>
+    <td>Aumentar a adesão de assinantes e a satisfação dos usuários</td>
+    <td>Especificação dos requisitos do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <td>RN02</td>
+    <td>Definir privacidade do cronograma</td>
+    <td>O usuário, durante ou após o desenvolvimento, poderá definir se seu cronograma será público ou privado</td>
+    <td>Garantir a privacidade e segurança dos dados dos usuários</td>
+    <td>Especificação dos requisitos do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <td>RN03</td>
+    <td>Controle de visitantes</td>
+    <td>O usuário visitante apenas poderá navegar pela plataforma visualizando cronogramas públicos</td>
+    <td>Garantir a segurança e privacidade dos usuários</td>
+    <td>Definição da arquitetura do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <td>RN04</td>
+    <td>Dados da Tarefa</td>
+    <td>Os dados da Tarefa são: descrição, data e hora</td>
+    <td>Permitir que o usuário possa cadastrar e visualizar as tarefas que precisa realizar</td>
+    <td>Definição da arquitetura do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <td>RN05</td>
+    <td>Tipos de Tarefa especiais</td>
+    <td>Os tipos de tarefas especiais são aula e matéria. Essas tarefas possuem um dado a mais chamado assunto</td>
+    <td>Permitir que o usuário possa identificar tarefas especiais e armazenar o dado adicional "assunto"</td>
+    <td>Definição da arquitetura do sistema</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
