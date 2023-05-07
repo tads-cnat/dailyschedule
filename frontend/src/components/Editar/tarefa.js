@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css'
 import { useState, useEffect } from "react";
 import SideBar from '../Navbar/Sidebar';
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
