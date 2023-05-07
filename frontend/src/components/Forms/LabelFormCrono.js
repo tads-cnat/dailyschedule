@@ -3,11 +3,11 @@
 import './style.css';
 
 const LabelCriarCrono = ({ htmlFor, value }) => {
-  return (
-    <div>
-      <label htmlFor={htmlFor}>{value}</label> <br />
-    </div>
-  );
+	return (
+		<div>
+			<label htmlFor={htmlFor}>{value}</label> <br />
+		</div>
+	);
 };
 
 export default LabelCriarCrono;
