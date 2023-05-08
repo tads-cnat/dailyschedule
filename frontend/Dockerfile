@@ -9,3 +9,4 @@ RUN yarn build
 EXPOSE 3000
 
 ENTRYPOINT ["yarn", "start"]
+
