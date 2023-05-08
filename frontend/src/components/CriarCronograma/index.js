@@ -102,19 +102,22 @@ const CriarCrono = () => {
 		alert('Tarefa Cadastrada!');
 	};
 
+	const tabMenu = document.querySelectorAll('[data-tab="menu"] button');
+	const tabContent = document.querySelectorAll('[data-tab="content"] form');
+
 	function activeTab(index) {
 		tabContent.forEach((section) => {
 			section.classList.remove('ativo');
 		});
 		tabContent[index].classList.add('ativo', tabContent[index].dataset.anime);
 	}
-
-	function handleClick(_e) {
-		const tabMenu = document.querySelectorAll('[data-tab="menu"] button');
-		const tabContent = document.querySelectorAll('[data-tab="content"] form');
+	
+	
+	
+	function handleClick(index) {
 		if (tabMenu.length && tabContent.length) {
 			activeTab(index);
-
+	
 			tabMenu.forEach((itemMenu, index) => {
 				itemMenu.addEventListener('click', () => {
 					activeTab(index);
@@ -135,13 +138,13 @@ const CriarCrono = () => {
 			</header>
 
 			<div className="options" data-tab="menu">
-				<button onClick={handleClick}>Informações</button>
-				<button onClick={handleClick}>Aulas</button>
-				<button onClick={handleClick}>Matérias</button>
-				<button onClick={handleClick}>Provas</button>
-				<button onClick={handleClick}>Afazeres</button>
-				<button onClick={handleClick}>Horários Vagos</button>
-			</div>
+  <button onClick={() => handleClick(0)}>Informações</button>
+  <button onClick={() => handleClick(1)}>Aulas</button>
+  <button onClick={() => handleClick(2)}>Matérias</button>
+  <button onClick={() => handleClick(3)}>Provas</button>
+  <button onClick={() => handleClick(4)}>Afazeres</button>
+  <button onClick={() => handleClick(5)}>Horários Vagos</button>
+</div>
 
 			<section id="criar-crono" data-tab="content">
 				<form onSubmit={postCronogramas} className="crono-info" method="post">
@@ -184,7 +187,7 @@ const CriarCrono = () => {
 					onChangeHora={(e) => setHora(e.target.value)}
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
-					valueDate={hora || ''}
+					valueDate={data || ''}
 				/>
 			</section>
 
@@ -199,7 +202,7 @@ const CriarCrono = () => {
 					onChangeHora={(e) => setHora(e.target.value)}
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
-					valueDate={hora || ''}
+					valueDate={data || ''}
 				/>
 			</section>
 
@@ -214,7 +217,7 @@ const CriarCrono = () => {
 					onChangeHora={(e) => setHora(e.target.value)}
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
-					valueDate={hora || ''}
+					valueDate={data || ''}
 				/>
 			</section>
 
@@ -229,7 +232,7 @@ const CriarCrono = () => {
 					onChangeHora={(e) => setHora(e.target.value)}
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
-					valueDate={hora || ''}
+					valueDate={data || ''}
 				/>
 			</section>
 
@@ -244,7 +247,7 @@ const CriarCrono = () => {
 					onChangeHora={(e) => setHora(e.target.value)}
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
-					valueDate={hora || ''}
+					valueDate={data || ''}
 				/>
 			</section>
 		</div>

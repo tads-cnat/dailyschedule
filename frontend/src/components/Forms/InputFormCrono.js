@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css';
+import PropTypes from 'prop-types';
 
 const InputCriarCrono = ({type, name, id, onChange, value}) => {
 	return (
@@ -16,5 +16,14 @@ const InputCriarCrono = ({type, name, id, onChange, value}) => {
 		</div>
 	);
 };
+
+InputCriarCrono.propTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
+
 
 export default InputCriarCrono;

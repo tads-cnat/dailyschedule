@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css';
+import '../CriarCronograma/style.css'
+import PropTypes from 'prop-types';
+import LabelCriarCrono from './LabelFormCrono';
+import InputCriarCrono from './InputFormCrono';
 
 const FormCrono = ({
 	onSubmit,
@@ -52,7 +55,7 @@ const FormCrono = ({
 					<InputCriarCrono
 						type="datetime"
 						name="datas"
-						id="datas"
+						id="data"
 						onChange={onChangeDate}
 						value={valueDate}
 					/>
@@ -64,5 +67,19 @@ const FormCrono = ({
 		</div>
 	);
 };
+
+FormCrono.propTypes = {
+  onSubmit: PropTypes.func,
+  valueLabel: PropTypes.string,
+  onChangeTitulo: PropTypes.func,
+  onChangeDesc: PropTypes.func,
+  onChangeHora: PropTypes.func,
+  onChangeDate: PropTypes.func,
+  valueTitulo: PropTypes.string,
+  valueDesc: PropTypes.string,
+  valueHora: PropTypes.string,
+  valueDate: PropTypes.string,
+};
+
 
 export default FormCrono;
