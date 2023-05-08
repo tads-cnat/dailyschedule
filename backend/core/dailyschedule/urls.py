@@ -4,15 +4,15 @@ from rest_framework import routers
 from . import admin, views
 from .views import *
 
-APP_NAME = 'cronogramas'
+APP_NAME = "cronogramas"
 
 # Wire up our API using automatic URL routing.
 router = routers.DefaultRouter()
-router.register(r'cronogramas', views.CronogramaViewSet, basename='Cronograma')
-router.register(r'tarefas', views.TarefaViewSet)
-router.register(r'alunos', views.AlunoViewSet, basename='Aluno')
-router.register(r'auth', views.AuthViewSet,basename='auth')
+router.register(r"cronogramas", views.CronogramaViewSet, basename="Cronograma")
+router.register(r"tarefas", views.TarefaViewSet)
+router.register(r"alunos", views.AlunoViewSet, basename="Aluno")
+router.register(r"auth", views.AuthViewSet, basename="auth")
 
 urlpatterns = [
-    path('', include(router.urls)),   
+    path("", include(router.urls)),
 ]
