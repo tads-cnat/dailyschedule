@@ -2,20 +2,20 @@ import '../../../assets/css/style.css';
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-import cronograma from '../../../assets/images/cronograma.png';
 import NavBar from '../../Navbar/Navbar/Navbar.js';
 import Beneficio from '../BeneficioSection/Beneficio.js';
+import Plano from '../PlanoSection/Plano.js';
 import Footer from '../Footer/Footer.js';
 
 const Home = () => {
+
 	return (
 		<div id="home">
 			<NavBar />
 
 			<div className="wrapper">
 				<header>
-					<h1>Cronograma</h1>
+					<h1>Daily Schedule</h1>
 					<p>
 						Cronograma de estudos é uma ferramenta de planejamento que auxilia o
 						estudante na organização do tempo disponível para os estudos, para
@@ -23,7 +23,7 @@ const Home = () => {
 						organizada.
 					</p>
 
-					<img src={cronograma} alt="Cronograma" />
+					
 
 					<div className="content">
 						<Link to="criar-cronograma" className="button">
@@ -45,6 +45,7 @@ const Home = () => {
 				</header>
 			</div>
 			<Beneficio />
+			<Plano />
 			<Footer />
 		</div>
 	);
