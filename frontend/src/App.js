@@ -3,17 +3,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Rotas from "./rotas";
-
+import  { Redirect, useHistory } from 'react-router-dom'
+import SearchBar from './/components/./SearchBar';
 
 function App(){
   const [cronogramas, setCronogramas] = useState([]);
   const [alerta, setAlerta] = useState([]);
   const [error, setError] = useState(null);
-
-  const id = localStorage.getItem('token');
-  
-
-  console.log(`ID do usuário: ${id}`);
 
   useEffect(()=>{
       const loadData = () => {
@@ -55,10 +51,25 @@ function App(){
   
 
   return (
-      <div className="App">                    
-          <Rotas />
-      </div>
-  )
+    <div className="App">
+      <header className="App-header">
+        ihgkhuhiuhiuh
+        {customers.map(aluno =>(
+          <h2 key={aluno.id}>{aluno.nome}</h2>
+        ))}
+      </header>
+    </div>
+  );
 }
 
+export default App;
+*/
+
+function App() {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+}
 export default App;

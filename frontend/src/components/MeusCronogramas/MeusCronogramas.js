@@ -73,6 +73,7 @@ function MeusCrogramas(){
                 </ul>
     </nav>*/}
             <section className="content">
+                
                 <header className="header">
                     <h2 className="tittle">Meus Cronogramas</h2>                
                     
