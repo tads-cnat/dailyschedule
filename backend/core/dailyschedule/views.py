@@ -25,26 +25,21 @@ from .serializers import SerializadorCronograma, SerializadorTarefa, Serializado
 import datetime
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-
-    #authentication_classes = [TokenAuthentication,]
-    #permission_classes = [IsAuthenticated]
-
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
     
     def get_queryset(self):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
-        id = self.request.query_params.get('id')
+        id_aluno = self.request.query_params.get('id')
         print(username)
         print(queryset)
         
         if username:
             queryset = queryset.filter(aluno__username=username)
-            #queryset = Cronograma.objects.filter(aluno_usuario=username)
         
         if id:
-            queryset = queryset.filter(aluno__id=id)           
+            queryset = queryset.filter(aluno__id=id_aluno)           
         
         return queryset
 
@@ -58,7 +53,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
             print("Dentro do if")
             titulo = request.query_params.get('titulo')
             priv = request.query_params.get('priv')
-            cronograma = get_object_or_404(Cronograma, pk=id)
+            cronograma = get_object_or_404(Cronograma, pk=id_aluno)
             cronograma.titulo = titulo
             cronograma.privacidade = priv
             cronograma.save()
@@ -166,8 +161,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
             for tarefa in tarefas:
                 msgRetorno = msgRetorno + "\n["+ str(cont)+ "] " + tarefa.titulo
                 cont+=1
-            email = Email()
-            #email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+            email = Email()            
             try:
                 email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             except:
