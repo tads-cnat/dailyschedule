@@ -17,7 +17,6 @@ function MeusCrogramas() {
 
 	const id = localStorage.getItem('token');
 	const navigate = useNavigate();
-	const url = window.location.href;
 
 	useEffect(() => {
 		if (id == null) {
