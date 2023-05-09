@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React, {useRef} from 'react';
-import {useEffect, useState} from 'react';
+import  React, {useRef, useEffect, useState} from 'react';
 import './MC.css';
 import Sidebar from '../Navbar/Sidebar';
 import {Link} from 'react-router-dom';
@@ -18,7 +17,6 @@ function MeusCrogramas() {
 
 	const id = localStorage.getItem('token');
 	const navigate = useNavigate();
-	const url = window.location.href;
 
 	useEffect(() => {
 		if (id == null) {
