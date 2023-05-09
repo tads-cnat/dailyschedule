@@ -34,6 +34,10 @@ function App(){
         fetch(`http://localhost:8000/api/aluno/${id}/alerta`)
           .then(response => response.json())
           .then(data => setAlerta(data))
+          .catch(error =>{
+            console.error("Error fetching: ", error);
+            setError(error)
+          })
       }
       setInterval(
       alerta()
