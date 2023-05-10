@@ -3,7 +3,8 @@ WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
 RUN npm install
-COPY . .
+COPY ./public
+COPY ./src
 RUN yarn build
 
 
