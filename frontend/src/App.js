@@ -36,8 +36,8 @@ function App() {
 					console.error(err);
 				});
 		};
-		
-		setInterval(alerta(), 2400000);
+		alerta();
+		setInterval(2400000);
 	}, []);
 
 	function redir(valor) {
