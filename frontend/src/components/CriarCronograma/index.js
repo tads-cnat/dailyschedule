@@ -43,17 +43,26 @@ const CriarCrono = () => {
 		const loadData = async (_e) => {
 			const res = await fetch('http://localhost:8000/api/cronogramas/')
 				.then((res) => res.json())
-				.then((data) => data);
+				.then((data) => data)
+				.catch((err) => {
+					console.error(err);
+				});
 			setCronogramas(res);
 
 			const rest = await fetch('http://localhost:8000/api/tarefas/')
 				.then((res) => res.json())
-				.then((data) => data);
+				.then((data) => data)
+				.catch((err) => {
+					console.error(err);
+				});
 			setTarefas(rest);
 
 			const resa = await fetch('http://localhost:8000/api/alunos/')
 				.then((res) => res.json())
-				.then((data) => data);
+				.then((data) => data)
+				.catch((err) => {
+					console.error(err);
+				});
 			setAlunos(resa);
 		};
 
