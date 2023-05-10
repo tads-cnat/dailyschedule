@@ -24,5 +24,9 @@
         ],
         "react/react-in-jsx-scope": "off",
         "comma-dangle": "off"
-    }
+    },
+    "globals": {
+    "localStorage": true,
+    "document": true
+  }
 }

@@ -1,8 +1,7 @@
 from django.urls import include, path, re_path
 from rest_framework import routers
 
-from . import admin, views
-from .views import *
+from . import views
 
 APP_NAME = "cronogramas"
 

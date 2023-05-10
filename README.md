@@ -1,12 +1,9 @@
 # Daily Schedule
 
->Solução em organização acessível para todos os estudantes.
+![banner](./home.png) 
+Solução em organização acessível para todos os estudantes. O Daily Schedule tem como objetivo ajudar na organização dos estudos e rotinas de um estudante no seu dia a dia, através da criação de cronogramas diários, semanais e mensais. Sua interface tem uma boa usabilidade, sendo minimalista e intuitiva.
 
-<img src="dslogo.png" width="300" height="200" />
-
->O Daily Schedule tem como objetivo ajudar na organização dos estudos e rotinas de um estudante no seu dia a dia, através da criação de cronogramas diários, semanais e mensais. Sua interface tem uma boa usabilidade, sendo minimalista e intuitiva.
-
-# Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
 - [Python](https://www.python.org/)
 - [Django REST](https://www.django-rest-framework.org/)
@@ -15,66 +12,62 @@
 - [CSS](https://www.w3schools.com/css/)
 - [React](https://pt-br.reactjs.org/docs/lifting-state-up.html)
 
-# Documentação
+### 📋 Documentação
 
-- [Documento de Visão](https://github.com/tads-cnat/dailyschedule/blob/main/docs/DocumentoDeVisao.md)
-- [Glossário](https://github.com/tads-cnat/dailyschedule/blob/main/docs/Glossario.md)
-- [Levantamento de Riscos](https://github.com/tads-cnat/dailyschedule/blob/main/docs/LevantamentoDeRiscos.md)
-- [Documento de Riscos](https://github.com/tads-cnat/dailyschedule/tree/main/docs/DocumentoDeRisco.md)
+Você encontra a documentação do projeto no diretório [`docs`](https://github.com/tads-cnat/dailyschedule/tree/main/docs).
 
-# Rodar Backend da aplicação
+### 🔧 Instalação
 
-> passo 1 - instalar biblioteca pip do python :
+**Executando o back-end da aplicação**
 
 ```sh
 sudo apt-get install python3-pip
 ```
-
-> passo 2 - instalar virtualenv:
-
 ```sh
 sudo pip install virtualenv
 ```
-
-> passo 3 - criar ambiente virtual com python
-
-dentro da pasta dailyschedule criar ambiente virtual
+Dentro da pasta .\dailyschedule criar ambiente virtual
 ```sh
 python3 -m venv venv
 ```
-
-em seguida entrar dentro do ambiente virtual
-
-dentro da pasta dailyschedule criar ambiente virtual
 ```sh
 source venv/bin/activate
 ```
-
-> passo 4 - instalar dependecias do projeto:
-
+Instalando dependências
 ```sh
 pip install -r requirements_backend.txt
 ```
-
-> passo 5 - rodar migrações : 
-
-entre na pasta "backend/core" apartir do terminal usando:
-
+Rodar migrações
 ```sh
 cd backend/core
 ```
-rode as migraçoẽs
-
 ```sh
 python3 manage.py migrate
 ```
-> passo 6 - rodar servidor:
-
 ```sh
 python3 manage.py runserver
 ```
 
-ambiente intalado com sucesso !!! agora so codar
+**Executando o front-end da aplicação**
+```sh
+cd ./dailyschedule/frontend
+```
+```sh
+npm install
+```
+```sh
+npm start
+```
 
-ps: lembresse de criar sua branch antes de começar a codar
+## ✒️ Equipe
 
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/BrenoNAlmeida"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/72624554?v=4" width="100px;" title="Desenvolvedor" alt=""/><br /><b>Breno Almeida</b></a><br /><a href="https://github.com/BrenoNAlmeida"</td>
+      <td align="center"><a href="https://github.com/dani7fl7"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96999239?v=4" width="100px;" title="Idealizadora" alt=""/><br /><b>Daniela Lima</b></a><br /><a href="https://github.com/dani7fl7"</td>
+      <td align="center"><a href="https://github.com/Deivdson"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/94084592?v=4" width="100px;" title="Desenvolvedor" alt=""/><br /><b>Deivdson Pereira</b></a><br /><a href="https://github.com/Deivdson"</td>
+    <td align="center"><a href="https://github.com/Esdryan"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79666536?v=4" width="100px;" title="Desenvolvedor" alt=""/><br /><b>Esdryan</b></a><br /><a href="https://github.com/Esdryan"</td>
+    <td align="center"><a href="https://github.com/Jefferson-F-Ribeiro"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/93939600?v=4" width="100px;" title="Desenvolvedor" alt=""/><br /><b>Jefferson Ribeiro</b></a><br /><a href="https://github.com/Jefferson-F-Ribeiro"</td>
+    <td align="center"><a href="https://github.com/lucasmelonds"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/90428419?v=4" width="100px;" title="Desenvolvedor" alt=""/><br /><b>Lucas Melo</b></a><br /><a href="https://github.com/lucasmelonds"</td>
+  </tr>
+</table>

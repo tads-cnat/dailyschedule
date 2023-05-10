@@ -36,6 +36,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     # authentication_classes = [TokenAuthentication,]
     # permission_classes = [IsAuthenticated]
 
+
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
 
@@ -43,6 +44,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         queryset = Cronograma.objects.all()
         username = self.request.query_params.get("username")
         id = self.request.query_params.get("id")
+
         print(username)
         print(queryset)
 
@@ -52,6 +54,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
 
         if id:
             queryset = queryset.filter(aluno__id=id)
+
 
         return queryset
 
@@ -66,6 +69,7 @@ class CronogramaViewSet(viewsets.ModelViewSet):
             titulo = request.query_params.get("titulo")
             priv = request.query_params.get("priv")
             cronograma = get_object_or_404(Cronograma, pk=id)
+
             cronograma.titulo = titulo
             cronograma.privacidade = priv
             cronograma.save()
@@ -195,6 +199,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
                 cont += 1
             email = Email()
             # email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+
             try:
                 email.send(
                     "Tarefas Pendentes",
