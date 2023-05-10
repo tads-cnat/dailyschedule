@@ -2,7 +2,7 @@ FROM node:17-alpine as builder
 WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
-RUN npm install
+RUN npm install --ignore-scripts
 COPY ./public
 COPY ./src
 RUN yarn build
