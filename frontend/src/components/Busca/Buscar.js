@@ -18,7 +18,10 @@ function Buscar() {
 				.catch((err) => {
 					console.error(err);
 				});
-		loadData();
+		loadData()
+		.catch((err) => {
+			console.error(err);
+		});
 	}, []);
 
 	const handleChange = ({target}) => {
