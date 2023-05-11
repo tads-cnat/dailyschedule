@@ -47,9 +47,9 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     def editar(self, request):
         print(request.query_params)
 
-        idCrono = request.query.params.get('idCrono')
+        id_crono = request.query.params.get('id_crono')
 
-        if idCrono:        
+        if id_crono:        
             print("Dentro do if")
             titulo = request.query_params.get('titulo')
             priv = request.query_params.get('priv')
