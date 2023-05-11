@@ -6,7 +6,7 @@ from django.core.serializers import serialize
 from rest_framework.parsers import JSONParser 
 from rest_framework import status, viewsets
 
-from .utils import *
+from .utils import Email
 from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
 from rest_framework.decorators import api_view, action
