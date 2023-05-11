@@ -32,7 +32,7 @@ class Cronograma(models.Model):
 
 class Tarefa(models.Model):
     titulo = models.CharField(max_length=50)
-    assunto = models.CharField(max_length=50, null=True)
+    assunto = models.CharField(max_length=50, blank=True)
     descricao = models.CharField(max_length=100)
     hora_inicio = models.TimeField(default=datetime.time(0, 0))
     data = models.DateTimeField('Data Cronograma')
