@@ -140,16 +140,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     ]
 
-
-#REST_FRAMEWORK = {
-#    'DEFALT_AUTHENTICATION_CLASSES': (
-#        'rest_framework.authentication.BasicAuthentication',
-#
-#    ),
-#    'DEFAULT_PERMISSION_CLASSES': (
-#        'rest_framework.permissions.IsAuthenticated',
-#    )
-#}
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
