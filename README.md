@@ -6,7 +6,7 @@ Solução em organização acessível para todos os estudantes. O Daily Schedule
 ## 🛠️ Tecnologias
 
 - [Python](https://www.python.org/)
-- [Django REST](https://www.django-rest-framework.org/)
+- [Django REST framework](https://www.django-rest-framework.org/)
 - [JavaScript](https://www.javascript.com/)
 - [HTML](https://www.w3schools.com/html/)
 - [CSS](https://www.w3schools.com/css/)
