@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import './style.css'
+/* eslint-disable react/jsx-no-undef*/
+/* eslint-disable react/prop-types */
+import '../style.css'
 
 const FormCrono = ({ onSubmit, valueLabel, onChangeTitulo, onChangeDesc, onChangeHora, onChangeDate, valueTitulo, valueDesc, valueHora, valueDate}) => {
   return (

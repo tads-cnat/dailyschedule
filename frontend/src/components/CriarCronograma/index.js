@@ -147,23 +147,23 @@ const CriarCrono = () => {
       </form>
     </section>
 
-    <section class="criar-crono1" data-tab="content">
+    <section className="criar-crono1" data-tab="content">
       <FormCrono onSubmit={postTarefas} valueLabel="Informe a aula" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section class="criar-crono1" data-tab="content">
+    <section className="criar-crono1" data-tab="content">
       <FormCrono onSubmit={postTarefas} valueLabel="Informe a matéria" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section class="criar-crono1" data-tab="content">
+    <section className="criar-crono1" data-tab="content">
       <FormCrono onSubmit={postTarefas} valueLabel="Informe a prova" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section class="criar-crono1" data-tab="content">
+    <section className="criar-crono1" data-tab="content">
       <FormCrono onSubmit={postTarefas} valueLabel="Informe o afazer" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
-    <section class="criar-crono1" data-tab="content">
+    <section className="criar-crono1" data-tab="content">
       <FormCrono onSubmit={postTarefas} valueLabel="Se desejar, insira descanso" onChangeTitulo={(e) => setTitulo(e.target.value)} valueTitulo={titulo || ""} onChangeDesc={(e) => setDescricao(e.target.value)} valueDesc={descricao || ""} onChangeHora={(e) => setHora(e.target.value)} valueHora={hora || ""} onChangeDate={(e) => setData(e.target.value)} valueDate={hora || ""} />
     </section>
 
