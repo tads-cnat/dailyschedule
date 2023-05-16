@@ -1,5 +1,5 @@
 EAP (Estrutura Analítica do Projeto)
-![Diagrama](https://github.com/tads-cnat/dailyschedule/blob/eap/docs/EAP.svg)
+![Diagrama](https://github.com/tads-cnat/dailyschedule/blob/75-refinamento-do-eap/docs/EAP.svg)
 
 Dicionário
 1.  Iniciação do projeto<br/> 
