@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: dailyschedule
+      POSTGRES_USER: daily
+      POSTGRES_PASSWORD: daily
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5433"
+    networks:
+      - default
+  django:
+    build: .
+    command: python manage.py runserver
+    restart: always
+    networks:
+      - default
+  frontend:
+    build: ../../frontend/
+    container_name: frontend-container 
+    restart: always 
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - django
+
+volumes:
+  postgres-data:
