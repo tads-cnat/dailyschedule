@@ -20,7 +20,10 @@ function Perfil() {
 		const loadData = () => {
 			fetch(`http://localhost:8000/api/alunos/${id}`)
 				.then((response) => response.json())
-				.then((data) => setAluno(data));
+				.then((data) => setAluno(data))
+				.catch((err) => {
+					console.error(err);
+				});
 		};
 		loadData();
 	}, []);
