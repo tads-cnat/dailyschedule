@@ -11,16 +11,42 @@ function Perfil() {
 	const [aluno, setAluno] = useState([]);
 	const navigate = useNavigate();
 
-	const tarefaUpdate = () => {};
+	var ntf = aluno.notificacao
+
+	const alunoPUT = {
+		username: aluno.username,
+		email: aluno.email,
+		first_name: aluno.first_name,
+		last_name: aluno.last_name,
+		password: aluno.password,
+		qtd: aluno.qtd,
+		notificacao: ntf
+	}
+	console.log(ntf)
+	const tarefaUpdate = () => {
+		fetch(`http://localhost:8000/api/alunos/${id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(alunoPUT),
+		}).then((res) => res.json());
+		alert('Notificações editadas!');
+	}
+	
 
 	useEffect(() => {
 		if (id == null) {
 			navigate('/');
 		}
 		const loadData = () => {
-			fetch(`http://localhost:8000/api/alunos/${id}`)
+			fetch(`http://localhost:8000/api/alunos/${id}/`)
 				.then((response) => response.json())
-				.then((data) => setAluno(data));
+				.then((data) => setAluno(data))
+				.catch((error) => {
+					console.error('Error fetching: ', error);
+					setError(error);
+				});		
 		};
 		loadData();
 	}, []);
@@ -45,6 +71,7 @@ function Perfil() {
 						<button className="perfil-optbtn" onClick={() => tarefaUpdate()}>
 							{aluno.notificacao ? 'Desativar' : ' Ativar'}
 						</button>
+						{aluno.notificacao ? ntf=false : ntf=true}
 					</div>
 				</div>
 			</section>
