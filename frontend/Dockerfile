@@ -1,9 +1,17 @@
-FROM node:17-alpine as builder
+FROM node:17-alpine AS builder
+
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
+
+USER nonroot
+
+ENTRYPOINT ["id"]
 WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
-RUN npm install
-COPY . .
+RUN npm install --ignore-scripts
+COPY ./public
+COPY ./src
 RUN yarn build
 
 

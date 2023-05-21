@@ -44,12 +44,18 @@ const Editar = () => {
 		const loadData = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/`)
 				.then((crono) => crono.json())
-				.then((data) => setCronogramas(data));
+				.then((data) => setCronogramas(data))
+				.catch((err) => {
+					console.error(err);
+				});
 		};
 		const loadTarefas = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas/`)
 				.then((res) => res.json())
-				.then((data) => setTarefas(data));
+				.then((data) => setTarefas(data))
+				.catch((err) => {
+					console.error(err);
+				});
 		};
 		loadData();
 		loadTarefas();

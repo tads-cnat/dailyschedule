@@ -14,8 +14,14 @@ function Buscar() {
 				.then((data) => {
 					setSearchResults(data);
 					setSearchTerm(data);
+				})
+				.catch((err) => {
+					console.error(err);
 				});
-		loadData();
+		loadData()
+		.catch((err) => {
+			console.error(err);
+		});
 	}, []);
 
 	const handleChange = ({target}) => {
