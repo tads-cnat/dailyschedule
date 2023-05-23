@@ -1,4 +1,4 @@
- **...**                     | **PRÉ-PDS** | **I SRINT** | **II SPRINT** | **II SPRINT** | **II SPRINT** 
+ **...**                     | **PRÉ-PDS** | **I SPRINT** | **II SPRINT** | **II SPRINT** | **II SPRINT** 
 :---------------------------:|:-----------:|:-----------:|:-------------:|:-------------:|:-------------:
  **Ajustes no backend**      | X           |             |               |               |               
  **Ajustes no frontend**     | X           |             |               |               |               
