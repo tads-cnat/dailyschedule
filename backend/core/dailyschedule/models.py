@@ -38,6 +38,22 @@ class Aluno(AbstractUser):
                 return self.first_name < other.first_name
             return self.last_name < other.last_name
         raise TypeError("Cannot compare 'Aluno' with type {}".format(type(other)))
+    
+class Cronograma:
+    def __init__(self, id, nome):
+        self.id = id
+        self.nome = nome
+
+    def __eq__(self, other):
+        if isinstance(other, Cronograma):
+            return self.id == other.id and self.nome == other.nome
+        return False
+
+    def __lt__(self, other):
+        if isinstance(other, Cronograma):
+            return self.id - other.id
+        raise TypeError("Cannot compare Cronograma with non-Cronograma object.")
+
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
@@ -46,6 +62,23 @@ class Cronograma(models.Model):
 
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
+    
+    def equals(self, other):
+        if isinstance(other, Cronograma):
+            return (
+                self.privacidade == other.privacidade
+                and self.titulo == other.titulo
+                and self.aluno == other.aluno
+            )
+        return False
+
+    def compareTo(self, other):
+        if isinstance(other, Cronograma):
+            if self.id is not None and other.id is not None:
+                return self.id - other.id
+            return 0
+        raise TypeError("Cannot compare Cronograma with non-Cronograma object.")
+
 
 class Tarefa(models.Model):
     titulo = models.CharField(max_length=50)
