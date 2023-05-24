@@ -1,12 +1,14 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
+from functools import total_ordering
 import datetime
 
 # Create your models here.
 def data_atual():
         return timezone.now()
 
+@total_ordering
 class Aluno(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)    
@@ -21,6 +23,21 @@ class Aluno(AbstractUser):
     USERNAME_FIELD = 'username'    
     def __str__(self):
         return "{0} - primeiro nome".format(self.first_name)
+
+    def __eq__(self, other):
+        if isinstance(other, Aluno):
+            return (
+                self.first_name == other.first_name and
+                self.last_name == other.last_name
+            )
+        return False
+    
+    def __lt__(self, other):
+        if isinstance(other, Aluno):
+            if self.first_name != other.first_name:
+                return self.first_name < other.first_name
+            return self.last_name < other.last_name
+        raise TypeError("Cannot compare 'Aluno' with type {}".format(type(other)))
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
