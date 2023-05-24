@@ -1,5 +1,5 @@
 from django.test import TestCase
-from models import Aluno, Cronograma
+from models import Aluno, Cronograma, Tipo, Tarefa
 
 class AlunoTestCase(TestCase):
     
@@ -46,3 +46,20 @@ class CronogramaTestCase(TestCase):
         self.assertLess(self.cronograma1.compareTo(cronograma), 0)
         self.assertGreater(cronograma.compareTo(self.cronograma1), 0)
 
+class TipoTestCase(TestCase):
+    def setUp(self):
+        self.tarefa = Tarefa.objects.create(nome="Tarefa 1")
+        self.tipo1 = Tipo.objects.create(tipo="Tipo 1", assunto=False, tarefa=self.tarefa)
+        self.tipo2 = Tipo.objects.create(tipo="Tipo 2", assunto=True, tarefa=self.tarefa)
+    
+    def test_tipo_default_value(self):
+        tipo = Tipo()
+        self.assertEqual(tipo.tipo, "")  # Verifique o valor padrão do atributo "tipo"
+    
+    def test_equals_same_instance(self):
+        self.assertTrue(self.tipo1.equals(self.tipo1))
+    
+    def test_compareTo_different_instances(self):
+        tipo = Tipo(tipo="Tipo 2", assunto=False, tarefa=self.tarefa)
+        self.assertLess(self.tipo1.compareTo(tipo), 0)
+        self.assertGreater(tipo.compareTo(self.tipo1), 0)

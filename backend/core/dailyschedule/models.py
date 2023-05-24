@@ -81,3 +81,18 @@ class Tipo(models.Model):
     assunto = models.BooleanField(default=False)
     tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
 
+    def equals(self, other):
+        if isinstance(other, Tipo):
+            return (
+                self.tipo == other.tipo
+                and self.assunto == other.assunto
+                and self.tarefa == other.tarefa
+            )
+        return False
+
+    def compareTo(self, other):
+        if isinstance(other, Tipo):
+            if self.id is not None and other.id is not None:
+                return self.id - other.id
+            return 0 
+        raise TypeError("Cannot compare Tipo with non-Tipo object")
