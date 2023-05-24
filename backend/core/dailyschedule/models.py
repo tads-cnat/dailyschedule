@@ -61,7 +61,7 @@ class Cronograma(models.Model):
             if self.id is not None and other.id is not None:
                 return self.id - other.id
             return 0
-        raise TypeError("Cannot compare Cronograma with non-Cronograma object.")
+        raise TypeError("Cannot compare Cronograma with non-Cronograma object")
 
 
 class Tarefa(models.Model):
