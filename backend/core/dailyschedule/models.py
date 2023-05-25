@@ -22,6 +22,18 @@ class Aluno(AbstractUser):
     def __str__(self):
         return "{0} - primeiro nome".format(self.first_name)
 
+    def __equals__(self, other):
+        if isinstance(other, self.__class__):
+            return self.email == other.email
+        return False
+
+    def __comparator__(self, other):
+        if isinstance(other, self.__class__):
+            if(self.email != other.email):
+                return self.email < other.email
+            return True
+        raise ValueError("Os Emails São Diferentes!")
+
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
