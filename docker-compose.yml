@@ -13,15 +13,25 @@ services:
   backend:
     container_name: dailyschedule_backend
     build:
-      context: .
+      context: ./backend/core
       dockerfile: dockerfile
     networks:
       - default
     ports:
       - "8000:8000"
     volumes:
-      - .:/code
+      - .:/core
     depends_on:
       - postgres
+  frontend:
+    container_name: dailyschedule_frontend
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - backend
 volumes:
   postgres_data:
