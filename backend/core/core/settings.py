@@ -86,12 +86,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dailyschedule',
-        'USER': 'daily',
-        'PASSWORD': 'daily',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
