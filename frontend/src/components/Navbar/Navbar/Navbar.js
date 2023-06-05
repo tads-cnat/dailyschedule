@@ -16,7 +16,7 @@ const NavBar = () => {
     else{
       return(
       <div className="login">
-          <li className="login1"><a href='/' onClick={()=>Logout()}>Logout</a></li>  
+          <li className="login1"><a href='/' onClick={()=>Logout()}>Sair</a></li>  
       </div>) 
     }
   }
