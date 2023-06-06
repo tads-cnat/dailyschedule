@@ -47,7 +47,7 @@ class Cronograma(models.Model):
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
     
-    def equals(self, other):
+    def __eq__(self, other):
         if isinstance(other, Cronograma):
             return (
                 self.privacidade == other.privacidade
@@ -55,8 +55,8 @@ class Cronograma(models.Model):
                 and self.aluno == other.aluno
             )
         return False
-
-    def compareTo(self, other):
+    
+    def __lt__(self, other):
         if isinstance(other, Cronograma):
             if self.id is not None and other.id is not None:
                 return self.id - other.id
@@ -81,7 +81,7 @@ class Tipo(models.Model):
     assunto = models.BooleanField(default=False)
     tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
 
-    def equals(self, other):
+    def __eq__(self, other):
         if isinstance(other, Tipo):
             return (
                 self.tipo == other.tipo
@@ -89,8 +89,8 @@ class Tipo(models.Model):
                 and self.tarefa == other.tarefa
             )
         return False
-
-    def compareTo(self, other):
+    
+    def __lt__(self, other):
         if isinstance(other, Tipo):
             if self.id is not None and other.id is not None:
                 return self.id - other.id

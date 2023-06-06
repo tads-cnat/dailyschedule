@@ -31,20 +31,22 @@ class CronogramaTestCase(TestCase):
         self.cronograma2 = Cronograma.objects.create(privacidade=True, titulo="Cronograma 2", aluno=self.aluno)
     
     def test_equals_same_instance(self):
-        self.assertTrue(self.cronograma1.equals(self.cronograma1))
+        self.assertEqual(self.cronograma1, self.cronograma1)
     
     def test_equals_different_instances_same_values(self):
         cronograma = Cronograma(privacidade=False, titulo="Cronograma 1", aluno=self.aluno)
-        self.assertTrue(self.cronograma1.equals(cronograma))
+        self.assertEqual(self.cronograma1, self.cronograma)
     
     def test_equals_different_instances_different_values(self):
         cronograma = Cronograma(privacidade=True, titulo="Cronograma 3", aluno=self.aluno)
-        self.assertFalse(self.cronograma1.equals(cronograma))
+        self.assertNotEqual(self.cronograma1, self.cronograma)
     
     def test_compareTo_different_instances(self):
         cronograma = Cronograma(privacidade=False, titulo="Cronograma 2", aluno=self.aluno)
-        self.assertLess(self.cronograma1.compareTo(cronograma), 0)
-        self.assertGreater(cronograma.compareTo(self.cronograma1), 0)
+        self.assertLess(self.cronograma2, self.cronograma1)
+        self.assertLessEqual(self.cronograma1, cronograma)
+        self.assertGreater(self.cronograma1, self.cronograma2)
+        self.assertGreaterEqual(self.cronograma1, self.cronograma1)
 
 class TipoTestCase(TestCase):
     def setUp(self):
@@ -54,12 +56,14 @@ class TipoTestCase(TestCase):
     
     def test_tipo_default_value(self):
         tipo = Tipo()
-        self.assertEqual(tipo.tipo, "")  # Verifique o valor padrão do atributo "tipo"
+        self.assertEqual(tipo.tipo, "")
     
     def test_equals_same_instance(self):
-        self.assertTrue(self.tipo1.equals(self.tipo1))
+        self.assertTrue(self.cronograma1.equals(self.cronograma1))
     
     def test_compareTo_different_instances(self):
         tipo = Tipo(tipo="Tipo 2", assunto=False, tarefa=self.tarefa)
-        self.assertLess(self.tipo1.compareTo(tipo), 0)
-        self.assertGreater(tipo.compareTo(self.tipo1), 0)
+        self.assertLess(self.tipo2, self.tipo1)
+        self.assertLessEqual(self.tipo1, tipo)
+        self.assertGreater(self.tipo1, self.tipo2)
+        self.assertGreaterEqual(self.tipo1, self.tipo1)
