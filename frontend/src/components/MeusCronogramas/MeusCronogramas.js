@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import cronogramaImg from '../../assets/images/cronograma.png'
+import cronogramaImg from '../../assets/images/cronograma.png';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 //BsThreeDotsVertical 
 
