@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse, resolve
 from rest_framework import status
 import json
-from .models import Aluno
+from .models import Aluno, Cronograma
 
 User = get_user_model()
 
@@ -137,3 +137,60 @@ class AlunoCRUDSystemTests(TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(User.objects.filter(username=self.username).exists())
+
+class CronogramaIntegrationTests(TestCase):
+    def setUp(self):
+        self.aluno = {
+            'first_name': 'Lucas',
+            'last_name': 'Melo',
+            'email': 'lucas@mail.com',
+            'username': 'testuser',
+            'password': 'testpassword',
+            'notificacao': False,
+            'qtd': 0
+        }
+        self.cronograma = {
+            'privacidade': False,
+            'titulo': "Cronograma Teste",
+            'aluno': self.aluno
+        }
+
+    def test_criar_cronograma(self):
+        cronograma = Cronograma.objects.create(**self.cronograma)
+        self.assertEqual(cronograma.privacidade, self.cronograma['privacidade'])
+        self.assertEqual(cronograma.titulo, self.cronograma['titulo'])
+        self.assertEqual(cronograma.aluno, self.cronograma['aluno'])
+
+    def test_atualizar_cronograma(self):
+        cronograma = Cronograma.objects.create(**self.cronograma)
+        updated_data = {
+            'titulo': 'Titulo teste',
+            'privacidade': True
+        }
+        Cronograma.objects.filter(id=cronograma.id).update(**updated_data)
+        updated_cronograma = Cronograma.objects.get(id=cronograma.id)
+        self.assertEqual(updated_cronograma.privacidade, updated_data['privacidade'])
+        self.assertEqual(updated_cronograma.titulo, updated_data['titulo'])
+
+    def test_deletar_cronograma(self):
+        cronograma = Cronograma.objects.create(**self.cronograma)
+        Cronograma.objects.filter(id=cronograma.id).delete()
+        self.assertFalse(Cronograma.objects.filter(id=cronograma.id).exists())
+    
+    def test_obter_cronograma_por_titulo(self):
+        cronograma = Cronograma.objects.create(**self.cronograma)
+        cronograma_obtido = Cronograma.objects.get(titulo=cronograma.titulo)
+        self.assertEqual(cronograma_obtido.titulo, cronograma['titulo'])
+    
+    def test_obter_cronogramas_por_aluno(self):
+        cronograma1 = Cronograma.objects.create(**self.cronograma)
+        cronograma2 = Cronograma.objects.create(
+            privacidade=False,
+            titulo="Cronograma 2"
+        )
+        cronogramas_aluno = Cronograma.objects.filter(aluno=self.aluno)
+        self.assertEqual(cronogramas_aluno.privacidade, cronograma1['privacidade'])
+        self.assertEqual(cronogramas_aluno.titulo, cronograma1['titulo'])
+        self.assertEqual(cronogramas_aluno.aluno, cronograma1['aluno'])
+        self.assertIn(cronograma1, cronogramas_aluno)
+        self.assertNotIn(cronograma2, cronogramas_aluno)
