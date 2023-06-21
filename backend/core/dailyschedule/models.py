@@ -29,7 +29,7 @@ class Aluno(AbstractUser):
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     
 
     def __str__(self):
@@ -65,6 +65,9 @@ class Tarefa(models.Model):
                 return self.titulo < other.titulo
             return self.descricao <= other.descricao
         raise TypeError("Tarefa não pode ser comparada com outro tipo")
+    
+    def __hash__(self) -> int:
+        return super().__hash__()
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
