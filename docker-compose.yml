@@ -11,7 +11,7 @@ services:
     ports:
       - '5433:5432'
   backend:
-    image: christianbruno/dailyschedule:dailyschedule-backend
+    image: backend:latest
     networks:
       - default
     ports:
@@ -21,7 +21,7 @@ services:
     depends_on:
       - postgres
   frontend:
-    image: christianbruno/dailyschedule:dailyschedule-frontend
+    image: frontend:latest
     ports:
       - "3000:3000"
     depends_on:
