@@ -11,10 +11,7 @@ services:
     ports:
       - '5433:5432'
   backend:
-    container_name: dailyschedule_backend
-    build:
-      context: ./backend/core
-      dockerfile: dockerfile
+    image: backend:latest
     networks:
       - default
     ports:
@@ -24,14 +21,10 @@ services:
     depends_on:
       - postgres
   frontend:
-    container_name: dailyschedule_frontend
-    build:
-      context: ./frontend
-      dockerfile: dockerfile
+    image: frontend:latest
     ports:
       - "3000:3000"
     depends_on:
-      - postgres
       - backend
 volumes:
   postgres_data:
