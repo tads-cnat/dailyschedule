@@ -1,23 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.http.response import JsonResponse
-#from django.contrib.auth import authenticate, login, logout
-
-from django.core.serializers import serialize
-from rest_framework.parsers import JSONParser 
+from django.shortcuts import get_object_or_404
 from rest_framework import status, viewsets
-
 from .utils import *
 from .models import Cronograma, Tarefa, Aluno
-from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno
-from rest_framework.decorators import api_view, action
+from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny, IsAuthenticated
 import datetime
-
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.views import APIView
-from rest_framework.authtoken.models import Token
 
 from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno, SerializadorLogin, SerializadorCadastro
