@@ -1,3 +1,5 @@
+# Estimativa de Custos
+
 |Fase/Atividade                                   |Duração estimada em horas|Recursos Alocados                                                               |Custos Estimados|Custos Indiretos|
 |-------------------------------------------------|-------------------------|--------------------------------------------------------------------------------|----------------|----------------|
 |Início do projeto                                |Total = 28               |                                                                                |                |                |
