@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 import Sidebar from '../Navbar/Sidebar/index.js';
 import {useNavigate} from 'react-router-dom';
 import FormCrono from '../Forms/FormCrono';
+import {Spin} from 'antd';
 
 const CriarCrono = () => {
 	const [titulo, setTitulo] = useState('');
@@ -14,6 +15,8 @@ const CriarCrono = () => {
 	const [descricao, setDescricao] = useState('');
 	const [hora, setHora] = useState('');
 	const [data, setData] = useState('');
+
+	const [removeLoading, setRemoveLoading] = useState(true);
 
 	const [cronogramas, setCronogramas] = useState([]);
 	// eslint-disable-next-line
@@ -71,19 +74,30 @@ const CriarCrono = () => {
 
 	const postCronogramas = async (e) => {
 		e.preventDefault();
+
+		
+		
 		const cronogramas = {
 			privacidade: Boolean(privacidade),
 			titulo: titulo_cronograma,
 			aluno: alunos[alunos.length - 1].id,
 		};
-
-		await fetch('http://localhost:8000/api/cronogramas/', {
+		setRemoveLoading(false);
+		setTimeout(() => {
+					
+		fetch('http://localhost:8000/api/cronogramas/', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(cronogramas),
-		}).then((res) => res.json());
+		}).then((res) => {
+			res.json()
+			setRemoveLoading(true)
+		})
+		setRemoveLoading(true);
+		},1000)
+		
 	};
 
 	const postTarefas = async (e) => {
@@ -178,14 +192,16 @@ const CriarCrono = () => {
 							value={privacidade || true}
 						/>
 						<label htmlFor="priv">Quero que seja privado</label>
-					</div>
+					</div>					
+					{!removeLoading && <Spin className='spin' /> || 
 					<button className="btncont" type="submit">
 						Salvar
 					</button>
+					}
 				</form>
 			</section>
 
-			<section className="criar-crono1" data-tab="content">
+			<section className="criar-crono1" data-tab="content">			
 				<FormCrono
 					onSubmit={postTarefas}
 					valueLabel="Informe a aula"
@@ -197,7 +213,7 @@ const CriarCrono = () => {
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
 					valueDate={data || ''}
-				/>
+				/>			
 			</section>
 
 			<section className="criar-crono1" data-tab="content">
