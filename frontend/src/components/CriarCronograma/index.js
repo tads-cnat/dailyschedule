@@ -6,6 +6,7 @@ import Sidebar from '../Navbar/Sidebar/index.js';
 import {useNavigate} from 'react-router-dom';
 import FormCrono from '../Forms/FormCrono';
 import {Spin} from 'antd';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 
 const CriarCrono = () => {
 	const [titulo, setTitulo] = useState('');
@@ -40,7 +41,7 @@ const CriarCrono = () => {
 	console.log('ID do usuário: ' + id);
 	useEffect(() => {
 		if (id == null) {
-			navigate('/');
+			// navigate('/');
 		}
 
 		const loadData = async (_e) => {
@@ -150,7 +151,8 @@ const CriarCrono = () => {
 	}
 
 	return (
-		<div>
+		<div>	
+			<NoAuthenticated /> 		
 			<Sidebar />
 			<header className="header">
 				<h2>Criar cronograma</h2>

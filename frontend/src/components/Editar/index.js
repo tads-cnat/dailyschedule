@@ -10,6 +10,7 @@ import {
 } from 'react-icons/bs';
 import {useReactToPrint} from 'react-to-print';
 import {redirect, useParams, useNavigate} from 'react-router-dom';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 
 const Editar = () => {
 	const id = localStorage.getItem('token');
@@ -98,6 +99,7 @@ const Editar = () => {
 
 	return (
 		<div>
+			<NoAuthenticated /> 
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>

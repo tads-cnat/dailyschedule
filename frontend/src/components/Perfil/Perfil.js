@@ -1,16 +1,15 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
 import Sidebar from '../Navbar/Sidebar';
 import './style.css';
 import profile from '../Perfil/profile.png';
 import { Alert, Space } from 'antd';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 
 function Perfil() {
 	const id = localStorage.getItem('token');
 	const [aluno, setAluno] = useState([]);
-	const navigate = useNavigate();
 
 	var ntf = aluno.notificacao
 
@@ -35,10 +34,7 @@ function Perfil() {
 	}
 	
 
-	useEffect(() => {
-		if (id == null) {
-			navigate('/');
-		}
+	useEffect(() => {		
 		const loadData = () => {
 			fetch(`http://localhost:8000/api/alunos/${id}/`)
 				.then((response) => response.json())
@@ -55,6 +51,7 @@ function Perfil() {
 
 	return (
 		<div>
+			<NoAuthenticated /> 
 			<Sidebar></Sidebar>
 			<section className='card-user'>	
 				<Space className='notif'
@@ -78,6 +75,7 @@ function Perfil() {
 				<section className="perfil">
 					<div>
 						<img className="picture" src={profile} alt="profile" /> <br />
+						<div className='conteudo'>
 						Nome: {aluno.first_name} {aluno.last_name} <br />
 						<div>Email: {aluno.email}</div>
 						<div>Usuário: {aluno.username}</div>
@@ -87,7 +85,9 @@ function Perfil() {
 								{aluno.notificacao ? 'Desativar' : ' Ativar'}
 							</button>
 							{aluno.notificacao ? ntf=false : ntf=true}
+						</div>	
 						</div>
+						
 					</div>
 				</section>
 			</section>

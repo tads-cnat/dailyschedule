@@ -9,6 +9,7 @@ import {useReactToPrint} from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import cronogramaImg from '../../assets/images/cronograma.png';
 import {BsThreeDotsVertical} from 'react-icons/bs';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 //BsThreeDotsVertical
 
 function MeusCrogramas() {
@@ -19,9 +20,6 @@ function MeusCrogramas() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (id == null) {
-			navigate('/');
-		}
 		const loadData = () => {
 			fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
 				.then((response) => response.json())
@@ -62,6 +60,7 @@ function MeusCrogramas() {
 	};
 	return (
 		<div className="MC">
+			<NoAuthenticated /> 
 			<Sidebar></Sidebar>
 			{/*<nav className="nav-menu">                
                 <ul className="lista-simples">

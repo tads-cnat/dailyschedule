@@ -90,6 +90,7 @@ const Visualizar = (projectData) => {
 
 	return (
 		<div>
+			<NoAuthenticated /> 
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>
