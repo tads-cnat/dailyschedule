@@ -17,43 +17,36 @@
 }
 
 #home header {
-  background-color: var(--primary-color);
+  background-image: url(../images/study-background.png);
+  background-size: cover;
+  background-color: rgba(101, 98, 227, 0.8);
+  background-blend-mode: color;
   display: flex;
-  width: 120rem;
-  height: 45rem;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+  height: 50rem;
   position: absolute;
-  top: 10rem;
+  top: 7rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
 #home header h1 {
-  font-size: 3.1rem;
+  font-size: 5.8rem;
   line-height: 130%;
-  margin-top: 10rem;
-  margin-left: 7rem;
-
   color: white;
 }
 
 #home header p {
   color: white;
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.9rem;
   line-height: 150%;
-  position: absolute;
-  width: 50rem;
+  width: 55%;
   height: 14rem;
-  left: 7rem;
-  top: 16rem;
-}
-
-#home header img {
-  width: 35rem;
-  height: 35rem;
-  position: relative;
-  top: 4rem;
-  left: 45rem;
+  text-align: center;
 }
 
 #home .button {
@@ -64,11 +57,11 @@
 
   margin-bottom: 6rem;
 
-  padding: 1.6rem 3.2rem;
+  padding: 2rem 4rem;
   width: fit-content;
 
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
 
   display: flex;
@@ -78,13 +71,7 @@
 
   text-decoration: none;
 
-  transition: background 200ms;
-}
-
-#home header .button {
-  position: absolute;
-  left: 7rem;
-  top: 26rem;
+  transition: background 200ms, transform 300ms;
 }
 
 #home .button:hover {
@@ -92,13 +79,16 @@
 }
 
 /* SEÇÃO DE BENEFICIOS NA INDEX */
+.bene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #beneficios .beneficio {
   position: relative;
-  top: 50rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 3.2rem;
+  top: 45rem;
+  background-color: #FFFACD;
+  width: 110rem;
 }
 
 #beneficios .bnfc {
@@ -126,23 +116,41 @@
   margin-block: 1.6rem;
 }
 
+@media screen and (max-width: 768px) {
+  #home header h1 {
+    font-size: 4rem;
+  }
+
+  #home header p {
+    font-size: 1.5rem;
+    width: 60%;
+  }
+
+  #home .button {
+    position: relative;
+    bottom: -5rem;
+  }
+
+  #beneficios .beneficio {
+    width: 100vw;
+  }
+
+}
+
 /* SEÇÃO DE PLANO PREMIUM NA INDEX */
 
 #plano {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
-  top: 32rem;
+  margin-top: 60rem; 
 }
 
 #plano .box {
   background-color: var(--scnd-color);
   width: 50rem;
   height: 50rem;
-  position: relative;
-  top: 30rem;
-  left: 30%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,6 +159,8 @@
 
 #plano .box span {
   color: white;
+  position: relative;
+  top: 5rem;
 }
 
 #plano .box h2 {
@@ -160,42 +170,34 @@
   top: -4rem;
 }
 
-#plano .box span {
-  position: relative;
-  top: 5rem;
-}
-
 #plano .button {
   background: #6486ff;
   position: relative;
   top: 8rem;
-
   border: none;
   border-radius: 4rem;
-
   margin-bottom: 6rem;
-
   padding: 1.6rem 3.2rem;
   width: fit-content;
-
   color: white;
   font-size: 1.4rem;
   font-weight: 700;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-
   text-decoration: none;
-
   transition: background 200ms;
 }
 
 #plano .h2 {
-  position: relative;
+  position: absolute;
   left: 50%;
+  top: -9rem;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
 }
+
+
 
 /* FOOTER NA INDEX */
 footer {
@@ -207,7 +209,7 @@ footer {
   color: white;
 
   position: relative;
-  top: 90rem;
+  top: 25rem;
 }
 
 footer .logo svg {

@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=dailyschedule
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+  backend:
+    container_name: dailyschedule_backend
+    build:
+      context: ./backend/core
+      dockerfile: dockerfile
+    networks:
+      - default
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/core
+    depends_on:
+      - postgres
+  frontend:
+    container_name: dailyschedule_frontend
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+volumes:
+  postgres_data:
