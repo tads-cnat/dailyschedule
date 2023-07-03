@@ -44,7 +44,7 @@
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 150%;
-  width: 80rem;
+  width: 55%;
   height: 14rem;
   text-align: center;
 }
@@ -116,6 +116,27 @@
   margin-block: 1.6rem;
 }
 
+@media screen and (max-width: 768px) {
+  #home header h1 {
+    font-size: 4rem;
+  }
+
+  #home header p {
+    font-size: 1.5rem;
+    width: 60%;
+  }
+
+  #home .button {
+    position: relative;
+    bottom: -5rem;
+  }
+
+  #beneficios .beneficio {
+    width: 100vw;
+  }
+
+}
+
 /* SEÇÃO DE PLANO PREMIUM NA INDEX */
 
 #plano {
@@ -175,6 +196,7 @@
   top: -9rem;
   transform: translateX(-50%); /* Centraliza horizontalmente */
 }
+
 
 
 /* FOOTER NA INDEX */
