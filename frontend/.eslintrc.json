@@ -16,6 +16,7 @@
         "react"
     ],
     "rules": {
+        "no-mixed-spaces-and-tabs": 0,
         "react/jsx-filename-extension":[
             "warn",
             {
@@ -24,5 +25,9 @@
         ],
         "react/react-in-jsx-scope": "off",
         "comma-dangle": "off"
-    }
+    },
+    "globals": {
+    "localStorage": true,
+    "document": true
+  }
 }

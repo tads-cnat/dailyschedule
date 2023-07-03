@@ -1,5 +1,7 @@
 /* CONFIGURAÇÕES DA HEADER DE CRIAR/MEUS CRONOGRAMAS */
-
+.spin{
+  margin-left: 75rem;
+}
 .header h2 {
   position: absolute;
   left: 43.5rem;

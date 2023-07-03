@@ -25,36 +25,44 @@ from .serializers import SerializadorCronograma, SerializadorTarefa, Serializado
 import datetime
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-
-    #authentication_classes = [TokenAuthentication,]
-    #permission_classes = [IsAuthenticated]
-
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
     
     def get_queryset(self):
-        queryset = Cronograma.objects.all()
+        queryset = Cronograma.objects.all()        
         username = self.request.query_params.get('username')
+<<<<<<< HEAD
         id = self.request.query_params.get('id')
 
         if username:
+=======
+        id_aluno = self.request.query_params.get('id')        
+
+        if username != None:
+>>>>>>> 92-testes-de-cobertura
             queryset = queryset.filter(aluno__username=username)
-            #queryset = Cronograma.objects.filter(aluno_usuario=username)
-        
-        if id:
-            queryset = queryset.filter(aluno__id=id)           
-        
+        if id_aluno != None:
+            queryset = queryset.filter(aluno__id=id_aluno)                  
         return queryset
 
     @action(detail=False, methods=['get'])
     def editar(self, request):
+<<<<<<< HEAD
 
         idCrono = request.query.params.get('idCrono')
 
         if idCrono:        
+=======
+        id_aluno = self.request.query_params.get('id')   
+        print(request.query_params)
+
+        idCrono = request.query.params.get('idCrono')
+
+        if idCrono:                    
+>>>>>>> 92-testes-de-cobertura
             titulo = request.query_params.get('titulo')
             priv = request.query_params.get('priv')
-            cronograma = get_object_or_404(Cronograma, pk=id)
+            cronograma = get_object_or_404(Cronograma, pk=id_aluno)
             cronograma.titulo = titulo
             cronograma.privacidade = priv
             cronograma.save()
@@ -159,8 +167,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
             for tarefa in tarefas:
                 msgRetorno = msgRetorno + "\n["+ str(cont)+ "] " + tarefa.titulo
                 cont+=1
-            email = Email()
-            #email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+            email = Email()            
             try:
                 email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             except:
