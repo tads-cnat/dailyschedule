@@ -62,7 +62,7 @@ const NavBar = () => {
 							<a href="#beneficios">Benefícios</a>
 						</li>
 						<li>
-							<a href="/criar-cronograma">Criar cronograma</a>
+							<a className="acrono" href="/criar-cronograma">Criar cronograma</a>
 						</li>
 						<div id="pesquisar1">
 							<form action="/buscar" method="GET">
