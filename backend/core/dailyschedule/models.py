@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
@@ -76,6 +77,27 @@ class Tarefa(models.Model):
     def __str__(self):
         return self.descricao
 
+    def __eq__(self,other):
+        if isinstance(other, Tarefa):
+            return self.titulo == other.titulo and self.descricao == other.descricao
+        return False
+    
+    def __lt__(self,other):
+        if isinstance(other, Tarefa):
+            if self.titulo != other.titulo:
+                return self.titulo < other.titulo
+            return self.descricao < other.descricao
+        raise TypeError("Tarefa não pode ser comparada com outro tipo")
+    
+    def __le__(self, other):
+        if isinstance(other, Tarefa):
+            if self.titulo != other.titulo:
+                return self.titulo < other.titulo
+            return self.descricao <= other.descricao
+        raise TypeError("Tarefa não pode ser comparada com outro tipo")
+    
+    def __hash__(self) -> int:
+        return super().__hash__()
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)
