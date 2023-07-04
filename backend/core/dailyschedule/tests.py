@@ -194,3 +194,82 @@ class CronogramaIntegrationTests(TestCase):
         self.assertEqual(cronogramas_aluno.aluno, cronograma1['aluno'])
         self.assertIn(cronograma1, cronogramas_aluno)
         self.assertNotIn(cronograma2, cronogramas_aluno)
+
+class CronogramaCRUDSystemTests(TestCase):
+    def setUp(self):
+        self.aluno = {
+            'first_name': 'Lucas',
+            'last_name': 'Melo',
+            'email': 'lucas@mail.com',
+            'username': 'testuser',
+            'password': 'testpassword',
+            'notificacao': False,
+            'qtd': 0
+        }
+        self.cronograma = {
+            'privacidade': False,
+            'titulo': 'Cronograma de Teste',
+            'aluno': self.aluno
+        }
+
+    def test_create_cronograma(self):
+        url = reverse('Cronograma-list')
+        response = self.client.post(url, data=self.cronograma)
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(Cronograma.objects.filter(titulo=self.cronograma['titulo']).exists())
+
+    def test_retrieve_cronograma(self):
+        cronograma1 = Cronograma.objects.create(**self.cronograma)
+        url = reverse('Cronograma-detail', kwargs={'pk': cronograma1.id})
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_update_cronograma(self):
+        cronograma1 = Cronograma.objects.create(titulo='Cronograma existente', **self.cronograma)
+        updated_data = {
+            'privacidade': True,
+            'titulo': 'Cronograma atualizado',
+        }
+        url = reverse('Cronograma-detail', kwargs={'pk': cronograma1.id})
+        response = self.client.put(url, data=json.dumps(updated_data), content_type='application/json')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        cronograma1.refresh_from_db()
+        self.assertEqual(cronograma1.privacidade, updated_data['privacidade'])
+        self.assertEqual(cronograma1.titulo, updated_data['titulo'])
+
+    def test_delete_cronograma(self):
+        cronograma1 = Cronograma.objects.create(**self.cronograma)
+        url = reverse('Cronograma-detail', kwargs={'pk': cronograma1.id})
+        response = self.client.delete(url)
+
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertFalse(Cronograma.objects.filter(titulo=self.cronograma['titulo']).exists())
+
+    def test_search_cronograma_title(self):
+        cronograma1 = Cronograma.objects.create(**self.cronograma)
+        url = reverse('Cronograma-list') + f'?search={cronograma1.titulo}'
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['titulo'], cronograma1.titulo)
+
+    
+    def test_create_cronograma_same_info(self):
+        url = reverse('Cronograma-list')
+
+        # Cria o primeiro cronograma
+        response1 = self.client.post(url, data=self.cronograma)
+        self.assertEqual(response1.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(Cronograma.objects.filter(titulo=self.cronograma['titulo']).exists())
+
+        # Cria o segundo cronograma com as mesmas informações
+        response2 = self.client.post(url, data=self.cronograma)
+        self.assertEqual(response2.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(
+            response2.data['non_field_errors'][0],
+            'Os dados fornecidos já existem. Não é possível criar cronogramas duplicados.'
+        )
