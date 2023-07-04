@@ -55,21 +55,18 @@ class CronogramaViewSet(viewsets.ModelViewSet):
         if id:
             queryset = queryset.filter(aluno__id=id)
 
-
         return queryset
 
     @action(detail=False, methods=["get"])
     def editar(self, request):
+        id_aluno = self.request.query_params.get('id')   
         print(request.query_params)
 
         idCrono = request.query.params.get("idCrono")
-
-        if idCrono:
-            print("Dentro do if")
-            titulo = request.query_params.get("titulo")
-            priv = request.query_params.get("priv")
-            cronograma = get_object_or_404(Cronograma, pk=id)
-
+        if idCrono:                    
+            titulo = request.query_params.get('titulo')
+            priv = request.query_params.get('priv')
+            cronograma = get_object_or_404(Cronograma, pk=id_aluno)
             cronograma.titulo = titulo
             cronograma.privacidade = priv
             cronograma.save()

@@ -31,9 +31,13 @@ function App() {
 		const alerta = () => {
 			fetch(`http://localhost:8000/api/aluno/${id}/alerta`)
 				.then((response) => response.json())
-				.then((data) => setAlerta(data));
+				.then((data) => setAlerta(data))
+				.catch((err) => {
+					console.error(err);
+				});
 		};
-		setInterval(alerta(), 2400000);
+		alerta();
+		setInterval(2400000);
 	}, []);
 
 	function redir(valor) {
