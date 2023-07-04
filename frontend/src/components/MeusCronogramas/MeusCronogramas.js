@@ -9,6 +9,7 @@ import {useReactToPrint} from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import cronogramaImg from '../../assets/images/cronograma.png';
 import {BsThreeDotsVertical} from 'react-icons/bs';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 //BsThreeDotsVertical
 
 function MeusCrogramas() {
@@ -19,13 +20,13 @@ function MeusCrogramas() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (id == null) {
-			navigate('/');
-		}
 		const loadData = () => {
 			fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
 				.then((response) => response.json())
-				.then((data) => setCronogramas(data));
+				.then((data) => setCronogramas(data))
+				.catch((err) => {
+					console.error(err);
+				});
 		};
 		loadData();
 	}, []);
@@ -40,7 +41,10 @@ function MeusCrogramas() {
 	const alerta = () => {
 		fetch('http://localhost:8000/api/aluno/1/alerta')
 			.then((response) => response.json())
-			.then((data) => setCronogramas(data));
+			.then((data) => setCronogramas(data))
+			.catch((err) => {
+				console.error(err);
+			});
 	};
 
 	const getWeather = () => {
@@ -48,11 +52,15 @@ function MeusCrogramas() {
 			'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br',
 		)
 			.then((response) => response.json())
-			.then((data) => setWeather(data));
+			.then((data) => setWeather(data))
+			.catch((err) => {
+				console.error(err);
+			});
 		console.log('Console: ' + JSON.stringify(weather.weather));
 	};
 	return (
 		<div className="MC">
+			<NoAuthenticated /> 
 			<Sidebar></Sidebar>
 			{/*<nav className="nav-menu">                
                 <ul className="lista-simples">
