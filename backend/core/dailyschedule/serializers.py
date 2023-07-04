@@ -2,40 +2,64 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import Aluno, Cronograma, Tarefa
 
+
 class SerializadorAluno(serializers.ModelSerializer):
     class Meta:
         model = Aluno
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'qtd', 'notificacao')
+        fields = (
+            "id",
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "password",
+            "qtd",
+            "notificacao",
+        )
 
 
 class SerializadorCronograma(serializers.ModelSerializer):
     class Meta:
         model = Cronograma
-        fields = ('id', 'privacidade', 'titulo', 'aluno')
+        fields = ("id", "privacidade", "titulo", "aluno")
 
-class SerializadorTarefa(serializers.ModelSerializer): 
+
+class SerializadorTarefa(serializers.ModelSerializer):
     class Meta:
         model = Tarefa
-        fields = ('id', 'titulo', 'assunto', 'descricao', 'hora_inicio', 'data', 'status', 'cronograma')
+        fields = (
+            "id",
+            "titulo",
+            "assunto",
+            "descricao",
+            "hora_inicio",
+            "data",
+            "status",
+            "cronograma",
+        )
+
 
 class SerializadorLogin(serializers.Serializer):
     usuario = serializers.CharField(max_length=100)
     senha = serializers.CharField(max_length=100)
 
-#serializer para cadastro de usuario
+
+# serializer para cadastro de usuario
 class SerializadorCadastro(serializers.Serializer):
     primeiro_nome = serializers.CharField(max_length=20)
     ultimo_nome = serializers.CharField(max_length=60)
     usuario = serializers.CharField(max_length=30)
     email = serializers.EmailField(max_length=40)
-    senha = serializers.CharField(max_length=40,)
+    senha = serializers.CharField(
+        max_length=40,
+    )
     comfirmar_senha = serializers.CharField(max_length=40)
-    class meta:
 
+    class meta:
         model = Aluno
-        fields = ('usuario', 'senha', 'email', 'primeiro_nome', 'ultimo_nome')
-    
-    #resolver posteriormente esta funcionalidade
+        fields = ("usuario", "senha", "email", "primeiro_nome", "ultimo_nome")
+
+    # resolver posteriormente esta funcionalidade
     """
     def save(self):
         usuario = User(
