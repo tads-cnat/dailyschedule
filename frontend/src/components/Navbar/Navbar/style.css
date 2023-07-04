@@ -191,7 +191,7 @@ nav .wrapper {
   }
 
   .menu ul a {
-    padding: 0rem .2rem;
+    padding: 0rem .7rem;
   }
 
   .acrono {
@@ -205,11 +205,17 @@ nav .wrapper {
   }
 
   .login {
-    margin-left: 5rem;
+    margin-left: 20rem;
     margin-top: 6rem;
+    flex-direction: column;
+    gap: 0;
   }
 
   #navigation .login li {
     margin: 0 5px;
+  }
+
+  .cadastro a {  
+   margin-top: -5.5rem;
   }
 }

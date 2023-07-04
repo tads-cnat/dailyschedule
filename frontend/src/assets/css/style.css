@@ -135,6 +135,28 @@
     width: 100vw;
   }
 
+  #beneficios .bnfc {
+    display: block;
+  }
+
+  #beneficios .bnfc h2 {
+    width: fit-content;
+    left: 0;
+    top: 0;
+  }
+
+  #beneficios .bnfc p {
+    width: fit-content;
+    top: 0;
+    left: 0;
+  }
+
+  #beneficios .bnfc img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 /* SEÇÃO DE PLANO PREMIUM NA INDEX */
