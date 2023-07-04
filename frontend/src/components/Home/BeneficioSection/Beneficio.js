@@ -22,6 +22,7 @@ const Beneficio = () => {
 							</p>
 						</div>
 						<div className="bnfc">
+							<img src={confianca} alt="confiança" />
 							<h2>Aumento de confiança</h2>
 							<p>
 								Quando você começa a estudar com um cronograma de estudos e ter
@@ -30,7 +31,7 @@ const Beneficio = () => {
 								ficar menos ansioso (a) na hora das provas, evitando aquele famoso
 								branco. Quem nunca?!
 							</p>
-							<img src={confianca} alt="confiança" />
+							
 						</div>
 						<div className="bnfc">
 							<img src={tempo} alt="tempo" />
@@ -43,6 +44,7 @@ const Beneficio = () => {
 							</p>
 						</div>
 						<div className="bnfc">
+							<img src={compro} alt="Comprometimento" />
 							<h2>Comprometimento e responsabilidade</h2>
 							<p>
 								Um cronograma de estudos vai te ajudar a cumprir suas obrigações
@@ -50,7 +52,7 @@ const Beneficio = () => {
 								diariamente todos os seus compromissos para o dia. Ah e sem
 								precisar colocar vários lembretes na agenda do seu celular.
 							</p>
-							<img src={compro} alt="Comprometimento" />
+							
 						</div>
 					</div>
 				</div>

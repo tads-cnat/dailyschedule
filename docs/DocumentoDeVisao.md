@@ -62,9 +62,9 @@ O Daily Schedule ajuda todos os estudantes que queiram organizar seus estudos e 
 | RF04 | Acesso aos meus cronogramas | O usuário poderá ver a listagem de seus cronogramas. |
 | RF05 | Modificação do cronograma | O usuário pode editar e excluir cronogramas. |
 | RF06 | Pesquisa de cronograma | O usuário pode usar uma aba de busca para pesquisar cronogramas públicos. |
-| RF07 | Cadastro | Permite que pessoas visitantes da rede possam realizar seu cadastro no Daily Schedule. |
+| RF07 | Cadastro de Usuário | Permite que os visitantes possam realizar seu cadastro na plataforma Daily Schedule. |
 | RF08 | Autenticação | Com a efetuação do login os usuários têm acesso ao sistema. |
-| RF09 | Configurações | O usuário poderá configurar opções como segurança e privacidade. |
+| RF09 | Configurações de Cronograma | O usuário poderá configurar opções de privacidade (públcio ou privado) de visualização de seu cronograma. |
 | RF10 | Gerencia do perfil | Este requisito tem o propósito de habilitar o usuário estudante a consultar e atualizar seus dados de perfil. |
 | RF11 | Lembretes importantes | O sistema vai lembrar o usuário no  cronograma diário sobre deveres importantes, como provas. |
 | RF12 | Notificação por e-mail | O usuário terá a opção de receber lembretes das tarefas para ele mesmo por e-mail. |
