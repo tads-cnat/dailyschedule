@@ -1,9 +1,11 @@
 EAP (Estrutura Analítica do Projeto)
-![Diagrama](https://github.com/tads-cnat/dailyschedule/blob/eap/docs/EAP.svg)
+![Diagrama](https://github.com/tads-cnat/dailyschedule/blob/75-refinamento-do-eap/docs/EAP.svg)
 
 Dicionário
 1.  Iniciação do projeto<br/> 
 1.1. Identificação da necessidade do projeto - Identificação da razão para a realização do projeto.<br/>
+1.1.1. Definir a visão do produto - Definição da visão do produto. <br/>
+1.1.2. Registro das partes interessadas - Registrar as partes interessadas. <br/>
 1.2. Definição dos objetivos e metas do projeto - Definição clara e específica dos objetivos do projeto.<br/> 
 1.3. Análise de viabilidade técnica e econômica - Análise para determinar se o projeto é tecnicamente possível e financeiramente viável.<br/> 
 1.4. Definição do escopo do projeto - Definição dos limites do projeto, incluindo o que está dentro e fora do escopo.<br/> 
@@ -11,6 +13,7 @@ Dicionário
     
 2.  Planejamento<br/> 
 2.1. Definição do cronograma do projeto - Estimativa de tempo para cada atividade do projeto e definição de datas de início e término.<br/> 
+2.1.1 Geração do cronograma de marcos. <br/>
 2.2. Definição do orçamento do projeto - Definição dos custos estimados para o projeto.<br/> 
 2.3. Definição dos recursos necessários para o projeto - Definição dos recursos (equipamentos, softwares, etc) necessários para a realização do projeto.<br/> 
 2.4. Definição das atividades do projeto - Identificação das tarefas específicas que precisam ser realizadas para atingir os objetivos do projeto.<br/> 
@@ -28,6 +31,11 @@ Dicionário
 4.3. Desenvolvimento dos serviços RESTful em Django - Implementação dos serviços RESTful para o backend utilizando o framework Django.<br/> 
 4.4. Testes unitários e de integração - Execução de testes unitários e de integração para garantir a qualidade do código.<br/> 
 4.5. Revisão de código - Revisão do código implementado para garantir a qualidade e conformidade com as especificações.<br/>
+4.6. Preparar a implantação do Backend - Passos necessários para iniciar a implantação do Backend do sistema. <br/>
+4.6.1 Criação do Dockerfile para o Backend - Criação do Dockerfile para o Backend. <br/>
+4.6.2. Geração da imagem - Geração da imagem através do Dockerfile. <br/>
+4.6.3. Upload da imagem no DockerHUB - Upload da imagem gerada para o DockerHUB. <br/>
+4.6.4. Execução da imagem na máquina virtual - Execução da imagem resgatada do DockerHUB na máquina virtual. <br/>
     
 5.  Desenvolvimento do Frontend<br/> 
 5.1. Configuração do ambiente de desenvolvimento - Configuração do ambiente de desenvolvimento para suportar a linguagem de programação e frameworks utilizados.<br/> 
@@ -35,6 +43,11 @@ Dicionário
 5.3. Implementação das requisições para o Backend - Implementação das rotas utilizadas para acessar os dados necessários das APIs presentens no Backend.<br/>
 5.4. Testes unitários e de integração - Execução de testes unitários e de integração para garantir a qualidade do código.<br/> 
 5.5. Revisão de código - Revisão do código implementado para garantir a qualidade e conformidade com as especificações.<br/>
+5.6. Preparar a implantação do Frontend - Passos necessários para iniciar a implantação do Frontend do sistema. <br/>
+5.6.1 Criação do Dockerfile para o Frontend - Criação do Dockerfile para o Frontend. <br/>
+5.6.2. Geração da imagem - Geração da imagem através do Dockerfile. <br/>
+5.6.1. Upload da imagem no DockerHUB - Upload da imagem gerada para o DockerHUB. <br/>
+5.6.3. Execução da imagem na máquina virtual - Execução da imagem resgatada do DockerHUB na máquina virtual. <br/>
 
 6.  Testes e Qualidade<br/> 
 6.1. Testes de aceitação - Execução de testes de aceitação do usuário para garantir que o sistema atenda às suas necessidades.<br/> 
@@ -43,9 +56,14 @@ Dicionário
 6.4. Teste de usabilidade - Execução de testes de usabilidade para garantir que o sistema esteja completamente usável.<br/>
 6.5. Garantia de qualidade - Monitoramento da qualidade do sistema durante todo o processo de desenvolvimento.<br/>
     
-7.  Implantação e Entrega<br/>
-7.1. Preparação do ambiente de produção - Preparação do ambiente de produção e migração do banco de dados.<br/> 
+7.  Implantação geral do sistema e Entrega<br/>
+7.1. Preparação do ambiente de produção - Preparação do ambiente de produção e migração do banco de dados.<br/>
+7.1.1. Criação do Dockerfile para o banco de dados - Criação do Dockerfile para o banco de dados. <br/>
+7.1.2. Geração da imagem através do Dockerfile - Geração da imagem através do Dockerfile. <br/>
+7.1.3. Upload da imagem no DockerHUB - Upload da imagem gerada para o DockerHUB. <br/>
+7.1.4. Execução da imagem  - Execução da imagem resgatada do DockerHUB na máquina virtual. <br/>
 7.2.  Migração dos dados do ambiente de desenvolvimento para o ambiente de produção - Migração de todo o sistema do modo de desenvolvimento local para a nuvem.<br/>
+7.2.1. Implantação dos módulos através do Dockercompose - Implantação total dos módulos do backend, frontend e banco de dados através do Dockercompose. <br/>
 7.3. Testes finais de aceitação - Testes realizados após a migração para garantir o bom funcionamento do sistema após implantação.<br/>
 7.4. Entrega do produto ao cliente - Apresentar o sistema totalmente funcional ao cliente após a implantação.<br/>
 7.5. Treinamento e suporte ao usuário final - Realização de treinamento e suporte ao usuário final.<br/>
