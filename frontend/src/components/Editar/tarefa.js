@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+<<<<<<< HEAD
+import '../style.css'
+import { useState, useEffect } from "react";
+=======
 import {useState, useEffect} from 'react';
+>>>>>>> 92-testes-de-cobertura
 import SideBar from '../Navbar/Sidebar';
 import {BsFillTrashFill, BsPencilSquare} from 'react-icons/bs';
 import {useParams, useNavigate} from 'react-router-dom';

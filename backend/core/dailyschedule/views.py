@@ -31,9 +31,15 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Cronograma.objects.all()        
         username = self.request.query_params.get('username')
+<<<<<<< HEAD
+        id = self.request.query_params.get('id')
+
+        if username:
+=======
         id_aluno = self.request.query_params.get('id')        
 
         if username != None:
+>>>>>>> 92-testes-de-cobertura
             queryset = queryset.filter(aluno__username=username)
         if id_aluno != None:
             queryset = queryset.filter(aluno__id=id_aluno)                  
@@ -41,12 +47,19 @@ class CronogramaViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def editar(self, request):
+<<<<<<< HEAD
+
+        idCrono = request.query.params.get('idCrono')
+
+        if idCrono:        
+=======
         id_aluno = self.request.query_params.get('id')   
         print(request.query_params)
 
         idCrono = request.query.params.get('idCrono')
 
         if idCrono:                    
+>>>>>>> 92-testes-de-cobertura
             titulo = request.query_params.get('titulo')
             priv = request.query_params.get('priv')
             cronograma = get_object_or_404(Cronograma, pk=id_aluno)
@@ -74,7 +87,6 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'], url_path='')
     def semana1(self,request,pk=None):
         inicio = self.getInicio()
-        print("inicio {}".format(inicio))
         semana1 = inicio + datetime.timedelta(days=7)
         fim = semana1 + datetime.timedelta(days=7)
         cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
@@ -144,13 +156,11 @@ class AlunoViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'], url_path='')
     def alerta(self, request, pk):
-        print(pk + "<= PK")
         msgRetorno = 'Tarefa(s) Pendente(s): '
         now = datetime.datetime.now()
         aft = now + datetime.timedelta(days=1)
         aluno = Aluno.objects.all().first()
         tarefas_t = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
-        print(tarefas_t)
         tarefas = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
         if tarefas:
             cont = 0
@@ -162,7 +172,6 @@ class AlunoViewSet(viewsets.ModelViewSet):
                 email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             except:
                 msgRetorno = 'Falha no envio'
-            print("Mensagem de retorno: "+msgRetorno)
         return Response({'message': msgRetorno}, status=status.HTTP_200_OK)
 
     @action (detail=False, methods=['post'], url_path='')
