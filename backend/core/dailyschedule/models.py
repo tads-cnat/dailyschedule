@@ -1,6 +1,8 @@
+from typing import Any
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
+from functools import total_ordering
 import datetime
 
 
@@ -9,10 +11,11 @@ def data_atual():
     return timezone.now()
 
 
+@total_ordering
 class Aluno(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    last_login = models.DateTimeField(default=data_atual)
+    last_login = models.DateTimeField(default=timezone.now)
     email = models.EmailField(max_length=254)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
@@ -25,6 +28,20 @@ class Aluno(AbstractUser):
     def __str__(self):
         return "{0} - primeiro nome".format(self.first_name)
 
+    def __eq__(self, other):
+        if isinstance(other, Aluno):
+            return (
+                self.first_name == other.first_name and
+                self.last_name == other.last_name
+            )
+        return False
+    
+    def __lt__(self, other):
+        if isinstance(other, Aluno):
+            if self.first_name != other.first_name:
+                return self.first_name < other.first_name
+            return self.last_name < other.last_name
+        raise TypeError("Cannot compare 'Aluno' with type {}".format(type(other)))
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default=False)
@@ -33,6 +50,23 @@ class Cronograma(models.Model):
 
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
+    
+    def __eq__(self, other):
+        if isinstance(other, Cronograma):
+            return (
+                self.privacidade == other.privacidade
+                and self.titulo == other.titulo
+                and self.aluno == other.aluno
+            )
+        return False
+    
+    def __lt__(self, other):
+        if isinstance(other, Cronograma):
+            if self.id is not None and other.id is not None:
+                return self.id - other.id
+            return 0
+        raise TypeError("Cannot compare Cronograma with non-Cronograma object")
+
 
 
 class Tarefa(models.Model):
@@ -47,8 +81,45 @@ class Tarefa(models.Model):
     def __str__(self):
         return self.descricao
 
+    def __eq__(self,other):
+        if isinstance(other, Tarefa):
+            return self.titulo == other.titulo and self.descricao == other.descricao
+        return False
+    
+    def __lt__(self,other):
+        if isinstance(other, Tarefa):
+            if self.titulo != other.titulo:
+                return self.titulo < other.titulo
+            return self.descricao < other.descricao
+        raise TypeError("Tarefa não pode ser comparada com outro tipo")
+    
+    def __le__(self, other):
+        if isinstance(other, Tarefa):
+            if self.titulo != other.titulo:
+                return self.titulo < other.titulo
+            return self.descricao <= other.descricao
+        raise TypeError("Tarefa não pode ser comparada com outro tipo")
+    
+    def __hash__(self) -> int:
+        return super().__hash__()
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)
     tarefa = models.OneToOneField(Tarefa, on_delete=models.CASCADE)
+
+    def __eq__(self, other):
+        if isinstance(other, Tipo):
+            return (
+                self.tipo == other.tipo
+                and self.assunto == other.assunto
+                and self.tarefa == other.tarefa
+            )
+        return False
+    
+    def __lt__(self, other):
+        if isinstance(other, Tipo):
+            if self.id is not None and other.id is not None:
+                return self.id - other.id
+            return 0 
+        raise TypeError("Cannot compare Tipo with non-Tipo object")
