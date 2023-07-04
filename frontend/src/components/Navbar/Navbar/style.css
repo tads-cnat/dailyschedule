@@ -22,6 +22,11 @@ nav {
   z-index: 100;
 }
 
+.menu {
+  position: relative;
+  top: 0.5rem;
+}
+
 .menu ul a {
   color: white;
   text-decoration: none;
@@ -42,7 +47,7 @@ nav {
 }
 
 .login {
-  margin-left: 80rem;
+  margin-left: 75rem;
   margin-top: 6rem;
   display: flex;
   flex-direction: row;
@@ -123,7 +128,7 @@ nav .wrapper {
 
 #pesquisar1 {
   position: fixed;
-  top: 1rem;
+  top: 1.2rem;
   left: 75rem;
 }
 
@@ -134,8 +139,8 @@ nav .wrapper {
 .menu #pesquisar1 input[type='text'] {
   background-color: var(--scnd-color);
   border-radius: 0.8rem;
-  width: 25rem;
-  height: 4rem;
+  width: 20.5rem;
+  height: 0.4rem;
   padding: 2rem;
   display: flex;
   flex-direction: row;
@@ -174,4 +179,43 @@ nav .wrapper {
   position: relative;
   top: -3.4rem;
   left: 19rem;
+}
+
+@media screen and (max-width: 768px) {
+  #navigation .logo {
+    display: none;
+  }
+
+  .menu {
+    top: -1.5rem;
+  }
+
+  .menu ul a {
+    padding: 0rem .7rem;
+  }
+
+  .acrono {
+    width: 20px;
+  }
+
+  .menu li {
+    left: -2.5rem;
+    top: 2.5rem;
+    font-weight: bold;
+  }
+
+  .login {
+    margin-left: 20rem;
+    margin-top: 6rem;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #navigation .login li {
+    margin: 0 5px;
+  }
+
+  .cadastro a {  
+   margin-top: -5.5rem;
+  }
 }

@@ -1,12 +1,12 @@
 from typing import Any
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 import datetime
 
-from django.contrib.auth.models import User, AbstractUser
-
 # Create your models here.
+def data_atual():
+        return timezone.now()
 
 class Aluno(AbstractUser):
     first_name = models.CharField(max_length=50)
@@ -19,18 +19,14 @@ class Aluno(AbstractUser):
     qtd = models.IntegerField(default=0)
 
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'password']
-    USERNAME_FIELD = 'username'
-
-
-
+    USERNAME_FIELD = 'username'    
     def __str__(self):
-        return ("{0} - primeiro nome".format(self.first_name))
+        return "{0} - primeiro nome".format(self.first_name)
 
 class Cronograma(models.Model):
     privacidade = models.BooleanField(default = False)
     titulo = models.CharField(max_length=100)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return ("{0} - {1}").format(self.titulo, self.aluno)
@@ -68,7 +64,6 @@ class Tarefa(models.Model):
     
     def __hash__(self) -> int:
         return super().__hash__()
-
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)

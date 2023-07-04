@@ -1,118 +1,160 @@
-import './style.css'
-import SideBar from '../Navbar/Sidebar/index.js'
-import CriarCrono from '../CriarCronograma/index.js'
-import { useState, useEffect, useId } from "react";
-import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
-import { useReactToPrint } from 'react-to-print';
-import { useRef } from 'react';
-import { redirect, useParams } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+import './style.css';
+import SideBar from '../Navbar/Sidebar/index.js';
+import {useState, useEffect} from 'react';
+import {
+	BsFillTrashFill,
+	BsPencilSquare,
+	BsFillCloudSunFill,
+} from 'react-icons/bs';
+import {useReactToPrint} from 'react-to-print';
+import {useRef} from 'react';
+import {useParams, useNavigate} from 'react-router-dom';
 
-const VisualizarC = (projectData) => {
-  const id = localStorage.getItem('token')
+const Visualizar = (projectData) => {
+	const navigate = useNavigate();
+	const [weather, setWeather] = useState([]);
+	const [previsao, setPrevisao] = useState([]);
+	const [cronogramas, setCronogramas] = useState([]);
+	const [tarefas, setTarefas] = useState([]);
+	const [status_tarefa, setStatusTarefa] = useState([]);
+	var semana = [
+		'Domingo',
+		'Segunda-Feira',
+		'Terça-Feira',
+		'Quarta-Feira',
+		'Quinta-Feira',
+		'Sexta-Feira',
+		'Sábado',
+	];
 
-  
-  const [cronogramas, setCronogramas] = useState([]);
-  const [tarefas, setTarefas] = useState([]);
-  const [project, setProject] = useState(projectData || []);
-  var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+	const params = useParams();
+	const ID = params.id;
 
-  const params = useParams();
-  const ID = params.id;
+	console.log('ID do cornograma: ' + ID);
 
-  console.log("USEERIDDD: " + ID);
+	const componentRef = useRef();
+	const handlePrint = useReactToPrint({
+		content: () => componentRef.current,
+		documentTitle: 'Nova Print',
+	});
 
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: 'Nova Print',          
-    });
+	useEffect(() => {
+		setPrevisao('Ver previsão de hoje');
+		const loadData = async (e) => {
+			fetch(`http://localhost:8000/api/cronogramas/${ID}`)
+				.then((crono) => crono.json())
+				.then((data) => setCronogramas(data))
+				.catch((err) => {
+					console.error(err);
+				});
+		};
+		const loadTarefas = async (e) => {
+			fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas`)
+				.then((res) => res.json())
+				.then((data) => setTarefas(data))
+				.catch((err) => {
+					console.error(err);
+				});
+		};
+		loadData();
+		loadTarefas();
+		console.log('Id do cronograma crono: ' + cronogramas.id);
+	}, [ID]);
 
-  useEffect(() => {
-    const crono = ''
-    const loadData = async(e) => {
-      crono = await fetch(`http://127.0.0.1:8000/api/cronogramas/${ID}`)
-      .then(crono => crono.json())
-      .then(data => data)
-      setCronogramas(crono)      
-    } 
-    const loadTarefas = async(e) => {      
-      const res = await fetch(`http://localhost:8000/api/tarefas/${cronogramas.id}`)
-      .then(res => res.json())
-      .then(data => data)
-      setTarefas(res)
-    }   
-    loadData()
-    
-    console.log("Id do cronograma crono: " + crono)
-  }, [ID])
+	const handleDelete = async (id) => {
+		await fetch(`http://localhost:8000/api/cronogramas/${id}`, {
+			method: 'DELETE',
+		});
+		navigate('/MeusCronogramas');
+	};
 
-  const handleDelete = async (id) => {
-    await fetch( `http://localhost:8000/api/cronogramas/${id}`, {
-      method:"DELETE",
-    })
-  }
+	const getWeather = () => {
+		fetch(
+			'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br',
+		)
+			.then((response) => response.json())
+			.then((data) => setWeather(data))
+			.catch((err) => {
+				console.error(err);
+			});
+		setPrevisao(weather.weather[0].description);
+		console.log('Tempo: ' + JSON.stringify(weather.weather));
+	};
 
-  const handlePut = async (tarefas) => {
-    await fetch(`http://localhost:8000/api/tarefas/${tarefas.id}`, {
-      method:"PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },  
-      body: JSON.stringify(tarefas)
-    })
-    
-  }
+	const tarefaUpdate = (e) => {
+		setStatusTarefa(e.target.value);
+		console.log(status_tarefa);
+	};
 
-  
-  return (
-    <div>
-      <SideBar />
-      <header className="header">
-        <h2>Meus cronogramas</h2>
-        
-          <div>
-            <h3> {cronogramas.titulo} </h3>
-            <BsFillTrashFill className='trash' onClick={() => handleDelete(cronogramas.id)} />
-            <a href={`/cronograma/${cronogramas.id}`}><BsPencilSquare className='pencil'/></a>
-            
-          </div>
-        
-      </header>
-      
+	return (
+		<div>
+			<NoAuthenticated /> 
+			<SideBar />
+			<header className="header">
+				<h2>Meus cronogramas</h2>
 
-      <section className="visualizar">
-        <table ref={componentRef}>
+				<div>
+					<h3> {cronogramas.titulo} </h3>
+					<BsFillCloudSunFill
+						onClick={() => getWeather()}
+						className="cloud"
+					/>{' '}
+					{previsao}
+					<BsFillTrashFill
+						className="trash"
+						onClick={() => handleDelete(cronogramas.id)}
+					/>
+					<a href={`/Editar/${cronogramas.id}`}>
+						<BsPencilSquare className="pencil" />
+					</a>
+				</div>
+			</header>
 
-          <thead>
-            <tr>
-              <th className="horarios" > Data </th>
-              <th className="horarios">Horário</th>
-              <th className="tarefas">Tarefa</th>
-            </tr>
-          </thead>
+			<section className="visualizar">
+				<table ref={componentRef}>
+					<thead>
+						<tr>
+							<th className="horarios">Feito</th>
+							<th className="horarios"> Data </th>
+							<th className="horarios">Horário</th>
+							<th className="tarefas">Tarefa</th>
+						</tr>
+					</thead>
 
-          <tbody>
-            {tarefas.map(tarefa => (
-              <tr key={tarefa.id}>
-                <td className="tbHora" >{semana[new Date (tarefa.data).getDay()]}</td>
-                <td className="tbHora" >{(tarefa.hora_inicio).slice(0, -3)}</td>
-                <td className="tbTitulo"  >{tarefa.titulo} - {tarefa.descricao} </td>
-                
-              </tr>
-            ))}
-          </tbody>
+					<tbody>
+						{tarefas.map((tarefa) => (
+							// eslint-disable-next-line react/jsx-key
+							<tr>
+								<td className="tbHora">
+									<input
+										type="checkbox"
+										className="checkbox"
+										onChange={(e) => tarefaUpdate(e)}
+									/>
+								</td>
+								<td className="tbHora">
+									{semana[new Date(tarefa.data).getDay()]}
+								</td>
+								<td className="tbHora">{tarefa.hora_inicio.slice(0, -3)}</td>
+								<td className="tbTitulo">
+									{tarefa.titulo} - {tarefa.descricao}{' '}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 
-        </table>
+				<div className="optbtn">
+					<a href="/">Compartilhar</a>
+					<a href="#" onClick={handlePrint}>
+						Baixar
+					</a>
+				</div>
+			</section>
+		</div>
+	);
+};
 
-        <div className="optbtn">
-          <a href="/">Compartilhar</a>
-          <a id="Hab" href="/">Editar</a>
-          <a href="#" onClick={handlePrint}>Baixar</a>
-        </div>
-      </section>
-    </div>
-  )
-
-}
-
-export default VisualizarC;
+export default Visualizar;
