@@ -5,9 +5,11 @@ from django.contrib.auth.models import AbstractUser
 from functools import total_ordering
 import datetime
 
+
 # Create your models here.
 def data_atual():
-        return timezone.now()
+    return timezone.now()
+
 
 @total_ordering
 class Aluno(AbstractUser):
@@ -20,8 +22,9 @@ class Aluno(AbstractUser):
     notificacao = models.BooleanField(default=False)
     qtd = models.IntegerField(default=0)
 
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'password']
-    USERNAME_FIELD = 'username'    
+    REQUIRED_FIELDS = ["first_name", "last_name", "email", "password"]
+    USERNAME_FIELD = "username"
+
     def __str__(self):
         return "{0} - primeiro nome".format(self.first_name)
 
@@ -41,7 +44,7 @@ class Aluno(AbstractUser):
         raise TypeError("Cannot compare 'Aluno' with type {}".format(type(other)))
 
 class Cronograma(models.Model):
-    privacidade = models.BooleanField(default = False)
+    privacidade = models.BooleanField(default=False)
     titulo = models.CharField(max_length=100)
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, null=True)
 
@@ -65,12 +68,13 @@ class Cronograma(models.Model):
         raise TypeError("Cannot compare Cronograma with non-Cronograma object")
 
 
+
 class Tarefa(models.Model):
     titulo = models.CharField(max_length=50)
     assunto = models.CharField(max_length=50, null=True)
     descricao = models.CharField(max_length=100)
     hora_inicio = models.TimeField(default=datetime.time(0, 0))
-    data = models.DateTimeField('Data Cronograma')
+    data = models.DateTimeField("Data Cronograma")
     status = models.BooleanField(default=False)
     cronograma = models.ForeignKey(Cronograma, on_delete=models.CASCADE)
 
@@ -98,6 +102,7 @@ class Tarefa(models.Model):
     
     def __hash__(self) -> int:
         return super().__hash__()
+
 class Tipo(models.Model):
     tipo = models.CharField(max_length=10)
     assunto = models.BooleanField(default=False)
