@@ -8,9 +8,14 @@ import {useNavigate} from 'react-router-dom';
 import {useReactToPrint} from 'react-to-print';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import cronogramaImg from '../../assets/images/cronograma.png';
+<<<<<<< HEAD
+import { BsThreeDotsVertical } from 'react-icons/bs';
+//BsThreeDotsVertical 
+=======
 import {BsThreeDotsVertical} from 'react-icons/bs';
 import NoAuthenticated from '../Functions/NoAuthenticated';
 //BsThreeDotsVertical
+>>>>>>> 92-testes-de-cobertura
 
 function MeusCrogramas() {
 	const [cronogramas, setCronogramas] = useState([]);

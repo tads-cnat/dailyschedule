@@ -9,6 +9,14 @@ const LabelCriarCrono = ({htmlFor, value}) => {
 		</div>
 	);
 };
+<<<<<<< HEAD
+=======
+
+LabelCriarCrono.propTypes = {
+  htmlFor: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};
+>>>>>>> 92-testes-de-cobertura
 
 LabelCriarCrono.propTypes = {
   htmlFor: PropTypes.string.isRequired,
