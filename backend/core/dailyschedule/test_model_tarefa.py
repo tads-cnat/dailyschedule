@@ -178,6 +178,7 @@ class TarefaSystemTest(APITestCase):
         tarefa = self.client.post('/api/tarefas/', self.tarefa_data,)
         response = self.client.get('/api/tarefas/{}/'.format(tarefa.data['id']))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
         self.assertEqual(response.data['titulo'], self.tarefa_data['titulo'])
         self.assertEqual(response.data['assunto'], self.tarefa_data['assunto'])
         self.assertEqual(response.data['descricao'], self.tarefa_data['descricao'])
@@ -196,8 +197,11 @@ class TarefaSystemTest(APITestCase):
             'cronograma': self.cronograma.id
 
         }
-        response = self.client.put('/api/tarefas/{}/'.format(tarefa.data['id']), updated_data)
+        tarefa_update = self.client.get('/api/tarefas/{}/'.format(tarefa.data['id']))
+        
+        response = self.client.put('/api/tarefas/{}/'.format(tarefa_update.data['id']), updated_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
         self.assertEqual(response.data['titulo'], updated_data['titulo'])
         self.assertEqual(response.data['assunto'], updated_data['assunto'])
         self.assertEqual(response.data['descricao'], updated_data['descricao'])
