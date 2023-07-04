@@ -13,8 +13,8 @@
 #sidebar .pesquisar {
   background-color: var(--scnd-color);
   border-radius: 0.8rem;
-  width: 27rem;
-  height: 5rem;
+  width: 24rem;
+  height: 1.2rem;
   padding: 2rem;
   display: flex;
   flex-direction: row;
@@ -23,7 +23,7 @@
 
   position: relative;
   top: 7rem;
-  left: -28rem;
+  left: -26rem;
 }
 
 #sidebar #search {
@@ -41,7 +41,7 @@
 
 #sidebar .menu {
   position: relative;
-  left: -65rem;
+  left: -68rem;
   top: 14rem;
 
   z-index: 500;
@@ -63,7 +63,7 @@
   gap: 1.6rem;
   transition: 0.3s;
 
-  width: 28rem;
+  width: 25rem;
 }
 
 #sidebar .menu a:hover {
@@ -101,7 +101,7 @@ a:-webkit-any-link {
   cursor: pointer;
   position: relative;
   top: -0.4rem;
-  left: 20rem;
+  left: 21rem;
 
   z-index: 100;
 }

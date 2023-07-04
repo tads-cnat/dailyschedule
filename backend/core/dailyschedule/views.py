@@ -19,34 +19,42 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 
-from .models import Cronograma, Tarefa, Aluno, User
+from .models import Cronograma, Tarefa, Aluno
 from .serializers import SerializadorCronograma, SerializadorTarefa, SerializadorAluno, SerializadorLogin, SerializadorCadastro
 
 import datetime
 
 class CronogramaViewSet(viewsets.ModelViewSet):
-
-    #authentication_classes = [TokenAuthentication,]
-    #permission_classes = [IsAuthenticated]
-
     queryset = Cronograma.objects.all()
     serializer_class = SerializadorCronograma
-
+    
     def get_queryset(self):
-        queryset = Cronograma.objects.all()
+        queryset = Cronograma.objects.all()        
         username = self.request.query_params.get('username')
-        id = self.request.query_params.get('id')
-        print(username)
-        print(queryset)
-        
-        if username:
+        id_aluno = self.request.query_params.get('id')        
+
+        if username != None:
             queryset = queryset.filter(aluno__username=username)
-            #queryset = Cronograma.objects.filter(aluno_usuario=username)
-        
-        if id:
-            queryset = queryset.filter(aluno__id=id)
+        if id_aluno != None:
+            queryset = queryset.filter(aluno__id=id_aluno)                  
         return queryset
 
+    @action(detail=False, methods=['get'])
+    def editar(self, request):
+        id_aluno = self.request.query_params.get('id')   
+        print(request.query_params)
+
+        idCrono = request.query.params.get('idCrono')
+
+        if idCrono:                    
+            titulo = request.query_params.get('titulo')
+            priv = request.query_params.get('priv')
+            cronograma = get_object_or_404(Cronograma, pk=id_aluno)
+            cronograma.titulo = titulo
+            cronograma.privacidade = priv
+            cronograma.save()
+        return Response({'message': 'Dados atualizados!'}, status=status.HTTP_200_OK)
+        
     @action(detail=True, methods=['get'], url_path='tarefas')
     def get_tarefas(self, request, pk=None):
         cronograma = get_object_or_404(Cronograma, pk=self.get_object().pk)
@@ -137,22 +145,24 @@ class AlunoViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'], url_path='')
     def alerta(self, request, pk):
         print(pk + "<= PK")
-        msgRetorno = 'Tarefa(s) Pendente(s):'
+        msgRetorno = 'Tarefa(s) Pendente(s): '
         now = datetime.datetime.now()
         aft = now + datetime.timedelta(days=1)
         aluno = Aluno.objects.all().first()
-        tarefas = Tarefa.objects.filter(cronograma__aluno=aluno).filter(data__gt=now).filter(data__lt=aft)
+        tarefas_t = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
+        print(tarefas_t)
+        tarefas = Tarefa.objects.filter(cronograma__aluno=pk).filter(data__gt=now).filter(data__lt=aft)
         if tarefas:
             cont = 0
             for tarefa in tarefas:
                 msgRetorno = msgRetorno + "\n["+ str(cont)+ "] " + tarefa.titulo
-            email = Email()
-            email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
+                cont+=1
+            email = Email()            
             try:
                 email.send('Tarefas Pendentes', msgRetorno, ['deividson.silva@escolar.ifrn.edu.br'])
             except:
                 msgRetorno = 'Falha no envio'
-            print(msgRetorno)
+            print("Mensagem de retorno: "+msgRetorno)
         return Response({'message': msgRetorno}, status=status.HTTP_200_OK)
 
     @action (detail=False, methods=['post'], url_path='')
@@ -228,10 +238,7 @@ class AuthViewSet(viewsets.GenericViewSet):
             else:
                 user = Aluno(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                 user.save()
-                #user = Aluno.objects.create(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                #user.save()
-                #super = User.objects.create_superuser(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                #super.save()
+
                 request.session['usuario'] = username
                 return Response({'message': 'Usuário cadastrado com sucesso', 'user':username}, status=status.HTTP_200_OK)
 
