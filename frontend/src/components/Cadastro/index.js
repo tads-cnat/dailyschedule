@@ -94,7 +94,6 @@ const Cadastro = () => {
 						id="primeiro_nome"
 						value={primeiro_nome}
 						onChange={handlerPrimeiro_nome}
-						placeholder="Ex.: Maria"
 					/>
 					<br />
 					<br />
@@ -105,7 +104,6 @@ const Cadastro = () => {
 						id="ultimo_nome"
 						value={ultimo_nome}
 						onChange={handlerUltimo_nome}
-						placeholder="Ex.: Silva"
 					/>
 					<br />
 					<br />
@@ -116,7 +114,6 @@ const Cadastro = () => {
 						id="usuario"
 						value={usuario}
 						onChange={handlerUsuario}
-						placeholder="Ex.: maria"
 					/>
 					<br />
 					<br />
@@ -127,7 +124,6 @@ const Cadastro = () => {
 						id="email"
 						value={email}
 						onChange={handlerEmail}
-						placeholder="Ex.: maria@mail.com"
 					/>
 					<br />
 					<br />
@@ -138,7 +134,6 @@ const Cadastro = () => {
 						id="senha"
 						value={senha}
 						onChange={handlerSenha}
-						placeholder="Insira uma senha"
 					/>
 					<br />
 					<br />
@@ -149,7 +144,6 @@ const Cadastro = () => {
 						id="comfirmar_senha"
 						value={comfirmar_senha}
 						onChange={handlerComfirmar_senha}
-						placeholder="Confirme a senha"
 					/>
 					<br />
 					{err && <p>As senhas não são iguais</p>}

@@ -45,18 +45,12 @@ const Visualizar = (projectData) => {
 		const loadData = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}`)
 				.then((crono) => crono.json())
-				.then((data) => setCronogramas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setCronogramas(data));
 		};
 		const loadTarefas = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas`)
 				.then((res) => res.json())
-				.then((data) => setTarefas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setTarefas(data));
 		};
 		loadData();
 		loadTarefas();
@@ -75,10 +69,7 @@ const Visualizar = (projectData) => {
 			'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br',
 		)
 			.then((response) => response.json())
-			.then((data) => setWeather(data))
-			.catch((err) => {
-				console.error(err);
-			});
+			.then((data) => setWeather(data));
 		setPrevisao(weather.weather[0].description);
 		console.log('Tempo: ' + JSON.stringify(weather.weather));
 	};
@@ -90,7 +81,6 @@ const Visualizar = (projectData) => {
 
 	return (
 		<div>
-			<NoAuthenticated /> 
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>

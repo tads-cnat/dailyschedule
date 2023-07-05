@@ -55,14 +55,14 @@ const NavBar = () => {
 				</div>
 				<div className="menu">
 					<ul>
-						<li className="undisplayed">
+						<li>
 							<a href="/">Início</a>
 						</li>
-						<li className="undisplayed">
-							<a href="#beneficios">Benefícios</a>
+						<li>
+							<a href="#beneficio">Benefícios</a>
 						</li>
-						<li className="undisplayed">
-							<a className="acrono" href="/criar-cronograma">Criar cronograma</a>
+						<li>
+							<a href="/criar-cronograma">Criar cronograma</a>
 						</li>
 						<div id="pesquisar1">
 							<form action="/buscar" method="GET">

@@ -10,7 +10,6 @@ import {
 } from 'react-icons/bs';
 import {useReactToPrint} from 'react-to-print';
 import {redirect, useParams, useNavigate} from 'react-router-dom';
-import NoAuthenticated from '../Functions/NoAuthenticated';
 
 const Editar = () => {
 	const id = localStorage.getItem('token');
@@ -45,18 +44,12 @@ const Editar = () => {
 		const loadData = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/`)
 				.then((crono) => crono.json())
-				.then((data) => setCronogramas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setCronogramas(data));
 		};
 		const loadTarefas = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas/`)
 				.then((res) => res.json())
-				.then((data) => setTarefas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setTarefas(data));
 		};
 		loadData();
 		loadTarefas();
@@ -99,7 +92,6 @@ const Editar = () => {
 
 	return (
 		<div>
-			<NoAuthenticated /> 
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>
