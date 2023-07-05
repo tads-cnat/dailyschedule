@@ -47,6 +47,24 @@
   z-index: 500;
 }
 
+@media screen and (max-width: 768px) {
+  #sidebar {
+    left: 8.8rem;
+    width: 40%;
+  }
+
+  #sidebar .pesquisar {
+    width: 55%;
+    height: 1.2rem;
+    top: 7rem;
+    left: -27rem;
+  }
+
+  #sidebar .menu {
+    left: -45rem;
+  }
+}
+
 #sidebar .menu ul li {
   list-style-type: none;
 }
