@@ -29,24 +29,28 @@ class CronogramaViewSet(viewsets.ModelViewSet):
     serializer_class = SerializadorCronograma
     
     def get_queryset(self):
-        queryset = Cronograma.objects.all()        
+        queryset = Cronograma.objects.all()
         username = self.request.query_params.get('username')
-        id_aluno = self.request.query_params.get('id')        
-
-        if username != None:
+        id_aluno = self.request.query_params.get('id')
+        print(username)
+        print(queryset)
+        
+        if username:
             queryset = queryset.filter(aluno__username=username)
-        if id_aluno != None:
-            queryset = queryset.filter(aluno__id=id_aluno)                  
+        
+        if id:
+            queryset = queryset.filter(aluno__id=id_aluno)           
+        
         return queryset
 
     @action(detail=False, methods=['get'])
     def editar(self, request):
-        id_aluno = self.request.query_params.get('id')   
         print(request.query_params)
 
         idCrono = request.query.params.get('idCrono')
 
-        if idCrono:                    
+        if idCrono:        
+            print("Dentro do if")
             titulo = request.query_params.get('titulo')
             priv = request.query_params.get('priv')
             cronograma = get_object_or_404(Cronograma, pk=id_aluno)
