@@ -42,10 +42,7 @@ const Tarefa = () => {
 		const loadTarefa = async (e) => {
 			fetch(`http://localhost:8000/api/tarefas/${idTarefa}/`)
 				.then((res) => res.json())
-				.then((data) => setTarefas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setTarefas(data));
 		};
 		loadTarefa();
 		console.log('Tarefa recuperada: ' + JSON.stringify(tarefas));

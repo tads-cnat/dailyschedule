@@ -198,10 +198,35 @@ const Sidebar = () => {
 					</li>
 					<li>
 						<a href="/" onClick={() => Logout()}>
-							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" fill="none" viewBox="0 0 22 21">
-							<path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" d="M12.445 28.442H8.383a4 4 0 0 1-4-4V7.554a4 4 0 0 1 4-4h4.063m8.369 4.874 7.617 7.617-7.617 7.617M10.68 16.045h17.73"/>
+							<svg
+								width="22"
+								height="21"
+								viewBox="0 0 22 21"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M10.9999 18.7913C15.7174 18.7913 19.5416 14.9671 19.5416 10.2497C19.5416 5.53224 15.7174 1.70801 10.9999 1.70801C6.28249 1.70801 2.45825 5.53224 2.45825 10.2497C2.45825 14.9671 6.28249 18.7913 10.9999 18.7913Z"
+									stroke="white"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+								<path
+									d="M8.5144 7.68774C8.71522 7.11688 9.1116 6.6355 9.63332 6.32888C10.1551 6.02225 10.7685 5.91017 11.3649 6.01248C11.9614 6.11478 12.5024 6.42488 12.8921 6.88784C13.2818 7.3508 13.4951 7.93675 13.4942 8.54191C13.4942 10.2502 10.9317 11.1044 10.9317 11.1044"
+									stroke="white"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+								<path
+									d="M11 14.5205H11.0085"
+									stroke="white"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
 							</svg>
-						
 							Sair
 						</a>
 					</li>
