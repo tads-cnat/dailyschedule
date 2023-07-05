@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,11 +91,6 @@ DATABASES = {
         'HOST': 'postgres',
         'PORT': '5432',
     }
-}
-
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
 }
 
 # Password validation
