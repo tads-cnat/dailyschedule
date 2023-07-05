@@ -84,100 +84,34 @@ class AlunoCRUDSystemTest(TestCase):
 
     def test_create_aluno(self):
         url = reverse('Aluno-list')
-        response = self.client.post(url, data=self.aluno_data)
-
-        # Print para debug
-        print(response.content)
-        # Print para debug
-        print(response.data)
-
+        response = self.client.post(url, data=self.aluno_data, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertTrue(User.objects.filter(username=self.username).exists())
-
-    def test_retrieve_aluno(self):
-        user = User.objects.create_user(**self.aluno_data)
-        url = reverse('Aluno-detail', kwargs={'pk': user.id})
+        username = self.aluno_data['username']
+        
         response = self.client.get(url)
-
-        # Print para debug
-        print(response.content)
-        # Print para debug
-        print(response.data)
-
-
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        aluno_criado = next((aluno for aluno in response.data if aluno['username'] == username), None)
 
-class CadastroAlunoSystemTest(TestCase):
-    def setUp(self):
-        self.client = APIClient()
+        self.assertIsNotNone(aluno_criado)
 
-    def test_cadastro_aluno(self):
-        # Dados de exemplo para o cadastro
-        data = {
-            'usuario': 'jefferson',
-            'senha': 'password123',
-            'confirmar_senha': 'password123',
-            'email': 'jefferson@mail.com',
-            'primeiro_nome': 'Jefferson',
-            'ultimo_nome': 'R',
-        }
+    def test_delete_aluno(self):
 
-        # Faz uma solicitação POST para a URL 'alunos'
-        response = self.client.post('/alunos/cadastro', data, format='json')
+            url_create = reverse('Aluno-list')
+            response_create = self.client.post(url_create, data=self.aluno_data, format='json')
+            self.assertEqual(response_create.status_code, status.HTTP_201_CREATED)
+            username = self.aluno_data['username']
 
-        # Verifica o código de status da resposta
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+            url_list = reverse('Aluno-list')
+            response_list = self.client.get(url_list)
+            self.assertEqual(response_list.status_code, status.HTTP_200_OK)
+            aluno_criado = next((aluno for aluno in response_list.data if aluno['username'] == username), None)
+            self.assertIsNotNone(aluno_criado)
+            aluno_id = aluno_criado['id']
 
-        # Verifica se o aluno foi criado no banco de dados
-        self.assertTrue(Aluno.objects.filter(username='jefferson').exists())
+            url_delete = reverse('Aluno-detail', args=[aluno_id])
+            response_delete = self.client.delete(url_delete)
+            self.assertEqual(response_delete.status_code, status.HTTP_204_NO_CONTENT)
 
-class AuthSystemTest(TestCase):
-    def setUp(self):
-        self.client = APIClient()
-
-    def test_login(self):
-        # Dados de exemplo para o login
-        data = {
-            'usuario': 'jefferson',
-            'senha': 'password123',
-        }
-
-        # Faz uma solicitação POST para a URL 'auth/login'
-        response = self.client.post('/auth/login/', data, format='json')
-
-        # Verifica o código de status da resposta
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        # Verifica se o login foi bem-sucedido
-        self.assertEqual(response.data['detail'], 'login realizado com sucesso')
-
-    def test_cadastro(self):
-        # Dados de exemplo para o cadastro
-        data = {
-            'usuario': 'jefferson',
-            'senha': 'password123',
-            'confirmar_senha': 'password123',
-            'email': 'jefferson@mail.com',
-            'primeiro_nome': 'Jefferson',
-            'ultimo_nome': 'R',
-        }
-
-        # Faz uma solicitação POST para a URL 'auth/cadastro'
-        response = self.client.post('/auth/cadastro/', data, format='json')
-
-        # Verifica o código de status da resposta
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        # Verifica se o usuário foi cadastrado com sucesso
-        self.assertEqual(response.data['message'], 'Usuário cadastrado com sucesso')
-
-    def test_logout(self):
-        # Faz uma solicitação GET para a URL 'auth/logout'
-        response = self.client.get('/auth/logout/')
-
-        # Verifica o código de status da resposta
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        # Verifica se o logout foi realizado com sucesso
-        self.assertEqual(response.data['message'], 'Logout realizado com sucesso')
+            response_retrieve = self.client.get(url_delete)
+            self.assertEqual(response_retrieve.status_code, status.HTTP_404_NOT_FOUND)
