@@ -108,3 +108,23 @@
   input[type='password']:focus {
     outline: none;
   }
+
+  @media screen and (max-width: 768px) {
+    #login {
+      margin-left: 3rem;
+    }
+
+    #login img {
+      display: none;
+    }
+
+    #login input {
+      width: 95%;
+      height: 5.6rem;
+
+      position: relative;
+      top: -1.1rem;
+
+      text-indent: 2rem;
+    }
+  }

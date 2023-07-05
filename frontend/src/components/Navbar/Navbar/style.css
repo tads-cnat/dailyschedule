@@ -180,3 +180,36 @@ nav .wrapper {
   top: -3.4rem;
   left: 19rem;
 }
+
+@media screen and (max-width: 768px) {
+  #navigation .logo {
+    display: none;
+  }
+
+  .menu {
+    top: -1.5rem;
+  }
+
+  .menu ul a {
+    padding: 0rem .2rem;
+  }
+
+  .acrono {
+    width: 20px;
+  }
+
+  .menu li {
+    left: -2.5rem;
+    top: 2.5rem;
+    font-weight: bold;
+  }
+
+  .login {
+    margin-left: 5rem;
+    margin-top: 6rem;
+  }
+
+  #navigation .login li {
+    margin: 0 5px;
+  }
+}
