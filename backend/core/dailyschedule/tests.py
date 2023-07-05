@@ -124,13 +124,13 @@ class CadastroAlunoSystemTest(TestCase):
         }
 
         # Faz uma solicitação POST para a URL 'alunos'
-        response = self.client.post('/alunos/', data, format='json')
+        response = self.client.post('/alunos/cadastro', data, format='json')
 
         # Verifica o código de status da resposta
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         # Verifica se o aluno foi criado no banco de dados
-        self.assertTrue(Aluno.objects.filter(username='john_doe').exists())
+        self.assertTrue(Aluno.objects.filter(username='jefferson').exists())
 
 class AuthSystemTest(TestCase):
     def setUp(self):
