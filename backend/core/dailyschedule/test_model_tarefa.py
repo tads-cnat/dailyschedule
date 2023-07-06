@@ -170,15 +170,13 @@ class TarefaSystemTest(APITestCase):
         }
 
     def test_create_tarefa(self):
-        response = self.client.post('/api/tarefas/', self.tarefa_data,)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Tarefa.objects.count(), 1)
-    
-    def test_retrieve_tarefa(self):
+        #verifica se foi criado
         tarefa = self.client.post('/api/tarefas/', self.tarefa_data,)
+        self.assertEqual(tarefa.status_code, status.HTTP_201_CREATED)
+
+        #verifica se os dados estão corretos
         response = self.client.get('/api/tarefas/{}/'.format(tarefa.data['id']))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        
         self.assertEqual(response.data['titulo'], self.tarefa_data['titulo'])
         self.assertEqual(response.data['assunto'], self.tarefa_data['assunto'])
         self.assertEqual(response.data['descricao'], self.tarefa_data['descricao'])
@@ -186,6 +184,7 @@ class TarefaSystemTest(APITestCase):
         self.assertEqual(response.data['cronograma'], self.tarefa_data['cronograma'])
 
     def test_update_tarefa(self):
+        #cria uma tarefa
         tarefa = self.client.post('/api/tarefas/', self.tarefa_data,)
         updated_data = {
             'titulo': 'Tarefa2',
@@ -197,11 +196,13 @@ class TarefaSystemTest(APITestCase):
             'cronograma': self.cronograma.id
 
         }
+        #pega a tarefa que vai ser atualizada
         tarefa_update = self.client.get('/api/tarefas/{}/'.format(tarefa.data['id']))
-        
+        #atualiza a tarefa
         response = self.client.put('/api/tarefas/{}/'.format(tarefa_update.data['id']), updated_data)
+        #verifica se foi atualizada
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
+        #verifica se os dados estão corretos
         self.assertEqual(response.data['titulo'], updated_data['titulo'])
         self.assertEqual(response.data['assunto'], updated_data['assunto'])
         self.assertEqual(response.data['descricao'], updated_data['descricao'])
@@ -209,9 +210,12 @@ class TarefaSystemTest(APITestCase):
         self.assertEqual(response.data['cronograma'], updated_data['cronograma'])
 
     def test_delete_tarefa(self):
+        #cria uma tarefa
         tarefa = self.client.post('/api/tarefas/', self.tarefa_data,)
+        #deleta a tarefa
         response = self.client.delete('/api/tarefas/{}/'.format(tarefa.data['id']))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        #verifica se a tarefa existe no banco
         self.assertFalse(Tarefa.objects.filter(id=tarefa.data['id']).exists())
 
     
