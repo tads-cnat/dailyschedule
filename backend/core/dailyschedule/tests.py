@@ -8,6 +8,8 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 User = get_user_model()
 
@@ -115,3 +117,35 @@ class AlunoCRUDSystemTest(TestCase):
 
             response_retrieve = self.client.get(url_delete)
             self.assertEqual(response_retrieve.status_code, status.HTTP_404_NOT_FOUND)
+
+class AuthSystemTest(APITestCase):
+    def setUp(self):
+        self.usuario_data = {
+            'username': 'testuser',
+            'first_name': 'Test',
+            'last_name': 'User',
+            'password': 'testpassword',
+            'email': 'testuser@example.com',
+        }
+
+    def test_authentication(self):
+
+        url_create = reverse('Aluno-list')
+        response_create = self.client.post(url_create, data=self.usuario_data, format='json')
+        self.assertEqual(response_create.status_code, status.HTTP_201_CREATED)      
+
+        url_login = '/api/auth/login/'
+        login_credentials = {
+            'usuario': 'testuser',
+            'senha': 'testpassword',
+        }
+        response_login = self.client.post(url_login, data=login_credentials, format='json')
+        self.assertEqual(response_login.status_code, status.HTTP_200_OK)
+
+        response_login_content = response_login.render().content.decode('utf-8')
+        response_login_data = json.loads(response_login_content)
+        self.assertEqual(response_login_data['detail'], 'login realizado com sucesso')
+
+        url_logout = '/api-auth/logout/'
+        response_logout = self.client.get(url_logout)
+        self.assertEqual(response_logout.status_code, status.HTTP_200_OK)
