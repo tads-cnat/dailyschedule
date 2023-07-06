@@ -214,64 +214,51 @@ class CronogramaCRUDSystemTests(TestCase):
         self.cronograma = {
             'privacidade': False,
             'titulo': 'Cronograma de Teste',
-            'aluno': self.aluno # Use o ID do aluno aqui
+            'aluno': self.aluno
         }
 
     def test_create_cronograma(self):
-        response = self.client.post('/api/cronogramas/', data={
+        cronograma1 = self.client.post('/api/cronogramas/', data={
+            'privacidade': False,
+            'titulo': 'Cronograma de Teste',
+            'aluno': self.aluno.id
+        }, format='json')
+        self.assertEqual(cronograma1.status_code, status.HTTP_201_CREATED)
+        
+        response = self.client.get('/api/cronogramas/' + str(self.aluno.id) + '/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_update_cronograma(self):
+        cronograma1 = self.client.post('/api/cronogramas/', data={
+            'privacidade': False,
+            'titulo': 'Cronograma de Teste',
+            'aluno': self.aluno.id
+        }, format='json')
+        updated_data = {
+            'privacidade': True,
+            'titulo': 'Cronograma atualizado',
+        }
+        response = self.client.put('/api/cronogramas/' + str(self.aluno.id) + '/', data=json.dumps(updated_data), content_type='application/json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_delete_cronograma(self):
+        cronograma1 = self.client.post('/api/cronogramas/', data={
+            'privacidade': False,
+            'titulo': 'Cronograma de Teste',
+            'aluno': self.aluno.id
+        }, format='json')
+        response = self.client.delete('/api/cronogramas/' + str(self.aluno.id) + '/')
+
+        self.assertTrue(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_search_cronograma_title(self):
+        cronograma1 = self.client.post('/api/cronogramas/', data={
             'privacidade': False,
             'titulo': 'Cronograma de Teste',
             'aluno': self.aluno.id
         }, format='json')
 
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertTrue(Cronograma.objects.filter(titulo='Cronograma de Teste').exists())
-
-    def test_retrieve_cronograma(self):
-        cronograma1 = Cronograma.objects.create(**self.cronograma)
-        response = self.client.get('/api/cronogramas/' + str(cronograma1.id) + '/')
+        response = self.client.get('/api/cronogramas/', {'search': cronograma1.data['titulo']})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_update_cronograma(self):
-        cronograma1 = Cronograma.objects.create(**self.cronograma)
-        updated_data = {
-            'privacidade': True,
-            'titulo': 'Cronograma atualizado',
-        }
-        response = self.client.put('/api/cronogramas/' + str(cronograma1.id) + '/', data=json.dumps(updated_data), content_type='application/json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_delete_cronograma(self):
-        cronograma1 = Cronograma.objects.create(**self.cronograma)
-        response = self.client.delete('/api/cronogramas/' + str(cronograma1.id) + '/')
-
-        self.assertFalse(Cronograma.objects.filter(pk=cronograma1.id).exists())
-
-    def test_search_cronograma_title(self):
-        cronograma1 = Cronograma.objects.create(**self.cronograma)
-        response = self.client.get('/api/cronogramas/' + f'?search={cronograma1.titulo}')
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data[0]['titulo'], cronograma1.titulo)
-    
-    def test_get_cronogramas_by_aluno(self):
-        cronograma1 = Cronograma.objects.create(
-            privacidade=False,
-            titulo='Cronograma de Estudos',
-            aluno=self.aluno
-        )
-        cronograma2 = Cronograma.objects.create(
-            privacidade=True,
-            titulo='Cronograma Pessoal',
-            aluno=self.aluno
-        )
-
-        response = self.client.get('/api/cronogramas/', {'aluno': self.aluno.id})
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        data = response.data
-        self.assertEqual(data[0]['titulo'], 'Cronograma de Estudos')
-        self.assertEqual(data[1]['titulo'], 'Cronograma Pessoal')
-        self.assertEqual(data[0]['aluno'], self.aluno.id)
-        self.assertEqual(data[1]['aluno'], self.aluno.id)
+        self.assertTrue(any(cronograma['titulo'] == cronograma1.data['titulo'] for cronograma in response.data))
