@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import SideBar from '../Navbar/Sidebar';
 import {BsFillTrashFill, BsPencilSquare} from 'react-icons/bs';
 import {useParams, useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Tarefa = () => {
 	const id = localStorage.getItem('token');
@@ -53,6 +54,11 @@ const Tarefa = () => {
 			method: 'DELETE',
 		});
 		navigate(`/Editar/${idCronograma}`);
+		Swal.fire({
+			icon: 'success',
+			title: 'Prontinho, a tarefa foi deletada com sucesso.',
+			text: '',
+		});
 	};
 
 	const postTarefas = async (e) => {
@@ -77,7 +83,11 @@ const Tarefa = () => {
 			},
 			body: JSON.stringify(tarefas),
 		}).then((res) => res.json());
-		alert('Tarefa Cadastrada!');
+		Swal.fire({
+			icon: 'success',
+			title: 'Perfeito, as informações foram alteradas.',
+			text: '',
+		});
 	};
 
 	return (

@@ -11,6 +11,7 @@ import {
 import {useReactToPrint} from 'react-to-print';
 import {useRef} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Visualizar = (projectData) => {
 	const navigate = useNavigate();
@@ -61,6 +62,11 @@ const Visualizar = (projectData) => {
 		await fetch(`http://localhost:8000/api/cronogramas/${id}`, {
 			method: 'DELETE',
 		});
+		Swal.fire({
+			icon: 'success',
+			title: 'Prontinho, seu cronograma foi deletado!',
+			text: '',
+		});
 		navigate('/MeusCronogramas');
 	};
 
@@ -80,7 +86,7 @@ const Visualizar = (projectData) => {
 	};
 
 	return (
-		<div>
+		<div className="visu-content">
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>

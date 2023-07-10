@@ -10,6 +10,7 @@ import {
 } from 'react-icons/bs';
 import {useReactToPrint} from 'react-to-print';
 import {redirect, useParams, useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Editar = () => {
 	const id = localStorage.getItem('token');
@@ -60,6 +61,11 @@ const Editar = () => {
 		await fetch(`http://localhost:8000/api/cronogramas/${ID}/`, {
 			method: 'DELETE',
 		});
+		Swal.fire({
+			icon: 'success',
+			title: 'Prontinho, seu cronograma foi deletado!',
+			text: '',
+		});
 		navigate('/MeusCronogramas');
 	};
 
@@ -81,6 +87,11 @@ const Editar = () => {
 			},
 			body: JSON.stringify(cronograma),
 		}).then((res) => res.json());
+		Swal.fire({
+			icon: 'success',
+			title: 'Muito bem, o titulo e/ou privacidade do seu cronograma foram alteradas!',
+			text: 'Para editar as tarefas, aperte o icone de lápis da tabela abaixo',
+		});
 	};
 
 	function activeTab(index) {
@@ -91,7 +102,7 @@ const Editar = () => {
 	}
 
 	return (
-		<div>
+		<div className="edit-content">
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>

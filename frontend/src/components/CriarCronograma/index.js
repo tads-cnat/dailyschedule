@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 import Sidebar from '../Navbar/Sidebar/index.js';
 import {useNavigate} from 'react-router-dom';
 import FormCrono from '../Forms/FormCrono';
+import Swal from 'sweetalert2';
 
 const CriarCrono = () => {
 	const [titulo, setTitulo] = useState('');
@@ -75,6 +76,11 @@ const CriarCrono = () => {
 			},
 			body: JSON.stringify(cronogramas),
 		}).then((res) => res.json());
+		Swal.fire({
+			icon: 'success',
+			title: 'Aee, seu cronograma foi criado com sucesso!',
+			text: 'Não esqueça de adicionar tarefas neles com as próximas etapas ;)',
+		});
 	};
 
 	const postTarefas = async (e) => {
@@ -99,7 +105,11 @@ const CriarCrono = () => {
 			},
 			body: JSON.stringify(tarefas),
 		}).then((res) => res.json());
-		alert('Tarefa Cadastrada!');
+		Swal.fire({
+			icon: 'success',
+			title: 'Aí simm, sua tarefa foi cadastrada com sucesso!',
+			text: 'Fique a vontade para adicionar quantas quiser.',
+		});
 	};
 
 	const tabMenu = document.querySelectorAll('[data-tab="menu"] button');

@@ -97,7 +97,8 @@
     }
 
     .crono-priv-editar {
-      left: 22rem;
+      left: 1rem;
+      top: 25rem;
     }
 
     .edit-tarefa .trash {
@@ -111,9 +112,9 @@
       top: 25rem;
     }
 
-    header .trash {
+    .edit-content .trash {
       position: absolute;
-      top: 25.8rem;
-      left: 36.7rem;
+      top: 20rem;
+      left: 28rem;
     }
   }

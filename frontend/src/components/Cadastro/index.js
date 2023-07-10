@@ -4,6 +4,7 @@ import ComputadorImg from '../../assets/images/computador.png';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import NavBar from '../Navbar/Navbar/Navbar.js';
+import Swal from 'sweetalert2';
 
 const Cadastro = () => {
 	const [primeiro_nome, setPrimeiro_nome] = useState('');
@@ -43,6 +44,11 @@ const Cadastro = () => {
 
 		if (request.status === 200) {
 			localStorage.setItem('token', response.token);
+			Swal.fire({
+				icon: 'success',
+				title: 'Cadastro realizado',
+				text: 'Seu cadastro foi concluído com sucesso!',
+			});
 			navigate('/login');
 		}
 		if (request.status === 400) {
