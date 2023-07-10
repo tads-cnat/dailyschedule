@@ -84,7 +84,6 @@ const Visualizar = (projectData) => {
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>
-
 				<div>
 					<h3> {cronogramas.titulo} </h3>
 					<BsFillCloudSunFill

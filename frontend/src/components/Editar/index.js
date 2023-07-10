@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import '../style.css';
+import './style.css';
 import {useState, useEffect, useRef} from 'react';
 import SideBar from '../Navbar/Sidebar';
 import {
@@ -102,7 +102,6 @@ const Editar = () => {
 						className="crono-crono"
 						method="post"
 					>
-						<label htmlFor="titulo">Insira o nome do seu cronograma: </label>
 						<h3>
 							<input
 								className="crono-title"

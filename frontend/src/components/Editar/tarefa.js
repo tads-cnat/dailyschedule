@@ -81,14 +81,14 @@ const Tarefa = () => {
 	};
 
 	return (
-		<div>
+		<div className="edit-tarefa">
 			<SideBar />
 			<header className="header">
 				<h2>Editar Tarefa</h2>
 
 				<div>
 					<form onSubmit={postTarefas} className="crono-crono" method="post">
-						<div className="crono-priv-editar">
+						<div className="tarefa-editar">
 							<div className="info">
 								<label htmlFor="titulo_tarefa">
 									Insira o nome de sua tarefa:{' '}
@@ -129,7 +129,7 @@ const Tarefa = () => {
 							</div>
 							<div className="info">
 								<div className="info">
-									<label htmlFor="horario">Horário de inicio</label>
+									<label htmlFor="horario">Horário</label>
 									<br />
 									<input
 										type="time"
@@ -139,7 +139,6 @@ const Tarefa = () => {
 										value={inicio_tarefa}
 									/>
 								</div>
-								<br />
 							</div>
 							<div className="info">
 								<label htmlFor="data">Data</label>
@@ -154,32 +153,16 @@ const Tarefa = () => {
 								<br />
 							</div>
 							<div className="info">
-								<input
-									type="checkbox"
-									name="priv"
-									id="privado"
-									onChange={(e) => setStatusTarefa(e.target.value)}
-									checked={status_tarefa || tarefas.status}
-								/>
-								<label htmlFor="priv">Quero que seja privado</label>
-								<br />
+								<button className="crono-send-editar" type="submit">
+									Salvar alterações
+								</button>
 							</div>
-						</div>
-						<div className="info">
-							<button className="crono-send-editar" type="submit">
-								Salvar alterações
-							</button>
 						</div>
 					</form>
 
 					<BsFillTrashFill
 						className="trash"
 						onClick={() => handleDelete(tarefas.id)}
-					/>
-
-					<BsPencilSquare
-						className="pencil"
-						onClick={() => console.log(tarefas)}
 					/>
 				</div>
 			</header>

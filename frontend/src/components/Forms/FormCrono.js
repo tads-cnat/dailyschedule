@@ -59,7 +59,7 @@ const FormCrono = ({
 						onChange={onChangeDate}
 						value={valueDate}
 					/>
-				</div>
+				</div> <br/><br/>
 				<button className="btncont" type="submit">
 					Salvar
 				</button>

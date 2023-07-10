@@ -94,7 +94,7 @@
   .box-cards{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 400px;
+    margin-left: 250px;
   }
 
   .option{
@@ -154,4 +154,10 @@
   .card p {
     font-weight: bold;
     font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .box-cards{
+      margin-left: 0px;
+    }
   }

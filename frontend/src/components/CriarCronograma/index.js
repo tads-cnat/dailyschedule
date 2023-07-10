@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import '../style.css';
+import './style.css';
 import {useState, useEffect} from 'react';
 import Sidebar from '../Navbar/Sidebar/index.js';
 import {useNavigate} from 'react-router-dom';
@@ -127,7 +127,7 @@ const CriarCrono = () => {
 	}
 
 	return (
-		<div>
+		<div id='criar-crono-page'>
 			<Sidebar />
 			<header className="header">
 				<h2>Criar cronograma</h2>
@@ -138,13 +138,13 @@ const CriarCrono = () => {
 			</header>
 
 			<div className="options" data-tab="menu">
-  <button onClick={() => handleClick(0)}>Informações</button>
-  <button onClick={() => handleClick(1)}>Aulas</button>
-  <button onClick={() => handleClick(2)}>Matérias</button>
-  <button onClick={() => handleClick(3)}>Provas</button>
-  <button onClick={() => handleClick(4)}>Afazeres</button>
-  <button onClick={() => handleClick(5)}>Horários Vagos</button>
-</div>
+				<button onClick={() => handleClick(0)}>Informações</button>
+				<button onClick={() => handleClick(1)}>Aulas</button>
+				<button onClick={() => handleClick(2)}>Matérias</button>
+				<button onClick={() => handleClick(3)}>Provas</button>
+				<button onClick={() => handleClick(4)}>Afazeres</button>
+				<button onClick={() => handleClick(5)}>Horários Vagos</button>
+			</div>
 
 			<section id="criar-crono" data-tab="content">
 				<form onSubmit={postCronogramas} className="crono-info" method="post">
@@ -169,7 +169,7 @@ const CriarCrono = () => {
 							value={privacidade || true}
 						/>
 						<label htmlFor="priv">Quero que seja privado</label>
-					</div>
+					</div> <br/><br/>
 					<button className="btncont" type="submit">
 						Salvar
 					</button>

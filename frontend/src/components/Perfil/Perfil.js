@@ -30,18 +30,18 @@ function Perfil() {
 	return (
 		<div>
 			<Sidebar></Sidebar>
-			<section className="perfilHder">
-				<h2 className="tittle">Perfil</h2>
-			</section>
+			<header className="header">
+				<h2>Perfil</h2>
+			</header>
 
 			<section className="perfil">
 				<div>
 					<img className="picture" src={profile} alt="profile" /> <br />
-					Nome: {aluno.first_name} {aluno.last_name} <br />
-					<div>Email: {aluno.email}</div>
-					<div>Usuário: {aluno.username}</div>
+					<strong>Nome:</strong> {aluno.first_name} {aluno.last_name} <br />
+					<div><strong>Email:</strong> {aluno.email}</div>
+					<div><strong>Usuário:</strong> {aluno.username}</div>
 					<div>
-						Notificações: {aluno.notificacao ? 'ativas' : ' inativas'}
+					<strong>Notificações:</strong> {aluno.notificacao ? 'ativas' : ' inativas'}
 						<button className="perfil-optbtn" onClick={() => tarefaUpdate()}>
 							{aluno.notificacao ? 'Desativar' : ' Ativar'}
 						</button>
