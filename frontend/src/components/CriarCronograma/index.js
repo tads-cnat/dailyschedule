@@ -57,9 +57,45 @@ const CriarCrono = () => {
 				.then((data) => data);
 			setAlunos(resa);
 		};
-
 		loadData();
+
+		const savedTituloCrono = localStorage.getItem('titulo_cronograma');
+    const savedPrivacidade = localStorage.getItem('privacidade');
+		const savedTitulo = localStorage.getItem('titulo');
+    const savedAssunto = localStorage.getItem('assunto');
+    const savedDescricao = localStorage.getItem('descricao');
+    const savedHora = localStorage.getItem('hora');
+    const savedData = localStorage.getItem('data');
+
+    if (savedTituloCrono) setTituloCronograma(savedTituloCrono);
+    if (savedPrivacidade) setPrivado(savedPrivacidade === 'true');
+		if (savedTitulo) setTitulo(savedTitulo);
+		if (savedAssunto) setAssunto(savedAssunto);
+		if (savedDescricao) setDescricao(savedDescricao);
+		if (savedHora) setHora(savedHora);
+		if (savedData) setData(savedData);
+
+		const timeoutId = setTimeout(() => {
+      localStorage.removeItem('titulo_cronograma');
+			localStorage.removeItem('privacidade');
+			localStorage.removeItem('titulo');
+			localStorage.removeItem('assunto');
+			localStorage.removeItem('descricao');
+			localStorage.removeItem('hora');
+			localStorage.removeItem('data');
+    }, 30);
+    return () => clearTimeout(timeoutId);
 	}, []);
+
+	useEffect(() => {
+    localStorage.setItem('titulo_cronograma', titulo_cronograma);
+    localStorage.setItem('privacidade', privacidade.toString());
+		localStorage.setItem('titulo', titulo);
+		localStorage.setItem('assunto', assunto);
+		localStorage.setItem('descricao', descricao);
+		localStorage.setItem('hora', hora);
+		localStorage.setItem('data', data);
+  }, [titulo_cronograma, privacidade, titulo, assunto, descricao, hora, data]);
 
 	const postCronogramas = async (e) => {
 		e.preventDefault();
@@ -121,9 +157,7 @@ const CriarCrono = () => {
 		});
 		tabContent[index].classList.add('ativo', tabContent[index].dataset.anime);
 	}
-	
-	
-	
+
 	function handleClick(index) {
 		if (tabMenu.length && tabContent.length) {
 			activeTab(index);
