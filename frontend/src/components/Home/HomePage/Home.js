@@ -1,6 +1,7 @@
 import '../../../assets/css/style.css';
 
 import React from 'react';
+import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import NavBar from '../../Navbar/Navbar/Navbar.js';
 import Beneficio from '../BeneficioSection/Beneficio.js';
@@ -8,11 +9,29 @@ import Plano from '../PlanoSection/Plano.js';
 import Footer from '../Footer/Footer.js';
 
 const Home = () => {
+	useEffect(() => {
+    const closeButton = document.querySelector('.close-btn');
+		const popup = document.querySelector('.popup');
+
+		closeButton.addEventListener('click', () => {
+			popup.style.display = 'none';
+	});
+  }, []);
 
 	return (
 		<div id="home">
 			<NavBar />
-
+			<div className="popup">
+				<div className="popup-content">
+					<h2>Bem-vindo ao nosso site!</h2>
+					<p>Faça o cadastro ou faça login para aproveitar todos os recursos.</p>
+					<div className="buttons">
+						<a href="/cadastro" className="btn btn-register">Cadastrar</a>
+						<a href="/login" className="btn btn-login">Login</a>
+					</div>
+					<button className="close-btn">&times;</button>
+				</div>
+			</div>
 			<div className="wrapper">
 				<header>
 					<h1>Daily Schedule</h1>

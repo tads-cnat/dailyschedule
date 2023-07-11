@@ -57,9 +57,6 @@ const NavBar = () => {
 							<a href="/">Início</a>
 						</li>
 						<li>
-							<a href="#beneficio">Benefícios</a>
-						</li>
-						<li>
 							<a href="/criar-cronograma">Criar cronograma</a>
 						</li>
 						<div id="pesquisar1">
