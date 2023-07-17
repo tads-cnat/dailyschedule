@@ -1,5 +1,5 @@
 .visualizar {
-    position: fixed;
+    position: absolute;
     left: 43.5rem;
     top: 25rem;
   }
@@ -104,7 +104,6 @@
     font-size: 30px;
     color: #CE7CFF;
     margin-left: 900px;
-    
   }
 
   .checkbox {
@@ -112,4 +111,25 @@
     min-height: 30px;
     margin: 0px;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    .visualizar {
+      left: 0rem;
+    }
+    
+    .visu-content .trash {
+      top: 21.2rem;
+      left: 80%;
+    }
+
+    .pencil {
+      top: 21.2rem;
+      left: 88%;
+    }
+
+    .cloud{
+      margin-left: 0px;
+      margin-top: 60px;
+    }
   }

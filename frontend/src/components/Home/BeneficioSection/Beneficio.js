@@ -22,7 +22,7 @@ const Beneficio = () => {
 							</p>
 						</div>
 						<div className="bnfc">
-							<img src={confianca} alt="confiança" />
+						<img src={confianca} alt="confiança" />
 							<h2>Aumento de confiança</h2>
 							<p>
 								Quando você começa a estudar com um cronograma de estudos e ter
@@ -31,7 +31,6 @@ const Beneficio = () => {
 								ficar menos ansioso (a) na hora das provas, evitando aquele famoso
 								branco. Quem nunca?!
 							</p>
-							
 						</div>
 						<div className="bnfc">
 							<img src={tempo} alt="tempo" />
@@ -52,7 +51,6 @@ const Beneficio = () => {
 								diariamente todos os seus compromissos para o dia. Ah e sem
 								precisar colocar vários lembretes na agenda do seu celular.
 							</p>
-							
 						</div>
 					</div>
 				</div>

@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import '../style.css';
+import './style.css';
 import {useState, useEffect} from 'react';
 import Sidebar from '../Navbar/Sidebar/index.js';
 import {useNavigate} from 'react-router-dom';
 import FormCrono from '../Forms/FormCrono';
-import {Spin} from 'antd';
-import NoAuthenticated from '../Functions/NoAuthenticated';
+import Swal from 'sweetalert2';
 
 const CriarCrono = () => {
 	const [titulo, setTitulo] = useState('');
@@ -16,8 +15,6 @@ const CriarCrono = () => {
 	const [descricao, setDescricao] = useState('');
 	const [hora, setHora] = useState('');
 	const [data, setData] = useState('');
-
-	const [removeLoading, setRemoveLoading] = useState(true);
 
 	const [cronogramas, setCronogramas] = useState([]);
 	// eslint-disable-next-line
@@ -41,64 +38,85 @@ const CriarCrono = () => {
 	console.log('ID do usuário: ' + id);
 	useEffect(() => {
 		if (id == null) {
-			// navigate('/');
+			navigate('/');
 		}
 
 		const loadData = async (_e) => {
 			const res = await fetch('http://localhost:8000/api/cronogramas/')
 				.then((res) => res.json())
-				.then((data) => data)
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => data);
 			setCronogramas(res);
 
 			const rest = await fetch('http://localhost:8000/api/tarefas/')
 				.then((res) => res.json())
-				.then((data) => data)
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => data);
 			setTarefas(rest);
 
 			const resa = await fetch('http://localhost:8000/api/alunos/')
 				.then((res) => res.json())
-				.then((data) => data)
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => data);
 			setAlunos(resa);
 		};
-
 		loadData();
+
+		const savedTituloCrono = localStorage.getItem('titulo_cronograma');
+    const savedPrivacidade = localStorage.getItem('privacidade');
+		const savedTitulo = localStorage.getItem('titulo');
+    const savedAssunto = localStorage.getItem('assunto');
+    const savedDescricao = localStorage.getItem('descricao');
+    const savedHora = localStorage.getItem('hora');
+    const savedData = localStorage.getItem('data');
+
+    if (savedTituloCrono) setTituloCronograma(savedTituloCrono);
+    if (savedPrivacidade) setPrivado(savedPrivacidade === 'true');
+		if (savedTitulo) setTitulo(savedTitulo);
+		if (savedAssunto) setAssunto(savedAssunto);
+		if (savedDescricao) setDescricao(savedDescricao);
+		if (savedHora) setHora(savedHora);
+		if (savedData) setData(savedData);
+
+		const timeoutId = setTimeout(() => {
+      localStorage.removeItem('titulo_cronograma');
+			localStorage.removeItem('privacidade');
+			localStorage.removeItem('titulo');
+			localStorage.removeItem('assunto');
+			localStorage.removeItem('descricao');
+			localStorage.removeItem('hora');
+			localStorage.removeItem('data');
+    }, 30);
+    return () => clearTimeout(timeoutId);
 	}, []);
+
+	useEffect(() => {
+    localStorage.setItem('titulo_cronograma', titulo_cronograma);
+    localStorage.setItem('privacidade', privacidade.toString());
+		localStorage.setItem('titulo', titulo);
+		localStorage.setItem('assunto', assunto);
+		localStorage.setItem('descricao', descricao);
+		localStorage.setItem('hora', hora);
+		localStorage.setItem('data', data);
+  }, [titulo_cronograma, privacidade, titulo, assunto, descricao, hora, data]);
 
 	const postCronogramas = async (e) => {
 		e.preventDefault();
-
-		
-		
 		const cronogramas = {
 			privacidade: Boolean(privacidade),
 			titulo: titulo_cronograma,
 			aluno: alunos[alunos.length - 1].id,
 		};
-		setRemoveLoading(false);
-		setTimeout(() => {
-					
-		fetch('http://localhost:8000/api/cronogramas/', {
+
+		await fetch('http://localhost:8000/api/cronogramas/', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(cronogramas),
-		}).then((res) => {
-			res.json()
-			setRemoveLoading(true)
-		})
-		setRemoveLoading(true);
-		},1000)
-		
+		}).then((res) => res.json());
+		Swal.fire({
+			icon: 'success',
+			title: 'Aee, seu cronograma foi criado com sucesso!',
+			text: 'Não esqueça de adicionar tarefas neles com as próximas etapas ;)',
+		});
 	};
 
 	const postTarefas = async (e) => {
@@ -123,7 +141,11 @@ const CriarCrono = () => {
 			},
 			body: JSON.stringify(tarefas),
 		}).then((res) => res.json());
-		alert('Tarefa Cadastrada!');
+		Swal.fire({
+			icon: 'success',
+			title: 'Aí simm, sua tarefa foi cadastrada com sucesso!',
+			text: 'Fique a vontade para adicionar quantas quiser.',
+		});
 	};
 
 	const tabMenu = document.querySelectorAll('[data-tab="menu"] button');
@@ -135,9 +157,7 @@ const CriarCrono = () => {
 		});
 		tabContent[index].classList.add('ativo', tabContent[index].dataset.anime);
 	}
-	
-	
-	
+
 	function handleClick(index) {
 		if (tabMenu.length && tabContent.length) {
 			activeTab(index);
@@ -151,8 +171,7 @@ const CriarCrono = () => {
 	}
 
 	return (
-		<div>	
-			<NoAuthenticated /> 		
+		<div id='criar-crono-page'>
 			<Sidebar />
 			<header className="header">
 				<h2>Criar cronograma</h2>
@@ -163,13 +182,13 @@ const CriarCrono = () => {
 			</header>
 
 			<div className="options" data-tab="menu">
-  <button onClick={() => handleClick(0)}>Informações</button>
-  <button onClick={() => handleClick(1)}>Aulas</button>
-  <button onClick={() => handleClick(2)}>Matérias</button>
-  <button onClick={() => handleClick(3)}>Provas</button>
-  <button onClick={() => handleClick(4)}>Afazeres</button>
-  <button onClick={() => handleClick(5)}>Horários Vagos</button>
-</div>
+				<button onClick={() => handleClick(0)}>Informações</button>
+				<button onClick={() => handleClick(1)}>Aulas</button>
+				<button onClick={() => handleClick(2)}>Matérias</button>
+				<button onClick={() => handleClick(3)}>Provas</button>
+				<button onClick={() => handleClick(4)}>Afazeres</button>
+				<button onClick={() => handleClick(5)}>Horários Vagos</button>
+			</div>
 
 			<section id="criar-crono" data-tab="content">
 				<form onSubmit={postCronogramas} className="crono-info" method="post">
@@ -194,16 +213,14 @@ const CriarCrono = () => {
 							value={privacidade || true}
 						/>
 						<label htmlFor="priv">Quero que seja privado</label>
-					</div>					
-					{!removeLoading && <Spin className='spin' /> || 
+					</div> <br/><br/>
 					<button className="btncont" type="submit">
 						Salvar
 					</button>
-					}
 				</form>
 			</section>
 
-			<section className="criar-crono1" data-tab="content">			
+			<section className="criar-crono1" data-tab="content">
 				<FormCrono
 					onSubmit={postTarefas}
 					valueLabel="Informe a aula"
@@ -215,7 +232,7 @@ const CriarCrono = () => {
 					valueHora={hora || ''}
 					onChangeDate={(e) => setData(e.target.value)}
 					valueDate={data || ''}
-				/>			
+				/>
 			</section>
 
 			<section className="criar-crono1" data-tab="content">

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import '../style.css';
+import './style.css';
 import {useState, useEffect, useRef} from 'react';
 import SideBar from '../Navbar/Sidebar';
 import {
@@ -10,7 +10,7 @@ import {
 } from 'react-icons/bs';
 import {useReactToPrint} from 'react-to-print';
 import {redirect, useParams, useNavigate} from 'react-router-dom';
-import NoAuthenticated from '../Functions/NoAuthenticated';
+import Swal from 'sweetalert2';
 
 const Editar = () => {
 	const id = localStorage.getItem('token');
@@ -45,18 +45,12 @@ const Editar = () => {
 		const loadData = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/`)
 				.then((crono) => crono.json())
-				.then((data) => setCronogramas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setCronogramas(data));
 		};
 		const loadTarefas = async (e) => {
 			fetch(`http://localhost:8000/api/cronogramas/${ID}/tarefas/`)
 				.then((res) => res.json())
-				.then((data) => setTarefas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setTarefas(data));
 		};
 		loadData();
 		loadTarefas();
@@ -66,6 +60,11 @@ const Editar = () => {
 	const handleDelete = async (id) => {
 		await fetch(`http://localhost:8000/api/cronogramas/${ID}/`, {
 			method: 'DELETE',
+		});
+		Swal.fire({
+			icon: 'success',
+			title: 'Prontinho, seu cronograma foi deletado!',
+			text: '',
 		});
 		navigate('/MeusCronogramas');
 	};
@@ -88,6 +87,11 @@ const Editar = () => {
 			},
 			body: JSON.stringify(cronograma),
 		}).then((res) => res.json());
+		Swal.fire({
+			icon: 'success',
+			title: 'Muito bem, o titulo e/ou privacidade do seu cronograma foram alteradas!',
+			text: 'Para editar as tarefas, aperte o icone de lápis da tabela abaixo',
+		});
 	};
 
 	function activeTab(index) {
@@ -98,8 +102,7 @@ const Editar = () => {
 	}
 
 	return (
-		<div>
-			<NoAuthenticated /> 
+		<div className="edit-content">
 			<SideBar />
 			<header className="header">
 				<h2>Meus cronogramas</h2>
@@ -110,7 +113,6 @@ const Editar = () => {
 						className="crono-crono"
 						method="post"
 					>
-						<label htmlFor="titulo">Insira o nome do seu cronograma: </label>
 						<h3>
 							<input
 								className="crono-title"
