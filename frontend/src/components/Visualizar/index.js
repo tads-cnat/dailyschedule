@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import './style.css';
+import NoAuthenticated from '../Functions/NoAuthenticated';
 import SideBar from '../Navbar/Sidebar/index.js';
 import {useState, useEffect} from 'react';
 import {
