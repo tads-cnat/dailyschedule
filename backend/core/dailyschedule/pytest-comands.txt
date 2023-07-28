@@ -1,0 +1,3 @@
+https://giovannireisnunes.wordpress.com/2018/11/30/cobertura-de-codigo-com-pytest/
+overview: pytest -vv
+with coverage - html:  pytest --cov=.
