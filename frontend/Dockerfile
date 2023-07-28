@@ -1,22 +1,13 @@
-FROM node:17-alpine AS builder
-
-RUN addgroup -S nonroot \
-    && adduser -S nonroot -G nonroot
-
-USER nonroot
-
-ENTRYPOINT ["id"]
+# Estágio de construção
+FROM node:14 as build-stage
 WORKDIR /app
-COPY package.json .
-COPY yarn.lock .
-RUN npm install --ignore-scripts
-COPY ./public
-COPY ./src
-RUN yarn build
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
-
-FROM nginx:1.19.0
-WORKDIR /usr/shape/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/build .
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+# Estágio de produção
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

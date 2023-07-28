@@ -25,10 +25,7 @@ function MeusCrogramas() {
 		const loadData = () => {
 			fetch(`http://localhost:8000/api/cronogramas/?id=${id}`)
 				.then((response) => response.json())
-				.then((data) => setCronogramas(data))
-				.catch((err) => {
-					console.error(err);
-				});
+				.then((data) => setCronogramas(data));
 		};
 		loadData();
 	}, []);
@@ -43,10 +40,7 @@ function MeusCrogramas() {
 	const alerta = () => {
 		fetch('http://localhost:8000/api/aluno/1/alerta')
 			.then((response) => response.json())
-			.then((data) => setCronogramas(data))
-			.catch((err) => {
-				console.error(err);
-			});
+			.then((data) => setCronogramas(data));
 	};
 
 	const getWeather = () => {
@@ -54,10 +48,7 @@ function MeusCrogramas() {
 			'https://api.openweathermap.org/data/2.5/weather?id=3394023&appid=f7a00c0b8c73f7b91f13298460d8c6a7&lang=pt_br',
 		)
 			.then((response) => response.json())
-			.then((data) => setWeather(data))
-			.catch((err) => {
-				console.error(err);
-			});
+			.then((data) => setWeather(data));
 		console.log('Console: ' + JSON.stringify(weather.weather));
 	};
 	return (

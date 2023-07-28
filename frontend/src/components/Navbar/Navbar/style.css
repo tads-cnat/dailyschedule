@@ -41,6 +41,8 @@ nav {
 
 .menu li {
   list-style-type: none;
+  font-size: 1.7rem;
+  font-weight: bold;
   position: relative;
   float: left;
   left: 10rem;
@@ -66,7 +68,7 @@ nav {
   width: fit-content;
 
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 700;
 
   display: flex;
@@ -97,7 +99,7 @@ nav {
   width: fit-content;
 
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 700;
 
   display: flex;
@@ -179,4 +181,44 @@ nav .wrapper {
   position: relative;
   top: -3.4rem;
   left: 19rem;
+}
+
+@media screen and (max-width: 768px) {
+  #navigation .logo {
+    display: none;
+  }
+
+  .menu {
+    top: -1.5rem;
+  }
+
+  .menu ul a {
+    padding: 0rem .2rem;
+  }
+
+  .acrono {
+    width: 20px;
+  }
+
+  .menu li {
+    left: -2.5rem;
+    top: 2.5rem;
+    font-weight: bold;
+    font-size: 1.7rem;
+  }
+
+  .login {
+    margin-left: 20rem;
+    margin-top: 6rem;
+    gap: 0rem;
+  }
+
+  .login1 a,
+  .cadastro a {
+    font-size: 1.7rem;
+  }
+
+  #navigation .login li {
+    margin: 0 5px;
+  }
 }

@@ -14,14 +14,8 @@ function Buscar() {
 				.then((data) => {
 					setSearchResults(data);
 					setSearchTerm(data);
-				})
-				.catch((err) => {
-					console.error(err);
 				});
-		loadData()
-		.catch((err) => {
-			console.error(err);
-		});
+		loadData();
 	}, []);
 
 	const handleChange = ({target}) => {
