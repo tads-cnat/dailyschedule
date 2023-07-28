@@ -5,6 +5,7 @@ import ComputadorImg from '../../assets/images/computador.png';
 import {useState} from 'react';
 import {Navigate, useNavigate} from 'react-router-dom';
 import NavBar from '../Navbar/Navbar/Navbar.js';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -41,6 +42,11 @@ const Login = () => {
 
 		if (request.status === 200) {
 			localStorage.setItem('token', response.user);
+			Swal.fire({
+				icon: 'success',
+				title: 'Show! Você já está dentro do nosso site.',
+				text: 'Seu login foi efetuado com sucesso!',
+			});
 			navigate('/criar-cronograma');
 		}
 		if (request.status === 401) {

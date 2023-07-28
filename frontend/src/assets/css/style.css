@@ -44,7 +44,7 @@
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 150%;
-  width: 80rem;
+  width: 55%;
   height: 14rem;
   text-align: center;
 }
@@ -76,6 +76,52 @@
 
 #home .button:hover {
   background-color: #6486ff;
+}
+
+.popup {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 30rem;
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+}
+
+.popup-content p {
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
 }
 
 /* SEÇÃO DE BENEFICIOS NA INDEX */
@@ -114,6 +160,49 @@
   position: relative;
   left: 25%;
   margin-block: 1.6rem;
+}
+
+@media screen and (max-width: 768px) {
+  #home header h1 {
+    font-size: 4rem;
+  }
+
+  #home header p {
+    font-size: 1.5rem;
+    width: 60%;
+  }
+
+  #home .button {
+    position: relative;
+    bottom: -5rem;
+  }
+
+  #beneficios .beneficio {
+    width: 100vw;
+  }
+
+  #beneficios .bnfc {
+    display: block;
+  }
+
+  #beneficios .bnfc h2 {
+    width: fit-content;
+    left: 0;
+    top: 0;
+  }
+
+  #beneficios .bnfc p {
+    width: fit-content;
+    top: 0;
+    left: 0;
+  }
+
+  #beneficios .bnfc img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 /* SEÇÃO DE PLANO PREMIUM NA INDEX */
@@ -370,174 +459,6 @@ input[type='text']:focus {
 
   color: var(--primary-color);
 }
-
-/* ESTILIZAÇÃO DAS PÁGINAS DE INFORMAÇÕES DO CRONOGRAMA */
-
-.crono-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  position: absolute;
-  left: 43.5rem;
-  top: 32rem;
-}
-
-.crono-info1 {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  position: absolute;
-  left: 43.5rem;
-  top: 32rem;
-}
-
-.crono-info1 .info {
-  display: flex;
-  flex-direction: column;
-}
-
-[data-tab="content"] form {
-  display: none;
-}
-
-[data-tab="content"] form.ativo {
-  display: block !important;
-}
-
-#horario,
-#horarioAula,
-#horarioMateria,
-#horarioProva,
-#horarioAfazer,
-#horarioDesc {
-  text-indent: 0.2rem;
-  border: 0.2rem solid #e1afff;
-  border-radius: 1rem;
-  width: 8rem;
-  height: 5rem;
-}
-
-#publico,
-#privado {
-  width: 3rem;
-  height: 2rem;
-}
-
-#titulo_cronograma,
-#titulo,
-#aula,
-#materia,
-#prova,
-#afazer,
-#desc,
-#descricao,
-#descricaoAula,
-#descricaoMateria,
-#descricaoProva,
-#descricaoAfazer,
-#descricaoDesc,
-#assunto,
-#assuntoMateria,
-#assuntoProva {
-  text-indent: 1rem;
-  border: 0.2rem solid #e1afff;
-  border-radius: 1rem;
-  width: 20rem;
-  height: 5rem;
-}
-
-#data,
-#dataMateria,
-#dataAula,
-#dataProva,
-#dataAfazer,
-#dataDesc {
-  text-indent: 1rem;
-  border: 0.2rem solid #e1afff;
-  border-radius: 1rem;
-  width: 20rem;
-  height: 5rem;
-}
-
-#criar-crono button,
-#criar-crono1 button {
-  color: #ffffff;
-
-  width: 19rem;
-  height: 5.8rem;
-  background: var(--primary-color);
-  border-radius: 2rem;
-  border: none;
-
-  position: absolute;
-  bottom: -10rem;
-  left: 70rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#criar-crono1 .btncont,
-#criar-crono .btncont  {
-  display: block;
-}
-
-#criar-crono button:hover,
-#criar-crono1 button:hover {
-  background: var(--scnd-color);
-}
-
-#criar-crono button:-webkit-any-link,
-#criar-crono1 button:-webkit-any-link {
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* ESTILIZAÇÃO DA BARRA DE NAVEGAÇÕES DOS TIPOS DE TAREFAS */
-.options {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1.8rem;
-
-  position: absolute;
-  left: 55rem;
-  top: 24rem;
-
-  background-color: var(--third-color);
-
-  padding: 2rem;
-  border-radius: 3rem;
-}
-
-.options li {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-
-  list-style-type: none;
-  cursor: pointer;
-}
-
-.options li:hover {
-  background-color: var(--scnd-color);
-  padding-right: 0.6rem;
-  border-radius: 2rem;
-}
-
-.options li::before {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 10px;
-  background: var(--scnd-color);
-}
-
 /* MEUS CRONOGRAMAS */
 
 .lista-crono {

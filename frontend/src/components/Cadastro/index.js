@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
 import './styles.css';
 import ComputadorImg from '../../assets/images/computador.png';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import NavBar from '../Navbar/Navbar/Navbar.js';
+import Swal from 'sweetalert2';
 
 const Cadastro = () => {
 	const [primeiro_nome, setPrimeiro_nome] = useState('');
@@ -15,6 +16,41 @@ const Cadastro = () => {
 	const [err, setErr] = useState(false);
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const savedPNome = localStorage.getItem('primeiro_nome');
+    const savedUNome = localStorage.getItem('ultimo_nome');
+		const savedUser = localStorage.getItem('usuario');
+    const savedEmail = localStorage.getItem('email');
+    const savedSenha = localStorage.getItem('senha');
+    const savedCSenha = localStorage.getItem('hora');
+
+    if (savedPNome) setPrimeiro_nome(savedPNome);
+    if (savedUNome) setUltimo_nome(savedUNome);
+		if (savedUser) setUsuario(savedUser);
+		if (savedEmail) setEmail(savedEmail);
+		if (savedSenha) setSenha(savedSenha);
+		if (savedCSenha) setcomfirmar_senha(savedCSenha);
+
+		const timeoutId = setTimeout(() => {
+      localStorage.removeItem('primeiro_nome');
+			localStorage.removeItem('ultimo_nome');
+			localStorage.removeItem('usuario');
+			localStorage.removeItem('email');
+			localStorage.removeItem('senha');
+			localStorage.removeItem('hora');
+    }, 30);
+    return () => clearTimeout(timeoutId);
+	}, []);
+
+	useEffect(() => {
+    localStorage.setItem('primeiro_nome', primeiro_nome);
+    localStorage.setItem('ultimo_nome', ultimo_nome);
+		localStorage.setItem('usuario', usuario);
+		localStorage.setItem('email', email);
+		localStorage.setItem('senha', senha);
+		localStorage.setItem('comfirmar_senha', comfirmar_senha);
+  }, [primeiro_nome, ultimo_nome, usuario, email, senha, comfirmar_senha]);
 
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -43,6 +79,11 @@ const Cadastro = () => {
 
 		if (request.status === 200) {
 			localStorage.setItem('token', response.token);
+			Swal.fire({
+				icon: 'success',
+				title: 'Cadastro realizado',
+				text: 'Seu cadastro foi concluído com sucesso!',
+			});
 			navigate('/login');
 		}
 		if (request.status === 400) {
@@ -94,6 +135,7 @@ const Cadastro = () => {
 						id="primeiro_nome"
 						value={primeiro_nome}
 						onChange={handlerPrimeiro_nome}
+						placeholder="Ex.: Maria"
 					/>
 					<br />
 					<br />
@@ -104,6 +146,7 @@ const Cadastro = () => {
 						id="ultimo_nome"
 						value={ultimo_nome}
 						onChange={handlerUltimo_nome}
+						placeholder="Ex.: Silva"
 					/>
 					<br />
 					<br />
@@ -114,6 +157,7 @@ const Cadastro = () => {
 						id="usuario"
 						value={usuario}
 						onChange={handlerUsuario}
+						placeholder="Ex.: maria"
 					/>
 					<br />
 					<br />
@@ -124,6 +168,7 @@ const Cadastro = () => {
 						id="email"
 						value={email}
 						onChange={handlerEmail}
+						placeholder="Ex.: maria@mail.com"
 					/>
 					<br />
 					<br />
@@ -134,6 +179,7 @@ const Cadastro = () => {
 						id="senha"
 						value={senha}
 						onChange={handlerSenha}
+						placeholder="Insira uma senha"
 					/>
 					<br />
 					<br />
@@ -144,6 +190,7 @@ const Cadastro = () => {
 						id="comfirmar_senha"
 						value={comfirmar_senha}
 						onChange={handlerComfirmar_senha}
+						placeholder="Confirme a senha"
 					/>
 					<br />
 					{err && <p>As senhas não são iguais</p>}

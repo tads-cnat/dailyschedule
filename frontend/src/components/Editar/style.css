@@ -1,0 +1,120 @@
+.editar{
+  color: #6562E3;
+}
+
+.tarefa-editar {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: absolute;
+  left: 30rem;
+  top: 25rem;
+}
+
+.editar_visualizar {
+  position: absolute;
+  left: 43.5rem;
+  top: 25rem;
+}
+
+.crono-title{
+  position: absolute;
+  left: 13.5rem;
+  top: -2rem;
+}
+
+.crono-priv-editar{
+  position: absolute;
+  left: 65.5rem;
+  top: 20rem;
+}
+
+.crono-send{
+  position: absolute;
+  left: 85.5rem;
+  top: 20rem;
+  
+  color: #CE7CFF;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+
+  border-radius: 1.5rem;
+
+  padding: 1rem;
+
+  transition: 0.3s;
+}
+
+.crono-send:hover {
+  background-color: var(--scnd-color);
+  }
+
+.crono-send-editar{
+  position: absolute;
+  left: 55rem;
+  top: -6.5rem;
+
+  color: #CE7CFF;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+
+  border-radius: 1.5rem;
+
+  padding: 1rem;
+
+  transition: 0.3s;
+}
+
+.editar-input{
+  color: black;
+}
+
+.crono-send-editar:hover {
+  background-color: var(--scnd-color);
+  }
+
+  @media screen and (max-width: 768px) {
+    .editar_visualizar {
+      left: 0rem;
+      top: 30rem;
+    }
+
+    .crono-title {
+      left: 0rem;
+    }
+
+    .tarefa-editar {
+      flex-direction: column;
+      left: 2rem;
+      top: 20rem;
+    }
+
+    .crono-send-editar {
+      top: 100%;
+      left: 0rem;
+    }
+
+    .crono-priv-editar {
+      left: 1rem;
+      top: 25rem;
+    }
+
+    .edit-tarefa .trash {
+      position: absolute;
+      top: 62.1rem;
+      left: 16.5rem;
+    }
+
+    .crono-send {
+      left: 22rem;
+      top: 25rem;
+    }
+
+    .edit-content .trash {
+      position: absolute;
+      top: 20rem;
+      left: 28rem;
+    }
+  }
